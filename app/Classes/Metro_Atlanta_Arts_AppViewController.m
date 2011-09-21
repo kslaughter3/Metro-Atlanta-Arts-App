@@ -10,7 +10,7 @@
 
 @implementation Metro_Atlanta_Arts_AppViewController
 
-
+@synthesize myMapView;
 
 /*
 // The designated initializer. Override to perform setup that is required before the view is loaded.
@@ -30,12 +30,36 @@
 */
 
 
-/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	myMapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
+	myMapView.delegate=self;
+	
+	[self.view addSubview:myMapView];
+	[NSThread detachNewThreadSelector:@selector(displayMYMap) toTarget:self withObject:nil];
 }
-*/
+
+
+-(void)displayMYMap
+{
+	MKCoordinateRegion region; 
+	MKCoordinateSpan span; 
+	span.latitudeDelta=0.2; 
+	span.longitudeDelta=0.2; 
+	
+	CLLocationCoordinate2D location; 
+	
+	location.latitude = 22.569722 ;
+	location.longitude = 88.369722;
+	
+	
+	region.span=span; 
+	region.center=location; 
+	
+	[myMapView setRegion:region animated:TRUE]; 
+	[myMapView regionThatFits:region]; 
+}
 
 
 /*
@@ -61,6 +85,7 @@
 
 - (void)dealloc {
     [super dealloc];
+	[myMapView release];
 }
 
 @end

@@ -1,10 +1,32 @@
 // !$*UTF8*$!
 {
+	1D3623250D0F684500981E51 /* Metro_Atlanta_Arts_AppAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {810, 1235}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 380}";
+		};
+	};
 	1D6058900D05DD3D006BFB54 /* Metro-Atlanta-Arts-App */ = {
 		activeExec = 0;
 		executables = (
 			3A3D9A381427A3E500BA84E3 /* Metro-Atlanta-Arts-App */,
 		);
+	};
+	28D7ACF60DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {630, 401}}";
+			sepNavSelRange = "{423, 0}";
+			sepNavVisRange = "{0, 435}";
+			sepNavWindowFrame = "{{15, 68}, {751, 705}}";
+		};
+	};
+	28D7ACF70DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {712, 1209}}";
+			sepNavSelRange = "{2145, 0}";
+			sepNavVisRange = "{1447, 707}";
+		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
 		activeBuildConfigurationName = Debug;
@@ -20,7 +42,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					341,
+					452,
 					20,
 					48,
 					43,
@@ -37,8 +59,14 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 338142281;
-			PBXWorkspaceStateSaveDate = 338142281;
+			PBXPerProjectTemplateStateSaveDate = 338319168;
+			PBXWorkspaceStateSaveDate = 338319168;
+		};
+		perUserProjectItems = {
+			3A987786142A59E200D80A8C /* PBXTextBookmark */ = 3A987786142A59E200D80A8C /* PBXTextBookmark */;
+			3A987787142A59E200D80A8C /* PBXTextBookmark */ = 3A987787142A59E200D80A8C /* PBXTextBookmark */;
+			3A987788142A59E200D80A8C /* PBXTextBookmark */ = 3A987788142A59E200D80A8C /* PBXTextBookmark */;
+			3A987789142A59E200D80A8C /* PBXTextBookmark */ = 3A987789142A59E200D80A8C /* PBXTextBookmark */;
 		};
 		sourceControlManager = 3A3D9A471427A3EE00BA84E3 /* Source Control */;
 		userBuildSettings = {
@@ -67,6 +95,7 @@
 		dataTipSortType = 0;
 		debuggerPlugin = GDBDebugging;
 		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
 		enableDebugStr = 1;
 		environmentEntries = (
 		);
@@ -91,5 +120,45 @@
 	3A3D9A481427A3EE00BA84E3 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
+	};
+	3A987786142A59E200D80A8C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* Metro_Atlanta_Arts_AppAppDelegate.m */;
+		name = "Metro_Atlanta_Arts_AppAppDelegate.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 380;
+		vrLoc = 0;
+	};
+	3A987787142A59E200D80A8C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.h */;
+		name = "Metro_Atlanta_Arts_AppViewController.h: 18";
+		rLen = 0;
+		rLoc = 423;
+		rType = 0;
+		vrLen = 435;
+		vrLoc = 0;
+	};
+	3A987788142A59E200D80A8C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.m */;
+		name = "Metro_Atlanta_Arts_AppViewController.m: 13";
+		rLen = 0;
+		rLoc = 287;
+		rType = 0;
+		vrLen = 741;
+		vrLoc = 0;
+	};
+	3A987789142A59E200D80A8C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.m */;
+		name = "Metro_Atlanta_Arts_AppViewController.m: 88";
+		rLen = 0;
+		rLoc = 2145;
+		rType = 0;
+		vrLen = 707;
+		vrLoc = 1447;
 	};
 }

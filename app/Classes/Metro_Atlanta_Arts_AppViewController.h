@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface Metro_Atlanta_Arts_AppViewController : UIViewController {
-
+@interface Metro_Atlanta_Arts_AppViewController : UIViewController<MKMapViewDelegate> {
+	IBOutlet MKMapView* myMapView;
 }
+
+@property (nonatomic, retain) IBOutlet MKMapView* myMapView;
+
+-(void)displayMYMap;
 
 @end
 
