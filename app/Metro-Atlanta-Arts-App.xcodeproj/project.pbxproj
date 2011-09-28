@@ -16,6 +16,7 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.m */; };
 		3A98777D142A57A600D80A8C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A98777C142A57A600D80A8C /* MapKit.framework */; };
+		F2B5221D14337205006D2A52 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B5221C14337205006D2A52 /* Event.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,8 @@
 		32CA4F630368D1EE00C91783 /* Metro_Atlanta_Arts_App_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metro_Atlanta_Arts_App_Prefix.pch; sourceTree = "<group>"; };
 		3A98777C142A57A600D80A8C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Metro_Atlanta_Arts_App-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Metro_Atlanta_Arts_App-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		F2B5221B14337205006D2A52 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		F2B5221C14337205006D2A52 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				F2B5221B14337205006D2A52 /* Event.h */,
+				F2B5221C14337205006D2A52 /* Event.m */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -138,7 +143,6 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Metro-Atlanta-Arts-App" */;
 			compatibilityVersion = "Xcode 3.1";
-			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -175,6 +179,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* Metro_Atlanta_Arts_AppAppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.m in Sources */,
+				F2B5221D14337205006D2A52 /* Event.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +222,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos;
+				SDKROOT = iphonesimulator4.0;
 			};
 			name = Debug;
 		};
@@ -231,7 +236,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
-				SDKROOT = iphoneos;
+				SDKROOT = iphonesimulator4.0;
 			};
 			name = Release;
 		};
