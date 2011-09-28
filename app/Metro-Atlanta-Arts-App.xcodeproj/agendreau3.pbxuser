@@ -1,0 +1,162 @@
+// !$*UTF8*$!
+{
+	1D3623250D0F684500981E51 /* Metro_Atlanta_Arts_AppAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1965, 1157}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{167, 1194}";
+			sepNavWindowFrame = "{{61, 573}, {750, 558}}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* Metro-Atlanta-Arts-App */ = {
+		activeExec = 0;
+		executables = (
+			F2B521EA14337189006D2A52 /* Metro-Atlanta-Arts-App */,
+		);
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = F2B521EA14337189006D2A52 /* Metro-Atlanta-Arts-App */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* Metro-Atlanta-Arts-App */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* Metro-Atlanta-Arts-App */,
+		);
+		codeSenseManager = F2B52203143371A7006D2A52 /* Code sense */;
+		executables = (
+			F2B521EA14337189006D2A52 /* Metro-Atlanta-Arts-App */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					341,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 338915721;
+			PBXWorkspaceStateSaveDate = 338915721;
+		};
+		perUserProjectItems = {
+			F2B52235143382D9006D2A52 /* PBXTextBookmark */ = F2B52235143382D9006D2A52 /* PBXTextBookmark */;
+			F2B52236143382D9006D2A52 /* PBXTextBookmark */ = F2B52236143382D9006D2A52 /* PBXTextBookmark */;
+			F2B522601433852D006D2A52 /* PBXTextBookmark */ = F2B522601433852D006D2A52 /* PBXTextBookmark */;
+			F2B52275143385EF006D2A52 /* PBXTextBookmark */ = F2B52275143385EF006D2A52 /* PBXTextBookmark */;
+		};
+		sourceControlManager = F2B52202143371A7006D2A52 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	F2B521EA14337189006D2A52 /* Metro-Atlanta-Arts-App */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = "Metro-Atlanta-Arts-App";
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	F2B52202143371A7006D2A52 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	F2B52203143371A7006D2A52 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	F2B5221B14337205006D2A52 /* Event.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {698, 1170}}";
+			sepNavSelRange = "{1250, 0}";
+			sepNavVisRange = "{258, 929}";
+			sepNavWindowFrame = "{{169, 352}, {783, 712}}";
+		};
+	};
+	F2B5221C14337205006D2A52 /* Event.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {929, 2483}}";
+			sepNavSelRange = "{1885, 0}";
+			sepNavVisRange = "{1604, 409}";
+			sepNavWindowFrame = "{{863, 433}, {750, 558}}";
+		};
+	};
+	F2B52235143382D9006D2A52 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* Metro_Atlanta_Arts_AppAppDelegate.m */;
+		name = "Metro_Atlanta_Arts_AppAppDelegate.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 415;
+		vrLoc = 0;
+	};
+	F2B52236143382D9006D2A52 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F2B5221B14337205006D2A52 /* Event.h */;
+		name = "Event.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 624;
+		vrLoc = 524;
+	};
+	F2B522601433852D006D2A52 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F2B5221C14337205006D2A52 /* Event.m */;
+		name = "Event.m: 38";
+		rLen = 0;
+		rLoc = 995;
+		rType = 0;
+		vrLen = 427;
+		vrLoc = 512;
+	};
+	F2B52275143385EF006D2A52 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F2B5221B14337205006D2A52 /* Event.h */;
+		name = "Event.h: 34";
+		rLen = 0;
+		rLoc = 1250;
+		rType = 0;
+		vrLen = 929;
+		vrLoc = 258;
+	};
+}
