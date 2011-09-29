@@ -7,10 +7,17 @@
 //
 
 #import "Metro_Atlanta_Arts_AppViewController.h"
+#import "NextView.h"
 
 @implementation Metro_Atlanta_Arts_AppViewController
 
 @synthesize myMapView;
+
+
+-(IBAction)next:(id)sender {
+	NextView *NView = [[NextView alloc] initWithNibName:nil bundle:nil];
+	[self presentModalViewController:NView animated:YES];
+}
 
 /*
 // The designated initializer. Override to perform setup that is required before the view is loaded.
@@ -33,7 +40,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	myMapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
+	myMapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 100, 500, 400)];
 	myMapView.delegate=self;
 	
 	[self.view addSubview:myMapView];

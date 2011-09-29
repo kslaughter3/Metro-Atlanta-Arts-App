@@ -8,8 +8,10 @@
 
 #import "Metro_Atlanta_Arts_AppAppDelegate.h"
 #import "Metro_Atlanta_Arts_AppViewController.h"
+#import "NextView.h"
 
 @implementation Metro_Atlanta_Arts_AppAppDelegate
+
 
 @synthesize window;
 @synthesize viewController;
@@ -17,6 +19,9 @@
 
 #pragma mark -
 #pragma mark Application lifecycle
+
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
