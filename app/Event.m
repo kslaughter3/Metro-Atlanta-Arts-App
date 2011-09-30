@@ -34,9 +34,11 @@ Duration: (int) length Cost: (double) price {
 		[self setDuration: length];
 		[self setCost: price];
 		[self setLocationFromAddress];
+		
+		return self;
 	}
 	
-	return self;
+	return NULL;
 }
 
 
@@ -159,14 +161,39 @@ location = loc;
 
 /* Filter Methods */
 
+/* Returns true if the event's name begins with the given name false otherwise */
+-(bool)NameFilter: (NSString *) str {
+	if(str != NULL && name != NULL) {
+		NSString * temp = [name uppercaseString];
+		str = [str uppercaseString];
+		return [temp hasPrefix: str];
+	}
+	return false;
+}
+
+/* Returns true if the event's artist begins with the given artist false otherwise */
+-(bool)ArtistFilter: (NSString *) str {
+	if(str != NULL && artist != NULL) {
+		NSString * temp = [artist uppercaseString];
+		str = [str uppercaseString];
+		return [temp hasPrefix: str];
+	}
+	return false;
+}
+
 /* Returns true if the time of this event occurs between the given start and end times */
 -(bool)TimeFilterStart: (NSDate *) start andEnd: (NSDate *) end {
 	return false;
 }
 
-/* Returns true if the cost of this event is between the given low and high costs */
--(bool)CostFilterLow: (double) min andHigh: (double) max {
+/* Returns true if the cost of this event is between the given min and max costs */
+-(bool)CostFilterMin: (double) min andMax: (double) max {
 	return (cost >= min && cost <= max);
+}
+
+/* Returns true if the duration of this event is between the given min and max durations */
+-(bool)DurationFilterMin: (int) min andMax: (int) max {
+	return (duration >= min && duration <= max);
 }
 
 /*Returns true if the location of this event is within the given radius of the given Location */

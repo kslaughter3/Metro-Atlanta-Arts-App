@@ -86,11 +86,20 @@ Duration: (int) length Cost: (double) price;
  
 /* Filter Methods */
 
+/* Returns true if the event's name begins with the given name false otherwise */
+-(bool)NameFilter: (NSString *) str;
+
+/* Returns true if the event's artist begins with the given artist false otherwise */
+-(bool)ArtistFilter: (NSString *) str;
+
 /* Returns true if the time of this event occurs between the given start and end times */
 -(bool)TimeFilterStart: (NSDate *) start andEnd: (NSDate *) end;
 
-/* Returns true if the cost of this event is between the given low and high costs */
--(bool)CostFilterLow: (double) min andHigh: (double) max;
+/* Returns true if the cost of this event is between the given min and max costs */
+-(bool)CostFilterMin: (double) min andMax: (double) max;
+
+/* Returns true if the duration of this event is between the given min and max durations */
+-(bool)DurationFilterMin:(int)min andMax:(int)max;
 
 /*Returns true if the location of this event is within the given radius of the given Location */
 -(bool)LocationFilterLoc: (CLLocation *) loc andRadius: (double) rad;
