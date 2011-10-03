@@ -11,6 +11,7 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		225AB09B143A43A40075EC49 /* EventAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 225AB09A143A43A40075EC49 /* EventAnnotation.m */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		2899E5220DE3E06400AC0155 /* Metro_Atlanta_Arts_AppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* Metro_Atlanta_Arts_AppViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
@@ -32,6 +33,8 @@
 		1D3623250D0F684500981E51 /* Metro_Atlanta_Arts_AppAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metro_Atlanta_Arts_AppAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Metro-Atlanta-Arts-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Metro-Atlanta-Arts-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		225AB099143A43A40075EC49 /* EventAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventAnnotation.h; path = ../EventAnnotation.h; sourceTree = "<group>"; };
+		225AB09A143A43A40075EC49 /* EventAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventAnnotation.m; path = ../EventAnnotation.m; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2899E5210DE3E06400AC0155 /* Metro_Atlanta_Arts_AppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Metro_Atlanta_Arts_AppViewController.xib; sourceTree = "<group>"; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				225AB099143A43A40075EC49 /* EventAnnotation.h */,
+				225AB09A143A43A40075EC49 /* EventAnnotation.m */,
 				1D3623240D0F684500981E51 /* Metro_Atlanta_Arts_AppAppDelegate.h */,
 				1D3623250D0F684500981E51 /* Metro_Atlanta_Arts_AppAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.h */,
@@ -214,6 +219,7 @@
 				F2B4AD2814363B7900FA5091 /* Filter.m in Sources */,
 				F2BF2AE8143A35DE00FBD2F5 /* Event.m in Sources */,
 				F2BF2AED143A362E00FBD2F5 /* NextView.m in Sources */,
+				225AB09B143A43A40075EC49 /* EventAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
