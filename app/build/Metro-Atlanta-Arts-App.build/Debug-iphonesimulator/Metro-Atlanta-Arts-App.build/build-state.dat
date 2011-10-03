@@ -1,22 +1,23 @@
 TMetro-Atlanta-Arts-App
 v7
 r0
-t339105871.732170
+t339357737.791600
 cCheck dependencies
-cProcessInfoPlistFile /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Info.plist Metro_Atlanta_Arts_App-Info.plist
-cCompileXIB /nethome/agendreau3/Documents/MetroAtlantaApp/app/MainWindow.xib
-cCompileXIB /nethome/agendreau3/Documents/MetroAtlantaApp/app/Metro_Atlanta_Arts_AppViewController.xib
-cProcessPCH /var/folders/xf/xfhy1ayFGNWo0V+t+ScMzLOvTUs/-Caches-/com.apple.Xcode.1991998990/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-dhsrrwbyydslkcczuzrchwoiafqi/Metro_Atlanta_Arts_App_Prefix.pch.gch Metro_Atlanta_Arts_App_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/main.o /nethome/agendreau3/Documents/MetroAtlantaApp/app/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Metro_Atlanta_Arts_AppAppDelegate.o /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Metro_Atlanta_Arts_AppViewController.o /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Metro_Atlanta_Arts_AppViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Event.o /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/../Event.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/NextView.o /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/../NextView.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Content.o /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Content.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Filter.o /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Filter.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cLd /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Metro-Atlanta-Arts-App normal i386
-cGenerateDSYMFile /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app.dSYM /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Metro-Atlanta-Arts-App
-cTouch /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app
+cProcessInfoPlistFile /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Info.plist Metro_Atlanta_Arts_App-Info.plist
+cCompileXIB /nethome/hpark68/Metro-Atlanta-Arts-App/app/MainWindow.xib
+cCompileXIB /nethome/hpark68/Metro-Atlanta-Arts-App/app/Metro_Atlanta_Arts_AppViewController.xib
+cCompileXIB /nethome/hpark68/Metro-Atlanta-Arts-App/app/eventView.xib
+cCompileXIB /nethome/hpark68/Metro-Atlanta-Arts-App/app/eventView.xib
+cCompileXIB /nethome/hpark68/Metro-Atlanta-Arts-App/app/filters.xib
+cCompileXIB /nethome/hpark68/Metro-Atlanta-Arts-App/app/eventList.xib
+cProcessPCH /var/folders/fi/fiSzyXUPF9u1nsX0Qm-o00vbjzc/-Caches-/com.apple.Xcode.786939898/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-bndlvcdrgbavknfwkshfkchzynma/Metro_Atlanta_Arts_App_Prefix.pch.gch Metro_Atlanta_Arts_App_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/main.o /nethome/hpark68/Metro-Atlanta-Arts-App/app/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Metro_Atlanta_Arts_AppAppDelegate.o /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Metro_Atlanta_Arts_AppViewController.o /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Event.o /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../Event.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/NextView.o /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../NextView.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Content.o /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Content.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Filter.o /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Filter.m normal i386 objective-c com.apple.compilers.gcc.4_2
 
 N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk
 c000000004C3F6E3E0000000000000110
@@ -681,6 +682,187 @@ t1317222883
 s368
 i<UIKit/UIKit.h>
 
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../Event.m
+c00000000000000000000000000000000
+t2
+s0
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../NextView.m
+c00000000000000000000000000000000
+t2
+s0
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Content.h
+c000000004E89EB8700000000000002C6
+t1317661575
+s710
+i<Foundation/Foundation.h>
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Content.m
+c000000004E89EB870000000000000103
+t1317661575
+s259
+i"Content.h"
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Filter.h
+c000000004E89EB870000000000000672
+t1317661575
+s1650
+i<Foundation/Foundation.h>
+i<CoreLocation/CoreLocation.h>
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Filter.m
+c000000004E89EB870000000000000962
+t1317661575
+s2402
+i"Filter.h"
+i<CoreLocation/CoreLocation.h>
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.h
+c000000004E89EB870000000000000231
+t1317661575
+s561
+i<UIKit/UIKit.h>
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m
+c000000004E89EB870000000000000AF1
+t1317661575
+s2801
+i"Metro_Atlanta_Arts_AppAppDelegate.h"
+i"Metro_Atlanta_Arts_AppViewController.h"
+i"NextView.h"
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppViewController.h
+c000000004E89EB8700000000000001D0
+t1317661575
+s464
+i<UIKit/UIKit.h>
+i<MapKit/MapKit.h>
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppViewController.m
+c000000004E89EB870000000000000929
+t1317661575
+s2345
+i"Metro_Atlanta_Arts_AppViewController.h"
+i"NextView.h"
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/NextView.h
+c000000004E89EB8700000000000000DB
+t1317661575
+s219
+i<UIKit/UIKit.h>
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/MainWindow.xib
+c000000004E89EB870000000000004EDD
+t1317661575
+s20189
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/Metro_Atlanta_Arts_AppViewController.xib
+c000000004E89F5AD000000000000588E
+t1317664173
+s22670
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/Metro_Atlanta_Arts_App_Prefix.pch
+c000000004E89EB8700000000000000D5
+t1317661575
+s213
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app
+t1317664936
+s340
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app.dSYM
+t1317661575
+s102
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Info.plist
+t1317661575
+s657
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/MainWindow.nib
+t1317661575
+s1153
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Metro-Atlanta-Arts-App
+t1317661575
+s36456
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Metro_Atlanta_Arts_AppViewController.nib
+t1317664936
+s1518
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/PkgInfo
+t1317661575
+s8
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/eventList.nib
+t1317664936
+s1490
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/eventView.nib
+t1317664936
+s1492
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/filters.nib
+t1317664936
+s1753
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Content.o
+t1317664937
+s6732
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Event.o
+t2
+s0
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Filter.o
+t1317664937
+s13456
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Metro-Atlanta-Arts-App.LinkFileList
+c000000004E89F8A70000000000000492
+t1317664935
+s1170
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Metro_Atlanta_Arts_AppAppDelegate.o
+t1317664937
+s49504
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Metro_Atlanta_Arts_AppViewController.o
+t1317664937
+s45040
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/NextView.o
+t2
+s0
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/main.o
+t1317664937
+s6312
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/eventList.xib
+c000000004E89F5B300000000000052DE
+t1317664179
+s21214
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/eventView.xib
+c000000004E89F85700000000000056E9
+t1317664855
+s22249
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/filters.xib
+c000000004E89F5AF0000000000005F82
+t1317664175
+s24450
+
+N/nethome/hpark68/Metro-Atlanta-Arts-App/app/main.m
+c000000004E89EB870000000000000170
+t1317661575
+s368
+i<UIKit/UIKit.h>
+
 N/var/folders/+2/+2OtBQF-HO4DYvcSA+ZIOk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-aajaxqyntcujjlamousualdmcoik/Metro_Atlanta_Arts_App_Prefix.pch.gch
 t1316449504
 s15453392
@@ -693,6 +875,10 @@ N/var/folders/+2/+2OtBQF-HO4DYvcSA+ZIOk+++TI/-Caches-/com.apple.Xcode.501/Shared
 t1316626723
 s15453392
 
+N/var/folders/fi/fiSzyXUPF9u1nsX0Qm-o00vbjzc/-Caches-/com.apple.Xcode.786939898/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-bndlvcdrgbavknfwkshfkchzynma/Metro_Atlanta_Arts_App_Prefix.pch.gch
+t1317664937
+s15232016
+
 N/var/folders/xf/xfhy1ayFGNWo0V+t+ScMzLOvTUs/-Caches-/com.apple.Xcode.1991998990/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-dhsrrwbyydslkcczuzrchwoiafqi/Metro_Atlanta_Arts_App_Prefix.pch.gch
 t1317223016
 s15232016
@@ -702,13 +888,13 @@ t1317222950
 s13825936
 
 NMetro_Atlanta_Arts_App-Info.plist
-c000000004E8339E3000000000000038D
-t1317222883
+c000000004E89EB87000000000000038D
+t1317661575
 s909
 
 CCheck dependencies
 r0
-lSLF07#2@18"Check dependencies339105871#339105871#0(0"0(0#1#0"8616621248#0"0#
+lSLF07#2@18"Check dependencies339357735#339357735#0(0"0(0#1#0"4696517139113274368#0"0#
 
 CCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/ArtistFilterer.o /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/ArtistFilterer.m normal i386 objective-c com.apple.compilers.gcc.4_2
 r0
@@ -725,6 +911,19 @@ xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@75"Compile /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Content.m339105749#339105749#0(0"0(0#0#67"/nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Content.m8614333216#2343"    cd /nethome/agendreau3/Documents/MetroAtlantaApp/app    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-generated-files.hmap -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-own-target-headers.hmap -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-all-target-headers.hmap -iquote /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-project-headers.hmap -F/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/include -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources/i386 -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources -include /var/folders/xf/xfhy1ayFGNWo0V+t+ScMzLOvTUs/-Caches-/com.apple.Xcode.1991998990/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-dhsrrwbyydslkcczuzrchwoiafqi/Metro_Atlanta_Arts_App_Prefix.pch -c /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Content.m -o /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Content.o0#
+
+CCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Content.o /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Content.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s339357737.647071
+e339357737.728731
+r1
+xCompileC
+xbuild/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Content.o
+x/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Content.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@69"Compile /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Content.m339357737#339357737#0(0"0(0#0#61"/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Content.m8600417152#2276"    cd /nethome/hpark68/Metro-Atlanta-Arts-App/app    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-generated-files.hmap -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-own-target-headers.hmap -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-all-target-headers.hmap -iquote /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-project-headers.hmap -F/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/include -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources/i386 -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources -include /var/folders/fi/fiSzyXUPF9u1nsX0Qm-o00vbjzc/-Caches-/com.apple.Xcode.786939898/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-bndlvcdrgbavknfwkshfkchzynma/Metro_Atlanta_Arts_App_Prefix.pch -c /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Content.m -o /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Content.o0#
 
 CCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/CostFilterer.o /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/CostFilterer.m normal i386 objective-c com.apple.compilers.gcc.4_2
 r0
@@ -773,6 +972,22 @@ xobjective-c
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@65"Compile /nethome/agendreau3/Documents/MetroAtlantaApp/app/Event.m338920920#338920920#0(0"0(0#0#57"/nethome/agendreau3/Documents/MetroAtlantaApp/app/Event.m8617147872#2331"    cd /nethome/agendreau3/Documents/MetroAtlantaApp/app    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-generated-files.hmap -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-own-target-headers.hmap -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-all-target-headers.hmap -iquote /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-project-headers.hmap -F/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/include -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources/i386 -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources -include /var/folders/xf/xfhy1ayFGNWo0V+t+ScMzLOvTUs/-Caches-/com.apple.Xcode.1991998990/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-dhsrrwbyydslkcczuzrchwoiafqi/Metro_Atlanta_Arts_App_Prefix.pch -c /nethome/agendreau3/Documents/MetroAtlantaApp/app/Event.m -o /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Event.o0#
 
+CCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Event.o /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../Event.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s339357737.573403
+e339357737.641472
+r0
+xCompileC
+xbuild/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Event.o
+x/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../Event.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+oi686-apple-darwin10-gcc-4.2.1: /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../Event.m: No such file or directory
+oi686-apple-darwin10-gcc-4.2.1: warning: '-x objective-c' after last input file has no effect
+oi686-apple-darwin10-gcc-4.2.1: no input files
+lSLF07#2@70"Compile /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../Event.m339357737#339357737#0(364"i686-apple-darwin10-gcc-4.2.1: /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../Event.m: No such file or directoryi686-apple-darwin10-gcc-4.2.1: warning: '-x objective-c' after last input file has no effecti686-apple-darwin10-gcc-4.2.1: no input filesCommand /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 failed with exit code 11(4@103"Command /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 failed with exit code 1339357737#18446744073709551615#0#0(1@0"0(0#0#62"/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../Event.m8604283680#2275"    cd /nethome/hpark68/Metro-Atlanta-Arts-App/app    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-generated-files.hmap -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-own-target-headers.hmap -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-all-target-headers.hmap -iquote /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-project-headers.hmap -F/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/include -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources/i386 -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources -include /var/folders/fi/fiSzyXUPF9u1nsX0Qm-o00vbjzc/-Caches-/com.apple.Xcode.786939898/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-bndlvcdrgbavknfwkshfkchzynma/Metro_Atlanta_Arts_App_Prefix.pch -c /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../Event.m -o /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Event.o1#
+
 CCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Filter.o /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Filter.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s339105871.629064
 e339105871.688695
@@ -785,6 +1000,19 @@ xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@74"Compile /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Filter.m339105871#339105871#0(0"0(0#0#66"/nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Filter.m8603207584#2341"    cd /nethome/agendreau3/Documents/MetroAtlantaApp/app    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-generated-files.hmap -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-own-target-headers.hmap -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-all-target-headers.hmap -iquote /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-project-headers.hmap -F/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/include -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources/i386 -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources -include /var/folders/xf/xfhy1ayFGNWo0V+t+ScMzLOvTUs/-Caches-/com.apple.Xcode.1991998990/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-dhsrrwbyydslkcczuzrchwoiafqi/Metro_Atlanta_Arts_App_Prefix.pch -c /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Filter.m -o /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Filter.o0#
+
+CCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Filter.o /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Filter.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s339357737.727670
+e339357737.791401
+r1
+xCompileC
+xbuild/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Filter.o
+x/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Filter.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@68"Compile /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Filter.m339357737#339357737#0(0"0(0#0#60"/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Filter.m8598558752#2274"    cd /nethome/hpark68/Metro-Atlanta-Arts-App/app    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-generated-files.hmap -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-own-target-headers.hmap -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-all-target-headers.hmap -iquote /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-project-headers.hmap -F/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/include -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources/i386 -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources -include /var/folders/fi/fiSzyXUPF9u1nsX0Qm-o00vbjzc/-Caches-/com.apple.Xcode.786939898/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-bndlvcdrgbavknfwkshfkchzynma/Metro_Atlanta_Arts_App_Prefix.pch -c /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Filter.m -o /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Filter.o0#
 
 CCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Filterer-5B18B845F376F085.o /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Filterer.m normal i386 objective-c com.apple.compilers.gcc.4_2
 r0
@@ -836,6 +1064,19 @@ xobjective-c
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@101"Compile /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m338915816#338915816#0(0"0(0#0#93"/nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m8607187488#2395"    cd /nethome/agendreau3/Documents/MetroAtlantaApp/app    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-generated-files.hmap -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-own-target-headers.hmap -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-all-target-headers.hmap -iquote /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-project-headers.hmap -F/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/include -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources/i386 -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources -include /var/folders/xf/xfhy1ayFGNWo0V+t+ScMzLOvTUs/-Caches-/com.apple.Xcode.1991998990/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-dhsrrwbyydslkcczuzrchwoiafqi/Metro_Atlanta_Arts_App_Prefix.pch -c /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m -o /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Metro_Atlanta_Arts_AppAppDelegate.o0#
 
+CCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Metro_Atlanta_Arts_AppAppDelegate.o /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s339357737.571831
+e339357737.737242
+r1
+xCompileC
+xbuild/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Metro_Atlanta_Arts_AppAppDelegate.o
+x/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@95"Compile /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m339357737#339357737#0(0"0(0#0#87"/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m8606958784#2328"    cd /nethome/hpark68/Metro-Atlanta-Arts-App/app    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-generated-files.hmap -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-own-target-headers.hmap -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-all-target-headers.hmap -iquote /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-project-headers.hmap -F/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/include -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources/i386 -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources -include /var/folders/fi/fiSzyXUPF9u1nsX0Qm-o00vbjzc/-Caches-/com.apple.Xcode.786939898/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-bndlvcdrgbavknfwkshfkchzynma/Metro_Atlanta_Arts_App_Prefix.pch -c /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m -o /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Metro_Atlanta_Arts_AppAppDelegate.o0#
+
 CCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Metro_Atlanta_Arts_AppViewController.o /Users/drew/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
 s338962996.820618
 e338962996.961814
@@ -876,6 +1117,19 @@ xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@104"Compile /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Metro_Atlanta_Arts_AppViewController.m338915816#338915816#0(0"0(0#0#96"/nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Metro_Atlanta_Arts_AppViewController.m8606818304#2401"    cd /nethome/agendreau3/Documents/MetroAtlantaApp/app    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-generated-files.hmap -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-own-target-headers.hmap -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-all-target-headers.hmap -iquote /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-project-headers.hmap -F/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/include -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources/i386 -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources -include /var/folders/xf/xfhy1ayFGNWo0V+t+ScMzLOvTUs/-Caches-/com.apple.Xcode.1991998990/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-dhsrrwbyydslkcczuzrchwoiafqi/Metro_Atlanta_Arts_App_Prefix.pch -c /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/Metro_Atlanta_Arts_AppViewController.m -o /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Metro_Atlanta_Arts_AppViewController.o0#
+
+CCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Metro_Atlanta_Arts_AppViewController.o /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s339357737.572589
+e339357737.740310
+r1
+xCompileC
+xbuild/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Metro_Atlanta_Arts_AppViewController.o
+x/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@98"Compile /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppViewController.m339357737#339357737#0(0"0(0#0#90"/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppViewController.m8606285856#2334"    cd /nethome/hpark68/Metro-Atlanta-Arts-App/app    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-generated-files.hmap -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-own-target-headers.hmap -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-all-target-headers.hmap -iquote /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-project-headers.hmap -F/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/include -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources/i386 -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources -include /var/folders/fi/fiSzyXUPF9u1nsX0Qm-o00vbjzc/-Caches-/com.apple.Xcode.786939898/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-bndlvcdrgbavknfwkshfkchzynma/Metro_Atlanta_Arts_App_Prefix.pch -c /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppViewController.m -o /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Metro_Atlanta_Arts_AppViewController.o0#
 
 CCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/NameFilterer.o /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/NameFilterer.m normal i386 objective-c com.apple.compilers.gcc.4_2
 r0
@@ -921,6 +1175,22 @@ xobjective-c
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@68"Compile /nethome/agendreau3/Documents/MetroAtlantaApp/app/NextView.m339096544#339096545#0(0"0(0#0#60"/nethome/agendreau3/Documents/MetroAtlantaApp/app/NextView.m3415256217691645440#2337"    cd /nethome/agendreau3/Documents/MetroAtlantaApp/app    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-generated-files.hmap -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-own-target-headers.hmap -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-all-target-headers.hmap -iquote /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-project-headers.hmap -F/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/include -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources/i386 -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources -include /var/folders/xf/xfhy1ayFGNWo0V+t+ScMzLOvTUs/-Caches-/com.apple.Xcode.1991998990/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-dhsrrwbyydslkcczuzrchwoiafqi/Metro_Atlanta_Arts_App_Prefix.pch -c /nethome/agendreau3/Documents/MetroAtlantaApp/app/NextView.m -o /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/NextView.o0#
 
+CCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/NextView.o /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../NextView.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s339357737.641568
+e339357737.646978
+r0
+xCompileC
+xbuild/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/NextView.o
+x/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../NextView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+oi686-apple-darwin10-gcc-4.2.1: /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../NextView.m: No such file or directory
+oi686-apple-darwin10-gcc-4.2.1: warning: '-x objective-c' after last input file has no effect
+oi686-apple-darwin10-gcc-4.2.1: no input files
+lSLF07#2@73"Compile /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../NextView.m339357737#339357737#0(367"i686-apple-darwin10-gcc-4.2.1: /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../NextView.m: No such file or directoryi686-apple-darwin10-gcc-4.2.1: warning: '-x objective-c' after last input file has no effecti686-apple-darwin10-gcc-4.2.1: no input filesCommand /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 failed with exit code 11(4@103"Command /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 failed with exit code 1339357737#18446744073709551615#0#0(1@0"0(0#0#65"/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../NextView.m8030609063990490112#2281"    cd /nethome/hpark68/Metro-Atlanta-Arts-App/app    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-generated-files.hmap -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-own-target-headers.hmap -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-all-target-headers.hmap -iquote /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-project-headers.hmap -F/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/include -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources/i386 -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources -include /var/folders/fi/fiSzyXUPF9u1nsX0Qm-o00vbjzc/-Caches-/com.apple.Xcode.786939898/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-bndlvcdrgbavknfwkshfkchzynma/Metro_Atlanta_Arts_App_Prefix.pch -c /nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/../NextView.m -o /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/NextView.o1#
+
 CCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/TimerFilterer.o /nethome/agendreau3/Documents/MetroAtlantaApp/app/Classes/TimerFilterer.m normal i386 objective-c com.apple.compilers.gcc.4_2
 r0
 
@@ -965,6 +1235,19 @@ xobjective-c
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@64"Compile /nethome/agendreau3/Documents/MetroAtlantaApp/app/main.m338915816#338915816#0(0"0(0#0#56"/nethome/agendreau3/Documents/MetroAtlantaApp/app/main.m8609047104#2329"    cd /nethome/agendreau3/Documents/MetroAtlantaApp/app    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-generated-files.hmap -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-own-target-headers.hmap -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-all-target-headers.hmap -iquote /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-project-headers.hmap -F/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/include -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources/i386 -I/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources -include /var/folders/xf/xfhy1ayFGNWo0V+t+ScMzLOvTUs/-Caches-/com.apple.Xcode.1991998990/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-dhsrrwbyydslkcczuzrchwoiafqi/Metro_Atlanta_Arts_App_Prefix.pch -c /nethome/agendreau3/Documents/MetroAtlantaApp/app/main.m -o /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/main.o0#
 
+CCompileC build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/main.o /nethome/hpark68/Metro-Atlanta-Arts-App/app/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s339357737.570809
+e339357737.727565
+r1
+xCompileC
+xbuild/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/main.o
+x/nethome/hpark68/Metro-Atlanta-Arts-App/app/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@58"Compile /nethome/hpark68/Metro-Atlanta-Arts-App/app/main.m339357737#339357737#0(0"0(0#0#50"/nethome/hpark68/Metro-Atlanta-Arts-App/app/main.m8607329760#2262"    cd /nethome/hpark68/Metro-Atlanta-Arts-App/app    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-generated-files.hmap -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-own-target-headers.hmap -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-all-target-headers.hmap -iquote /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-project-headers.hmap -F/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/include -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources/i386 -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources -include /var/folders/fi/fiSzyXUPF9u1nsX0Qm-o00vbjzc/-Caches-/com.apple.Xcode.786939898/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-bndlvcdrgbavknfwkshfkchzynma/Metro_Atlanta_Arts_App_Prefix.pch -c /nethome/hpark68/Metro-Atlanta-Arts-App/app/main.m -o /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/main.o0#
+
 CCompileXIB /Users/drew/Metro-Atlanta-Arts-App/app/MainWindow.xib
 s338962609.156877
 e338962610.025973
@@ -1003,6 +1286,41 @@ r0
 CCompileXIB /nethome/agendreau3/Documents/MetroAtlantaApp/app/Metro_Atlanta_Arts_AppViewController.xib
 r0
 
+CCompileXIB /nethome/hpark68/Metro-Atlanta-Arts-App/app/MainWindow.xib
+r0
+
+CCompileXIB /nethome/hpark68/Metro-Atlanta-Arts-App/app/Metro_Atlanta_Arts_AppViewController.xib
+s339357735.526017
+e339357736.524300
+r1
+xCompileXIB
+x/nethome/hpark68/Metro-Atlanta-Arts-App/app/Metro_Atlanta_Arts_AppViewController.xib
+lSLF07#2@51"CompileXIB Metro_Atlanta_Arts_AppViewController.xib339357735#339357736#0(0"0(0#0#84"/nethome/hpark68/Metro-Atlanta-Arts-App/app/Metro_Atlanta_Arts_AppViewController.xib3418355679884242944#652"    cd /nethome/hpark68/Metro-Atlanta-Arts-App/app    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.0    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Metro_Atlanta_Arts_AppViewController.nib /nethome/hpark68/Metro-Atlanta-Arts-App/app/Metro_Atlanta_Arts_AppViewController.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk0#
+
+CCompileXIB /nethome/hpark68/Metro-Atlanta-Arts-App/app/eventList.xib
+s339357736.459505
+e339357736.840698
+r1
+xCompileXIB
+x/nethome/hpark68/Metro-Atlanta-Arts-App/app/eventList.xib
+lSLF07#2@24"CompileXIB eventList.xib339357736#339357736#0(0"0(0#0#57"/nethome/hpark68/Metro-Atlanta-Arts-App/app/eventList.xib8607028640#598"    cd /nethome/hpark68/Metro-Atlanta-Arts-App/app    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.0    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/eventList.nib /nethome/hpark68/Metro-Atlanta-Arts-App/app/eventList.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk0#
+
+CCompileXIB /nethome/hpark68/Metro-Atlanta-Arts-App/app/eventView.xib
+s339357735.560495
+e339357736.524444
+r1
+xCompileXIB
+x/nethome/hpark68/Metro-Atlanta-Arts-App/app/eventView.xib
+lSLF07#2@24"CompileXIB eventView.xib339357735#339357736#0(0"0(0#0#57"/nethome/hpark68/Metro-Atlanta-Arts-App/app/eventView.xib8603442848#598"    cd /nethome/hpark68/Metro-Atlanta-Arts-App/app    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.0    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/eventView.nib /nethome/hpark68/Metro-Atlanta-Arts-App/app/eventView.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk0#
+
+CCompileXIB /nethome/hpark68/Metro-Atlanta-Arts-App/app/filters.xib
+s339357735.561077
+e339357736.468283
+r1
+xCompileXIB
+x/nethome/hpark68/Metro-Atlanta-Arts-App/app/filters.xib
+lSLF07#2@22"CompileXIB filters.xib339357735#339357736#0(0"0(0#0#55"/nethome/hpark68/Metro-Atlanta-Arts-App/app/filters.xib8606935424#594"    cd /nethome/hpark68/Metro-Atlanta-Arts-App/app    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.0    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/filters.nib /nethome/hpark68/Metro-Atlanta-Arts-App/app/filters.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk0#
+
 CGenerateDSYMFile /Users/drew/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app.dSYM /Users/drew/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Metro-Atlanta-Arts-App
 s338962997.017248
 e338962997.045645
@@ -1029,6 +1347,9 @@ xGenerateDSYMFile
 x/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app.dSYM
 x/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Metro-Atlanta-Arts-App
 lSLF07#2@154"GenerateDSYMFile build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app.dSYM build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Metro-Atlanta-Arts-App339105871#339105871#0(0"0(0#0#127"/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Metro-Atlanta-Arts-App8613135200#461"    cd /nethome/agendreau3/Documents/MetroAtlantaApp/app    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Metro-Atlanta-Arts-App -o /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app.dSYM0#
+
+CGenerateDSYMFile /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app.dSYM /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Metro-Atlanta-Arts-App
+r0
 
 CLd /Users/drew/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Metro-Atlanta-Arts-App normal i386
 s338962996.961886
@@ -1060,6 +1381,9 @@ xnormal
 xi386
 lSLF07#2@132"Link /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Metro-Atlanta-Arts-App339105871#339105871#0(0"0(0#0#0"8613531552#1048"    cd /nethome/agendreau3/Documents/MetroAtlantaApp/app    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -L/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator -F/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator -filelist /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Objects-normal/i386/Metro-Atlanta-Arts-App.LinkFileList -mmacosx-version-min=10.6 -Xlinker -objc_abi_version -Xlinker 2 -framework Foundation -framework UIKit -framework CoreGraphics -framework MapKit -o /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Metro-Atlanta-Arts-App0#
 
+CLd /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Metro-Atlanta-Arts-App normal i386
+r0
+
 CProcessInfoPlistFile /Users/drew/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Info.plist Metro_Atlanta_Arts_App-Info.plist
 s338962609.152752
 e338962609.156796
@@ -1079,6 +1403,9 @@ xMetro_Atlanta_Arts_App-Info.plist
 lSLF07#2@41"Process Metro_Atlanta_Arts_App-Info.plist338142285#338142285#0(0"0(0#0#86"/Users/drew/senior_design/Metro-Atlanta-Arts-App/app/Metro_Atlanta_Arts_App-Info.plist12666850700820596#566"    cd /Users/drew/senior_design/Metro-Atlanta-Arts-App/app    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility Metro_Atlanta_Arts_App-Info.plist -genpkginfo /Users/drew/senior_design/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/drew/senior_design/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Info.plist0#
 
 CProcessInfoPlistFile /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Info.plist Metro_Atlanta_Arts_App-Info.plist
+r0
+
+CProcessInfoPlistFile /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app/Info.plist Metro_Atlanta_Arts_App-Info.plist
 r0
 
 CProcessPCH /var/folders/+2/+2OtBQF-HO4DYvcSA+ZIOk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-aajaxqyntcujjlamousualdmcoik/Metro_Atlanta_Arts_App_Prefix.pch.gch Metro_Atlanta_Arts_App_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
@@ -1121,6 +1448,19 @@ xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@44"Precompile Metro_Atlanta_Arts_App_Prefix.pch338319522#338319523#0(0"0(0#0#72"/Users/drew/Metro-Atlanta-Arts-App/app/Metro_Atlanta_Arts_App_Prefix.pch7020113743286596608#2091"    cd /Users/drew/Metro-Atlanta-Arts-App/app    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40200 -iquote /Users/drew/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-generated-files.hmap -I/Users/drew/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-own-target-headers.hmap -I/Users/drew/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-all-target-headers.hmap -iquote /Users/drew/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-project-headers.hmap -F/Users/drew/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator -I/Users/drew/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/include -I/Users/drew/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources/i386 -I/Users/drew/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources -c /Users/drew/Metro-Atlanta-Arts-App/app/Metro_Atlanta_Arts_App_Prefix.pch -o /var/folders/+2/+2OtBQF-HO4DYvcSA+ZIOk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-gcxpwaiihvrzvdbvgqwjskdnmvol/Metro_Atlanta_Arts_App_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/fi/fiSzyXUPF9u1nsX0Qm-o00vbjzc/-Caches-/com.apple.Xcode.786939898/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-bndlvcdrgbavknfwkshfkchzynma/Metro_Atlanta_Arts_App_Prefix.pch.gch Metro_Atlanta_Arts_App_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s339357736.840886
+e339357737.570584
+r1
+xProcessPCH
+x/var/folders/fi/fiSzyXUPF9u1nsX0Qm-o00vbjzc/-Caches-/com.apple.Xcode.786939898/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-bndlvcdrgbavknfwkshfkchzynma/Metro_Atlanta_Arts_App_Prefix.pch.gch
+xMetro_Atlanta_Arts_App_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@44"Precompile Metro_Atlanta_Arts_App_Prefix.pch339357736#339357737#0(0"0(0#0#77"/nethome/hpark68/Metro-Atlanta-Arts-App/app/Metro_Atlanta_Arts_App_Prefix.pch8604217472#2134"    cd /nethome/hpark68/Metro-Atlanta-Arts-App/app    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -iquote /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-generated-files.hmap -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-own-target-headers.hmap -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-all-target-headers.hmap -iquote /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/Metro-Atlanta-Arts-App-project-headers.hmap -F/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/include -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources/i386 -I/nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Metro-Atlanta-Arts-App.build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.build/DerivedSources -c /nethome/hpark68/Metro-Atlanta-Arts-App/app/Metro_Atlanta_Arts_App_Prefix.pch -o /var/folders/fi/fiSzyXUPF9u1nsX0Qm-o00vbjzc/-Caches-/com.apple.Xcode.786939898/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-bndlvcdrgbavknfwkshfkchzynma/Metro_Atlanta_Arts_App_Prefix.pch.gch0#
 
 CProcessPCH /var/folders/xf/xfhy1ayFGNWo0V+t+ScMzLOvTUs/-Caches-/com.apple.Xcode.1991998990/SharedPrecompiledHeaders/Metro_Atlanta_Arts_App_Prefix-dhsrrwbyydslkcczuzrchwoiafqi/Metro_Atlanta_Arts_App_Prefix.pch.gch Metro_Atlanta_Arts_App_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
 s338915815.489974
@@ -1171,4 +1511,7 @@ r1
 xTouch
 x/nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app
 lSLF07#2@110"Touch /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app339105871#339105871#0(0"0(0#0#0"8612591488#315"    cd /nethome/agendreau3/Documents/MetroAtlantaApp/app    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /nethome/agendreau3/Documents/MetroAtlantaApp/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app0#
+
+CTouch /nethome/hpark68/Metro-Atlanta-Arts-App/app/build/Debug-iphonesimulator/Metro-Atlanta-Arts-App.app
+r0
 
