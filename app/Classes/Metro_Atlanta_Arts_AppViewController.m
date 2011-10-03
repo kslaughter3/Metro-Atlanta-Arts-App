@@ -8,10 +8,11 @@
 
 #import "Metro_Atlanta_Arts_AppViewController.h"
 #import "NextView.h"
+#import "EventAnnotation.h"
 
 @implementation Metro_Atlanta_Arts_AppViewController
 
-@synthesize myMapView;
+@synthesize myMapView, mapAnnotations;
 
 
 -(IBAction)next:(id)sender {
@@ -55,12 +56,16 @@
 	span.latitudeDelta=0.2; 
 	span.longitudeDelta=0.2; 
 	
+	self.mapAnnotations = [[NSMutableArray alloc] initWithCapacity:1];
+    EventAnnotation *eventAnnotation = [[EventAnnotation alloc] init];
+    [self.mapAnnotations insertObject:eventAnnotation atIndex:0];
+	[myMapView addAnnotation:eventAnnotation];
+    [eventAnnotation release];    
+	
+	
 	CLLocationCoordinate2D location; 
-	
-	location.latitude = 22.569722 ;
-	location.longitude = 88.369722;
-	
-	
+	location.latitude = 33.7728837;
+	location.longitude = -84.393816;
 	region.span=span; 
 	region.center=location; 
 	

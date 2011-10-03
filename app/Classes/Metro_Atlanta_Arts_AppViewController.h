@@ -15,6 +15,8 @@
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView* myMapView;
+@property (nonatomic, retain) NSMutableArray *mapAnnotations;
+
 
 -(IBAction)next:(id)sender;
 -(void)displayMYMap;
