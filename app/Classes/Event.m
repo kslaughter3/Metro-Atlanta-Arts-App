@@ -15,12 +15,20 @@
 
 /* Initialize Method */
 -(Event *)initEventWithName: (NSString *) n Artist: (NSString *) a Description: (NSString *) desc
-					Website: (NSURL *) url Address: (NSString *) add City: (NSString *) c State: (NSString *) s
-						Zip: (NSString *) z Start: (NSDate *) start End: (NSDate *) end
-				   Duration: (int) length Cost: (double) price {
+					Website: (NSURL *) url Address: (NSString *) add City: (NSString *) c 
+					State: (NSString *) s Zip: (NSString *) z Start: (NSDate *) start 
+					End: (NSDate *) end Duration: (int) length Cost: (double) price {
+	
+	/* Check all the data */
+	if((n == NULL) || (a == NULL) || (desc == NULL) || (url == NULL) || (add == NULL) ||
+	   (c == NULL) || (s == NULL) || (z == NULL) || (start == NULL) || (end == NULL) ||
+	   (length < 0) || (price < 0) || ([start earlierDate: end] == end)) {
+		return NULL;
+	}
+	
 	self = [super init];
 	
-	if ( self ) {
+	if (self != NULL) {
 		[self setEventName: n];
 		[self setArtist: a];
 		[self setDescription: desc];

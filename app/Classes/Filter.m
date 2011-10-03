@@ -15,36 +15,170 @@
 -(Filter *)initializeFilterWithType: (FilterType) t andFilterer: (Filterer *) f {
 	self = [super init];
 	
-	if( self ) {
+	if(self != NULL) {
 		[self setFilterType: t];
 		if([self setFilterer: f]) {
 			return self;
 		}
+		
+		[self dealloc];
+	
+	}
+	
+	return NULL;
+}
+
+/*Builds the specified filter if the data is valid */
+
+-(Filter *)initializeNameFilter: (NSString *)name {	
+	self = [super init];
+	
+	if(self != NULL) {		
+		if([self checkNameFilterer: name] == true) {
+			[self setFilterType: NameFilterType];
+		
+			filterer = (Filterer *)malloc(sizeof(Filterer));
+			if(filterer != NULL) {
+				filterer->name = name;
+				return self;
+			}
+		}
+		
+		[self dealloc];
+	}
+	
+	return NULL;
+}
+
+-(Filter *)initializeArtistFilter: (NSString *) artist {
+	self = [super init];
+	
+	if(self != NULL) {
+		if([self checkArtistFilterer: artist] == true) {
+			[self setFilterType: ArtistFilterType];
+		
+			filterer = (Filterer *)malloc(sizeof(Filterer));
+			if(filterer != NULL) {
+				filterer->artist = artist;
+				return self;
+			}
+		}
+		
+		[self dealloc];
+	}
+	
+	return NULL;
+}
+
+-(Filter *)iniitializeTimeFilterStart: (NSDate *) start End: (NSDate *) end {
+	self = [super init];
+	
+	if(self != NULL) {
+		if([self checkTimeFiltererStart: start End: end] == true) {
+			[self setFilterType: TimeFilterType];
+		
+			filterer = (Filterer *)malloc(sizeof(Filterer));
+			if(filterer != NULL) {
+				filterer->start = start;
+				filterer->end = end;
+				return self;
+			}
+		}
+		
+		[self dealloc];
+	}
+	
+	return NULL;
+}
+
+-(Filter *)initializeCostFilterMin: (double) min Max: (double) max {
+	self = [super init];
+	
+	if(self != NULL) {
+		if([self checkCostFiltererMin: min Max: max] == true) {
+			[self setFilterType: CostFilterType];
+			
+			filterer = (Filterer *)malloc(sizeof(Filterer));
+			if(filterer != NULL) {
+				filterer->minCost = min;
+				filterer->maxCost = max;
+				return self;
+			}
+		}
+		
+		[self dealloc];
+	}
+	
+	return NULL;
+}
+
+-(Filter *)initializeDurationFilterMin: (int) min Max: (int) max {
+	self = [super init]; 
+	
+	if(self != NULL) {
+		if([self checkDurationFiltererMin: min Max: max] == true) {
+			[self setFilterType: DurationFilterType];
+			
+			filterer = (Filterer *)malloc(sizeof(Filterer));
+			if(filterer != NULL) {
+				filterer->minDuration = min;
+				filterer->maxDuration = max;
+				return self;
+			}
+		}
+		
+		[self dealloc];
+	}
+	
+	return NULL;
+}
+
+-(Filter *)initializeLocationFilter: (CLLocation *) loc Radius: (double) rad {
+	self = [super init];
+	
+	if(self != NULL) {
+		if([self checkLocationFilterer: loc Radius: rad] == true) {
+			[self setFilterType: LocationFilterType];
+			
+			filterer = (Filterer *)malloc(sizeof(Filterer));
+			if(filterer != NULL) {
+				filterer->loc = loc;
+				filterer->radius = rad;
+				return self;
+			}
+		}
+		
+		[self dealloc];
 	}
 	
 	return NULL;
 }
 		   
 -(bool)checkFilterer: (Filterer *) f {
+	
+	if(f == NULL) {
+		return false;
+	}
+	
 	/* Check to see if the correct union member is specified */ 
 	switch ([self getFilterType]) {
 		case NameFilterType:
-			return [self checkNameFilterer: f];
+			return [self checkNameFilterer: f->name];
 			break;
 		case ArtistFilterType:
-			return [self checkArtistFilterer: f];
+			return [self checkArtistFilterer: f->artist];
 			break;
 		case TimeFilterType:
-			return [self checkTimeFilterer: f];
+			return [self checkTimeFiltererStart: f->start End: f->end];
 			break;
 		case CostFilterType:
-			return [self checkCostFilterer: f];
+			return [self checkCostFiltererMin: f->minCost Max: f->maxCost];
 			break;
 		case DurationFilterType:
-			return [self checkDurationFilterer: f];
+			return [self checkDurationFiltererMin: f->minDuration Max: f->maxDuration];
 			break;
 		case LocationFilterType:
-			return [self checkLocationFilterer: f];
+			return [self checkLocationFilterer: f->loc Radius: f->radius];
 			break;
 		default:
 			return false;
@@ -54,35 +188,35 @@
 	return false;
 }
 
--(bool)checkNameFilterer: (Filterer *) f {
-	return ((f != NULL) && (f->name != NULL));
+-(bool)checkNameFilterer: (NSString *) name {
+	return (name != NULL);
 }
 
--(bool)checkArtistFilterer: (Filterer *) f {
-	return ((f != NULL) && (f->artist != NULL));
+-(bool)checkArtistFilterer: (NSString *) artist {
+	return (artist != NULL);
 }
 
--(bool)checkTimeFilterer: (Filterer *) f {
-	if((f != NULL) && (f->start != NULL) && (f->end != NULL)) {
+-(bool)checkTimeFiltererStart: (NSDate *) start End: (NSDate *) end {
+	if((start != NULL) && (end != NULL)) {
 		/* Check if the start is before the end date */
-		return ([f->start earlierDate: f->end] == f->start);
+		return ([start earlierDate: end] == start);
 	}
 	return false;
 }
 
--(bool)checkCostFilterer: (Filterer *) f {
+-(bool)checkCostFiltererMin: (double) min Max: (double) max {
 	/* Check to see if the max is greater than or equal to the min and that the min is 
 	   greater than or equal to 0 */
-	return ((f != NULL) && (f->minCost <= f->maxCost) && (f->minCost >= 0));
+	return ((min <= max) && (min >= 0));
 }
 
--(bool)checkDurationFilterer: (Filterer *) f {
+-(bool)checkDurationFiltererMin: (int) min Max: (int) max {
 	/* Check to see if the max is greater than or equal to the min and that the min is 
 	   greater than or equal to 0 */
-	return ((f != NULL) && (f->minLength <= f->maxLength) && (f->minLength >= 0));
+	return ((min <= max) && (min >= 0));
 }
 
--(bool)checkLocationFilterer: (Filterer *) f {
+-(bool)checkLocationFilterer: (CLLocation *) loc Radius: (double) rad {
 	/* I don't know what has to be valid for this yet */
 	return true;
 }
@@ -105,6 +239,46 @@
 
 -(Filterer *)getFilterer {
 	return filterer;
+}
+
+-(NSString *)getFiltererName {
+	return filterer->name;
+}
+
+-(NSString *)getFiltererArtist {
+	return filterer->artist;
+}
+
+-(NSDate *)getFiltererStartTime {
+	return filterer->start;
+}
+
+-(NSDate *)getFiltererEndTime {
+	return filterer->end;
+}
+
+-(double)getFiltererMinCost {
+	return filterer->minCost;
+}
+
+-(double)getFiltererMaxCost {
+	return filterer->maxCost;
+}
+
+-(int)getFiltererMinDuration {
+	return filterer->minDuration;
+}
+
+-(int)getFiltererMaxDuration {
+	return filterer->maxDuration;
+}
+
+-(CLLocation *)getFiltererLocation {
+	return filterer->loc;
+}
+
+-(double)getFiltererRadius {
+	return filterer->radius;
 }
 
 @end
