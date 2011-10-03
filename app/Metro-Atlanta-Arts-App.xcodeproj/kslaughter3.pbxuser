@@ -1,5 +1,12 @@
 // !$*UTF8*$!
 {
+	1D3623250D0F684500981E51 /* Metro_Atlanta_Arts_AppAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {810, 1352}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 627}";
+		};
+	};
 	1D6058900D05DD3D006BFB54 /* Metro-Atlanta-Arts-App */ = {
 		activeExec = 0;
 		executables = (
@@ -8,10 +15,10 @@
 	};
 	225AB099143A43A40075EC49 /* EventAnnotation.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {691, 430}}";
-			sepNavSelRange = "{402, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {639, 353}}";
+			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 508}";
-			sepNavWindowFrame = "{{84, 552}, {750, 558}}";
+			sepNavWindowFrame = "{{65, 555}, {750, 558}}";
 		};
 	};
 	225AB09A143A43A40075EC49 /* EventAnnotation.m */ = {
@@ -19,7 +26,7 @@
 			sepNavIntBoundsRect = "{{0, 0}, {691, 598}}";
 			sepNavSelRange = "{674, 0}";
 			sepNavVisRange = "{226, 459}";
-			sepNavWindowFrame = "{{61, 573}, {750, 558}}";
+			sepNavWindowFrame = "{{-11, 121}, {750, 558}}";
 		};
 	};
 	225AB09D143A44080075EC49 /* PBXBookmark */ = {
@@ -376,6 +383,190 @@
 		vrLen = 527;
 		vrLoc = 0;
 	};
+	225AB163143A519E0075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.m */;
+		name = "Metro_Atlanta_Arts_AppViewController.m: 60";
+		rLen = 0;
+		rLoc = 1549;
+		rType = 0;
+		vrLen = 499;
+		vrLoc = 1372;
+	};
+	225AB169143A51BA0075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F2B4AD2614363B7900FA5091 /* Filter.h */;
+		name = "Filter.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 754;
+		vrLoc = 3;
+	};
+	225AB16A143A51BA0075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* Metro_Atlanta_Arts_AppAppDelegate.m */;
+		name = "Metro_Atlanta_Arts_AppAppDelegate.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 627;
+		vrLoc = 0;
+	};
+	225AB16B143A51BA0075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 225AB099143A43A40075EC49 /* EventAnnotation.h */;
+		name = "EventAnnotation.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 508;
+		vrLoc = 0;
+	};
+	225AB16C143A51BA0075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 225AB099143A43A40075EC49 /* EventAnnotation.h */;
+		name = "EventAnnotation.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 508;
+		vrLoc = 0;
+	};
+	225AB16D143A51BA0075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.m */;
+		name = "Metro_Atlanta_Arts_AppViewController.m: 67";
+		rLen = 67;
+		rLoc = 1804;
+		rType = 0;
+		vrLen = 1064;
+		vrLoc = 1426;
+	};
+	225AB16E143A51BA0075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.h */;
+		name = "Metro_Atlanta_Arts_AppViewController.h: 19";
+		rLen = 0;
+		rLoc = 469;
+		rType = 0;
+		vrLen = 527;
+		vrLoc = 0;
+	};
+	225AB171143A51E80075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.m */;
+		name = "Metro_Atlanta_Arts_AppViewController.m: 60";
+		rLen = 0;
+		rLoc = 1549;
+		rType = 0;
+		vrLen = 499;
+		vrLoc = 1372;
+	};
+	225AB172143A52080075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.m */;
+		name = "Metro_Atlanta_Arts_AppViewController.m: 60";
+		rLen = 0;
+		rLoc = 1549;
+		rType = 0;
+		vrLen = 593;
+		vrLoc = 1372;
+	};
+	225AB175143A522F0075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 225AB099143A43A40075EC49 /* EventAnnotation.h */;
+		name = "EventAnnotation.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 508;
+		vrLoc = 0;
+	};
+	225AB176143A522F0075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F2BF2AE6143A35DE00FBD2F5 /* Event.h */;
+		name = "Event.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 890;
+		vrLoc = 0;
+	};
+	225AB177143A522F0075EC49 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = F2B4AD2714363B7900FA5091 /* Filter.m */;
+	};
+	225AB178143A522F0075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F2B4AD2714363B7900FA5091 /* Filter.m */;
+		name = "Filter.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 457;
+		vrLoc = 0;
+	};
+	225AB179143A522F0075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.m */;
+		name = "Metro_Atlanta_Arts_AppViewController.m: 67";
+		rLen = 67;
+		rLoc = 1804;
+		rType = 0;
+		vrLen = 1001;
+		vrLoc = 1426;
+	};
+	225AB17A143A522F0075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.h */;
+		name = "Metro_Atlanta_Arts_AppViewController.h: 19";
+		rLen = 0;
+		rLoc = 469;
+		rType = 0;
+		vrLen = 527;
+		vrLoc = 0;
+	};
+	225AB180143A52690075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F2B4AD2714363B7900FA5091 /* Filter.m */;
+		name = "Filter.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 502;
+		vrLoc = 0;
+	};
+	225AB181143A52690075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 225AB099143A43A40075EC49 /* EventAnnotation.h */;
+		name = "EventAnnotation.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 508;
+		vrLoc = 0;
+	};
+	225AB182143A52690075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.m */;
+		name = "Metro_Atlanta_Arts_AppViewController.m: 67";
+		rLen = 67;
+		rLoc = 1804;
+		rType = 0;
+		vrLen = 1064;
+		vrLoc = 1426;
+	};
+	225AB183143A52690075EC49 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* Metro_Atlanta_Arts_AppViewController.h */;
+		name = "Metro_Atlanta_Arts_AppViewController.h: 19";
+		rLen = 0;
+		rLoc = 469;
+		rType = 0;
+		vrLen = 527;
+		vrLoc = 0;
+	};
 	22B4426F143A416300AA3DED /* Metro-Atlanta-Arts-App */ = {
 		isa = PBXExecutable;
 		activeArgIndices = (
@@ -463,6 +654,7 @@
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
 		activeBuildConfigurationName = Debug;
 		activeExecutable = 22B4426F143A416300AA3DED /* Metro-Atlanta-Arts-App */;
+		activeSDKPreference = iphonesimulator4.0;
 		activeTarget = 1D6058900D05DD3D006BFB54 /* Metro-Atlanta-Arts-App */;
 		addToTargets = (
 			1D6058900D05DD3D006BFB54 /* Metro-Atlanta-Arts-App */,
@@ -537,6 +729,25 @@
 			225AB121143A508E0075EC49 /* PBXTextBookmark */ = 225AB121143A508E0075EC49 /* PBXTextBookmark */;
 			225AB122143A508E0075EC49 /* PBXTextBookmark */ = 225AB122143A508E0075EC49 /* PBXTextBookmark */;
 			225AB123143A508E0075EC49 /* PBXTextBookmark */ = 225AB123143A508E0075EC49 /* PBXTextBookmark */;
+			225AB163143A519E0075EC49 /* PBXTextBookmark */ = 225AB163143A519E0075EC49 /* PBXTextBookmark */;
+			225AB169143A51BA0075EC49 /* PBXTextBookmark */ = 225AB169143A51BA0075EC49 /* PBXTextBookmark */;
+			225AB16A143A51BA0075EC49 /* PBXTextBookmark */ = 225AB16A143A51BA0075EC49 /* PBXTextBookmark */;
+			225AB16B143A51BA0075EC49 /* PBXTextBookmark */ = 225AB16B143A51BA0075EC49 /* PBXTextBookmark */;
+			225AB16C143A51BA0075EC49 /* PBXTextBookmark */ = 225AB16C143A51BA0075EC49 /* PBXTextBookmark */;
+			225AB16D143A51BA0075EC49 /* PBXTextBookmark */ = 225AB16D143A51BA0075EC49 /* PBXTextBookmark */;
+			225AB16E143A51BA0075EC49 /* PBXTextBookmark */ = 225AB16E143A51BA0075EC49 /* PBXTextBookmark */;
+			225AB171143A51E80075EC49 /* PBXTextBookmark */ = 225AB171143A51E80075EC49 /* PBXTextBookmark */;
+			225AB172143A52080075EC49 /* PBXTextBookmark */ = 225AB172143A52080075EC49 /* PBXTextBookmark */;
+			225AB175143A522F0075EC49 /* PBXTextBookmark */ = 225AB175143A522F0075EC49 /* PBXTextBookmark */;
+			225AB176143A522F0075EC49 /* PBXTextBookmark */ = 225AB176143A522F0075EC49 /* PBXTextBookmark */;
+			225AB177143A522F0075EC49 /* PBXBookmark */ = 225AB177143A522F0075EC49 /* PBXBookmark */;
+			225AB178143A522F0075EC49 /* PBXTextBookmark */ = 225AB178143A522F0075EC49 /* PBXTextBookmark */;
+			225AB179143A522F0075EC49 /* PBXTextBookmark */ = 225AB179143A522F0075EC49 /* PBXTextBookmark */;
+			225AB17A143A522F0075EC49 /* PBXTextBookmark */ = 225AB17A143A522F0075EC49 /* PBXTextBookmark */;
+			225AB180143A52690075EC49 /* PBXTextBookmark */ = 225AB180143A52690075EC49 /* PBXTextBookmark */;
+			225AB181143A52690075EC49 /* PBXTextBookmark */ = 225AB181143A52690075EC49 /* PBXTextBookmark */;
+			225AB182143A52690075EC49 /* PBXTextBookmark */ = 225AB182143A52690075EC49 /* PBXTextBookmark */;
+			225AB183143A52690075EC49 /* PBXTextBookmark */ = 225AB183143A52690075EC49 /* PBXTextBookmark */;
 			22B44275143A422200AA3DED = 22B44275143A422200AA3DED /* PBXBookmark */;
 			22B44276143A422300AA3DED = 22B44276143A422300AA3DED /* PBXBookmark */;
 			22B4427F143A426300AA3DED = 22B4427F143A426300AA3DED /* PBXTextBookmark */;
@@ -553,11 +764,18 @@
 			sepNavVisRange = "{3, 754}";
 		};
 	};
+	F2B4AD2714363B7900FA5091 /* Filter.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {639, 1469}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 502}";
+		};
+	};
 	F2BF2AE6143A35DE00FBD2F5 /* Event.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {789, 1339}}";
+			sepNavIntBoundsRect = "{{0, 0}, {789, 1313}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1269}";
+			sepNavVisRange = "{0, 890}";
 			sepNavWindowFrame = "{{15, 615}, {750, 558}}";
 		};
 	};
