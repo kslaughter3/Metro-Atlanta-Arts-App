@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+/* Definitions of the minimum and maximum valid latitudes and longitudes
+   can restrict these more and move these definitions to a more useful place if necessary */
+#define MINLAT -90
+#define MAXLAT 90
+#define MINLON -180
+#define MAXLON 180
+
 /* All the different valid filter types */
 typedef enum FilterType {
 	NameFilterType, 

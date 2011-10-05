@@ -217,8 +217,17 @@
 }
 
 -(bool)checkLocationFilterer: (CLLocation *) loc Radius: (double) rad {
-	/* I don't know what has to be valid for this yet */
-	return true;
+	/* Check to see if the location is set and the radius is not negative */
+	if(loc != NULL) {
+		CLLocationCoordinate2D coord = loc.coordinate;
+		/* Check to make sure the lat lon is within the bounds */
+		if((coord.latitude >= MINLAT) && (coord.latitude <= MAXLAT) && 
+		   (coord.longitude >= MINLON) && (coord.longitude <= MAXLON)) {
+			return (rad >= 0);
+		}
+	}
+	
+	return false;
 }
 
 -(void)setFilterType: (FilterType) t {

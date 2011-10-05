@@ -9,20 +9,22 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+#define MILESTOMETERS 1609
+
 @interface Event : NSObject {
-	NSString *name; /* Name of the Event */
-	NSString *artist; /* Name of the Artist (where applicable) */
-	NSString *description; /* Description of Event */
-	NSURL *website; /* Website URL */
-	NSString *address; /* Street Address of Event */
-	NSString *city; /* City of Address (Atlanta) */
-	NSString *state; /* State of Address (Georgia) */
-	NSString *zip; /* Zip of Address */
-	CLLocation *location; /* Location of Event (Lat/Lon) */
-	NSDate *startDate; /* Start Date and Time */
-	NSDate *endDate; /* End Date and Time */
-	int duration; /* Duration of the Event (in minutes)*/
-	double cost; /* Cost of the Event */
+	NSString *name;			/* Name of the Event */
+	NSString *artist;		/* Name of the Artist (where applicable) */
+	NSString *description;	/* Description of Event */
+	NSURL *website;			/* Website URL */
+	NSString *address;		/* Street Address of Event */
+	NSString *city;			/* City of Address (Atlanta) */
+	NSString *state;		/* State of Address (Georgia) */
+	NSString *zip;			/* Zip of Address */
+	CLLocation *location;	/* Location of Event (Lat/Lon) */
+	NSDate *startDate;		/* Start Date and Time */
+	NSDate *endDate;		/* End Date and Time */
+	int duration;			/* Duration of the Event (in minutes)*/
+	double cost;			/* Cost of the Event */
 }
 
 /* Initializer */
@@ -101,7 +103,8 @@
 /* Returns true if the duration of this event is between the given min and max durations */
 -(bool)DurationFilterMin:(int)min andMax:(int)max;
 
-/*Returns true if the location of this event is within the given radius of the given Location */
+/* Returns true if the location of this event is within the given radius (in miles)
+   of the given Location */
 -(bool)LocationFilterLoc: (CLLocation *) loc andRadius: (double) rad;
 
 /* End Filter Methods */

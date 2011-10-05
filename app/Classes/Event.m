@@ -191,7 +191,12 @@
 
 /* Returns true if the time of this event occurs between the given start and end times */
 -(bool)TimeFilterStart: (NSDate *) start andEnd: (NSDate *) end {
-	return false;
+	/* If the endDate is before the start threshold or the startDate is after the end threshold
+	   return false otherwise return true */
+	if(([endDate earlierDate: start] == endDate) || ([startDate earlierDate: end] == end)) {
+		return false;
+	}
+	return true;
 }
 
 /* Returns true if the cost of this event is between the given min and max costs */
@@ -206,7 +211,9 @@
 
 /*Returns true if the location of this event is within the given radius of the given Location */
 -(bool)LocationFilterLoc: (CLLocation *) loc andRadius: (double) rad {
-	return false;
+	double distance = [location distanceFromLocation: loc];
+	double radInMeters = rad * MILESTOMETERS;
+	return (distance <= radInMeters);
 }
 
 /* End Filter Methods */

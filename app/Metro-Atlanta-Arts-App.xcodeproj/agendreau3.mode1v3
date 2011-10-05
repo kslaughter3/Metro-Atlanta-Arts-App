@@ -197,7 +197,48 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array/>
+	<array>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>PBXProjectModuleGUID</key>
+				<string>F2AAA39E143CBC390070B625</string>
+				<key>PBXProjectModuleLabel</key>
+				<string>Filter.m</string>
+				<key>PBXSplitModuleInNavigatorKey</key>
+				<dict>
+					<key>Split0</key>
+					<dict>
+						<key>PBXProjectModuleGUID</key>
+						<string>F2AAA39F143CBC390070B625</string>
+						<key>PBXProjectModuleLabel</key>
+						<string>Filter.m</string>
+						<key>_historyCapacity</key>
+						<integer>0</integer>
+						<key>bookmark</key>
+						<string>F2AAA3AA143CBF630070B625</string>
+						<key>history</key>
+						<array>
+							<string>F2AAA392143CBAD50070B625</string>
+						</array>
+					</dict>
+					<key>SplitCount</key>
+					<string>1</string>
+				</dict>
+				<key>StatusBarVisibility</key>
+				<true/>
+			</dict>
+			<key>Geometry</key>
+			<dict>
+				<key>Frame</key>
+				<string>{{0, 20}, {783, 615}}</string>
+				<key>PBXModuleWindowStatusBarHidden2</key>
+				<false/>
+				<key>RubberWindowFrame</key>
+				<string>-1097 363 783 656 -1920 0 1920 1200 </string>
+			</dict>
+		</dict>
+	</array>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>-1</integer>
@@ -272,7 +313,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>8</integer>
+									<integer>10</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -325,12 +366,19 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F2AAA38B143CB8840070B625</string>
+										<string>F2AAA3A9143CBF630070B625</string>
 										<key>history</key>
 										<array>
 											<string>F2BF2AD4143A35A400FBD2F5</string>
 											<string>F2BF2AF7143A367E00FBD2F5</string>
-											<string>F2AAA371143CB85A0070B625</string>
+											<string>F2AAA398143CBC390070B625</string>
+											<string>F2AAA399143CBC390070B625</string>
+											<string>F2AAA3A4143CBF630070B625</string>
+											<string>F2AAA3A5143CBF630070B625</string>
+											<string>F2AAA3A6143CBF630070B625</string>
+											<string>F2AAA3A7143CBF630070B625</string>
+											<string>F2AAA3A8143CBF630070B625</string>
+											<string>F2AAA39B143CBC390070B625</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -528,12 +576,12 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>F2AAA3AB143CBF630070B625</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>F2AAA376143CB85A0070B625</string>
-		<string>F2AAA373143CB85A0070B625</string>
 		<string>F2B521F9143371A7006D2A52</string>
 		<string>/nethome/agendreau3/Documents/Metro-Atlanta-Arts-App/app/Metro-Atlanta-Arts-App.xcodeproj</string>
+		<string>F2AAA39E143CBC390070B625</string>
 	</array>
 	<key>WindowString</key>
 	<string>-1422 501 788 504 -1920 0 1920 1200 </string>
@@ -557,7 +605,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Content.m</string>
+								<string>Filter.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
