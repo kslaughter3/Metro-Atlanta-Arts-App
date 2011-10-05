@@ -27,8 +27,20 @@
 -(void)filterOldEvents;
 
 /* Filtering methods */
--(bool)addFilter: (Filter *) filter;
--(bool)removeFilter: (Filter *) filter;
+
+/* Type is true if this is an AND Filter and false if this is an OR filter */
+-(bool)addFilter: (Filter *) filter AndFilter: (bool) type;
+-(bool)removeFilter: (Filter *) filter AndFilter: (bool) type;
+
+/* These methods are private */
+-(void)addAndFilter: (Filter *) filter;
+-(void)removeAndFilter;
+-(void)addOrFilter: (Filter *) filter;
+-(void)removeOrFilter;
+
+/* Filter Mode methods */
+-(void)switchToAndFilters;
+-(void)switchToOrFilters;
 
 /* Filtering Helper Methods these methods are private */
 -(bool)checkName: (Event *) event withFilter: (Filter *) filter;
