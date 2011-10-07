@@ -7,16 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NextView.h"
 
 @class Metro_Atlanta_Arts_AppViewController;
 
 @interface Metro_Atlanta_Arts_AppAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
-    Metro_Atlanta_Arts_AppViewController *viewController;
+	UITabBarController *tabBarController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet Metro_Atlanta_Arts_AppViewController *viewController;
+@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 
 @end
 

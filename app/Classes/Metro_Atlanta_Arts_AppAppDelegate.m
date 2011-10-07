@@ -12,9 +12,7 @@
 
 @implementation Metro_Atlanta_Arts_AppAppDelegate
 
-
-@synthesize window;
-@synthesize viewController;
+@synthesize window, tabBarController;
 
 
 #pragma mark -
@@ -26,9 +24,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
     // Override point for customization after application launch.
+	tabBarController = [[UITabBarController alloc] init];
 
+/*	viewController = [[Metro_Atlanta_Arts_AppViewController alloc] init];
+	UINavigationController *viewNavController = [[[UINavigationController alloc] initWithRootViewController: viewController] autorelease];
+	[viewController release];
+	
+	nextViewController = [[NextView alloc] init];
+	UINavigationController *nextNavController = [[[UINavigationController alloc] initWithRootViewController: nextViewController] autorelease];
+	[nextViewController release];
+
+	tabBarController.viewControllers = [NSArray arrayWithObjects: viewNavController, nextNavController, nil];
+	
+	viewNavController.tabBarItem.title = @"Map";
+	viewNavController.title = @"Map";
+*/	
     // Add the view controller's view to the window and display.
-    [self.window addSubview:viewController.view];
+    [self.window addSubview:tabBarController.view];
     [self.window makeKeyAndVisible];
 
     return YES;
@@ -84,7 +96,7 @@
 
 
 - (void)dealloc {
-    [viewController release];
+    [tabBarController release];
     [window release];
     [super dealloc];
 }
