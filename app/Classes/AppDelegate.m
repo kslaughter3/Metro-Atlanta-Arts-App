@@ -6,13 +6,19 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "Metro_Atlanta_Arts_AppAppDelegate.h"
-#import "Metro_Atlanta_Arts_AppViewController.h"
-#import "NextView.h"
+#import "AppDelegate.h"
+//#import "Metro_Atlanta_Arts_AppViewController.h"
+//#import "NextView.h"
 
-@implementation Metro_Atlanta_Arts_AppAppDelegate
+@implementation AppDelegate
 
-@synthesize window, tabBarController;
+@synthesize window;
+@synthesize tabBarController;
+@synthesize tabBarItem1;
+@synthesize tabBarItem2;
+@synthesize tabBarItem3;
+@synthesize tabBarItem4;
+@synthesize tabBarItem5;
 
 
 #pragma mark -
@@ -24,7 +30,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
     // Override point for customization after application launch.
-	tabBarController = [[UITabBarController alloc] init];
+	//tabBarController = [[UITabBarController alloc] init];
 
 /*	viewController = [[Metro_Atlanta_Arts_AppViewController alloc] init];
 	UINavigationController *viewNavController = [[[UINavigationController alloc] initWithRootViewController: viewController] autorelease];
@@ -40,8 +46,8 @@
 	viewNavController.title = @"Map";
 */	
     // Add the view controller's view to the window and display.
-    [self.window addSubview:tabBarController.view];
-    [self.window makeKeyAndVisible];
+    [window addSubview:[tabBarController view]];
+    [window makeKeyAndVisible];
 
     return YES;
 }

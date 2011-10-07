@@ -6,17 +6,17 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "Metro_Atlanta_Arts_AppViewController.h"
-#import "NextView.h"
+#import "MapController.h"
+#import "EventListController.h"
 #import "EventAnnotation.h"
 
-@implementation Metro_Atlanta_Arts_AppViewController
+@implementation MapController
 
 @synthesize myMapView, mapAnnotations;
 
 
 -(IBAction)next:(id)sender {
-	NextView *NView = [[NextView alloc] initWithNibName:nil bundle:nil];
+	EventListController *NView = [[EventListController alloc] initWithNibName:nil bundle:nil];
 	[self presentModalViewController:NView animated:YES];
 }
 
@@ -45,7 +45,7 @@
 	//myMapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 100, 500, 400)];
 	//myMapView.delegate=self;
 	
-	[self.view addSubview:myMapView];
+	//[self.view addSubview:myMapView];
 	[NSThread detachNewThreadSelector:@selector(displayMYMap) toTarget:self withObject:nil];
 }
 

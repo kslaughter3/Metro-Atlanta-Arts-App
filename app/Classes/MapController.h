@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
+@class MapController;
 
-@interface Metro_Atlanta_Arts_AppViewController : UIViewController<MKMapViewDelegate> {
+@interface MapController : UIViewController<MKMapViewDelegate> {
 	IBOutlet MKMapView* myMapView;
 }
 
