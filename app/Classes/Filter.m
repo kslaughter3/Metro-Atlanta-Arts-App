@@ -133,7 +133,7 @@
 	return NULL;
 }
 
--(Filter *)initializeLocationFilter: (CLLocation *) loc Radius: (double) rad {
+-(Filter *)initializeLocationFilter: (EventLocation *) loc Radius: (double) rad {
 	self = [super init];
 	
 	if(self != NULL) {
@@ -216,10 +216,10 @@
 	return ((min <= max) && (min >= 0));
 }
 
--(bool)checkLocationFilterer: (CLLocation *) loc Radius: (double) rad {
+-(bool)checkLocationFilterer: (EventLocation *) loc Radius: (double) rad {
 	/* Check to see if the location is set and the radius is not negative */
 	if(loc != NULL) {
-		CLLocationCoordinate2D coord = loc.coordinate;
+		CLLocationCoordinate2D coord = [loc getCoordinates];
 		/* Check to make sure the lat lon is within the bounds */
 		if((coord.latitude >= MINLAT) && (coord.latitude <= MAXLAT) && 
 		   (coord.longitude >= MINLON) && (coord.longitude <= MAXLON)) {
@@ -282,7 +282,7 @@
 	return filterer->maxDuration;
 }
 
--(CLLocation *)getFiltererLocation {
+-(EventLocation *)getFiltererLocation {
 	return filterer->loc;
 }
 

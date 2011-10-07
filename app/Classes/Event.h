@@ -7,31 +7,29 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
+#import "EventArtist.h"
+#import "EventAvailability.h"
+#import "EventLocation.h"
 
 #define MILESTOMETERS 1609
 
 @interface Event : NSObject {
-	NSString *name;			/* Name of the Event */
-	NSString *artist;		/* Name of the Artist (where applicable) */
-	NSString *description;	/* Description of Event */
-	NSURL *website;			/* Website URL */
-	NSString *address;		/* Street Address of Event */
-	NSString *city;			/* City of Address (Atlanta) */
-	NSString *state;		/* State of Address (Georgia) */
-	NSString *zip;			/* Zip of Address */
-	CLLocation *location;	/* Location of Event (Lat/Lon) */
-	NSDate *startDate;		/* Start Date and Time */
-	NSDate *endDate;		/* End Date and Time */
-	int duration;			/* Duration of the Event (in minutes)*/
-	double cost;			/* Cost of the Event */
+	NSString *name;						/* Name of the Event */
+	EventArtist *artist;				/* Name of the Artist (where applicable) */
+	NSString *description;				/* Description of Event */
+	NSURL *website;						/* Website URL */
+	EventLocation *location;			/* The location of Event (both street and lat/lon */
+	NSDate *startDate;					/* Start Date and Time */
+	NSDate *endDate;					/* End Date and Time */
+	int duration;						/* Duration of the Event (in minutes)*/
+	double cost;						/* Cost of the Event */
+	EventAvailability *availability;	/* The availability of the event */
 }
 
 /* Initializer */
--(Event *)initEventWithName: (NSString *) n Artist: (NSString *) a Description: (NSString *) desc
-					Website: (NSURL *) url Address: (NSString *) add City: (NSString *) c State: (NSString *) s
-						Zip: (NSString *) z Start: (NSDate *) start End: (NSDate *) end
-				   Duration: (int) length Cost: (double) price;
+-(Event *)initEventWithName: (NSString *) n Artist: (EventArtist *) a Description: (NSString *) desc
+					Website: (NSURL *) url Location: (EventLocation *) loc Start: (NSDate *) start End: (NSDate *) end
+				   Duration: (int) length Cost: (double) price Availability: (EventAvailability *) avail;
 
 /* I don't know if this makes sense but I wrote it anyway */
 -(void)print;
@@ -41,8 +39,8 @@
 -(void)setEventName: (NSString *) str;
 -(NSString *)getEventName;
 
--(void)setArtist: (NSString *) str;
--(NSString *)getArtist;
+-(void)setArtist: (EventArtist *) art;
+-(EventArtist *)getArtist;
 
 -(void)setDescription: (NSString *) str;
 -(NSString *)getDescription;
@@ -50,20 +48,8 @@
 -(void)setWebsite: (NSURL *) url;
 -(NSURL *)getWebsite;
 
--(void)setAddress: (NSString *) str;
--(NSString *)getAddress;
-
--(void)setCity: (NSString *) str;
--(NSString *)getCity;
-
--(void)setState: (NSString *) str;
--(NSString *)getState;
-
--(void)setZip: (NSString *) str;
--(NSString *)getZip;
-
--(void)setLocation: (CLLocation *) loc;
--(CLLocation * )getLocation;
+-(void)setLocation: (EventLocation *) loc;
+-(EventLocation * )getLocation;
 
 -(void)setStartDate: (NSDate *) date;
 -(NSDate *)getStartDate;
@@ -77,12 +63,12 @@
 -(void)setCost: (double) price;
 -(double)getCost;
 
+-(void)setAvailability: (EventAvailability *) avail;
+-(EventAvailability *)getAvailability;
+
 /* End Getters and Setters */
 
 /* Helper Methods */
-
-/*Sets the location (lat/lon) based on the street address */
--(void)setLocationFromAddress;
 
 /* End Helper Methods */
 
@@ -105,7 +91,11 @@
 
 /* Returns true if the location of this event is within the given radius (in miles)
    of the given Location */
--(bool)LocationFilterLoc: (CLLocation *) loc andRadius: (double) rad;
+-(bool)LocationFilterLoc: (EventLocation *) loc andRadius: (double) rad;
+
+/* Takes a day of the week and a time (24 hr format) and returns whether this event 
+   is available at the day and time */
+-(bool)AvailabilityFilter: (NSString *) day Time: (int) time;
 
 /* End Filter Methods */
 

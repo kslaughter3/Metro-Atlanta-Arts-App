@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
+#import "EventLocation.h"
 
 /* Definitions of the minimum and maximum valid latitudes and longitudes
    can restrict these more and move these definitions to a more useful place if necessary */
@@ -34,7 +34,7 @@ typedef struct Filterer {
 	double			maxCost;		/* Cost Filter */
 	int				minDuration;	/* Duration Filter */
 	int				maxDuration;	/* Duration Filter */
-	CLLocation		*loc;			/* Location Filter */
+	EventLocation	*loc;			/* Location Filter */
 	double			radius;			/* Location Filter */
 } Filterer;
 
@@ -55,7 +55,7 @@ typedef struct Filterer {
 -(Filter *)iniitializeTimeFilterStart: (NSDate *) start End: (NSDate *) end;
 -(Filter *)initializeCostFilterMin: (double) min Max: (double) max;
 -(Filter *)initializeDurationFilterMin: (int) min Max: (int) max;
--(Filter *)initializeLocationFilter: (CLLocation *) loc Radius: (double) rad;
+-(Filter *)initializeLocationFilter: (EventLocation *) loc Radius: (double) rad;
 
 /* Filterer Checkers */
 -(bool)checkFilterer: (Filterer *) f;
@@ -64,7 +64,7 @@ typedef struct Filterer {
 -(bool)checkTimeFiltererStart: (NSDate *) start End: (NSDate *) end;
 -(bool)checkCostFiltererMin: (double) min Max: (double) max;
 -(bool)checkDurationFiltererMin: (int) min Max: (int) max;
--(bool)checkLocationFilterer: (CLLocation *) loc Radius: (double) radius;
+-(bool)checkLocationFilterer: (EventLocation *) loc Radius: (double) radius;
 
 /* Getters and Setters */
 -(void)setFilterType: (FilterType) t;
@@ -81,7 +81,7 @@ typedef struct Filterer {
 -(double)getFiltererMaxCost;
 -(int)getFiltererMinDuration;
 -(int)getFiltererMaxDuration;
--(CLLocation *)getFiltererLocation;
+-(EventLocation *)getFiltererLocation;
 -(double)getFiltererRadius;
 
 @end

@@ -21,6 +21,9 @@
 		BFF8F6C6143A278200D5DA96 /* filters.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6C5143A278200D5DA96 /* filters.xib */; };
 		BFF8F6CB143A2B7F00D5DA96 /* eventList.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6CA143A2B7F00D5DA96 /* eventList.xib */; };
 		BFF8F6E3143A2FB500D5DA96 /* eventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6E2143A2FB500D5DA96 /* eventView.xib */; };
+		F2B45EB8143F5E18002B0729 /* EventLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EB7143F5E18002B0729 /* EventLocation.m */; };
+		F2B45EBB143F5E3C002B0729 /* EventAvailability.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EBA143F5E3C002B0729 /* EventAvailability.m */; };
+		F2B45EBE143F5E48002B0729 /* EventArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EBD143F5E48002B0729 /* EventArtist.m */; };
 		F2B4AD011436346A00FA5091 /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B4AD001436346A00FA5091 /* Content.m */; };
 		F2B4AD2814363B7900FA5091 /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B4AD2714363B7900FA5091 /* Filter.m */; };
 		F2BF2AE8143A35DE00FBD2F5 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = F2BF2AE7143A35DE00FBD2F5 /* Event.m */; };
@@ -48,6 +51,12 @@
 		BFF8F6C5143A278200D5DA96 /* filters.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = filters.xib; sourceTree = "<group>"; };
 		BFF8F6CA143A2B7F00D5DA96 /* eventList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = eventList.xib; sourceTree = "<group>"; };
 		BFF8F6E2143A2FB500D5DA96 /* eventView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = eventView.xib; sourceTree = "<group>"; };
+		F2B45EB6143F5E18002B0729 /* EventLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventLocation.h; sourceTree = "<group>"; };
+		F2B45EB7143F5E18002B0729 /* EventLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventLocation.m; sourceTree = "<group>"; };
+		F2B45EB9143F5E3C002B0729 /* EventAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAvailability.h; sourceTree = "<group>"; };
+		F2B45EBA143F5E3C002B0729 /* EventAvailability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventAvailability.m; sourceTree = "<group>"; };
+		F2B45EBC143F5E48002B0729 /* EventArtist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventArtist.h; sourceTree = "<group>"; };
+		F2B45EBD143F5E48002B0729 /* EventArtist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventArtist.m; sourceTree = "<group>"; };
 		F2B4ACFF1436346A00FA5091 /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
 		F2B4AD001436346A00FA5091 /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
 		F2B4AD2614363B7900FA5091 /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Filter.h; sourceTree = "<group>"; };
@@ -90,6 +99,12 @@
 				F2BF2AE7143A35DE00FBD2F5 /* Event.m */,
 				F2BF2AEB143A362E00FBD2F5 /* NextView.h */,
 				F2BF2AEC143A362E00FBD2F5 /* NextView.m */,
+				F2B45EB6143F5E18002B0729 /* EventLocation.h */,
+				F2B45EB7143F5E18002B0729 /* EventLocation.m */,
+				F2B45EB9143F5E3C002B0729 /* EventAvailability.h */,
+				F2B45EBA143F5E3C002B0729 /* EventAvailability.m */,
+				F2B45EBC143F5E48002B0729 /* EventArtist.h */,
+				F2B45EBD143F5E48002B0729 /* EventArtist.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -175,7 +190,6 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Metro-Atlanta-Arts-App" */;
 			compatibilityVersion = "Xcode 3.1";
-			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -221,6 +235,9 @@
 				F2BF2AE8143A35DE00FBD2F5 /* Event.m in Sources */,
 				F2BF2AED143A362E00FBD2F5 /* NextView.m in Sources */,
 				225AB09B143A43A40075EC49 /* EventAnnotation.m in Sources */,
+				F2B45EB8143F5E18002B0729 /* EventLocation.m in Sources */,
+				F2B45EBB143F5E3C002B0729 /* EventAvailability.m in Sources */,
+				F2B45EBE143F5E48002B0729 /* EventArtist.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

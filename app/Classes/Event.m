@@ -14,14 +14,14 @@
 @implementation Event
 
 /* Initialize Method */
--(Event *)initEventWithName: (NSString *) n Artist: (NSString *) a Description: (NSString *) desc
-					Website: (NSURL *) url Address: (NSString *) add City: (NSString *) c 
-					State: (NSString *) s Zip: (NSString *) z Start: (NSDate *) start 
-					End: (NSDate *) end Duration: (int) length Cost: (double) price {
+-(Event *)initEventWithName: (NSString *) n Artist: (EventArtist *) a Description: (NSString *) desc
+					Website: (NSURL *) url Location: (EventLocation *) loc Start: (NSDate *) start 
+					End: (NSDate *) end Duration: (int) length Cost: (double) price 
+					Availability: (EventAvailability *) avail {
 	
 	/* Check all the data */
-	if((n == NULL) || (a == NULL) || (desc == NULL) || (url == NULL) || (add == NULL) ||
-	   (c == NULL) || (s == NULL) || (z == NULL) || (start == NULL) || (end == NULL) ||
+	if((n == NULL) || (a == NULL) || (desc == NULL) || (url == NULL) || (loc == NULL) ||
+	   (start == NULL) || (end == NULL) || (avail == NULL) || 
 	   (length < 0) || (price < 0) || ([start earlierDate: end] == end)) {
 		return NULL;
 	}
@@ -33,15 +33,12 @@
 		[self setArtist: a];
 		[self setDescription: desc];
 		[self setWebsite: url];
-		[self setAddress: add];
-		[self setCity: c];
-		[self setState: s];
-		[self setZip: z];
+		[self setLocation: loc];
 		[self setStartDate: start];
 		[self setEndDate: end];
 		[self setDuration: length];
 		[self setCost: price];
-		[self setLocationFromAddress];
+		[self setAvailability: avail];
 		
 		return self;
 	}
@@ -62,11 +59,11 @@
 	return name;
 }
 
--(void) setArtist: (NSString *) str {
+-(void) setArtist: (EventArtist *) str {
 	artist = str;
 }
 
--(NSString *)getArtist {
+-(EventArtist *)getArtist {
 	return artist;
 }
 
@@ -86,43 +83,11 @@
 	return website;
 }
 
--(void) setAddress: (NSString *) str {
-	address = str;
-}
-
--(NSString *)getAddress {
-	return address;
-}
-
--(void) setCity: (NSString *) str {
-	city = str;
-}
-
--(NSString *)getCity {
-	return city;
-}
-
--(void) setState: (NSString *) str {
-	state = str;
-}
-
--(NSString *)getState {
-	return state;
-}
-
--(void) setZip: (NSString *) str {
-	zip = str;
-}
-
--(NSString *)getZip {
-	return zip;
-}
-
--(void)setLocation: (CLLocation *) loc {
+-(void)setLocation: (EventLocation *) loc {
 	location = loc;
 }
 
--(CLLocation *)getLocation {
+-(EventLocation *)getLocation {
 	return location;
 }
 
@@ -158,12 +123,17 @@
 	return cost;
 }
 
+-(void)setAvailability: (EventAvailability *) avail {
+	availability = avail;
+}
+
+-(EventAvailability *)getAvailability {
+	return availability;
+}
+
 /* End Getters and Setters */
 
 /* Helper Methods */
-/*Sets the location (lat/lon) based on the street address */
--(void)setLocationFromAddress {
-}
 
 /* End Helper Methods */
 
@@ -182,7 +152,7 @@
 /* Returns true if the event's artist begins with the given artist false otherwise */
 -(bool)ArtistFilter: (NSString *) str {
 	if(str != NULL && artist != NULL) {
-		NSString * temp = [artist uppercaseString];
+		NSString * temp = [[artist getName] uppercaseString];
 		str = [str uppercaseString];
 		return [temp hasPrefix: str];
 	}
@@ -210,10 +180,17 @@
 }
 
 /*Returns true if the location of this event is within the given radius of the given Location */
--(bool)LocationFilterLoc: (CLLocation *) loc andRadius: (double) rad {
+-(bool)LocationFilterLoc: (EventLocation *) loc andRadius: (double) rad {
 	double distance = [location distanceFromLocation: loc];
 	double radInMeters = rad * MILESTOMETERS;
 	return (distance <= radInMeters);
+}
+
+-(bool)AvailabilityFilter: (NSString *) day Time: (int) time {
+	if([availability containsDay: day] == true) {
+		return ([availability availableDuring: time]);
+	}
+	return false;
 }
 
 /* End Filter Methods */
