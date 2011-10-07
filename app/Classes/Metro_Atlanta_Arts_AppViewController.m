@@ -65,7 +65,7 @@
 	
 	
 	CLLocationCoordinate2D location; 
-	location.latitude = 33.7728837;
+	location.latitude = 33.7728837; /* We should make these constants*/
 	location.longitude = -84.393816;
 	region.span=span; 
 	region.center=location; 
@@ -75,13 +75,14 @@
 }
 
 
-/*
+
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	return YES;
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-*/
+
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
