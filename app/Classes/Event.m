@@ -20,15 +20,15 @@
 					Availability: (EventAvailability *) avail {
 	
 	/* Check all the data */
-	if((n == NULL) || (a == NULL) || (desc == NULL) || (url == NULL) || (loc == NULL) ||
-	   (start == NULL) || (end == NULL) || (avail == NULL) || 
+	if((n == nil) || (a == nil) || (desc == nil) || (url == nil) || (loc == nil) ||
+	   (start == nil) || (end == nil) || (avail == nil) || 
 	   (length < 0) || (price < 0) || ([start earlierDate: end] == end)) {
-		return NULL;
+		return nil;
 	}
 	
 	self = [super init];
 	
-	if (self != NULL) {
+	if (self != nil) {
 		[self setEventName: n];
 		[self setArtist: a];
 		[self setDescription: desc];
@@ -43,7 +43,7 @@
 		return self;
 	}
 	
-	return NULL;
+	return nil;
 }
 
 
@@ -141,7 +141,7 @@
 
 /* Returns true if the event's name begins with the given name false otherwise */
 -(bool)NameFilter: (NSString *) str {
-	if(str != NULL && name != NULL) {
+	if(str != nil && name != nil) {
 		NSString * temp = [name uppercaseString];
 		str = [str uppercaseString];
 		return [temp hasPrefix: str];
@@ -151,7 +151,7 @@
 
 /* Returns true if the event's artist begins with the given artist false otherwise */
 -(bool)ArtistFilter: (NSString *) str {
-	if(str != NULL && artist != NULL) {
+	if(str != nil && artist != nil) {
 		NSString * temp = [[artist getName] uppercaseString];
 		str = [str uppercaseString];
 		return [temp hasPrefix: str];

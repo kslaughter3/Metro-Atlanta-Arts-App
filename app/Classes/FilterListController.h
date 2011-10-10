@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class FilterController;
+@class FilterListController;
 
-@interface FilterController : UIViewController <UITableViewDelegate> {
+@interface FilterListController : UIViewController <UITableViewDelegate> {
 	IBOutlet UITableView* myFilterTableView;
-
 }
 @property (nonatomic, retain) IBOutlet UITableView* myFilterTableView;
 
+-(IBAction)addFilter:(id)sender;
+-(IBAction)editFilter:(id)sender;
+-(IBAction)removeFilter:(id)sender;
 @end

@@ -14,13 +14,13 @@
 /* Initializer */
 -(EventLocation *)initializeWithAddress: (NSString *) add City: (NSString *) c State: (NSString *) s 
 								Zip: (NSString *) z Location: (CLLocation *) loc {
-	if((add == NULL) || (c == NULL) || (s == NULL) || (z == NULL) || (loc == NULL)) {
-		return NULL;
+	if((add == nil) || (c == nil) || (s == nil) || (z == nil) || (loc == nil)) {
+		return nil;
 	}
 	
 	self = [super init];
 	
-	if(self != NULL) {
+	if(self != nil) {
 		[self setStreetAddress: add];
 		[self setCity: c];
 		[self setState: s];
@@ -30,7 +30,7 @@
 		return self;
 	}
 	
-	return NULL;
+	return nil;
 }
 
 /* getters and setters */

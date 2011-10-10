@@ -13,13 +13,13 @@
 
 /* Initializers */
 -(EventAvailability *)initiaize: (NSMutableArray *) d Start: (int) start End: (int) end {
-	if((d == NULL) || (start < 0) || (start >= 2400) || (end < 0) || (end >= 2400)) {
-		return NULL;
+	if((d == nil) || (start < 0) || (start >= 2400) || (end < 0) || (end >= 2400)) {
+		return nil;
 	}
 	
 	self = [super init];
 	
-	if(self != NULL) {
+	if(self != nil) {
 		[self setDays: d];
 		[self setStartTime: start];
 		[self setEndTime: end];
@@ -27,7 +27,7 @@
 		return self;
 	}
 	
-	return NULL;
+	return nil;
 }
 
 /* Getters and Setters */

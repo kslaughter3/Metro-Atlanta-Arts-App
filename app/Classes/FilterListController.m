@@ -6,21 +6,23 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "FilterController.h"
+#import "FilterListController.h"
+#import "AddFilterController.h"
 
-
-@implementation FilterController
+@implementation FilterListController
 @synthesize myFilterTableView;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
+	NSLog(@"initReached");
+	if ((self = [super initWithNibName:nil bundle:nil])) {
+		addButton.target = self;
+		addButton.action = @selector(addFilter: ); 
     }
     return self;
-}
-*/
+}*/
+
 
 /*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -29,13 +31,25 @@
 }
 */
 
-/*
+
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	return YES;
+//    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-*/
+
+-(IBAction)addFilter: (id) sender {
+	NSLog(@"Add Filter Clicked\n");
+}
+
+-(IBAction)editFilter: (id) sender {
+	NSLog(@"Edit Filter Clicked\n");
+}
+
+-(IBAction)removeFilter: (id) sender {
+	NSLog(@"Remove Filter Clicked\n");
+}
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

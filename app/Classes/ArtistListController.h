@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ArtistController.h"
 
+@class ArtistListController;
 
-@interface ArtistListController : UIViewController {
-
+@interface ArtistListController : UIViewController <UITableViewDelegate> {
+	IBOutlet UITableView *myTableView;
+	IBOutlet ArtistController *artistController;
 }
 
+@property (nonatomic, retain) IBOutlet UITableView *myTableView;
+@property (nonatomic, retain) IBOutlet ArtistController *artistController;
 @end

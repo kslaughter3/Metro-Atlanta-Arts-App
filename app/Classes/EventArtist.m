@@ -13,20 +13,20 @@
 
 /* Initializers */
 -(EventArtist *)initializeArtist: (NSString *) n Description: (NSString *) desc {
-	if((n == NULL) || (desc == NULL)) {
-		return NULL;
+	if((n == nil) || (desc == nil)) {
+		return nil;
 	}
 	
 	self = [super init];
 	
-	if(self != NULL) {
+	if(self != nil) {
 		[self setName: n];
 		[self setDescription: desc];
 		
 		return self;
 	}
 	
-	return NULL;
+	return nil;
 }
 
 /* Getters and Setters */

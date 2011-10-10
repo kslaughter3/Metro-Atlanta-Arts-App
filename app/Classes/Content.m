@@ -10,12 +10,27 @@
 #import "Filter.h"
 #import "Event.h"
 
+static Content *instance;
+
 @implementation Content
+
++(Content *)getInstance {
+	if(instance == nil) {
+		instance = [instance getContent];
+	}
+	
+	if(instance != nil) {
+		return instance;
+	}
+		
+	//Something bad happened 
+	return nil;
+}
 
 -(Content *)getContent {
 	self = [super init];
 	
-	if(self != NULL)
+	if(self != nil)
 	{
 		[self->displayedEvents initWithCapacity: 10];
 		[self->filteredEvents initWithCapacity: 10];
@@ -29,7 +44,7 @@
 		return self;
 	}
 	
-	return NULL;
+	return nil;
 }
 
 -(void)filterOldEvents {
@@ -38,8 +53,8 @@
 
 -(bool)addFilter: (Filter *) filter AndFilter: (bool) type {
 	
-	/* Check to see if the filter is NULL or invalid */
-	if(filter == NULL) {
+	/* Check to see if the filter is nil or invalid */
+	if(filter == nil) {
 		return false;
 	}
 	
@@ -65,8 +80,8 @@
 
 -(bool)removeFilter: (Filter *) filter AndFilter: (bool) type {
 	
-	/* Check to see if the filter is NULL or invalid */
-	if(filter == NULL) {
+	/* Check to see if the filter is nil or invalid */
+	if(filter == nil) {
 		return false;
 	}
 	
@@ -369,6 +384,10 @@
 
 -(NSMutableArray *)getFilteredEvents {
 	return filteredEvents;
+}
+
+-(NSMutableArray *)getArtists {
+	return artists;
 }
 
 @end

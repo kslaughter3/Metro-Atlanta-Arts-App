@@ -1,16 +1,15 @@
 //
-//  ArtistListController.m
+//  ArtistController.m
 //  Metro-Atlanta-Arts-App
 //
 //  Created by Gendreau, Anthony S on 10/10/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
 
-#import "ArtistListController.h"
-#import "Content.h"
+#import "ArtistController.h"
 
-@implementation ArtistListController
-@synthesize myTableView, artistController;
+
+@implementation ArtistController
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -29,30 +28,13 @@
 }
 */
 
--(void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
-	int idx = indexPath.row;
-	Content *content = [Content getInstance];
-	
-	if(content == nil) {
-		//Something bad happened handle it 
-		return;
-	}
-	
-	if(artistController == nil) {
-		self.artistController = [[ArtistController alloc] initWithNibName: @"ArtistController" bundle: nil];
-	}
-	
-	[artistController setArtist: [[content getArtists] objectAtIndex: idx]];
-	[self.view addSubview:[artistController view]];
-}
-
+/*
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-	return YES;
-//    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
+*/
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -72,5 +54,12 @@
     [super dealloc];
 }
 
+-(void)setArtist: (EventArtist *) a {
+	artist = a;
+}
+
+-(EventArtist *)getArtist {
+	return artist;
+}
 
 @end

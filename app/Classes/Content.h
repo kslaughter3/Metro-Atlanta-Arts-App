@@ -15,8 +15,14 @@
 	NSMutableArray *filteredEvents;
 	NSMutableArray *oldEvents; /* Holds the events that are filtered because they are no longer valid */
 	NSMutableArray *filters;
+	NSMutableArray *artists;
 	
 }
+
+/* Gets the current instance of the content if there is one 
+   if there isn't an instance yet it tries to instaniate one then returns that */
++(Content *)getInstance;
+
 
 /* Gets all the events from the database and stores them in the events array 
    Also calls filterOldEvents to remove any events in the database that are out of date 
@@ -53,5 +59,8 @@
 -(NSMutableArray *)getDisplayedEvents;
 
 -(NSMutableArray *)getFilteredEvents;
+
+-(NSMutableArray *)getArtists;
+
 
 @end
