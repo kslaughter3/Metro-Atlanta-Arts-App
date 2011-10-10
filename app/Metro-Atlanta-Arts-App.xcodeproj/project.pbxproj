@@ -13,22 +13,21 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		225AB09B143A43A40075EC49 /* EventAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 225AB09A143A43A40075EC49 /* EventAnnotation.m */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		2899E5220DE3E06400AC0155 /* Metro_Atlanta_Arts_AppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* Metro_Atlanta_Arts_AppViewController.xib */; };
+		2899E5220DE3E06400AC0155 /* MapController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* MapController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* MapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* MapController.m */; };
 		3A98777D142A57A600D80A8C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A98777C142A57A600D80A8C /* MapKit.framework */; };
-		BFF265E8143F84AD00084695 /* untitled.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF265E7143F84AD00084695 /* untitled.xib */; };
 		BFF266AB143F928800084695 /* FilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF266A9143F928800084695 /* FilterController.m */; };
-		BFF266AC143F928800084695 /* filterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF266AA143F928800084695 /* filterController.xib */; };
-		BFF8F6BA143A244300D5DA96 /* eventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6B9143A244300D5DA96 /* eventView.xib */; };
-		BFF8F6C6143A278200D5DA96 /* filters.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6C5143A278200D5DA96 /* filters.xib */; };
-		BFF8F6CB143A2B7F00D5DA96 /* eventList.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6CA143A2B7F00D5DA96 /* eventList.xib */; };
-		BFF8F6E3143A2FB500D5DA96 /* eventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6E2143A2FB500D5DA96 /* eventView.xib */; };
+		BFF8F6C6143A278200D5DA96 /* FilterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6C5143A278200D5DA96 /* FilterController.xib */; };
+		BFF8F6CB143A2B7F00D5DA96 /* EventListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6CA143A2B7F00D5DA96 /* EventListController.xib */; };
+		BFF8F6E3143A2FB500D5DA96 /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6E2143A2FB500D5DA96 /* EventViewController.xib */; };
 		F2B45EB8143F5E18002B0729 /* EventLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EB7143F5E18002B0729 /* EventLocation.m */; };
 		F2B45EBB143F5E3C002B0729 /* EventAvailability.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EBA143F5E3C002B0729 /* EventAvailability.m */; };
 		F2B45EBE143F5E48002B0729 /* EventArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EBD143F5E48002B0729 /* EventArtist.m */; };
 		F2B4AD011436346A00FA5091 /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B4AD001436346A00FA5091 /* Content.m */; };
 		F2B4AD2814363B7900FA5091 /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B4AD2714363B7900FA5091 /* Filter.m */; };
+		F2B586B11443546B000A4A68 /* ArtistListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B586AF1443546B000A4A68 /* ArtistListController.m */; };
+		F2B586B21443546B000A4A68 /* ArtistListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B586B01443546B000A4A68 /* ArtistListController.xib */; };
 		F2BF2AE8143A35DE00FBD2F5 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = F2BF2AE7143A35DE00FBD2F5 /* Event.m */; };
 		F2BF2AED143A362E00FBD2F5 /* EventListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2BF2AEC143A362E00FBD2F5 /* EventListController.m */; };
 /* End PBXBuildFile section */
@@ -42,7 +41,7 @@
 		225AB099143A43A40075EC49 /* EventAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAnnotation.h; sourceTree = "<group>"; };
 		225AB09A143A43A40075EC49 /* EventAnnotation.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = EventAnnotation.m; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2899E5210DE3E06400AC0155 /* Metro_Atlanta_Arts_AppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Metro_Atlanta_Arts_AppViewController.xib; sourceTree = "<group>"; };
+		2899E5210DE3E06400AC0155 /* MapController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapController.xib; sourceTree = "<group>"; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		28D7ACF60DDB3853001CB0EB /* MapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapController.h; sourceTree = "<group>"; };
 		28D7ACF70DDB3853001CB0EB /* MapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapController.m; sourceTree = "<group>"; };
@@ -50,14 +49,11 @@
 		32CA4F630368D1EE00C91783 /* Metro_Atlanta_Arts_App_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metro_Atlanta_Arts_App_Prefix.pch; sourceTree = "<group>"; };
 		3A98777C142A57A600D80A8C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Metro_Atlanta_Arts_App-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Metro_Atlanta_Arts_App-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		BFF265E7143F84AD00084695 /* untitled.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = untitled.xib; sourceTree = "<group>"; };
 		BFF266A8143F928800084695 /* FilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterController.h; sourceTree = "<group>"; };
 		BFF266A9143F928800084695 /* FilterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterController.m; sourceTree = "<group>"; };
-		BFF266AA143F928800084695 /* filterController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = filterController.xib; sourceTree = "<group>"; };
-		BFF8F6B9143A244300D5DA96 /* eventView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = eventView.xib; sourceTree = "<group>"; };
-		BFF8F6C5143A278200D5DA96 /* filters.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = filters.xib; sourceTree = "<group>"; };
-		BFF8F6CA143A2B7F00D5DA96 /* eventList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = eventList.xib; sourceTree = "<group>"; };
-		BFF8F6E2143A2FB500D5DA96 /* eventView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = eventView.xib; sourceTree = "<group>"; };
+		BFF8F6C5143A278200D5DA96 /* FilterController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterController.xib; sourceTree = "<group>"; };
+		BFF8F6CA143A2B7F00D5DA96 /* EventListController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventListController.xib; sourceTree = "<group>"; };
+		BFF8F6E2143A2FB500D5DA96 /* EventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventViewController.xib; sourceTree = "<group>"; };
 		F2B45EB6143F5E18002B0729 /* EventLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventLocation.h; sourceTree = "<group>"; };
 		F2B45EB7143F5E18002B0729 /* EventLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventLocation.m; sourceTree = "<group>"; };
 		F2B45EB9143F5E3C002B0729 /* EventAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAvailability.h; sourceTree = "<group>"; };
@@ -68,6 +64,9 @@
 		F2B4AD001436346A00FA5091 /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
 		F2B4AD2614363B7900FA5091 /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Filter.h; sourceTree = "<group>"; };
 		F2B4AD2714363B7900FA5091 /* Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Filter.m; sourceTree = "<group>"; };
+		F2B586AE1443546B000A4A68 /* ArtistListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistListController.h; sourceTree = "<group>"; };
+		F2B586AF1443546B000A4A68 /* ArtistListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistListController.m; sourceTree = "<group>"; };
+		F2B586B01443546B000A4A68 /* ArtistListController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistListController.xib; sourceTree = "<group>"; };
 		F2BF2AE6143A35DE00FBD2F5 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		F2BF2AE7143A35DE00FBD2F5 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		F2BF2AEB143A362E00FBD2F5 /* EventListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventListController.h; sourceTree = "<group>"; };
@@ -114,7 +113,8 @@
 				F2B45EBD143F5E48002B0729 /* EventArtist.m */,
 				BFF266A8143F928800084695 /* FilterController.h */,
 				BFF266A9143F928800084695 /* FilterController.m */,
-				BFF266AA143F928800084695 /* filterController.xib */,
+				F2B586AE1443546B000A4A68 /* ArtistListController.h */,
+				F2B586AF1443546B000A4A68 /* ArtistListController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -151,12 +151,11 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BFF8F6E2143A2FB500D5DA96 /* eventView.xib */,
-				BFF8F6C5143A278200D5DA96 /* filters.xib */,
-				BFF265E7143F84AD00084695 /* untitled.xib */,
-				BFF8F6CA143A2B7F00D5DA96 /* eventList.xib */,
-				BFF8F6B9143A244300D5DA96 /* eventView.xib */,
-				2899E5210DE3E06400AC0155 /* Metro_Atlanta_Arts_AppViewController.xib */,
+				F2B586B01443546B000A4A68 /* ArtistListController.xib */,
+				BFF8F6E2143A2FB500D5DA96 /* EventViewController.xib */,
+				BFF8F6C5143A278200D5DA96 /* FilterController.xib */,
+				BFF8F6CA143A2B7F00D5DA96 /* EventListController.xib */,
+				2899E5210DE3E06400AC0155 /* MapController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Metro_Atlanta_Arts_App-Info.plist */,
 			);
@@ -223,13 +222,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				2899E5220DE3E06400AC0155 /* Metro_Atlanta_Arts_AppViewController.xib in Resources */,
-				BFF8F6BA143A244300D5DA96 /* eventView.xib in Resources */,
-				BFF8F6C6143A278200D5DA96 /* filters.xib in Resources */,
-				BFF8F6CB143A2B7F00D5DA96 /* eventList.xib in Resources */,
-				BFF8F6E3143A2FB500D5DA96 /* eventView.xib in Resources */,
-				BFF265E8143F84AD00084695 /* untitled.xib in Resources */,
-				BFF266AC143F928800084695 /* filterController.xib in Resources */,
+				2899E5220DE3E06400AC0155 /* MapController.xib in Resources */,
+				BFF8F6C6143A278200D5DA96 /* FilterController.xib in Resources */,
+				BFF8F6CB143A2B7F00D5DA96 /* EventListController.xib in Resources */,
+				BFF8F6E3143A2FB500D5DA96 /* EventViewController.xib in Resources */,
+				F2B586B21443546B000A4A68 /* ArtistListController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +249,7 @@
 				F2B45EBB143F5E3C002B0729 /* EventAvailability.m in Sources */,
 				F2B45EBE143F5E48002B0729 /* EventArtist.m in Sources */,
 				BFF266AB143F928800084695 /* FilterController.m in Sources */,
+				F2B586B11443546B000A4A68 /* ArtistListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
