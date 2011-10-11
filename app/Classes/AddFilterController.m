@@ -7,7 +7,7 @@
 //
 
 #import "AddFilterController.h"
-
+#import "FilterListController.h"
 
 @implementation AddFilterController
 
@@ -35,6 +35,20 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 */
+
+-(IBAction)cancel: (id)sender {
+	NSLog(@"Cancel Clicked\n");
+	[self.parentViewController dismissModalViewControllerAnimated: YES];
+}
+
+-(IBAction)ok: (id)sender {
+	NSLog(@"OK Clicked\n");
+	
+	/* TODO: Check the filter fields make sure they are valid if not display toast
+	   and don't remove the view */
+	
+	[self.parentViewController dismissModalViewControllerAnimated: YES];
+}
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

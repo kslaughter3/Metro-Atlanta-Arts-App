@@ -7,7 +7,7 @@
 //
 
 #import "FilterListController.h"
-#import "AddFilterController.h"
+#import	"AddFilterController.h"
 
 @implementation FilterListController
 @synthesize myFilterTableView;
@@ -41,6 +41,9 @@
 
 -(IBAction)addFilter: (id) sender {
 	NSLog(@"Add Filter Clicked\n");
+	AddFilterController *addFilterView = [[AddFilterController alloc] 
+		initWithNibName: @"AddFilterView" bundle: nil];
+	[self presentModalViewController: addFilterView animated:YES];
 }
 
 -(IBAction)editFilter: (id) sender {

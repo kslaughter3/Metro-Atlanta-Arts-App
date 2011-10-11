@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class AddFilterController;
 
 @interface AddFilterController : UIViewController {
 
 }
+
+-(IBAction)cancel:(id)sender;
+-(IBAction)ok:(id)sender;
 
 @end

@@ -11,8 +11,9 @@
 @class FilterListController;
 
 @interface FilterListController : UIViewController <UITableViewDelegate> {
-	IBOutlet UITableView* myFilterTableView;
+	IBOutlet UITableView *myFilterTableView;
 }
+
 @property (nonatomic, retain) IBOutlet UITableView* myFilterTableView;
 
 -(IBAction)addFilter:(id)sender;
