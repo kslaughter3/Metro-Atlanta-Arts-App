@@ -21,6 +21,7 @@
 
 -(IBAction)next:(id)sender;
 -(void)displayMYMap;
+-(IBAction)loadEventDetails:(id)sender;
 
 @end
 

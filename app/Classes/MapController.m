@@ -9,6 +9,7 @@
 #import "MapController.h"
 #import "EventListController.h"
 #import "EventAnnotation.h"
+#import "AddFilterController.h"
 
 @implementation MapController
 
@@ -62,8 +63,7 @@
     [self.mapAnnotations insertObject:eventAnnotation atIndex:0];
 	[myMapView addAnnotation:eventAnnotation];
     [eventAnnotation release];    
-	
-	
+		
 	CLLocationCoordinate2D location; 
 	location.latitude = 33.7728837; /* We should make these constants*/
 	location.longitude = -84.393816;
@@ -74,6 +74,51 @@
 	[myMapView regionThatFits:region]; 
 }
 
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+	static NSString *defaultPinID = @"EventAnnotation";
+	MKPinAnnotationView *retval = nil;
+	
+	if ([annotation isMemberOfClass:[EventAnnotation class]]) {
+		(MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
+		
+		if (retval == nil) {
+			retval = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:defaultPinID] autorelease];
+			
+			// Set up the Left callout
+			UIButton *eventButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+			[eventButton addTarget:self 
+					   action:@selector(loadEventDetails:)
+			 forControlEvents:UIControlEventTouchDown];
+			[eventButton setTitle:@"More" forState:UIControlStateNormal];
+			eventButton.frame = CGRectMake(40.0, 105.0, 40.0, 40.0);
+			[retval addSubview:eventButton];
+			
+			
+			// Set the image for the button
+			//[eventButton setImage:[UIImage imageNamed:@"Event.png"] forState:UIControlStateNormal];
+			
+			// Set the button as the callout view
+			retval.leftCalloutAccessoryView = eventButton;
+		}
+		
+		// Set a bunch of other stuff
+		if (retval) {
+			[retval setPinColor:MKPinAnnotationColorGreen];
+			retval.animatesDrop = YES;
+			retval.canShowCallout = YES;
+		}
+	}
+	
+	return retval;
+}
+
+-(IBAction)loadEventDetails:(id)sender
+{
+	AddFilterController *addFilterView = [[AddFilterController alloc] 
+										  initWithNibName: @"AddFilterView" bundle: nil];
+	[self presentModalViewController: addFilterView animated:YES];
+	
+}
 
 
 // Override to allow orientations other than the default portrait orientation.
