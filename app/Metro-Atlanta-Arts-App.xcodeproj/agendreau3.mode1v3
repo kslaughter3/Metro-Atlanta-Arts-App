@@ -216,10 +216,10 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>F2771EAA14460BDC00FC8C0C</string>
+						<string>F2771EC914460F1C00FC8C0C</string>
 						<key>history</key>
 						<array>
-							<string>F2771EA414460BCF00FC8C0C</string>
+							<string>F2771EBF14460DE600FC8C0C</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -256,7 +256,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>F2771EAD14460BDC00FC8C0C</string>
+						<string>F2771ECA14460F1C00FC8C0C</string>
 						<key>history</key>
 						<array>
 							<string>F2771EA314460BB400FC8C0C</string>
@@ -360,7 +360,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 154}, {186, 644}}</string>
+							<string>{{0, 133}, {186, 644}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -395,7 +395,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>EventListController.m</string>
+								<string>ArtistController.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -403,11 +403,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>EventListController.m</string>
+										<string>ArtistController.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F2771EA714460BDC00FC8C0C</string>
+										<string>F2771EC814460F1C00FC8C0C</string>
 										<key>history</key>
 										<array>
 											<string>F2BF2AF7143A367E00FBD2F5</string>
@@ -426,10 +426,8 @@
 											<string>F2B587461443601B000A4A68</string>
 											<string>F2B587471443601B000A4A68</string>
 											<string>F2B587481443601B000A4A68</string>
-											<string>F2B5878C144365F2000A4A68</string>
 											<string>F2B587AF14436A82000A4A68</string>
 											<string>F2B587B014436A82000A4A68</string>
-											<string>F2B5886D1443717D000A4A68</string>
 											<string>F24DCA7014448D530065227F</string>
 											<string>F24DCAB21444916D0065227F</string>
 											<string>F2771D831445F39000FC8C0C</string>
@@ -439,7 +437,9 @@
 											<string>F2771E711446097100FC8C0C</string>
 											<string>F2771E8E14460AE400FC8C0C</string>
 											<string>F2771E8F14460AE400FC8C0C</string>
-											<string>F2771E9014460AE400FC8C0C</string>
+											<string>F2771EBB14460DE600FC8C0C</string>
+											<string>F2771EBC14460DE600FC8C0C</string>
+											<string>F2771EBD14460DE600FC8C0C</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -667,7 +667,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>EventListController.m</string>
+								<string>ArtistController.h</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
