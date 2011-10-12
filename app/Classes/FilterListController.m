@@ -7,12 +7,15 @@
 //
 
 #import "FilterListController.h"
-
+#import "Content.h"
+#import "Filter.h"
+ 
 @implementation FilterListController
-@synthesize myFilterTableView, 
+@synthesize myTableView, 
 			myAddFilterController, 
 			myEditFilterController, 
-			myRemoveFilterController;
+			myRemoveFilterController,
+			listData;
 
 /* // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -21,12 +24,24 @@
 }*/
 
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+	
+	UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero 
+		style: UITableViewStylePlain];
+	
+	[tableView setDelegate: self];
+	[tableView setDataSource: self];
+	myTableView = tableView;
+	[tableView release];
+	
+	NSArray *list = [[NSArray alloc] initWithObjects: @"Test", @"Hello", @"World", nil];
+	self.listData = list;
+	[list release];
     [super viewDidLoad];
 }
-*/
+
 
 
 // Override to allow orientations other than the default portrait orientation.
@@ -36,6 +51,35 @@
 //    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	//Content *content = [Content getInstance];
+	//return [content getFilterCount];
+	if([self.listData count] > 0) {
+		return [self.listData count];
+	}
+	return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	static NSString *MyIdentifier = @"MyIdentifier";
+	
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+	if(cell == nil) {
+		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
+	}
+	
+	//Content *content = [Content getInstance];
+	//Filter *f = (Filter *)[[content getFilters] objectAtIndex:indexPath.row];
+	
+	NSUInteger row = [indexPath row];
+	cell.textLabel.text = [listData objectAtIndex: row];
+	
+	//cell.textLabel.text = [f getTypeName];
+	//TODO: set the detailed text based on the filterer's values 
+	//cell.textLabel.text = @"Hello World";
+	
+	return cell;
+}
 
 -(IBAction)addFilter: (id) sender {
 	NSLog(@"Add Filter Clicked\n");
@@ -63,6 +107,8 @@
 	}
 	
 	[self presentModalViewController: self.myEditFilterController animated:YES];
+	[self.myEditFilterController.description setText:@"Hello World"];
+	
 }
 
 -(IBAction)removeFilter: (id) sender {
@@ -95,6 +141,7 @@
 
 
 - (void)dealloc {
+	[listData dealloc];
     [super dealloc];
 }
 

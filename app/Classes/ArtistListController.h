@@ -11,11 +11,13 @@
 
 @class ArtistListController;
 
-@interface ArtistListController : UIViewController <UITableViewDelegate> {
+@interface ArtistListController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	IBOutlet UITableView *myTableView;
-	IBOutlet ArtistController *artistController;
+	IBOutlet ArtistController *myArtistController;
+	NSArray *listData; 
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
-@property (nonatomic, retain) IBOutlet ArtistController *artistController;
+@property (nonatomic, retain) IBOutlet ArtistController *myArtistController;
+@property (nonatomic, retain) NSArray *listData;
 @end

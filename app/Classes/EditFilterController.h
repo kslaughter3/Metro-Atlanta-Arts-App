@@ -11,8 +11,10 @@
 @class EditFilterController;
 
 @interface EditFilterController : UIViewController {
-
+	IBOutlet UITextView *description;
 }
+
+@property(nonatomic, retain) IBOutlet UITextView *description;
 
 -(IBAction)ok:(id)sender;
 -(IBAction)cancel:(id)sender;

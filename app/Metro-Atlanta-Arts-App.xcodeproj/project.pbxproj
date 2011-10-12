@@ -25,6 +25,7 @@
 		F2771D811445F35600FC8C0C /* EditFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2771D7F1445F35600FC8C0C /* EditFilterView.xib */; };
 		F2771DBA1445F7FE00FC8C0C /* RemoveFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2771DB81445F7FE00FC8C0C /* RemoveFilterController.m */; };
 		F2771DBB1445F7FE00FC8C0C /* RemoveFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2771DB91445F7FE00FC8C0C /* RemoveFilterView.xib */; };
+		F2771E82144609DB00FC8C0C /* EventController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2771E80144609DB00FC8C0C /* EventController.m */; };
 		F2B45EB8143F5E18002B0729 /* EventLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EB7143F5E18002B0729 /* EventLocation.m */; };
 		F2B45EBB143F5E3C002B0729 /* EventAvailability.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EBA143F5E3C002B0729 /* EventAvailability.m */; };
 		F2B45EBE143F5E48002B0729 /* EventArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EBD143F5E48002B0729 /* EventArtist.m */; };
@@ -68,6 +69,8 @@
 		F2771DB71445F7FE00FC8C0C /* RemoveFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoveFilterController.h; sourceTree = "<group>"; };
 		F2771DB81445F7FE00FC8C0C /* RemoveFilterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoveFilterController.m; sourceTree = "<group>"; };
 		F2771DB91445F7FE00FC8C0C /* RemoveFilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveFilterView.xib; sourceTree = "<group>"; };
+		F2771E7F144609DB00FC8C0C /* EventController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventController.h; sourceTree = "<group>"; };
+		F2771E80144609DB00FC8C0C /* EventController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventController.m; sourceTree = "<group>"; };
 		F2B45EB6143F5E18002B0729 /* EventLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventLocation.h; sourceTree = "<group>"; };
 		F2B45EB7143F5E18002B0729 /* EventLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventLocation.m; sourceTree = "<group>"; };
 		F2B45EB9143F5E3C002B0729 /* EventAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAvailability.h; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				F2771D7E1445F35600FC8C0C /* EditFilterController.m */,
 				F2771DB71445F7FE00FC8C0C /* RemoveFilterController.h */,
 				F2771DB81445F7FE00FC8C0C /* RemoveFilterController.m */,
+				F2771E7F144609DB00FC8C0C /* EventController.h */,
+				F2771E80144609DB00FC8C0C /* EventController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 				F2B587881443659B000A4A68 /* AddFilterController.m in Sources */,
 				F2771D801445F35600FC8C0C /* EditFilterController.m in Sources */,
 				F2771DBA1445F7FE00FC8C0C /* RemoveFilterController.m in Sources */,
+				F2771E82144609DB00FC8C0C /* EventController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

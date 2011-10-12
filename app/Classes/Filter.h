@@ -83,5 +83,6 @@ typedef struct Filterer {
 -(int)getFiltererMaxDuration;
 -(EventLocation *)getFiltererLocation;
 -(double)getFiltererRadius;
+-(NSString *)getTypeName;
 
 @end

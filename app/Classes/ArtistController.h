@@ -13,6 +13,8 @@
 	EventArtist *artist;
 }
 
+-(IBAction)close: (id) sender;
+
 -(void)setArtist: (EventArtist *) a;
 -(EventArtist *)getArtist;
 
