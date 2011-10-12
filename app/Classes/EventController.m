@@ -1,16 +1,15 @@
 //
-//  ArtistController.m
+//  EventController.m
 //  Metro-Atlanta-Arts-App
 //
-//  Created by Gendreau, Anthony S on 10/10/11.
+//  Created by Gendreau, Anthony S on 10/12/11.
 //  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
 
-#import "ArtistController.h"
+#import "EventController.h"
 
 
-@implementation ArtistController
-@synthesize myTitleBar;
+@implementation EventController
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -60,12 +59,5 @@
     [super dealloc];
 }
 
--(void)setArtist: (EventArtist *) a {
-	artist = a;
-}
-
--(EventArtist *)getArtist {
-	return artist;
-}
 
 @end

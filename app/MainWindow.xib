@@ -12,7 +12,6 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="16"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -66,7 +65,6 @@
 					<object class="IBUITabBarItem" key="IBUITabBarItem" id="463767987">
 						<string key="IBUITitle">Map</string>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<reference key="IBUITabBar"/>
 					</object>
 					<reference key="IBUIToolbarItems" ref="0"/>
 					<reference key="IBUIParentViewController" ref="805980890"/>
@@ -84,7 +82,6 @@
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="711913468">
 							<string key="IBUITitle">Events</string>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-							<reference key="IBUITabBar"/>
 						</object>
 						<reference key="IBUIToolbarItems" ref="0"/>
 						<reference key="IBUIParentViewController" ref="805980890"/>
@@ -99,7 +96,6 @@
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="497157806">
 							<string key="IBUITitle">Artists</string>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-							<reference key="IBUITabBar"/>
 						</object>
 						<reference key="IBUIToolbarItems" ref="0"/>
 						<reference key="IBUIParentViewController" ref="805980890"/>
@@ -114,7 +110,6 @@
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="295723571">
 							<string key="IBUITitle">Filters</string>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-							<reference key="IBUITabBar"/>
 						</object>
 						<reference key="IBUIToolbarItems" ref="0"/>
 						<reference key="IBUIParentViewController" ref="805980890"/>
@@ -129,7 +124,6 @@
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="625358416">
 							<string key="IBUITitle">Trip Planning</string>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-							<reference key="IBUITabBar"/>
 						</object>
 						<reference key="IBUIToolbarItems" ref="0"/>
 						<reference key="IBUIParentViewController" ref="805980890"/>
@@ -570,13 +564,13 @@
 					<string key="className">FilterListController</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">myFilterTableView</string>
+						<string key="NS.key.0">myTableView</string>
 						<string key="NS.object.0">UITableView</string>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">myFilterTableView</string>
+						<string key="NS.key.0">myTableView</string>
 						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">myFilterTableView</string>
+							<string key="name">myTableView</string>
 							<string key="candidateClassName">UITableView</string>
 						</object>
 					</object>

@@ -57,10 +57,14 @@
 -(bool)checkLocation: (Event *) event withFilter: (Filter *) filter;
 
 -(NSMutableArray *)getDisplayedEvents;
-
 -(NSMutableArray *)getFilteredEvents;
-
+-(NSMutableArray *)getFilters;
 -(NSMutableArray *)getArtists;
 
+-(NSInteger)getEventCount;
+-(NSInteger)getDisplayedEventCount;
+-(NSInteger)getFilteredEventCount;
+-(NSInteger)getFilterCount;
+-(NSInteger)getArtistCount;
 
 @end

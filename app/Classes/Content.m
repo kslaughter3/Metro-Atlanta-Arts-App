@@ -386,8 +386,32 @@ static Content *instance;
 	return filteredEvents;
 }
 
+-(NSMutableArray *)getFilters {
+	return filters;
+}
+
 -(NSMutableArray *)getArtists {
 	return artists;
+}
+
+-(NSInteger)getEventCount {
+	return [self getDisplayedEventCount] + [self getFilteredEventCount];
+}
+
+-(NSInteger)getDisplayedEventCount {
+	return displayedEvents.count;
+}
+
+-(NSInteger)getFilteredEventCount {
+	return filteredEvents.count;
+}
+
+-(NSInteger)getFilterCount {
+	return filters.count;
+}
+
+-(NSInteger)getArtistCount {
+	return artists.count;
 }
 
 @end

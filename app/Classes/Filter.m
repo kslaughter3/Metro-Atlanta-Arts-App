@@ -290,4 +290,30 @@
 	return filterer->radius;
 }
 
+-(NSString *)getTypeName {
+	switch(type) {
+		case NameFilterType:
+			return @"Name Filter";
+			break;
+		case ArtistFilterType:
+			return @"Artist Filter";
+			break;
+		case TimeFilterType:
+			return @"Time Filter";
+			break;
+		case CostFilterType:
+			return @"Cost Filter";
+			break;
+		case DurationFilterType:
+			return @"Duration Filter";
+			break;
+		case LocationFilterType:
+			return @"Location Filter";
+			break;
+		default:
+			return @"Invalid Filter";
+			break;
+	}
+}
+
 @end

@@ -7,14 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import	"AddFilterController.h"
+#import "EditFilterController.h"
+#import "RemoveFilterController.h"
 
 @class FilterListController;
 
-@interface FilterListController : UIViewController <UITableViewDelegate> {
-	IBOutlet UITableView *myFilterTableView;
+@interface FilterListController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+	IBOutlet UITableView *myTableView;
+	IBOutlet AddFilterController *myAddFilterController;
+	IBOutlet EditFilterController *myEditFilterController;
+	IBOutlet RemoveFilterController *myRemoveFilterController;
+	NSArray *listData;
 }
 
-@property (nonatomic, retain) IBOutlet UITableView* myFilterTableView;
+@property (nonatomic, retain) IBOutlet UITableView* myTableView;
+@property (nonatomic, retain) IBOutlet AddFilterController *myAddFilterController;
+@property (nonatomic, retain) IBOutlet EditFilterController *myEditFilterController;
+@property (nonatomic, retain) IBOutlet RemoveFilterController *myRemoveFilterController;
+@property (nonatomic, retain) NSArray *listData;
 
 -(IBAction)addFilter:(id)sender;
 -(IBAction)editFilter:(id)sender;

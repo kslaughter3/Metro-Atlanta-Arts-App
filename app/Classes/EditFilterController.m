@@ -1,16 +1,16 @@
 //
-//  ArtistController.m
+//  EditFilterController.m
 //  Metro-Atlanta-Arts-App
 //
-//  Created by Gendreau, Anthony S on 10/10/11.
+//  Created by Gendreau, Anthony S on 10/12/11.
 //  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
 
-#import "ArtistController.h"
+#import "EditFilterController.h"
 
 
-@implementation ArtistController
-@synthesize myTitleBar;
+@implementation EditFilterController
+@synthesize description;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -37,8 +37,17 @@
 }
 */
 
--(IBAction)close: (id)sender {
-	NSLog(@"Close Clicked\n");
+-(IBAction)cancel: (id)sender {
+	NSLog(@"Cancel Clicked\n");
+	[self.parentViewController dismissModalViewControllerAnimated: YES];
+}
+
+-(IBAction)ok: (id)sender {
+	NSLog(@"OK Clicked\n");
+	
+	/* TODO: Check the filter fields make sure they are valid if not display toast
+	 and don't remove the view */
+	
 	[self.parentViewController dismissModalViewControllerAnimated: YES];
 }
 
@@ -60,12 +69,5 @@
     [super dealloc];
 }
 
--(void)setArtist: (EventArtist *) a {
-	artist = a;
-}
-
--(EventArtist *)getArtist {
-	return artist;
-}
 
 @end
