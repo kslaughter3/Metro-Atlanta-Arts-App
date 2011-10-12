@@ -7,20 +7,17 @@
 //
 
 #import "FilterListController.h"
-#import	"AddFilterController.h"
 
 @implementation FilterListController
-@synthesize myFilterTableView;
+@synthesize myFilterTableView, 
+			myAddFilterController, 
+			myEditFilterController, 
+			myRemoveFilterController;
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
+/* // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	NSLog(@"initReached");
-	if ((self = [super initWithNibName:nil bundle:nil])) {
-		addButton.target = self;
-		addButton.action = @selector(addFilter: ); 
-    }
-    return self;
+	return self;
 }*/
 
 
@@ -39,19 +36,48 @@
 //    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+
 -(IBAction)addFilter: (id) sender {
 	NSLog(@"Add Filter Clicked\n");
-	AddFilterController *addFilterView = [[AddFilterController alloc] 
-		initWithNibName: @"AddFilterView" bundle: nil];
-	[self presentModalViewController: addFilterView animated:YES];
+	
+	if(self.myAddFilterController == nil) {
+		AddFilterController *new_view = [[AddFilterController alloc] 
+			initWithNibName: @"AddFilterView" bundle: nil];
+		self.myAddFilterController = new_view;
+		[new_view release];
+	}
+	
+	[self presentModalViewController: self.myAddFilterController animated:YES];
 }
 
 -(IBAction)editFilter: (id) sender {
 	NSLog(@"Edit Filter Clicked\n");
+	
+	/*TODO: Make sure that there is a filter selected */
+	
+	if(self.myEditFilterController == nil) {
+		EditFilterController *new_view = [[EditFilterController alloc] 
+			initWithNibName: @"EditFilterView" bundle: nil];
+		self.myEditFilterController = new_view;
+		[new_view release];
+	}
+	
+	[self presentModalViewController: self.myEditFilterController animated:YES];
 }
 
 -(IBAction)removeFilter: (id) sender {
 	NSLog(@"Remove Filter Clicked\n");
+	
+	/* TODO: Make sure that there is a filter selected */
+	
+	if(self.myRemoveFilterController == nil) {
+		RemoveFilterController *new_view = [[RemoveFilterController alloc] 
+			initWithNibName:@"RemoveFilterView" bundle:nil];
+		self.myRemoveFilterController = new_view;
+		[new_view release];
+	}
+	
+	[self presentModalViewController: self.myRemoveFilterController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
