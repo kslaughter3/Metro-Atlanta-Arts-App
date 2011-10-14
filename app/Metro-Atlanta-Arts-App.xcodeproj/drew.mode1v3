@@ -271,13 +271,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>5</integer>
-									<integer>1</integer>
+									<integer>47</integer>
+									<integer>38</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {186, 618}}</string>
+							<string>{{0, 374}, {186, 618}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -296,7 +296,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>313 92 899 677 0 0 1280 778 </string>
+						<string>320 98 899 677 0 0 1280 778 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -314,7 +314,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Metro_Atlanta_Arts_AppViewController.m</string>
+								<string>MapController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -322,18 +322,19 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Metro_Atlanta_Arts_AppViewController.m</string>
+										<string>MapController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>3A1D2ECF14342A4200EB7A3E</string>
+										<string>3A76A2A41448B25200877334</string>
 										<key>history</key>
 										<array>
 											<string>3A1D2E8B143426F400EB7A3E</string>
 											<string>3A1D2EBE143429A400EB7A3E</string>
-											<string>3A1D2EBF143429A400EB7A3E</string>
 											<string>3A1D2EC0143429A400EB7A3E</string>
-											<string>3A1D2EB71434294300EB7A3E</string>
+											<string>3A29A94C1448A914004E2C2D</string>
+											<string>3A29A9A71448ACCE004E2C2D</string>
+											<string>3A29A9E11448B025004E2C2D</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -345,14 +346,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {691, 426}}</string>
+								<string>{{0, 0}, {691, 412}}</string>
 								<key>RubberWindowFrame</key>
-								<string>313 92 899 677 0 0 1280 778 </string>
+								<string>320 98 899 677 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>426pt</string>
+							<string>412pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -365,14 +366,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 431}, {691, 205}}</string>
+								<string>{{0, 417}, {691, 219}}</string>
 								<key>RubberWindowFrame</key>
-								<string>313 92 899 677 0 0 1280 778 </string>
+								<string>320 98 899 677 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>205pt</string>
+							<string>219pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -391,9 +392,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>3A1D2E7A1434262700EB7A3E</string>
+				<string>3A76A2A51448B25200877334</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>3A1D2E7B1434262700EB7A3E</string>
+				<string>3A76A2A61448B25200877334</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -531,13 +532,12 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>3A3D9A451427A3EE00BA84E3</string>
-		<string>/Users/drew/Metro-Atlanta-Arts-App/app/Metro-Atlanta-Arts-App.xcodeproj</string>
+		<string>/Users/drew/senior/app/Metro-Atlanta-Arts-App.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>313 92 899 677 0 0 1280 778 </string>
+	<string>320 98 899 677 0 0 1280 778 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -558,7 +558,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Metro_Atlanta_Arts_AppViewController.m</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -575,8 +575,6 @@
 							<string>218pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -616,7 +614,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>3A3D9A451427A3EE00BA84E3</string>
-				<string>3A1D2E7C1434262700EB7A3E</string>
+				<string>3A76A2A71448B25200877334</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -660,8 +658,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {316, 194}}</string>
-											<string>{{316, 0}, {378, 194}}</string>
+											<string>{{0, 0}, {316, 201}}</string>
+											<string>{{316, 0}, {378, 201}}</string>
 										</array>
 									</dict>
 									<key>VerticalSplitView</key>
@@ -676,8 +674,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {694, 194}}</string>
-											<string>{{0, 194}, {694, 187}}</string>
+											<string>{{0, 0}, {694, 201}}</string>
+											<string>{{0, 201}, {694, 180}}</string>
 										</array>
 									</dict>
 								</dict>
@@ -710,7 +708,7 @@
 										<real>148</real>
 									</array>
 									<key>Frame</key>
-									<string>{{316, 0}, {378, 194}}</string>
+									<string>{{316, 0}, {378, 201}}</string>
 									<key>RubberWindowFrame</key>
 									<string>569 312 694 422 0 0 1280 778 </string>
 								</dict>
@@ -738,13 +736,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>3A1D2E7D1434262700EB7A3E</string>
+				<string>3A76A2A81448B25200877334</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>3A1D2E7E1434262700EB7A3E</string>
-				<string>3A1D2E7F1434262700EB7A3E</string>
-				<string>3A1D2E801434262700EB7A3E</string>
-				<string>3A1D2E811434262700EB7A3E</string>
-				<string>3A1D2E821434262700EB7A3E</string>
+				<string>3A76A2A91448B25200877334</string>
+				<string>3A76A2AA1448B25200877334</string>
+				<string>3A76A2AB1448B25200877334</string>
+				<string>3A76A2AC1448B25200877334</string>
+				<string>3A76A2AD1448B25200877334</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -871,6 +869,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -881,18 +881,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {650, 209}}</string>
+								<string>{{0, 0}, {800, 611}}</string>
 								<key>RubberWindowFrame</key>
-								<string>569 484 650 250 0 0 1280 778 </string>
+								<string>81 103 800 652 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
 							<key>Proportion</key>
-							<string>209pt</string>
+							<string>611pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>209pt</string>
+					<string>611pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -906,17 +906,17 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>3A1D2E831434262700EB7A3E</string>
+				<string>3A29A9821448A974004E2C2D</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>569 484 650 250 0 0 1280 778 </string>
+			<string>81 103 800 652 0 0 1280 778 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
