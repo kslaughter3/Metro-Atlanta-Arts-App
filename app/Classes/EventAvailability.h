@@ -33,8 +33,8 @@
 -(void)addDay: (NSString *) day;
 -(void)removeDay: (NSString *) day;
 
--(bool)containsDay: (NSString *) day;
+-(BOOL)containsDay: (NSString *) day;
 
--(bool)availableDuring: (int) time;
+-(BOOL)availableDuring: (int) time;
 
 @end

@@ -1,7 +1,0 @@
-/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m:17: error: no declaration of property 'tabBarItem1' found in the interface
-/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m:18: error: no declaration of property 'tabBarItem2' found in the interface
-/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m:19: error: no declaration of property 'tabBarItem3' found in the interface
-/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m:20: error: no declaration of property 'tabBarItem4' found in the interface
-/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m:21: error: no declaration of property 'tabBarItem5' found in the interface
-/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m:111: warning: property 'tabBarItem' requires method '-tabBarItem' to be defined - use @synthesize, @dynamic or provide a method implementation
-/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/Metro_Atlanta_Arts_AppAppDelegate.m:111: warning: property 'tabBarItem' requires the method 'setTabBarItem:' to be defined - use @synthesize, @dynamic or provide a method implementation

@@ -10,9 +10,13 @@
 
 @class AddFilterController;
 
-@interface AddFilterController : UIViewController {
-
+@interface AddFilterController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
+	IBOutlet UIPickerView *myPickerView;
+	NSMutableArray *pickerData;
 }
+
+@property (nonatomic, retain) IBOutlet UIPickerView *myPickerView; 
+@property (nonatomic, retain) NSMutableArray *pickerData;
 
 -(IBAction)cancel:(id)sender;
 -(IBAction)ok:(id)sender;

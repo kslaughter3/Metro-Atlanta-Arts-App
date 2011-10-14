@@ -51,44 +51,44 @@ static Content *instance;
 }
 
 
--(bool)addFilter: (Filter *) filter AndFilter: (bool) type {
+-(BOOL)addFilter: (Filter *) filter AndFilter: (BOOL) type {
 	
 	/* Check to see if the filter is nil or invalid */
 	if(filter == nil) {
-		return false;
+		return NO;
 	}
 	
 	Filterer *filterer = [filter getFilterer];
 	
-	if([filter checkFilterer: filterer] == false) {
-		return false;
+	if([filter checkFilterer: filterer] == NO) {
+		return NO;
 	}
 	
 	/* Add the filter */
 	[filters addObject: filter];
 
 	/* Add the filter as either an AND filter or an OR Filter based on type */
-	if(type == true) {
+	if(type == YES) {
 		[self addAndFilter: filter];
 	}
 	else {
 		[self addOrFilter: filter];
 	}
 	
-	return true;
+	return YES;
 }
 
--(bool)removeFilter: (Filter *) filter AndFilter: (bool) type {
+-(BOOL)removeFilter: (Filter *) filter AndFilter: (BOOL) type {
 	
 	/* Check to see if the filter is nil or invalid */
 	if(filter == nil) {
-		return false;
+		return NO;
 	}
 	
 	Filterer *filterer = [filter getFilterer];
 	
-	if([filter checkFilterer: filterer] == false) {
-		return false;
+	if([filter checkFilterer: filterer] == NO) {
+		return NO;
 	}
 	
 	
@@ -96,14 +96,14 @@ static Content *instance;
 	[filters removeObjectIdenticalTo: filter];
 	
 	/* Remove the filter as either an AND Filter or an OR Filter based on type */
-	if(type == true) {
+	if(type == YES) {
 		[self removeAndFilter];
 	}
 	else {
 		[self removeOrFilter];
 	}
 	
-	return true;
+	return YES;
 }
 
 /* This method should only be called by addFilter */
@@ -115,37 +115,37 @@ static Content *instance;
 		switch ([filter getFilterType])
 		{
 			case NameFilterType:
-				if([self checkName: event withFilter: filter] == false) {
+				if([self checkName: event withFilter: filter] == NO) {
 					[displayedEvents removeObjectIdenticalTo: event];
 					[filteredEvents addObject: event];
 				}
 				break;
 			case ArtistFilterType:
-				if([self checkArtist: event withFilter: filter] == false) {
+				if([self checkArtist: event withFilter: filter] == NO) {
 					[displayedEvents removeObjectIdenticalTo: event];
 					[filteredEvents addObject: event];
 				}
 				break;
 			case TimeFilterType:
-				if([self checkTime: event withFilter: filter] == false) {
+				if([self checkTime: event withFilter: filter] == NO) {
 					[displayedEvents removeObjectIdenticalTo: event];
 					[filteredEvents addObject: event];
 				}
 				break;
 			case CostFilterType:
-				if([self checkCost: event withFilter: filter] == false) {
+				if([self checkCost: event withFilter: filter] == NO) {
 					[displayedEvents removeObjectIdenticalTo: event];
 					[filteredEvents addObject: event];
 				}
 				break;
 			case DurationFilterType:
-				if([self checkDuration: event withFilter: filter] == false) {
+				if([self checkDuration: event withFilter: filter] == NO) {
 					[displayedEvents removeObjectIdenticalTo: event];
 					[filteredEvents addObject: event];
 				}
 				break;
 			case LocationFilterType:
-				if([self checkLocation: event withFilter: filter] == false) {
+				if([self checkLocation: event withFilter: filter] == NO) {
 					[displayedEvents removeObjectIdenticalTo: event];
 					[filteredEvents addObject: event];
 				}
@@ -158,40 +158,40 @@ static Content *instance;
 }
 
 -(void)removeAndFilter {
-	bool failed = false;
+	BOOL failed = NO;
 	
 	/* Loop over the filtered out events for ones that no longer fail any of the filters */
 	for(id event in filteredEvents) {
 		for(id f in filters) {
 			switch ([(Filter *)f getFilterType]) {
 				case NameFilterType:
-					if([self checkName: event withFilter: f] == false) {
-						failed = true;
+					if([self checkName: event withFilter: f] == NO) {
+						failed = YES;
 					}
 					break;
 				case ArtistFilterType:
-					if([self checkArtist: event withFilter: f] == false) {
-						failed = true;
+					if([self checkArtist: event withFilter: f] == NO) {
+						failed = YES;
 					}
 					break;
 				case TimeFilterType:
-					if([self checkTime: event withFilter: f] == false) {
-						failed = true;
+					if([self checkTime: event withFilter: f] == NO) {
+						failed = YES;
 					}
 					break;
 				case CostFilterType:
-					if([self checkCost: event withFilter: f] == false) {
-						failed = true;
+					if([self checkCost: event withFilter: f] == NO) {
+						failed = YES;
 					}
 					break;
 				case DurationFilterType:
-					if([self checkDuration: event withFilter: f] == false) {
-						failed = true;
+					if([self checkDuration: event withFilter: f] == NO) {
+						failed = YES;
 					}
 					break;
 				case LocationFilterType:
-					if([self checkLocation: event withFilter: f] == false) {
-						failed = true;
+					if([self checkLocation: event withFilter: f] == NO) {
+						failed = YES;
 					}
 					break;
 				default:
@@ -200,19 +200,19 @@ static Content *instance;
 			}
 			
 			/* failed go to the next event */
-			if(failed == true) {
+			if(failed == YES) {
 				break;
 			}
 		}
 		
 		/* Check to see if it passed all the filters and move the event if necessary*/
-		if(failed == false) {
+		if(failed == NO) {
 			[filteredEvents removeObjectIdenticalTo: event];
 			[displayedEvents addObject: event];
 		}
 		
 		/* reset the failed flag */
-		failed = false;
+		failed = NO;
 	}
 }
 
@@ -224,37 +224,37 @@ static Content *instance;
 		switch ([filter getFilterType])
 		{
 			case NameFilterType:
-				if([self checkName: event withFilter: filter] == true) {
+				if([self checkName: event withFilter: filter] == YES) {
 					[filteredEvents removeObjectIdenticalTo: event];
 					[displayedEvents addObject: event];
 				}
 				break;
 			case ArtistFilterType:
-				if([self checkArtist: event withFilter: filter] == true) {
+				if([self checkArtist: event withFilter: filter] == YES) {
 					[filteredEvents removeObjectIdenticalTo: event];
 					[displayedEvents addObject: event];
 				}
 				break;
 			case TimeFilterType:
-				if([self checkTime: event withFilter: filter] == true) {
+				if([self checkTime: event withFilter: filter] == YES) {
 					[filteredEvents removeObjectIdenticalTo: event];
 					[displayedEvents addObject: event];
 				}
 				break;
 			case CostFilterType:
-				if([self checkCost: event withFilter: filter] == true) {
+				if([self checkCost: event withFilter: filter] == YES) {
 					[filteredEvents removeObjectIdenticalTo: event];
 					[displayedEvents addObject: event];
 				}
 				break;
 			case DurationFilterType:
-				if([self checkDuration: event withFilter: filter] == true) {
+				if([self checkDuration: event withFilter: filter] == YES) {
 					[filteredEvents removeObjectIdenticalTo: event];
 					[displayedEvents addObject: event];
 				}
 				break;
 			case LocationFilterType:
-				if([self checkLocation: event withFilter: filter] == true) {
+				if([self checkLocation: event withFilter: filter] == YES) {
 					[filteredEvents removeObjectIdenticalTo: event];
 					[displayedEvents addObject: event];
 				}
@@ -267,40 +267,40 @@ static Content *instance;
 }
 
 -(void)removeOrFilter {
-	bool passed = false;
+	BOOL passed = NO;
 	
 	/* Loop over the displayed out events for ones that no longer pass any of the filters */
 	for(id event in displayedEvents) {
 		for(id f in filters) {
 			switch ([(Filter *)f getFilterType]) {
 				case NameFilterType:
-					if([self checkName: event withFilter: f] == true) {
-						passed = true;
+					if([self checkName: event withFilter: f] == YES) {
+						passed = YES;
 					}
 					break;
 				case ArtistFilterType:
-					if([self checkArtist: event withFilter: f] == true) {
-						passed = true;
+					if([self checkArtist: event withFilter: f] == YES) {
+						passed = YES;
 					}
 					break;
 				case TimeFilterType:
-					if([self checkTime: event withFilter: f] == true) {
-						passed = true;
+					if([self checkTime: event withFilter: f] == YES) {
+						passed = YES;
 					}
 					break;
 				case CostFilterType:
-					if([self checkCost: event withFilter: f] == true) {
-						passed = true;
+					if([self checkCost: event withFilter: f] == YES) {
+						passed = YES;
 					}
 					break;
 				case DurationFilterType:
-					if([self checkDuration: event withFilter: f] == true) {
-						passed = true;
+					if([self checkDuration: event withFilter: f] == YES) {
+						passed = YES;
 					}
 					break;
 				case LocationFilterType:
-					if([self checkLocation: event withFilter: f] == true) {
-						passed = true;
+					if([self checkLocation: event withFilter: f] == YES) {
+						passed = YES;
 					}
 					break;
 				default:
@@ -309,19 +309,19 @@ static Content *instance;
 			}
 			
 			/* failed go to the next event */
-			if(passed == true) {
+			if(passed == YES) {
 				break;
 			}
 		}
 		
 		/* Check to see if it passed all the filters and move the event if necessary*/
-		if(passed == false) {
+		if(passed == NO) {
 			[displayedEvents removeObjectIdenticalTo: event];
 			[filteredEvents addObject: event];
 		}
 		
 		/* reset the failed flag */
-		passed = false;
+		passed = NO;
 	}
 }
 
@@ -350,30 +350,30 @@ static Content *instance;
 	}
 }
 
--(bool)checkName: (Event *) event withFilter: (Filter *) filter {
+-(BOOL)checkName: (Event *) event withFilter: (Filter *) filter {
 	return [event NameFilter: [filter getFiltererName]];
 }
 
--(bool)checkArtist: (Event *) event withFilter: (Filter *) filter {
+-(BOOL)checkArtist: (Event *) event withFilter: (Filter *) filter {
 	return [event ArtistFilter: [filter getFiltererArtist]];
 }
 	
--(bool)checkTime: (Event *) event withFilter: (Filter *) filter {
+-(BOOL)checkTime: (Event *) event withFilter: (Filter *) filter {
 	return [event TimeFilterStart: [filter getFiltererStartTime] 
 						   andEnd: [filter getFiltererEndTime]];
 }
 	
--(bool)checkCost: (Event *) event withFilter: (Filter *) filter {
+-(BOOL)checkCost: (Event *) event withFilter: (Filter *) filter {
 	return [event CostFilterMin: [filter getFiltererMinCost] 
 						 andMax: [filter getFiltererMaxCost]]; 
 }
 	
--(bool)checkDuration: (Event *) event withFilter: (Filter *) filter {
+-(BOOL)checkDuration: (Event *) event withFilter: (Filter *) filter {
 	return [event DurationFilterMin: [filter getFiltererMinDuration]
 							 andMax: [filter getFiltererMaxDuration]];
 }
 	
--(bool)checkLocation: (Event *) event withFilter: (Filter *) filter {
+-(BOOL)checkLocation: (Event *) event withFilter: (Filter *) filter {
 	return [event LocationFilterLoc: [filter getFiltererLocation]
 						  andRadius: [filter getFiltererRadius]];
 }

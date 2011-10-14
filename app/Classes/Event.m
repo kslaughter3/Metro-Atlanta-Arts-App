@@ -139,58 +139,71 @@
 
 /* Filter Methods */
 
-/* Returns true if the event's name begins with the given name false otherwise */
--(bool)NameFilter: (NSString *) str {
+/* Returns YES if the event's name begins with the given name NO otherwise */
+-(BOOL)NameFilter: (NSString *) str {
 	if(str != nil && name != nil) {
 		NSString * temp = [name uppercaseString];
 		str = [str uppercaseString];
-		return [temp hasPrefix: str];
+		if([temp hasPrefix: str]) {
+			return YES;
+		}
 	}
-	return false;
+	return NO;
 }
 
-/* Returns true if the event's artist begins with the given artist false otherwise */
--(bool)ArtistFilter: (NSString *) str {
+/* Returns YES if the event's artist begins with the given artist NO otherwise */
+-(BOOL)ArtistFilter: (NSString *) str {
 	if(str != nil && artist != nil) {
 		NSString * temp = [[artist getName] uppercaseString];
 		str = [str uppercaseString];
-		return [temp hasPrefix: str];
+		if([temp hasPrefix: str]) {
+			return YES;
+		}
 	}
-	return false;
+	return NO;
 }
 
-/* Returns true if the time of this event occurs between the given start and end times */
--(bool)TimeFilterStart: (NSDate *) start andEnd: (NSDate *) end {
+/* Returns YES if the time of this event occurs between the given start and end times */
+-(BOOL)TimeFilterStart: (NSDate *) start andEnd: (NSDate *) end {
 	/* If the endDate is before the start threshold or the startDate is after the end threshold
-	   return false otherwise return true */
+	   return NO otherwise return YES */
 	if(([endDate earlierDate: start] == endDate) || ([startDate earlierDate: end] == end)) {
-		return false;
+		return NO;
 	}
-	return true;
+	return YES;
 }
 
-/* Returns true if the cost of this event is between the given min and max costs */
--(bool)CostFilterMin: (double) min andMax: (double) max {
-	return (cost >= min && cost <= max);
+/* Returns YES if the cost of this event is between the given min and max costs */
+-(BOOL)CostFilterMin: (double) min andMax: (double) max {
+	if((cost >= min) && (cost <= max)) {
+		return YES;
+	}
+	return NO;
 }
 
-/* Returns true if the duration of this event is between the given min and max durations */
--(bool)DurationFilterMin: (int) min andMax: (int) max {
-	return (duration >= min && duration <= max);
+/* Returns YES if the duration of this event is between the given min and max durations */
+-(BOOL)DurationFilterMin: (int) min andMax: (int) max {
+	if((duration >= min) && (duration <= max)) {
+		return YES;
+	}
+	return NO;
 }
 
-/*Returns true if the location of this event is within the given radius of the given Location */
--(bool)LocationFilterLoc: (EventLocation *) loc andRadius: (double) rad {
+/*Returns YES if the location of this event is within the given radius of the given Location */
+-(BOOL)LocationFilterLoc: (EventLocation *) loc andRadius: (double) rad {
 	double distance = [location distanceFromLocation: loc];
 	double radInMeters = rad * MILESTOMETERS;
-	return (distance <= radInMeters);
+	if(distance <= radInMeters) {
+		return YES;
+	}
+	return NO; 
 }
 
--(bool)AvailabilityFilter: (NSString *) day Time: (int) time {
-	if([availability containsDay: day] == true) {
+-(BOOL)AvailabilityFilter: (NSString *) day Time: (int) time {
+	if([availability containsDay: day] == YES) {
 		return ([availability availableDuring: time]);
 	}
-	return false;
+	return NO;
 }
 
 /* End Filter Methods */
