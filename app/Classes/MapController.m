@@ -10,6 +10,10 @@
 #import "EventListController.h"
 #import "EventAnnotation.h"
 #import "AddFilterController.h"
+#import "json/SBJson.h"
+
+@interface MapController () <SBJsonStreamParserAdapterDelegate>
+@end
 
 @implementation MapController
 
@@ -42,9 +46,35 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	//myMapView.mapType = MKMapTypeSatellite;
-	//myMapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 100, 500, 400)];
-	//myMapView.delegate=self;
+	
+	// We don't want *all* the individual messages from the
+	// SBJsonStreamParser, just the top-level objects. The stream
+	// parser adapter exists for this purpose.
+	adapter = [[SBJsonStreamParserAdapter alloc] init];
+	
+	// Set ourselves as the delegate, so we receive the messages
+	// from the adapter.
+	adapter.delegate = self;
+	
+	// Create a new stream parser..
+	parser = [[SBJsonStreamParser alloc] init];
+	
+	// .. and set our adapter as its delegate.
+	parser.delegate = adapter;
+	
+	// Normally it's an error if JSON is followed by anything but
+	// whitespace. Setting this means that the parser will be
+	// expecting the stream to contain multiple whitespace-separated
+	// JSON documents.
+	parser.supportMultipleDocuments = YES;
+	
+	NSString *url = @"http://meta.gimmefiction.com/?count=3";
+	
+	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]
+											  cachePolicy:NSURLRequestUseProtocolCachePolicy
+										  timeoutInterval:60.0];
+	
+	theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
 	
 	//[self.view addSubview:myMapView];
 	[NSThread detachNewThreadSelector:@selector(displayMYMap) toTarget:self withObject:nil];
@@ -146,5 +176,51 @@
     [super dealloc];
 	[myMapView release];
 }
+
+
+- (void)parser:(SBJsonStreamParser *)parser foundArray:(NSArray *)array {
+    [NSException raise:@"unexpected" format:@"Should not get here"];
+}
+
+- (void)parser:(SBJsonStreamParser *)parser foundObject:(NSDictionary *)dict {
+	tweet.text = [dict objectForKey:@"text"];
+}
+
+#pragma mark NSURLConnectionDelegate methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+	NSLog(@"Connection didReceiveResponse: %@ - %@", response, [response MIMEType]);
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+	NSLog(@"Connection didReceiveAuthenticationChallenge: %@", challenge);
+	
+	NSURLCredential *credential = [NSURLCredential credentialWithUser:username.text
+															 password:password.text
+														  persistence:NSURLCredentialPersistenceForSession];
+	
+	[[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+	NSLog(@"Connection didReceiveData of length: %u", data.length);
+	
+	// Parse the new chunk of data. The parser will append it to
+	// its internal buffer, then parse from where it left off in
+	// the last chunk.
+	NSString *payloadAsString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+	NSLog(payloadAsString);
+	
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    NSLog(@"Connection failed! Error - %@ %@",
+          [error localizedDescription],
+          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+}
+
 
 @end
