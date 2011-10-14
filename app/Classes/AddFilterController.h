@@ -11,26 +11,31 @@
 @class AddFilterController;
 
 @interface AddFilterController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
-	IBOutlet UIPickerView *myPickerView;
-	/*IBOutlet UILabel *topLabel;
+	IBOutlet UIPickerView *typePickerView;
+	IBOutlet UILabel *typeLabel;
+	IBOutlet UITextField *typeField;
+	IBOutlet UILabel *topLabel;
 	IBOutlet UITextField *topField;
 	IBOutlet UILabel *middleLabel;
 	IBOutlet UITextField *middleField;
 	IBOutlet UILabel *bottomLabel;
-	IBOutlet UITextField *bottomField;*/
-	NSMutableArray *pickerData;
+	IBOutlet UITextField *bottomField;
+	NSMutableArray *types;
 }
 
-@property (nonatomic, retain) IBOutlet UIPickerView *myPickerView; 
-/*@property (nonatomic, retain) IBOutlet UILabel *topLabel;
+@property (nonatomic, retain) IBOutlet UIPickerView *typePickerView;
+@property (nonatomic, retain) IBOutlet UILabel *typeLabel;
+@property (nonatomic, retain) IBOutlet UITextField *typeField;
+@property (nonatomic, retain) IBOutlet UILabel *topLabel;
 @property (nonatomic, retain) IBOutlet UITextField *topField;
 @property (nonatomic, retain) IBOutlet UILabel *middleLabel;
 @property (nonatomic, retain) IBOutlet UITextField *middleField;
 @property (nonatomic, retain) IBOutlet UILabel *bottomLabel;
-@property (nonatomic, retain) IBOutlet UITextField *bottomField;*/
-@property (nonatomic, retain) NSMutableArray *pickerData;
+@property (nonatomic, retain) IBOutlet UITextField *bottomField;
+@property (nonatomic, retain) NSMutableArray *types;
 
 -(IBAction)cancel:(id)sender;
 -(IBAction)ok:(id)sender;
+-(IBAction)pickerDoneClicked:(id)sender;
 
 @end

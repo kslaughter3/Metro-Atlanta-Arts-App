@@ -11,8 +11,16 @@
 #import "Filter.h"
 
 @implementation AddFilterController
-@synthesize myPickerView, 
-			pickerData;
+@synthesize typePickerView,
+			typeLabel,
+			typeField,
+			topLabel,
+			topField,
+			middleLabel,
+			middleField,
+			bottomLabel, 
+			bottomField,
+			types;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -31,13 +39,37 @@
 	
 	[super viewDidLoad];
 	
-	pickerData = [[NSMutableArray alloc] init];
+	types = [[NSMutableArray alloc] init];
 	
 	for(t = FirstFilterType; t <= LastFilterType; t++) {
-		[pickerData addObject: [Filter getFilterTypeString: t]];
+		if(t == FirstFilterType) {
+			typeField.text = [Filter getFilterTypeString: t];
+		}
+		[types addObject: [Filter getFilterTypeString: t]];
 	}
 	
-	[myPickerView selectRow:0 inComponent:0 animated:NO];
+	
+	//Add the picker as the input device
+	typePickerView = [[UIPickerView alloc] initWithFrame:CGRectZero];
+	typePickerView.delegate = self;
+	typePickerView.dataSource = self;
+	[typePickerView setShowsSelectionIndicator:YES];
+	typeField.inputView = typePickerView;
+	[typePickerView release];	
+	
+	//Add the Done button 
+	UIToolbar* keyboardDoneButtonView = [[UIToolbar alloc] init];
+	keyboardDoneButtonView.barStyle = UIBarStyleBlack;
+	keyboardDoneButtonView.translucent = YES;
+	keyboardDoneButtonView.tintColor = nil;
+	[keyboardDoneButtonView sizeToFit];
+	UIBarButtonItem* doneButton = [[[UIBarButtonItem alloc] initWithTitle:@"Done"
+		style:UIBarButtonItemStyleBordered target:self
+		action:@selector(pickerDoneClicked:)] autorelease];
+	
+	[keyboardDoneButtonView setItems:[NSArray arrayWithObjects:doneButton, nil]];
+	typeField.inputAccessoryView = keyboardDoneButtonView;
+	
 }
 
 
@@ -56,20 +88,20 @@
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row 
 inComponent:(NSInteger)component 
 {
+	typeField.text = (NSString *)[types objectAtIndex:row];
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:
 (NSInteger)component
 {
-	return [pickerData count];
+	return [types count];
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:
 (NSInteger)component
 {
-	return [pickerData objectAtIndex: row];
+	return [types objectAtIndex: row];
 }
-
 
 -(IBAction)cancel: (id)sender {
 	NSLog(@"Cancel Clicked\n");
@@ -83,6 +115,11 @@ inComponent:(NSInteger)component
 	   and don't remove the view */
 	
 	[self.parentViewController dismissModalViewControllerAnimated: YES];
+}
+
+-(IBAction)pickerDoneClicked: (id) sender {
+	[typeField resignFirstResponder];
+	//TODO: Set other fields based on the value in typeField
 }
 
 - (void)didReceiveMemoryWarning {
