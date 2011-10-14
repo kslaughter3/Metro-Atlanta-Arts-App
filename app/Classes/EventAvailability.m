@@ -58,23 +58,26 @@
 /* end Getters and Setters */
 
 -(void)addDay: (NSString *) day {
-	if([days containsObject: day] == false) {
+	if([days containsObject: day] == NO) {
 		[days addObject: day];
 	}
 }
 
 -(void)removeDay: (NSString *) day {
-	if([days containsObject: day] == true) {
+	if([days containsObject: day] == YES) {
 		[days removeObjectIdenticalTo: day];
 	}
 }
 
--(bool)containsDay: (NSString *) day {
+-(BOOL)containsDay: (NSString *) day {
 	return [days containsObject: day];
 }
 
--(bool)availableDuring: (int) time {
-	return ((startTime <= time) && (endTime >= time));
+-(BOOL)availableDuring: (int) time {
+	if((startTime <= time) && (endTime >= time)) {
+		return YES;
+	}
+	return NO;
 }
 
 @end

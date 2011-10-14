@@ -10,6 +10,8 @@
 #import "Filter.h"
 #import "Event.h"
 
+@class Content;
+
 @interface Content : NSObject {
 	NSMutableArray *displayedEvents;
 	NSMutableArray *filteredEvents;
@@ -35,8 +37,8 @@
 /* Filtering methods */
 
 /* Type is true if this is an AND Filter and false if this is an OR filter */
--(bool)addFilter: (Filter *) filter AndFilter: (bool) type;
--(bool)removeFilter: (Filter *) filter AndFilter: (bool) type;
+-(BOOL)addFilter: (Filter *) filter AndFilter: (BOOL) type;
+-(BOOL)removeFilter: (Filter *) filter AndFilter: (BOOL) type;
 
 /* These methods are private */
 -(void)addAndFilter: (Filter *) filter;
@@ -49,12 +51,12 @@
 -(void)switchToOrFilters;
 
 /* Filtering Helper Methods these methods are private */
--(bool)checkName: (Event *) event withFilter: (Filter *) filter;
--(bool)checkArtist: (Event *) event withFilter: (Filter *) filter;
--(bool)checkTime: (Event *) event withFilter: (Filter *) filter;
--(bool)checkCost: (Event *) event withFilter: (Filter *) filter;
--(bool)checkDuration: (Event *) event withFilter: (Filter *) filter;
--(bool)checkLocation: (Event *) event withFilter: (Filter *) filter;
+-(BOOL)checkName: (Event *) event withFilter: (Filter *) filter;
+-(BOOL)checkArtist: (Event *) event withFilter: (Filter *) filter;
+-(BOOL)checkTime: (Event *) event withFilter: (Filter *) filter;
+-(BOOL)checkCost: (Event *) event withFilter: (Filter *) filter;
+-(BOOL)checkDuration: (Event *) event withFilter: (Filter *) filter;
+-(BOOL)checkLocation: (Event *) event withFilter: (Filter *) filter;
 
 -(NSMutableArray *)getDisplayedEvents;
 -(NSMutableArray *)getFilteredEvents;

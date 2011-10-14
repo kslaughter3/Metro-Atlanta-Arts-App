@@ -7,10 +7,37 @@
 //
 
 #import "Filter.h"
-#import <CoreLocation/CoreLocation.h>
-
 
 @implementation Filter
+
++(NSString *)getFilterTypeString: (FilterType) t {
+	switch(t) {
+		case NameFilterType:
+			return @"Name Filter";
+			break;
+		case ArtistFilterType:
+			return @"Artist Filter";
+			break;
+		case TimeFilterType:
+			return @"Time Filter";
+			break;
+		case CostFilterType:
+			return @"Cost Filter";
+			break;
+		case DurationFilterType:
+			return @"Duration Filter";
+			break;
+		case LocationFilterType:
+			return @"Location Filter";
+			break;
+		case AvailabilityFilterType:
+			return @"Availability Filter";
+			break;
+		default:
+			return @"Invalid Filter";
+			break;
+	}
+}
 
 -(Filter *)initializeFilterWithType: (FilterType) t andFilterer: (Filterer *) f {
 	self = [super init];
@@ -34,7 +61,7 @@
 	self = [super init];
 	
 	if(self != nil) {		
-		if([self checkNameFilterer: name] == true) {
+		if([self checkNameFilterer: name] == YES) {
 			[self setFilterType: NameFilterType];
 		
 			filterer = (Filterer *)malloc(sizeof(Filterer));
@@ -54,7 +81,7 @@
 	self = [super init];
 	
 	if(self != nil) {
-		if([self checkArtistFilterer: artist] == true) {
+		if([self checkArtistFilterer: artist] == YES) {
 			[self setFilterType: ArtistFilterType];
 		
 			filterer = (Filterer *)malloc(sizeof(Filterer));
@@ -74,7 +101,7 @@
 	self = [super init];
 	
 	if(self != nil) {
-		if([self checkTimeFiltererStart: start End: end] == true) {
+		if([self checkTimeFiltererStart: start End: end] == YES) {
 			[self setFilterType: TimeFilterType];
 		
 			filterer = (Filterer *)malloc(sizeof(Filterer));
@@ -95,7 +122,7 @@
 	self = [super init];
 	
 	if(self != nil) {
-		if([self checkCostFiltererMin: min Max: max] == true) {
+		if([self checkCostFiltererMin: min Max: max] == YES) {
 			[self setFilterType: CostFilterType];
 			
 			filterer = (Filterer *)malloc(sizeof(Filterer));
@@ -116,7 +143,7 @@
 	self = [super init]; 
 	
 	if(self != nil) {
-		if([self checkDurationFiltererMin: min Max: max] == true) {
+		if([self checkDurationFiltererMin: min Max: max] == YES) {
 			[self setFilterType: DurationFilterType];
 			
 			filterer = (Filterer *)malloc(sizeof(Filterer));
@@ -137,7 +164,7 @@
 	self = [super init];
 	
 	if(self != nil) {
-		if([self checkLocationFilterer: loc Radius: rad] == true) {
+		if([self checkLocationFilterer: loc Radius: rad] == YES) {
 			[self setFilterType: LocationFilterType];
 			
 			filterer = (Filterer *)malloc(sizeof(Filterer));
@@ -153,11 +180,31 @@
 	
 	return nil;
 }
+
+-(Filter *)initializeAvailabilityFilter:(EventAvailability *) avail {
+	self = [super init];
+	
+	if(self != nil) {
+		if([self checkAvailabilityFilterer: avail] == YES) {
+			[self setFilterType: AvailabilityFilterType];
+			
+			filterer = (Filterer *)malloc(sizeof(Filterer));
+			if(filterer != nil) {
+				filterer->availability = avail;
+				return self;
+			}
+		}
+		
+		[self dealloc];
+	}
+	
+	return nil;
+}
 		   
--(bool)checkFilterer: (Filterer *) f {
+-(BOOL)checkFilterer: (Filterer *) f {
 	
 	if(f == nil) {
-		return false;
+		return NO;
 	}
 	
 	/* Check to see if the correct union member is specified */ 
@@ -180,43 +227,46 @@
 		case LocationFilterType:
 			return [self checkLocationFilterer: f->loc Radius: f->radius];
 			break;
+		case AvailabilityFilterType:
+			return [self checkAvailabilityFilterer: f->availability];
+			break;
 		default:
-			return false;
+			return NO;
 			break;
 	}
 	
-	return false;
+	return NO;
 }
 
--(bool)checkNameFilterer: (NSString *) name {
+-(BOOL)checkNameFilterer: (NSString *) name {
 	return (name != nil);
 }
 
--(bool)checkArtistFilterer: (NSString *) artist {
+-(BOOL)checkArtistFilterer: (NSString *) artist {
 	return (artist != nil);
 }
 
--(bool)checkTimeFiltererStart: (NSDate *) start End: (NSDate *) end {
+-(BOOL)checkTimeFiltererStart: (NSDate *) start End: (NSDate *) end {
 	if((start != nil) && (end != nil)) {
 		/* Check if the start is before the end date */
 		return ([start earlierDate: end] == start);
 	}
-	return false;
+	return NO;
 }
 
--(bool)checkCostFiltererMin: (double) min Max: (double) max {
+-(BOOL)checkCostFiltererMin: (double) min Max: (double) max {
 	/* Check to see if the max is greater than or equal to the min and that the min is 
 	   greater than or equal to 0 */
 	return ((min <= max) && (min >= 0));
 }
 
--(bool)checkDurationFiltererMin: (int) min Max: (int) max {
+-(BOOL)checkDurationFiltererMin: (int) min Max: (int) max {
 	/* Check to see if the max is greater than or equal to the min and that the min is 
 	   greater than or equal to 0 */
 	return ((min <= max) && (min >= 0));
 }
 
--(bool)checkLocationFilterer: (EventLocation *) loc Radius: (double) rad {
+-(BOOL)checkLocationFilterer: (EventLocation *) loc Radius: (double) rad {
 	/* Check to see if the location is set and the radius is not negative */
 	if(loc != nil) {
 		CLLocationCoordinate2D coord = [loc getCoordinates];
@@ -227,8 +277,40 @@
 		}
 	}
 	
-	return false;
+	return NO;
 }
+
+-(BOOL)checkAvailabilityFilterer:(EventAvailability *)avail {
+	NSString *temp;
+	
+	for(id day in [avail getDays])
+	{
+		temp = (NSString *)day;
+		temp = [temp uppercaseString];
+		
+		if([self checkDayString: temp] == NO) {
+			return NO;
+		}
+	}
+	
+	if([avail getStartTime] <= [avail getEndTime]) {	
+		return YES;
+	}
+	
+	return NO;
+}
+
+-(BOOL)checkDayString: (NSString *) str {
+	
+	if(([str compare: @"SUNDAY"]) || ([str compare: @"MONDAY"]) || ([str compare: @"TUESDAY"]) ||
+	   ([str compare: @"WEDNESDAY"]) ||  ([str compare: @"THURSDAY"]) || 
+	   ([str compare: @"FRIDAY"]) || ([str compare: @"SATURDAY"])) {
+		return YES;
+	}
+	
+	return NO;
+}
+
 
 -(void)setFilterType: (FilterType) t {
 	type = t;
@@ -238,12 +320,12 @@
 	return type;
 }
 
--(bool)setFilterer: (Filterer *) f {
+-(BOOL)setFilterer: (Filterer *) f {
 	if([self checkFilterer: f]) {
 		filterer = f;
-		return true;
+		return YES;
 	}
-	return false;
+	return NO;
 }
 
 -(Filterer *)getFilterer {
@@ -290,6 +372,10 @@
 	return filterer->radius;
 }
 
+-(EventAvailability *)getFiltererAvailability {
+	return filterer->availability;
+}
+
 -(NSString *)getTypeName {
 	switch(type) {
 		case NameFilterType:
@@ -309,6 +395,9 @@
 			break;
 		case LocationFilterType:
 			return @"Location Filter";
+			break;
+		case AvailabilityFilterType:
+			return @"Availability Filter";
 			break;
 		default:
 			return @"Invalid Filter";

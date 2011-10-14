@@ -74,30 +74,29 @@
 
 /* Filter Methods */
 
-/* Returns true if the event's name begins with the given name false otherwise */
--(bool)NameFilter: (NSString *) str;
+/* Returns YES if the event's name begins with the given name NO otherwise */
+-(BOOL)NameFilter: (NSString *) str;
 
-/* Returns true if the event's artist begins with the given artist false otherwise */
--(bool)ArtistFilter: (NSString *) str;
+/* Returns YES if the event's artist begins with the given artist NO otherwise */
+-(BOOL)ArtistFilter: (NSString *) str;
 
-/* Returns true if the time of this event occurs between the given start and end times */
--(bool)TimeFilterStart: (NSDate *) start andEnd: (NSDate *) end;
+/* Returns YES if the time of this event occurs between the given start and end times */
+-(BOOL)TimeFilterStart: (NSDate *) start andEnd: (NSDate *) end;
 
-/* Returns true if the cost of this event is between the given min and max costs */
--(bool)CostFilterMin: (double) min andMax: (double) max;
+/* Returns YES if the cost of this event is between the given min and max costs */
+-(BOOL)CostFilterMin: (double) min andMax: (double) max;
 
-/* Returns true if the duration of this event is between the given min and max durations */
--(bool)DurationFilterMin:(int)min andMax:(int)max;
+/* Returns YES if the duration of this event is between the given min and max durations */
+-(BOOL)DurationFilterMin:(int)min andMax:(int)max;
 
-/* Returns true if the location of this event is within the given radius (in miles)
+/* Returns YES if the location of this event is within the given radius (in miles)
    of the given Location */
--(bool)LocationFilterLoc: (EventLocation *) loc andRadius: (double) rad;
+-(BOOL)LocationFilterLoc: (EventLocation *) loc andRadius: (double) rad;
 
 /* Takes a day of the week and a time (24 hr format) and returns whether this event 
    is available at the day and time */
--(bool)AvailabilityFilter: (NSString *) day Time: (int) time;
+-(BOOL)AvailabilityFilter: (NSString *) day Time: (int) time;
 
 /* End Filter Methods */
 
 @end
-

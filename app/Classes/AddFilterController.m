@@ -8,8 +8,11 @@
 
 #import "AddFilterController.h"
 #import "FilterListController.h"
+#import "Filter.h"
 
 @implementation AddFilterController
+@synthesize myPickerView, 
+			pickerData;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -21,12 +24,22 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-    [super viewDidLoad];
+    FilterType t;
+	
+	[super viewDidLoad];
+	
+	pickerData = [[NSMutableArray alloc] init];
+	
+	for(t = FirstFilterType; t <= LastFilterType; t++) {
+		[pickerData addObject: [Filter getFilterTypeString: t]];
+	}
+	
+	[myPickerView selectRow:0 inComponent:0 animated:NO];
 }
-*/
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -35,6 +48,28 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 */
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+	return 1;
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row 
+inComponent:(NSInteger)component 
+{
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:
+(NSInteger)component
+{
+	return [pickerData count];
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:
+(NSInteger)component
+{
+	return [pickerData objectAtIndex: row];
+}
+
 
 -(IBAction)cancel: (id)sender {
 	NSLog(@"Cancel Clicked\n");
