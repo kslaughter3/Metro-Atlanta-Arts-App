@@ -15,7 +15,7 @@
 @interface Content : NSObject {
 	NSMutableArray *displayedEvents;
 	NSMutableArray *filteredEvents;
-	NSMutableArray *oldEvents; /* Holds the events that are filtered because they are no longer valid */
+//	NSMutableArray *oldEvents; /* Holds the events that are filtered because they are no longer valid */
 	NSMutableArray *filters;
 	NSMutableArray *artists;
 	
@@ -32,7 +32,7 @@
 -(Content *)getContent; /* TODO: Fix this to connect to the database/web service */
 
 /* Filters all the events that are no longer valid */
--(void)filterOldEvents;
+//-(void)filterOldEvents;
 
 /* Filtering methods */
 

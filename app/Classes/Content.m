@@ -16,7 +16,7 @@ static Content *instance;
 
 +(Content *)getInstance {
 	if(instance == nil) {
-		instance = [instance getContent];
+		instance = [[Content alloc] getContent];
 	}
 	
 	if(instance != nil) {
@@ -32,14 +32,14 @@ static Content *instance;
 	
 	if(self != nil)
 	{
-		[self->displayedEvents initWithCapacity: 10];
-		[self->filteredEvents initWithCapacity: 10];
-		[self->oldEvents initWithCapacity: 10];
-		[self->filters initWithCapacity: 10];
+		displayedEvents = [[NSMutableArray alloc] init];
+		filteredEvents = [[NSMutableArray alloc] init];
+		artists = [[NSMutableArray alloc] init];
+		filters = [[NSMutableArray alloc] init];
 	
 		/* TODO: Get events from database */
 	
-		[self filterOldEvents];
+		//[self filterOldEvents];
 	
 		return self;
 	}
@@ -47,17 +47,16 @@ static Content *instance;
 	return nil;
 }
 
--(void)filterOldEvents {
-}
+//-(void)filterOldEvents {
+//}
 
 
 -(BOOL)addFilter: (Filter *) filter AndFilter: (BOOL) type {
-	
 	/* Check to see if the filter is nil or invalid */
 	if(filter == nil) {
 		return NO;
 	}
-	
+
 	Filterer *filterer = [filter getFilterer];
 	
 	if([filter checkFilterer: filterer] == NO) {
@@ -66,15 +65,19 @@ static Content *instance;
 	
 	/* Add the filter */
 	[filters addObject: filter];
+	
+	NSString *string ;
+	string = [NSString stringWithFormat:@"Number of Filters: %d", [filters count]];
+	NSLog(string);
 
 	/* Add the filter as either an AND filter or an OR Filter based on type */
-	if(type == YES) {
+/*	if(type == YES) {
 		[self addAndFilter: filter];
 	}
 	else {
 		[self addOrFilter: filter];
 	}
-	
+*/	
 	return YES;
 }
 

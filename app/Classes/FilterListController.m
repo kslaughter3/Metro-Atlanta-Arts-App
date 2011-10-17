@@ -36,9 +36,12 @@
 	myTableView = tableView;
 	[tableView release];
 	
-	NSArray *list = [[NSArray alloc] initWithObjects: @"Test", @"Hello", @"World", nil];
-	self.listData = list;
-	[list release];
+	self.listData = [[NSMutableArray alloc] initWithObjects: @"Test", @"Hello", @"World", nil];
+	//Content *content = [Content getInstance];
+	//listData = [content getFilters];
+	//self.listData = list;
+	//[list release];
+	
     [super viewDidLoad];
 }
 
@@ -51,7 +54,12 @@
 //    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	return 1;
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	NSLog(@"Rows in Section Reached");
 	//Content *content = [Content getInstance];
 	//return [content getFilterCount];
 	if([self.listData count] > 0) {
@@ -62,6 +70,8 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *MyIdentifier = @"MyIdentifier";
+
+	NSLog(@"Table view reached");
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	if(cell == nil) {
@@ -69,18 +79,31 @@
 	}
 	
 	//Content *content = [Content getInstance];
-	//Filter *f = (Filter *)[[content getFilters] objectAtIndex:indexPath.row];
+	
+	//If there are no filters return the empty cell
+	//if([listData count] == 0) {
+	//	return cell;
+	//}
+	
+	//Filter *f = (Filter *)[listData objectAtIndex:indexPath.row];
 	
 	NSUInteger row = [indexPath row];
-	cell.textLabel.text = [listData objectAtIndex: row];
+	cell.textLabel.text = [self.listData objectAtIndex: row];
+/*	cell.textLabel.text = [f getTypeName];
 	
-	//cell.textLabel.text = [f getTypeName];
-	//TODO: set the detailed text based on the filterer's values 
-	//cell.textLabel.text = @"Hello World";
-	
+	switch ([f getFilterType]) {
+		case NameFilterType:
+			cell.detailTextLabel.text = [f getFiltererName];
+			break;
+		default:
+			break;
+	}
+*/	
 	return cell;
 }
 
+
+		
 -(IBAction)addFilter: (id) sender {
 	NSLog(@"Add Filter Clicked\n");
 	
@@ -92,6 +115,7 @@
 	}
 	
 	[self presentModalViewController: self.myAddFilterController animated:YES];
+	//[myTableView reloadData];
 }
 
 -(IBAction)editFilter: (id) sender {
@@ -113,9 +137,10 @@
 
 -(IBAction)removeFilter: (id) sender {
 	NSLog(@"Remove Filter Clicked\n");
+	//[self.myTableView reloadData];
+	//[self add: @"GoodBye"];
 	
 	/* TODO: Make sure that there is a filter selected */
-	
 	if(self.myRemoveFilterController == nil) {
 		RemoveFilterController *new_view = [[RemoveFilterController alloc] 
 			initWithNibName:@"RemoveFilterView" bundle:nil];
@@ -125,6 +150,18 @@
 	
 	[self presentModalViewController: self.myRemoveFilterController animated:YES];
 }
+
+-(void)add:(NSObject *)obj {
+	//NSString *string = [NSString stringWithFormat:@"Number of Items: %d", 
+//						[self.listData count]];
+//	NSLog(string);
+	//[listData addObject: obj];
+	//string = [NSString stringWithFormat:@"Number of Items: %d", 
+	//					[self.listData count]];
+//	NSLog(string);
+	[myTableView reloadData];
+}
+
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

@@ -13,30 +13,62 @@
 +(NSString *)getFilterTypeString: (FilterType) t {
 	switch(t) {
 		case NameFilterType:
-			return @"Name Filter";
+			return @NAMESTRING;
 			break;
 		case ArtistFilterType:
-			return @"Artist Filter";
+			return @ARTISTSTRING;
 			break;
 		case TimeFilterType:
-			return @"Time Filter";
+			return @TIMESTRING;
 			break;
 		case CostFilterType:
-			return @"Cost Filter";
+			return @COSTSTRING;
 			break;
 		case DurationFilterType:
-			return @"Duration Filter";
+			return @DURATIONSTRING;
 			break;
 		case LocationFilterType:
-			return @"Location Filter";
+			return @LOCATIONSTRING;
 			break;
 		case AvailabilityFilterType:
-			return @"Availability Filter";
+			return @AVAILABILITYSTRING;
 			break;
 		default:
-			return @"Invalid Filter";
+			return @INVALIDSTRING;
 			break;
 	}
+}
+
++(FilterType)getFilterTypeFromString: (NSString *) str {
+	if([str isEqualToString: @NAMESTRING]) {
+		return NameFilterType;
+	}
+	
+	if([str isEqualToString: @ARTISTSTRING]) {
+		return ArtistFilterType;
+	}
+	
+	if([str isEqualToString: @TIMESTRING]) {
+		return TimeFilterType;
+	}
+	
+	if([str isEqualToString: @COSTSTRING]) {
+		return CostFilterType;
+	}
+	
+	if([str isEqualToString: @DURATIONSTRING]) {
+		return DurationFilterType;
+	}
+	
+	if([str	isEqualToString: @LOCATIONSTRING]) {
+		return LocationFilterType;
+	}
+	
+	if([str isEqualToString: @AVAILABILITYSTRING]) {
+		return AvailabilityFilterType;
+	}
+
+	return InvalidFilterType;
 }
 
 -(Filter *)initializeFilterWithType: (FilterType) t andFilterer: (Filterer *) f {
@@ -57,10 +89,10 @@
 
 /*Builds the specified filter if the data is valid */
 
--(Filter *)initializeNameFilter: (NSString *)name {	
+-(Filter *)initializeNameFilter: (NSString *)name {
 	self = [super init];
 	
-	if(self != nil) {		
+	if(self != nil) {
 		if([self checkNameFilterer: name] == YES) {
 			[self setFilterType: NameFilterType];
 		
@@ -97,7 +129,7 @@
 	return nil;
 }
 
--(Filter *)iniitializeTimeFilterStart: (NSDate *) start End: (NSDate *) end {
+-(Filter *)initializeTimeFilterStart: (NSDate *) start End: (NSDate *) end {
 	self = [super init];
 	
 	if(self != nil) {
@@ -181,16 +213,17 @@
 	return nil;
 }
 
--(Filter *)initializeAvailabilityFilter:(EventAvailability *) avail {
+-(Filter *)initializeAvailabilityFilter:(NSString *) d Time: (int) t {
 	self = [super init];
 	
 	if(self != nil) {
-		if([self checkAvailabilityFilterer: avail] == YES) {
+		if([self checkAvailabilityFilterer: d Time: t] == YES) {
 			[self setFilterType: AvailabilityFilterType];
 			
 			filterer = (Filterer *)malloc(sizeof(Filterer));
 			if(filterer != nil) {
-				filterer->availability = avail;
+				filterer->day = d;
+				filterer->time = t;
 				return self;
 			}
 		}
@@ -228,7 +261,7 @@
 			return [self checkLocationFilterer: f->loc Radius: f->radius];
 			break;
 		case AvailabilityFilterType:
-			return [self checkAvailabilityFilterer: f->availability];
+			return [self checkAvailabilityFilterer: f->day Time: f->time];
 			break;
 		default:
 			return NO;
@@ -239,11 +272,11 @@
 }
 
 -(BOOL)checkNameFilterer: (NSString *) name {
-	return (name != nil);
+	return ((name != nil) && ([name isEqualToString: @""]) == NO);
 }
 
 -(BOOL)checkArtistFilterer: (NSString *) artist {
-	return (artist != nil);
+	return ((artist != nil) && ([artist isEqualToString: @""]) == NO);
 }
 
 -(BOOL)checkTimeFiltererStart: (NSDate *) start End: (NSDate *) end {
@@ -268,32 +301,27 @@
 
 -(BOOL)checkLocationFilterer: (EventLocation *) loc Radius: (double) rad {
 	/* Check to see if the location is set and the radius is not negative */
-	if(loc != nil) {
+/*	if(loc != nil) {
 		CLLocationCoordinate2D coord = [loc getCoordinates];
-		/* Check to make sure the lat lon is within the bounds */
-		if((coord.latitude >= MINLAT) && (coord.latitude <= MAXLAT) && 
+*/		/* Check to make sure the lat lon is within the bounds */
+/*		if((coord.latitude >= MINLAT) && (coord.latitude <= MAXLAT) && 
 		   (coord.longitude >= MINLON) && (coord.longitude <= MAXLON)) {
 			return (rad >= 0);
 		}
 	}
 	
-	return NO;
+	return NO;*/
+	return YES;
 }
 
--(BOOL)checkAvailabilityFilterer:(EventAvailability *)avail {
-	NSString *temp;
-	
-	for(id day in [avail getDays])
-	{
-		temp = (NSString *)day;
-		temp = [temp uppercaseString];
+-(BOOL)checkAvailabilityFilterer:(NSString *) day Time: (int) time {
+
 		
-		if([self checkDayString: temp] == NO) {
-			return NO;
-		}
+	if([self checkDayString: day] == NO) {
+		return NO;
 	}
 	
-	if([avail getStartTime] <= [avail getEndTime]) {	
+	if(time >= 0 && time <= 2359) {	
 		return YES;
 	}
 	
@@ -302,9 +330,10 @@
 
 -(BOOL)checkDayString: (NSString *) str {
 	
-	if(([str compare: @"SUNDAY"]) || ([str compare: @"MONDAY"]) || ([str compare: @"TUESDAY"]) ||
-	   ([str compare: @"WEDNESDAY"]) ||  ([str compare: @"THURSDAY"]) || 
-	   ([str compare: @"FRIDAY"]) || ([str compare: @"SATURDAY"])) {
+	if(([str isEqualToString: @"SUNDAY"]) || ([str isEqualToString: @"MONDAY"]) || 
+	   ([str isEqualToString: @"TUESDAY"]) || ([str isEqualToString: @"WEDNESDAY"]) ||  
+	   ([str isEqualToString: @"THURSDAY"]) || ([str isEqualToString: @"FRIDAY"]) || 
+	   ([str isEqualToString: @"SATURDAY"])) {
 		return YES;
 	}
 	
@@ -372,35 +401,39 @@
 	return filterer->radius;
 }
 
--(EventAvailability *)getFiltererAvailability {
-	return filterer->availability;
+-(NSString *)getFiltererAvailabilityDay {
+	return filterer->day;
+}
+
+-(int)getFiltererAvailabilityTime {
+	return filterer->time;
 }
 
 -(NSString *)getTypeName {
 	switch(type) {
 		case NameFilterType:
-			return @"Name Filter";
+			return @NAMESTRING;
 			break;
 		case ArtistFilterType:
-			return @"Artist Filter";
+			return @ARTISTSTRING;
 			break;
 		case TimeFilterType:
-			return @"Time Filter";
+			return @TIMESTRING;
 			break;
 		case CostFilterType:
-			return @"Cost Filter";
+			return @COSTSTRING;
 			break;
 		case DurationFilterType:
-			return @"Duration Filter";
+			return @DURATIONSTRING;
 			break;
 		case LocationFilterType:
-			return @"Location Filter";
+			return @LOCATIONSTRING;
 			break;
 		case AvailabilityFilterType:
-			return @"Availability Filter";
+			return @AVAILABILITYSTRING;
 			break;
 		default:
-			return @"Invalid Filter";
+			return @INVALIDSTRING;
 			break;
 	}
 }

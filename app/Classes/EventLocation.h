@@ -23,6 +23,9 @@
 -(EventLocation *)initializeWithAddress: (NSString *) add City: (NSString *) c State: (NSString *) s 
 								Zip: (NSString *) z Location: (CLLocation *) loc;
 
+-(EventLocation *)initializeWithAddress:(NSString *)add City:(NSString *)c 
+								State:(NSString *)s Zip:(NSString *)z;
+
 /* getters and setters */
 -(void)setStreetAddress: (NSString *) str;
 -(NSString *)getStreetAddress; 

@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+
 @class AddFilterController;
 
-@interface AddFilterController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
-	IBOutlet UIPickerView *typePickerView;
+@interface AddFilterController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, 
+	UITextFieldDelegate> {
 	IBOutlet UILabel *typeLabel;
 	IBOutlet UITextField *typeField;
 	IBOutlet UILabel *topLabel;
@@ -23,7 +24,6 @@
 	NSMutableArray *types;
 }
 
-@property (nonatomic, retain) IBOutlet UIPickerView *typePickerView;
 @property (nonatomic, retain) IBOutlet UILabel *typeLabel;
 @property (nonatomic, retain) IBOutlet UITextField *typeField;
 @property (nonatomic, retain) IBOutlet UILabel *topLabel;
@@ -37,5 +37,10 @@
 -(IBAction)cancel:(id)sender;
 -(IBAction)ok:(id)sender;
 -(IBAction)pickerDoneClicked:(id)sender;
+
+-(NSDate *)buildDate: (NSString *)date Time: (NSString *)time;
+-(int)buildTime: (NSString *)time;
+
+//-(void)setInputType: (UITextField *) field Type: (int) type;
 
 @end

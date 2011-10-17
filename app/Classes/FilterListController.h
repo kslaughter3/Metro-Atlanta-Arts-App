@@ -18,16 +18,19 @@
 	IBOutlet AddFilterController *myAddFilterController;
 	IBOutlet EditFilterController *myEditFilterController;
 	IBOutlet RemoveFilterController *myRemoveFilterController;
-	NSArray *listData;
+	NSMutableArray *listData;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView* myTableView;
 @property (nonatomic, retain) IBOutlet AddFilterController *myAddFilterController;
 @property (nonatomic, retain) IBOutlet EditFilterController *myEditFilterController;
 @property (nonatomic, retain) IBOutlet RemoveFilterController *myRemoveFilterController;
-@property (nonatomic, retain) NSArray *listData;
+@property (nonatomic, retain) NSMutableArray *listData;
 
 -(IBAction)addFilter:(id)sender;
 -(IBAction)editFilter:(id)sender;
 -(IBAction)removeFilter:(id)sender;
+
+-(void)add:(NSObject *)obj;
+
 @end

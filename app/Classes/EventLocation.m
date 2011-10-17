@@ -33,6 +33,26 @@
 	return nil;
 }
 
+-(EventLocation *)initializeWithAddress: (NSString *) add City: (NSString *) c State: (NSString *) s 
+									Zip: (NSString *) z {
+	if((add == nil) || (c == nil) || (s == nil) || (z == nil)) {
+		return nil;
+	}
+	
+	self = [super init];
+	
+	if(self != nil) {
+		[self setStreetAddress: add];
+		[self setCity: c];
+		[self setState: s];
+		[self setZip: z];
+		//TODO: add call to database to get the CLLocations
+		return self;
+	}
+	
+	return nil;
+}
+
 /* getters and setters */
 -(void)setStreetAddress: (NSString *) str {
 	streetAddress = str;
