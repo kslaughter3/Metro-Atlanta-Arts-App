@@ -313,8 +313,7 @@ inComponent:(NSInteger)component
 		if([content addFilter: filter AndFilter: YES] == NO) {
 			NSLog(@"Error: Add Filter Failed with a Valid Filter");
 		}
-	
-		//FilterListController *parent = (FilterListController *)self.parentViewController;
+
 		[self.parentViewController dismissModalViewControllerAnimated: YES];
 	}
 }

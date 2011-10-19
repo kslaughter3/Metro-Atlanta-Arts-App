@@ -15,16 +15,16 @@
 
 @interface FilterListController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	IBOutlet UITableView *myTableView;
-	IBOutlet AddFilterController *myAddFilterController;
-	IBOutlet EditFilterController *myEditFilterController;
-	IBOutlet RemoveFilterController *myRemoveFilterController;
+	AddFilterController *myAddFilterController;
+	EditFilterController *myEditFilterController;
+	RemoveFilterController *myRemoveFilterController;
 	NSMutableArray *listData;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView* myTableView;
-@property (nonatomic, retain) IBOutlet AddFilterController *myAddFilterController;
-@property (nonatomic, retain) IBOutlet EditFilterController *myEditFilterController;
-@property (nonatomic, retain) IBOutlet RemoveFilterController *myRemoveFilterController;
+@property (nonatomic, retain) AddFilterController *myAddFilterController;
+@property (nonatomic, retain) EditFilterController *myEditFilterController;
+@property (nonatomic, retain) RemoveFilterController *myRemoveFilterController;
 @property (nonatomic, retain) NSMutableArray *listData;
 
 -(IBAction)addFilter:(id)sender;

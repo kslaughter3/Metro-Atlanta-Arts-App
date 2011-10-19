@@ -27,16 +27,17 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-	
-	UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero 
+	NSLog(@"View Did Load");
+	UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero
 		style: UITableViewStylePlain];
 	
 	[tableView setDelegate: self];
 	[tableView setDataSource: self];
 	myTableView = tableView;
-	[tableView release];
+	//[tableView release];
 	
-	self.listData = [[NSMutableArray alloc] initWithObjects: @"Test", @"Hello", @"World", nil];
+	if(listData == nil)
+		self.listData = [[NSMutableArray alloc] initWithObjects: @"Test", @"Hello", @"World", nil];
 	//Content *content = [Content getInstance];
 	//listData = [content getFilters];
 	//self.listData = list;
@@ -45,7 +46,11 @@
     [super viewDidLoad];
 }
 
-
+-(void)viewWillAppear:(BOOL)animated {
+	NSLog(@"View will Appear");
+	NSLog([NSString stringWithFormat:@"data: %d", [listData count]]);
+	[myTableView reloadData];
+}
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -62,10 +67,10 @@
 	NSLog(@"Rows in Section Reached");
 	//Content *content = [Content getInstance];
 	//return [content getFilterCount];
-	if([self.listData count] > 0) {
+	//if([self.listData count] > 0) {
 		return [self.listData count];
-	}
-	return 1;
+	//}
+//	return 1;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -78,6 +83,8 @@
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
 	}
 	
+	NSLog(cell.description);
+	
 	//Content *content = [Content getInstance];
 	
 	//If there are no filters return the empty cell
@@ -87,8 +94,10 @@
 	
 	//Filter *f = (Filter *)[listData objectAtIndex:indexPath.row];
 	
-	NSUInteger row = [indexPath row];
-	cell.textLabel.text = [self.listData objectAtIndex: row];
+	//[cell setData: [listData objectAtIndex:[indexPath row]]];
+	
+//	NSUInteger row = [indexPath row];
+	cell.textLabel.text = [self.listData objectAtIndex: indexPath.row];
 /*	cell.textLabel.text = [f getTypeName];
 	
 	switch ([f getFilterType]) {
@@ -102,7 +111,8 @@
 	return cell;
 }
 
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+}
 		
 -(IBAction)addFilter: (id) sender {
 	NSLog(@"Add Filter Clicked\n");
@@ -138,28 +148,32 @@
 -(IBAction)removeFilter: (id) sender {
 	NSLog(@"Remove Filter Clicked\n");
 	//[self.myTableView reloadData];
-	//[self add: @"GoodBye"];
+	[self add: @"GoodBye"];
+	
+	//[listData addObject:@"GoodBye"];
+	//[myTableView reloadData];
 	
 	/* TODO: Make sure that there is a filter selected */
-	if(self.myRemoveFilterController == nil) {
+	/*if(self.myRemoveFilterController == nil) {
 		RemoveFilterController *new_view = [[RemoveFilterController alloc] 
 			initWithNibName:@"RemoveFilterView" bundle:nil];
 		self.myRemoveFilterController = new_view;
 		[new_view release];
 	}
 	
-	[self presentModalViewController: self.myRemoveFilterController animated:YES];
+	[self presentModalViewController: self.myRemoveFilterController animated:YES];*/
 }
 
 -(void)add:(NSObject *)obj {
-	//NSString *string = [NSString stringWithFormat:@"Number of Items: %d", 
-//						[self.listData count]];
-//	NSLog(string);
-	//[listData addObject: obj];
-	//string = [NSString stringWithFormat:@"Number of Items: %d", 
-	//					[self.listData count]];
-//	NSLog(string);
-	[myTableView reloadData];
+	NSString *string = [NSString stringWithFormat:@"Number of Items: %d", 
+						[self.listData count]];
+	NSLog(string);
+	[self.listData addObject: obj];
+	string = [NSString stringWithFormat:@"Number of Items: %d", 
+						[self.listData count]];
+	NSLog(string);
+ 
+	[self.myTableView reloadData];
 }
 
 
