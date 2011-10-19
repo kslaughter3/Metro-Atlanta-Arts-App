@@ -7,16 +7,45 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Filter.h"
+#import "EventLocation.h"
+
 
 @class EditFilterController;
 
-@interface EditFilterController : UIViewController {
-	IBOutlet UITextView *description;
+@interface EditFilterController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, 
+UITextFieldDelegate> {
+	IBOutlet UILabel *typeLabel;
+	IBOutlet UITextField *typeField;
+	IBOutlet UILabel *topLabel;
+	IBOutlet UITextField *topField;
+	IBOutlet UILabel *middleLabel;
+	IBOutlet UITextField *middleField;
+	IBOutlet UILabel *bottomLabel;
+	IBOutlet UITextField *bottomField;
+	NSMutableArray *types;
+	Filter *myFilter;
 }
 
-@property(nonatomic, retain) IBOutlet UITextView *description;
+@property (nonatomic, retain) IBOutlet UILabel *typeLabel;
+@property (nonatomic, retain) IBOutlet UITextField *typeField;
+@property (nonatomic, retain) IBOutlet UILabel *topLabel;
+@property (nonatomic, retain) IBOutlet UITextField *topField;
+@property (nonatomic, retain) IBOutlet UILabel *middleLabel;
+@property (nonatomic, retain) IBOutlet UITextField *middleField;
+@property (nonatomic, retain) IBOutlet UILabel *bottomLabel;
+@property (nonatomic, retain) IBOutlet UITextField *bottomField;
+@property (nonatomic, retain) NSMutableArray *types;
+@property (nonatomic, retain) Filter *myFilter;
 
--(IBAction)ok:(id)sender;
+-(void)setUpFields: (FilterType) type;
+-(void)setValues;
+
 -(IBAction)cancel:(id)sender;
+-(IBAction)save:(id)sender;
+-(IBAction)remove:(id)sender;
+-(IBAction)pickerDoneClicked:(id)sender;
 
+-(NSDate *)buildDate: (NSString *)date Time: (NSString *)time;
+-(int)buildTime: (NSString *)time;
 @end

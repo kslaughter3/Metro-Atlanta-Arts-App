@@ -380,7 +380,31 @@ static Content *instance;
 	return [event LocationFilterLoc: [filter getFiltererLocation]
 						  andRadius: [filter getFiltererRadius]];
 }
+
+-(Event *)getEventAtIndex:(int)index {
+	if(index >= [self getDisplayedEventCount]) {
+		return nil;
+	}
 	
+	return (Event *)[displayedEvents objectAtIndex: index];
+}
+
+-(EventArtist *)getArtistAtIndex:(int)index {
+	if(index >= [self getArtistCount]) {
+		return nil;
+	}
+	
+	return (EventArtist *)[artists objectAtIndex: index];
+}
+
+-(Filter *)getFilterAtIndex:(int)index {
+	if(index >= [self getFilterCount]) {
+		return nil;
+	}
+	
+	return (Filter *)[filters objectAtIndex: index];
+}
+
 -(NSMutableArray *)getDisplayedEvents {
 	return displayedEvents;
 }

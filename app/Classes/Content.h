@@ -58,6 +58,10 @@
 -(BOOL)checkDuration: (Event *) event withFilter: (Filter *) filter;
 -(BOOL)checkLocation: (Event *) event withFilter: (Filter *) filter;
 
+-(Event *)getEventAtIndex: (int) index;
+-(EventArtist *)getArtistAtIndex: (int) index;
+-(Filter *)getFilterAtIndex: (int) index;
+
 -(NSMutableArray *)getDisplayedEvents;
 -(NSMutableArray *)getFilteredEvents;
 -(NSMutableArray *)getFilters;

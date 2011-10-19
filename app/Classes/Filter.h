@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "EventLocation.h"
-#import "EventArtist.h"
-#import "EventAvailability.h"
 
 /* Definitions of the minimum and maximum valid latitudes and longitudes
    can restrict these more and move these definitions to a more useful place if necessary */

@@ -42,9 +42,6 @@
 	types = [[NSMutableArray alloc] init];
 	
 	for(t = FirstFilterType; t <= LastFilterType; t++) {
-		if(t == FirstFilterType) {
-			typeField.text = [Filter getFilterTypeString: t];
-		}
 		[types addObject: [Filter getFilterTypeString: t]];
 	}
 	
@@ -73,9 +70,13 @@
 	topField.delegate = self;
 	middleField.delegate = self;
 	bottomField.delegate = self;
-	
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear: animated];
 	/* Hide the label/fields that are not used for this type and set the text of the 
-	   displayed labels/fields */
+	 displayed labels/fields */
+	typeField.text = [Filter getFilterTypeString: FirstFilterType];
 	topLabel.hidden = NO;
 	topField.hidden = NO;
 	middleLabel.hidden = YES;
@@ -83,6 +84,7 @@
 	bottomLabel.hidden = YES;
 	bottomField.hidden = YES;
 	topLabel.text = @"Name:";
+	topField.text = @"";
 }
 
 

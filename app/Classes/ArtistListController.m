@@ -87,7 +87,6 @@
 		self.myArtistController = [[ArtistController alloc] initWithNibName: @"ArtistView" bundle: nil];
 	}
 	
-	myArtistController.myTitleBar.topItem.title = @"Hello World";
 	
 	//[myArtistController setArtist: [[content getArtists] objectAtIndex: idx]];
 	[self presentModalViewController: self.myArtistController animated:YES];

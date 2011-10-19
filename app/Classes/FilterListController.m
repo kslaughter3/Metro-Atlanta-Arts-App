@@ -11,10 +11,10 @@
 #import "Filter.h"
  
 @implementation FilterListController
-@synthesize myTableView, 
+@synthesize myTableView,
+			myNavigationBar,
 			myAddFilterController, 
 			myEditFilterController, 
-			myRemoveFilterController,
 			listData;
 
 /* // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -112,6 +112,35 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSLog(@"Row Selected Clicked\n");
+	
+	/*TODO: Make sure that there is a filter selected */
+	
+	if(self.myEditFilterController == nil) {
+		EditFilterController *new_view = [[EditFilterController alloc] 
+										  initWithNibName: @"EditFilterView" bundle: nil];
+		self.myEditFilterController = new_view;
+		[new_view release];
+	}
+	
+	Content *content = [Content getInstance];
+	Filter *filter = [content getFilterAtIndex: [indexPath row]];
+	
+	if(filter == nil) {
+		NSLog(@"Error: Invalid Filter");
+		UIAlertView *alert = [[UIAlertView alloc] 
+							  initWithTitle:@"Error: Invalid Filter" 
+							  message: @"The filter is not valid" 
+							  delegate: nil 
+							  cancelButtonTitle: @"OK" 
+							  otherButtonTitles: nil];
+		[alert show];
+		[alert release];
+	}
+	else {
+		self.myEditFilterController.myFilter = filter;
+		[self presentModalViewController: self.myEditFilterController animated:YES];
+	}
 }
 		
 -(IBAction)addFilter: (id) sender {
@@ -126,42 +155,6 @@
 	
 	[self presentModalViewController: self.myAddFilterController animated:YES];
 	//[myTableView reloadData];
-}
-
--(IBAction)editFilter: (id) sender {
-	NSLog(@"Edit Filter Clicked\n");
-	
-	/*TODO: Make sure that there is a filter selected */
-	
-	if(self.myEditFilterController == nil) {
-		EditFilterController *new_view = [[EditFilterController alloc] 
-			initWithNibName: @"EditFilterView" bundle: nil];
-		self.myEditFilterController = new_view;
-		[new_view release];
-	}
-	
-	[self presentModalViewController: self.myEditFilterController animated:YES];
-	[self.myEditFilterController.description setText:@"Hello World"];
-	
-}
-
--(IBAction)removeFilter: (id) sender {
-	NSLog(@"Remove Filter Clicked\n");
-	//[self.myTableView reloadData];
-	[self add: @"GoodBye"];
-	
-	//[listData addObject:@"GoodBye"];
-	//[myTableView reloadData];
-	
-	/* TODO: Make sure that there is a filter selected */
-	/*if(self.myRemoveFilterController == nil) {
-		RemoveFilterController *new_view = [[RemoveFilterController alloc] 
-			initWithNibName:@"RemoveFilterView" bundle:nil];
-		self.myRemoveFilterController = new_view;
-		[new_view release];
-	}
-	
-	[self presentModalViewController: self.myRemoveFilterController animated:YES];*/
 }
 
 -(void)add:(NSObject *)obj {

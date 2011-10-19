@@ -37,8 +37,6 @@
 		BFF8F6E3143A2FB500D5DA96 /* EventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6E2143A2FB500D5DA96 /* EventView.xib */; };
 		F2771D801445F35600FC8C0C /* EditFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2771D7E1445F35600FC8C0C /* EditFilterController.m */; };
 		F2771D811445F35600FC8C0C /* EditFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2771D7F1445F35600FC8C0C /* EditFilterView.xib */; };
-		F2771DBA1445F7FE00FC8C0C /* RemoveFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2771DB81445F7FE00FC8C0C /* RemoveFilterController.m */; };
-		F2771DBB1445F7FE00FC8C0C /* RemoveFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2771DB91445F7FE00FC8C0C /* RemoveFilterView.xib */; };
 		F2771E82144609DB00FC8C0C /* EventController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2771E80144609DB00FC8C0C /* EventController.m */; };
 		F2B45EB8143F5E18002B0729 /* EventLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EB7143F5E18002B0729 /* EventLocation.m */; };
 		F2B45EBB143F5E3C002B0729 /* EventAvailability.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EBA143F5E3C002B0729 /* EventAvailability.m */; };
@@ -108,9 +106,6 @@
 		F2771D7D1445F35600FC8C0C /* EditFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFilterController.h; sourceTree = "<group>"; };
 		F2771D7E1445F35600FC8C0C /* EditFilterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFilterController.m; sourceTree = "<group>"; };
 		F2771D7F1445F35600FC8C0C /* EditFilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditFilterView.xib; sourceTree = "<group>"; };
-		F2771DB71445F7FE00FC8C0C /* RemoveFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoveFilterController.h; sourceTree = "<group>"; };
-		F2771DB81445F7FE00FC8C0C /* RemoveFilterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoveFilterController.m; sourceTree = "<group>"; };
-		F2771DB91445F7FE00FC8C0C /* RemoveFilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveFilterView.xib; sourceTree = "<group>"; };
 		F2771E7F144609DB00FC8C0C /* EventController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventController.h; sourceTree = "<group>"; };
 		F2771E80144609DB00FC8C0C /* EventController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventController.m; sourceTree = "<group>"; };
 		F2B45EB6143F5E18002B0729 /* EventLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventLocation.h; sourceTree = "<group>"; };
@@ -189,8 +184,6 @@
 				BF15C45D144F4DAD00969E72 /* TripPlanningController.m */,
 				BF15C45C144F4DAD00969E72 /* TripPlanningController.h */,
 				F2771D7E1445F35600FC8C0C /* EditFilterController.m */,
-				F2771DB71445F7FE00FC8C0C /* RemoveFilterController.h */,
-				F2771DB81445F7FE00FC8C0C /* RemoveFilterController.m */,
 				F2771E7F144609DB00FC8C0C /* EventController.h */,
 				F2771E80144609DB00FC8C0C /* EventController.m */,
 			);
@@ -229,7 +222,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F2771DB91445F7FE00FC8C0C /* RemoveFilterView.xib */,
 				F2771D7F1445F35600FC8C0C /* EditFilterView.xib */,
 				F2B587871443659B000A4A68 /* AddFilterView.xib */,
 				F2B5877714436292000A4A68 /* ArtistView.xib */,
@@ -348,7 +340,6 @@
 				F2B5877914436292000A4A68 /* ArtistView.xib in Resources */,
 				F2B587891443659B000A4A68 /* AddFilterView.xib in Resources */,
 				F2771D811445F35600FC8C0C /* EditFilterView.xib in Resources */,
-				F2771DBB1445F7FE00FC8C0C /* RemoveFilterView.xib in Resources */,
 				BF15C463144F4DFE00969E72 /* TripPlanningView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,7 +367,6 @@
 				F2B5877814436292000A4A68 /* ArtistController.m in Sources */,
 				F2B587881443659B000A4A68 /* AddFilterController.m in Sources */,
 				F2771D801445F35600FC8C0C /* EditFilterController.m in Sources */,
-				F2771DBA1445F7FE00FC8C0C /* RemoveFilterController.m in Sources */,
 				F2771E82144609DB00FC8C0C /* EventController.m in Sources */,
 				3A29A96C1448A959004E2C2D /* NSObject+SBJson.m in Sources */,
 				3A29A96D1448A959004E2C2D /* SBJsonParser.m in Sources */,
