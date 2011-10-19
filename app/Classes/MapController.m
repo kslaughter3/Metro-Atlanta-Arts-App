@@ -113,22 +113,6 @@
 		
 		if (retval == nil) {
 			retval = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:defaultPinID] autorelease];
-			
-			// Set up the Left callout
-			UIButton *eventButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-			[eventButton addTarget:self 
-					   action:@selector(loadEventDetails:)
-			 forControlEvents:UIControlEventTouchDown];
-			[eventButton setTitle:@"More" forState:UIControlStateNormal];
-			eventButton.frame = CGRectMake(40.0, 105.0, 40.0, 40.0);
-			[retval addSubview:eventButton];
-			
-			
-			// Set the image for the button
-			//[eventButton setImage:[UIImage imageNamed:@"Event.png"] forState:UIControlStateNormal];
-			
-			// Set the button as the callout view
-			retval.leftCalloutAccessoryView = eventButton;
 		}
 		
 		// Set a bunch of other stuff
@@ -140,6 +124,26 @@
 	}
 	
 	return retval;
+}
+
+-(void)mapView: (MKMapView *)mapView didSelectAnnotationView: (MKAnnotationView *) retval {	
+	if(retval.leftCalloutAccessoryView == nil)
+	{
+		// Set up the Left callout
+		UIButton *eventButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+		[eventButton addTarget:self 
+						action:@selector(loadEventDetails:)
+		  forControlEvents:UIControlEventTouchDown];
+		[eventButton setTitle:@"More" forState:UIControlStateNormal];
+		eventButton.frame = CGRectMake(40.0, 105.0, 40.0, 40.0);
+	
+		// Set the image for the button
+		//[eventButton setImage:[UIImage imageNamed:@"Event.png"] forState:UIControlStateNormal];
+	
+		// Set the button as the callout view
+		retval.leftCalloutAccessoryView = eventButton;
+		[eventButton release];
+	}	
 }
 
 -(IBAction)loadEventDetails:(id)sender
