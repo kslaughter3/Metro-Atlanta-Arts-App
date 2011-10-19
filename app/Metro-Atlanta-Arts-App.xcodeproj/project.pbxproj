@@ -29,6 +29,8 @@
 		3A29A9761448A959004E2C2D /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A29A9691448A959004E2C2D /* SBJsonUTF8Stream.m */; };
 		3A29A9771448A959004E2C2D /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A29A96B1448A959004E2C2D /* SBJsonWriter.m */; };
 		3A98777D142A57A600D80A8C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A98777C142A57A600D80A8C /* MapKit.framework */; };
+		BF15C45E144F4DAD00969E72 /* TripPlanningController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF15C45D144F4DAD00969E72 /* TripPlanningController.m */; };
+		BF15C463144F4DFE00969E72 /* TripPlanningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF15C462144F4DFE00969E72 /* TripPlanningView.xib */; };
 		BFF266AB143F928800084695 /* FilterListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF266A9143F928800084695 /* FilterListController.m */; };
 		BFF8F6C6143A278200D5DA96 /* FilterListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6C5143A278200D5DA96 /* FilterListView.xib */; };
 		BFF8F6CB143A2B7F00D5DA96 /* EventListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6CA143A2B7F00D5DA96 /* EventListView.xib */; };
@@ -95,6 +97,9 @@
 		3A29A96B1448A959004E2C2D /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		3A98777C142A57A600D80A8C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Metro_Atlanta_Arts_App-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Metro_Atlanta_Arts_App-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		BF15C45C144F4DAD00969E72 /* TripPlanningController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TripPlanningController.h; path = ../TripPlanningController.h; sourceTree = "<group>"; };
+		BF15C45D144F4DAD00969E72 /* TripPlanningController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TripPlanningController.m; path = ../TripPlanningController.m; sourceTree = "<group>"; };
+		BF15C462144F4DFE00969E72 /* TripPlanningView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripPlanningView.xib; sourceTree = "<group>"; };
 		BFF266A8143F928800084695 /* FilterListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterListController.h; sourceTree = "<group>"; };
 		BFF266A9143F928800084695 /* FilterListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterListController.m; sourceTree = "<group>"; };
 		BFF8F6C5143A278200D5DA96 /* FilterListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterListView.xib; sourceTree = "<group>"; };
@@ -181,6 +186,8 @@
 				F2B587851443659B000A4A68 /* AddFilterController.h */,
 				F2B587861443659B000A4A68 /* AddFilterController.m */,
 				F2771D7D1445F35600FC8C0C /* EditFilterController.h */,
+				BF15C45D144F4DAD00969E72 /* TripPlanningController.m */,
+				BF15C45C144F4DAD00969E72 /* TripPlanningController.h */,
 				F2771D7E1445F35600FC8C0C /* EditFilterController.m */,
 				F2771DB71445F7FE00FC8C0C /* RemoveFilterController.h */,
 				F2771DB81445F7FE00FC8C0C /* RemoveFilterController.m */,
@@ -227,6 +234,7 @@
 				F2B587871443659B000A4A68 /* AddFilterView.xib */,
 				F2B5877714436292000A4A68 /* ArtistView.xib */,
 				F2B586B01443546B000A4A68 /* ArtistListView.xib */,
+				BF15C462144F4DFE00969E72 /* TripPlanningView.xib */,
 				BFF8F6E2143A2FB500D5DA96 /* EventView.xib */,
 				BFF8F6C5143A278200D5DA96 /* FilterListView.xib */,
 				BFF8F6CA143A2B7F00D5DA96 /* EventListView.xib */,
@@ -341,6 +349,7 @@
 				F2B587891443659B000A4A68 /* AddFilterView.xib in Resources */,
 				F2771D811445F35600FC8C0C /* EditFilterView.xib in Resources */,
 				F2771DBB1445F7FE00FC8C0C /* RemoveFilterView.xib in Resources */,
+				BF15C463144F4DFE00969E72 /* TripPlanningView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +390,7 @@
 				3A29A9751448A959004E2C2D /* SBJsonTokeniser.m in Sources */,
 				3A29A9761448A959004E2C2D /* SBJsonUTF8Stream.m in Sources */,
 				3A29A9771448A959004E2C2D /* SBJsonWriter.m in Sources */,
+				BF15C45E144F4DAD00969E72 /* TripPlanningController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
