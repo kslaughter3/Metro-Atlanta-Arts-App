@@ -28,12 +28,12 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	NSLog(@"View Did Load");
-	UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero
-		style: UITableViewStylePlain];
+	//myTableView = [[UITableView alloc] initWithFrame:CGRectZero
+	//	style: UITableViewStylePlain];
 	
-	[tableView setDelegate: self];
-	[tableView setDataSource: self];
-	myTableView = tableView;
+	[myTableView setDelegate: self];
+	[myTableView setDataSource: self];
+	//myTableView = tableView;
 	//[tableView release];
 	
 	if(listData == nil)
@@ -154,7 +154,7 @@
 	}
 	
 	[self presentModalViewController: self.myAddFilterController animated:YES];
-	//[myTableView reloadData];
+
 }
 
 -(void)add:(NSObject *)obj {
