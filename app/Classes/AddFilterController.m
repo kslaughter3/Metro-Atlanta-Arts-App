@@ -249,8 +249,8 @@ inComponent:(NSInteger)component
 	NSLog(@"OK Clicked\n");
 	Filter *filter;
 	FilterType t;
-	NSDate *start;
-	NSDate *end;
+	EventDate *start;
+	EventDate *end;
 	double minCost;
 	double maxCost;
 	int minLength;
@@ -270,8 +270,6 @@ inComponent:(NSInteger)component
 			filter = [[Filter alloc] initializeArtistFilter: topField.text];
 			break;
 		case TimeFilterType:
-			start = [self buildDate: topField.text Time: middleField.text];
-			end = [self buildDate: topField.text Time: bottomField.text];
 			filter = [[Filter alloc] initializeTimeFilterStart:start End:end];
 			break;
 		case CostFilterType:
@@ -327,10 +325,6 @@ inComponent:(NSInteger)component
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
 	[textField resignFirstResponder];
 	return YES;
-}
-
--(NSDate *)buildDate: (NSString *) date Time: (NSString *)time {
-	return nil;
 }
 
 -(int)buildTime:(NSString *)time {

@@ -61,8 +61,8 @@
 	keyboardDoneButtonView.tintColor = nil;
 	[keyboardDoneButtonView sizeToFit];
 	UIBarButtonItem *doneButton = [[[UIBarButtonItem alloc] initWithTitle:@"Done"
-																	style:UIBarButtonItemStyleBordered target:self
-																   action:@selector(pickerDoneClicked:)] autorelease];
+		style:UIBarButtonItemStyleBordered target:self
+		action:@selector(pickerDoneClicked:)] autorelease];
 	
 	[keyboardDoneButtonView setItems:[NSArray arrayWithObjects:doneButton, nil]];
 	typeField.inputAccessoryView = keyboardDoneButtonView;
@@ -194,7 +194,8 @@
 -(void)setValues {
 	double minC, maxC, rad;
 	int minD, maxD, time;
-	NSDate *start, *end;	EventLocation *loc;
+	EventDate *start, *end;	
+	EventLocation *loc;
 	FilterType type = [myFilter getFilterType];
 	switch(type) {
 		case NameFilterType:
@@ -259,8 +260,8 @@
 	NSLog(@"OK Clicked\n");
 	Filter *filter;
 	FilterType t;
-	NSDate *start;
-	NSDate *end;
+	EventDate *start;
+	EventDate *end;
 	double minCost;
 	double maxCost;
 	int minLength;
@@ -280,8 +281,6 @@
 			filter = [[Filter alloc] initializeArtistFilter: topField.text];
 			break;
 		case TimeFilterType:
-			start = [self buildDate: topField.text Time: middleField.text];
-			end = [self buildDate: topField.text Time: bottomField.text];
 			filter = [[Filter alloc] initializeTimeFilterStart:start End:end];
 			break;
 		case CostFilterType:
@@ -343,10 +342,6 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
 	[textField resignFirstResponder];
 	return YES;
-}
-
--(NSDate *)buildDate: (NSString *) date Time: (NSString *)time {
-	return nil;
 }
 
 -(int)buildTime:(NSString *)time {

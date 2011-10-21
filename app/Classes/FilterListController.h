@@ -18,18 +18,13 @@
 	IBOutlet UINavigationBar *myNavigationBar;
 	AddFilterController *myAddFilterController;
 	EditFilterController *myEditFilterController;
-	NSMutableArray *listData;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
 @property (nonatomic, retain) IBOutlet UINavigationBar *myNavigationBar;
 @property (nonatomic, retain) AddFilterController *myAddFilterController;
 @property (nonatomic, retain) EditFilterController *myEditFilterController;
-@property (nonatomic, retain) NSMutableArray *listData;
 
 -(IBAction)addFilter:(id)sender;
-
--(void)add:(NSObject *)obj;
-
 
 @end
