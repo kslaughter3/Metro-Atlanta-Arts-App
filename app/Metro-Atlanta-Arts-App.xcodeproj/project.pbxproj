@@ -52,6 +52,7 @@
 		F2B587891443659B000A4A68 /* AddFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B587871443659B000A4A68 /* AddFilterView.xib */; };
 		F2BF2AE8143A35DE00FBD2F5 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = F2BF2AE7143A35DE00FBD2F5 /* Event.m */; };
 		F2BF2AED143A362E00FBD2F5 /* EventListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2BF2AEC143A362E00FBD2F5 /* EventListController.m */; };
+		F2F8B33114520D5800C21E4A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2F8B33014520D5800C21E4A /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +135,7 @@
 		F2BF2AE7143A35DE00FBD2F5 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		F2BF2AEB143A362E00FBD2F5 /* EventListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventListController.h; sourceTree = "<group>"; };
 		F2BF2AEC143A362E00FBD2F5 /* EventListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventListController.m; sourceTree = "<group>"; };
+		F2F8B33014520D5800C21E4A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				3A98777D142A57A600D80A8C /* MapKit.framework in Frameworks */,
+				F2F8B33114520D5800C21E4A /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +252,7 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
+				F2F8B33014520D5800C21E4A /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

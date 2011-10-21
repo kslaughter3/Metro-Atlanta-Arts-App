@@ -124,7 +124,7 @@
 /* distance to method */
 -(double)distanceFromLocation: (EventLocation *) loc {
 	double distance;
-	/*CLLocation *myLoc = [[CLLocation alloc] initWithLatitude:coordinate.latitude
+	CLLocation *myLoc = [[CLLocation alloc] initWithLatitude:coordinate.latitude
 						longitude: coordinate.longitude];
 	CLLocation *otherLoc = [[CLLocation alloc] initWithLatitude:[loc getCoordinates].latitude
 						longitude: [loc getCoordinates].longitude];
@@ -132,7 +132,7 @@
 	distance = [myLoc distanceFromLocation: otherLoc];
 	[myLoc release];
 	[otherLoc release];
-*/	
+
 	return distance;
 }
 
