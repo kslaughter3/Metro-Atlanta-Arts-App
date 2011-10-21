@@ -14,8 +14,7 @@
 @synthesize myTableView,
 			myNavigationBar,
 			myAddFilterController, 
-			myEditFilterController, 
-			listData;
+			myEditFilterController;
 
 /* // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -27,36 +26,18 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-	NSLog(@"View Did Load");
-	UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero
-		style: UITableViewStylePlain];
-	
-	[tableView setDelegate: self];
-	[tableView setDataSource: self];
-	myTableView = tableView;
-	//[tableView release];
-	
-	if(listData == nil)
-		self.listData = [[NSMutableArray alloc] initWithObjects: @"Test", @"Hello", @"World", nil];
-	//Content *content = [Content getInstance];
-	//listData = [content getFilters];
-	//self.listData = list;
-	//[list release];
-	
+	[myTableView setDelegate: self];
+	[myTableView setDataSource: self];
     [super viewDidLoad];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-	NSLog(@"View will Appear");
-	NSLog([NSString stringWithFormat:@"data: %d", [listData count]]);
 	[myTableView reloadData];
 }
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
 	return YES;
-//    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -64,50 +45,60 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	NSLog(@"Rows in Section Reached");
-	//Content *content = [Content getInstance];
-	//return [content getFilterCount];
-	//if([self.listData count] > 0) {
-		return [self.listData count];
-	//}
-//	return 1;
+	Content *content = [Content getInstance];
+	return [content getFilterCount];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *MyIdentifier = @"MyIdentifier";
-
-	NSLog(@"Table view reached");
+	NSString *string;
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	if(cell == nil) {
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
 	}
 	
-	NSLog(cell.description);
+
+	Content *content = [Content getInstance];
+	NSMutableArray *filters = [content getFilters];
 	
-	//Content *content = [Content getInstance];
+	Filter *f = (Filter *)[filters objectAtIndex:indexPath.row];
 	
-	//If there are no filters return the empty cell
-	//if([listData count] == 0) {
-	//	return cell;
-	//}
-	
-	//Filter *f = (Filter *)[listData objectAtIndex:indexPath.row];
-	
-	//[cell setData: [listData objectAtIndex:[indexPath row]]];
-	
-//	NSUInteger row = [indexPath row];
-	cell.textLabel.text = [self.listData objectAtIndex: indexPath.row];
-/*	cell.textLabel.text = [f getTypeName];
+	cell.detailTextLabel.text = [f getTypeName];
 	
 	switch ([f getFilterType]) {
 		case NameFilterType:
-			cell.detailTextLabel.text = [f getFiltererName];
+			string = [f nameString];
+			cell.textLabel.text = string;
+			break;
+		case ArtistFilterType:
+			string = [f artistString];
+			cell.textLabel.text = string;
+			break;
+		case TimeFilterType:
+			string = [f timeString];
+			cell.textLabel.text = string;
+			break;
+		case CostFilterType:
+			string = [f costString];
+			cell.textLabel.text = string;
+			break;
+		case DurationFilterType:
+			string = [f durationString];
+			cell.textLabel.text = string;
+			break;
+		case LocationFilterType:
+			string = [f locationString];
+			cell.textLabel.text = string;
+			break;
+		case AvailabilityFilterType:
+			string = [f availabilityString];
+			cell.textLabel.text = string;
 			break;
 		default:
 			break;
 	}
-*/	
+	
 	return cell;
 }
 
@@ -154,21 +145,8 @@
 	}
 	
 	[self presentModalViewController: self.myAddFilterController animated:YES];
-	//[myTableView reloadData];
-}
 
--(void)add:(NSObject *)obj {
-	NSString *string = [NSString stringWithFormat:@"Number of Items: %d", 
-						[self.listData count]];
-	NSLog(string);
-	[self.listData addObject: obj];
-	string = [NSString stringWithFormat:@"Number of Items: %d", 
-						[self.listData count]];
-	NSLog(string);
- 
-	[self.myTableView reloadData];
 }
-
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -185,7 +163,6 @@
 
 
 - (void)dealloc {
-	[listData dealloc];
     [super dealloc];
 }
 

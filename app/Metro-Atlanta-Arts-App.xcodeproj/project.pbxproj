@@ -35,6 +35,7 @@
 		BFF8F6C6143A278200D5DA96 /* FilterListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6C5143A278200D5DA96 /* FilterListView.xib */; };
 		BFF8F6CB143A2B7F00D5DA96 /* EventListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6CA143A2B7F00D5DA96 /* EventListView.xib */; };
 		BFF8F6E3143A2FB500D5DA96 /* EventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6E2143A2FB500D5DA96 /* EventView.xib */; };
+		F206D87E1451D66800A5B8A7 /* EventDate.m in Sources */ = {isa = PBXBuildFile; fileRef = F206D87D1451D66800A5B8A7 /* EventDate.m */; };
 		F2771D801445F35600FC8C0C /* EditFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2771D7E1445F35600FC8C0C /* EditFilterController.m */; };
 		F2771D811445F35600FC8C0C /* EditFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2771D7F1445F35600FC8C0C /* EditFilterView.xib */; };
 		F2771E82144609DB00FC8C0C /* EventController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2771E80144609DB00FC8C0C /* EventController.m */; };
@@ -103,6 +104,8 @@
 		BFF8F6C5143A278200D5DA96 /* FilterListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterListView.xib; sourceTree = "<group>"; };
 		BFF8F6CA143A2B7F00D5DA96 /* EventListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventListView.xib; sourceTree = "<group>"; };
 		BFF8F6E2143A2FB500D5DA96 /* EventView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventView.xib; sourceTree = "<group>"; };
+		F206D87C1451D66800A5B8A7 /* EventDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDate.h; sourceTree = "<group>"; };
+		F206D87D1451D66800A5B8A7 /* EventDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDate.m; sourceTree = "<group>"; };
 		F2771D7D1445F35600FC8C0C /* EditFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFilterController.h; sourceTree = "<group>"; };
 		F2771D7E1445F35600FC8C0C /* EditFilterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFilterController.m; sourceTree = "<group>"; };
 		F2771D7F1445F35600FC8C0C /* EditFilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditFilterView.xib; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				F2771D7E1445F35600FC8C0C /* EditFilterController.m */,
 				F2771E7F144609DB00FC8C0C /* EventController.h */,
 				F2771E80144609DB00FC8C0C /* EventController.m */,
+				F206D87C1451D66800A5B8A7 /* EventDate.h */,
+				F206D87D1451D66800A5B8A7 /* EventDate.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 				3A29A9761448A959004E2C2D /* SBJsonUTF8Stream.m in Sources */,
 				3A29A9771448A959004E2C2D /* SBJsonWriter.m in Sources */,
 				BF15C45E144F4DAD00969E72 /* TripPlanningController.m in Sources */,
+				F206D87E1451D66800A5B8A7 /* EventDate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@
 #import "EventArtist.h"
 #import "EventAvailability.h"
 #import "EventLocation.h"
+#import "EventDate.h"
 
 #define MILESTOMETERS 1609
 
@@ -19,8 +20,8 @@
 	NSString *description;				/* Description of Event */
 	NSURL *website;						/* Website URL */
 	EventLocation *location;			/* The location of Event (both street and lat/lon */
-	NSDate *startDate;					/* Start Date and Time */
-	NSDate *endDate;					/* End Date and Time */
+	EventDate *startDate;					/* Start Date and Time */
+	EventDate *endDate;					/* End Date and Time */
 	int duration;						/* Duration of the Event (in minutes)*/
 	double cost;						/* Cost of the Event */
 	EventAvailability *availability;	/* The availability of the event */
@@ -28,7 +29,7 @@
 
 /* Initializer */
 -(Event *)initEventWithName: (NSString *) n Artist: (EventArtist *) a Description: (NSString *) desc
-					Website: (NSURL *) url Location: (EventLocation *) loc Start: (NSDate *) start End: (NSDate *) end
+					Website: (NSURL *) url Location: (EventLocation *) loc Start: (EventDate *) start End: (EventDate *) end
 				   Duration: (int) length Cost: (double) price Availability: (EventAvailability *) avail;
 
 /* I don't know if this makes sense but I wrote it anyway */
@@ -51,11 +52,11 @@
 -(void)setLocation: (EventLocation *) loc;
 -(EventLocation * )getLocation;
 
--(void)setStartDate: (NSDate *) date;
--(NSDate *)getStartDate;
+-(void)setStartDate: (EventDate *) date;
+-(EventDate *)getStartDate;
 
--(void)setEndDate: (NSDate *) date;
--(NSDate *)getEndDate;
+-(void)setEndDate: (EventDate *) date;
+-(EventDate *)getEndDate;
 
 -(void)setDuration: (int) length;
 -(int)getDuration;
@@ -81,7 +82,7 @@
 -(BOOL)ArtistFilter: (NSString *) str;
 
 /* Returns YES if the time of this event occurs between the given start and end times */
--(BOOL)TimeFilterStart: (NSDate *) start andEnd: (NSDate *) end;
+-(BOOL)TimeFilterStart: (EventDate *) start andEnd: (EventDate *) end;
 
 /* Returns YES if the cost of this event is between the given min and max costs */
 -(BOOL)CostFilterMin: (double) min andMax: (double) max;

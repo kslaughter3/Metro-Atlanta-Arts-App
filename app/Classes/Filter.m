@@ -129,7 +129,7 @@
 	return nil;
 }
 
--(Filter *)initializeTimeFilterStart: (NSDate *) start End: (NSDate *) end {
+-(Filter *)initializeTimeFilterStart: (EventDate *) start End: (EventDate *) end {
 	self = [super init];
 	
 	if(self != nil) {
@@ -279,10 +279,10 @@
 	return ((artist != nil) && ([artist isEqualToString: @""]) == NO);
 }
 
--(BOOL)checkTimeFiltererStart: (NSDate *) start End: (NSDate *) end {
+-(BOOL)checkTimeFiltererStart: (EventDate *) start End: (EventDate *) end {
 	if((start != nil) && (end != nil)) {
 		/* Check if the start is before the end date */
-		return ([start earlierDate: end] == start);
+		return ([start earlierDate: end] == YES);
 	}
 	return NO;
 }
@@ -369,11 +369,11 @@
 	return filterer->artist;
 }
 
--(NSDate *)getFiltererStartTime {
+-(EventDate *)getFiltererStartTime {
 	return filterer->start;
 }
 
--(NSDate *)getFiltererEndTime {
+-(EventDate *)getFiltererEndTime {
 	return filterer->end;
 }
 
@@ -436,6 +436,48 @@
 			return @INVALIDSTRING;
 			break;
 	}
+}
+
+//toString methods
+-(NSString *)nameString {
+	return [NSString stringWithFormat:@"Name: %@", filterer->name];
+}
+
+-(NSString *)artistString {
+	return[NSString stringWithFormat:@"Artist: %@", filterer->artist];
+}
+
+-(NSString *)timeString {
+	return [NSString stringWithFormat:@"Date: %@ Start: %@ End: %@", 
+			[filterer->start getDate], [filterer->start getTimeStandardFormat],
+			[filterer->end getTimeStandardFormat]];
+}
+
+-(NSString *)costString {
+	return [NSString stringWithFormat:@"Min: $%f Max: $%f",
+			filterer->minCost, filterer->maxCost];
+}
+
+-(NSString *)durationString {
+	return [NSString stringWithFormat:@"Min: %d Max: %d", 
+			filterer->minDuration, filterer->maxDuration];
+}
+
+-(NSString *)locationString {
+	return [NSString stringWithFormat:@"Address: %@ Radius: %f", 
+			[filterer->loc getStreetAddress], filterer->radius];
+}
+
+-(NSString *)availabilityString {
+	int time = (filterer->time / 100) % 12;
+	int min = filterer->time % 100;
+	if(filterer->time > 1200) {
+		return [NSString stringWithFormat:@"Day: %@ Time: %d:%dpm", 
+				filterer->day, time, min];
+	}
+
+	return [NSString stringWithFormat:@"Day: %@ Time: %d:%dam", 
+			filterer->day, time, min];
 }
 
 @end

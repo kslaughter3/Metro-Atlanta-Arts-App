@@ -15,14 +15,14 @@
 
 /* Initialize Method */
 -(Event *)initEventWithName: (NSString *) n Artist: (EventArtist *) a Description: (NSString *) desc
-					Website: (NSURL *) url Location: (EventLocation *) loc Start: (NSDate *) start 
-					End: (NSDate *) end Duration: (int) length Cost: (double) price 
+					Website: (NSURL *) url Location: (EventLocation *) loc Start: (EventDate *) start 
+					End: (EventDate *) end Duration: (int) length Cost: (double) price 
 					Availability: (EventAvailability *) avail {
 	
 	/* Check all the data */
 	if((n == nil) || (a == nil) || (desc == nil) || (url == nil) || (loc == nil) ||
 	   (start == nil) || (end == nil) || (avail == nil) || 
-	   (length < 0) || (price < 0) || ([start earlierDate: end] == end)) {
+	   (length < 0) || (price < 0) || ([start earlierDate: end] == NO)) {
 		return nil;
 	}
 	
@@ -91,19 +91,19 @@
 	return location;
 }
 
--(void) setStartDate: (NSDate *) date {
+-(void) setStartDate: (EventDate *) date {
 	startDate = date;
 }
 
--(NSDate *)getStartDate {
+-(EventDate *)getStartDate {
 	return startDate;
 }
 
--(void) setEndDate: (NSDate *) date {
+-(void) setEndDate: (EventDate *) date {
 	endDate = date;
 }
 
--(NSDate *)getEndDate {
+-(EventDate *)getEndDate {
 	return endDate;
 }
 
@@ -164,10 +164,10 @@
 }
 
 /* Returns YES if the time of this event occurs between the given start and end times */
--(BOOL)TimeFilterStart: (NSDate *) start andEnd: (NSDate *) end {
+-(BOOL)TimeFilterStart: (EventDate *) start andEnd: (EventDate *) end {
 	/* If the endDate is before the start threshold or the startDate is after the end threshold
 	   return NO otherwise return YES */
-	if(([endDate earlierDate: start] == endDate) || ([startDate earlierDate: end] == end)) {
+	if(([start earlierDate: endDate] == NO) || ([startDate earlierDate: end] == NO)) {
 		return NO;
 	}
 	return YES;

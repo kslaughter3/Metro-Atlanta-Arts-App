@@ -46,6 +46,5 @@ UITextFieldDelegate> {
 -(IBAction)remove:(id)sender;
 -(IBAction)pickerDoneClicked:(id)sender;
 
--(NSDate *)buildDate: (NSString *)date Time: (NSString *)time;
 -(int)buildTime: (NSString *)time;
 @end

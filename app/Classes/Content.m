@@ -65,10 +65,6 @@ static Content *instance;
 	
 	/* Add the filter */
 	[filters addObject: filter];
-	
-	NSString *string ;
-	string = [NSString stringWithFormat:@"Number of Filters: %d", [filters count]];
-	NSLog(string);
 
 	/* Add the filter as either an AND filter or an OR Filter based on type */
 /*	if(type == YES) {

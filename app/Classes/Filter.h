@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EventLocation.h"
+#import "EventDate.h"
 
 /* Definitions of the minimum and maximum valid latitudes and longitudes
    can restrict these more and move these definitions to a more useful place if necessary */
@@ -43,8 +44,8 @@ typedef enum FilterType {
 typedef struct Filterer {
 	NSString				*name;				/* Name Filter */
 	NSString				*artist;			/* Artist Filter */
-	NSDate					*start;				/* Time Filter */
-	NSDate					*end;				/* Time Filter */
+	EventDate					*start;				/* Time Filter */
+	EventDate					*end;				/* Time Filter */
 	double					minCost;			/* Cost Filter */
 	double					maxCost;			/* Cost Filter */
 	int						minDuration;		/* Duration Filter */
@@ -72,7 +73,7 @@ typedef struct Filterer {
 /*Builds the specified filter if the data is valid */
 -(Filter *)initializeNameFilter: (NSString *)name;
 -(Filter *)initializeArtistFilter: (NSString *) artist;
--(Filter *)initializeTimeFilterStart: (NSDate *) start End: (NSDate *) end;
+-(Filter *)initializeTimeFilterStart: (EventDate *) start End: (EventDate *) end;
 -(Filter *)initializeCostFilterMin: (double) min Max: (double) max;
 -(Filter *)initializeDurationFilterMin: (int) min Max: (int) max;
 -(Filter *)initializeLocationFilter: (EventLocation *) loc Radius: (double) rad;
@@ -82,7 +83,7 @@ typedef struct Filterer {
 -(BOOL)checkFilterer: (Filterer *) f;
 -(BOOL)checkNameFilterer: (NSString *) name;
 -(BOOL)checkArtistFilterer: (NSString *) artist;
--(BOOL)checkTimeFiltererStart: (NSDate *) start End: (NSDate *) end;
+-(BOOL)checkTimeFiltererStart: (EventDate *) start End: (EventDate *) end;
 -(BOOL)checkCostFiltererMin: (double) min Max: (double) max;
 -(BOOL)checkDurationFiltererMin: (int) min Max: (int) max;
 -(BOOL)checkLocationFilterer: (EventLocation *) loc Radius: (double) radius;
@@ -99,8 +100,8 @@ typedef struct Filterer {
 
 -(NSString *)getFiltererName;
 -(NSString *)getFiltererArtist;
--(NSDate *)getFiltererStartTime;
--(NSDate *)getFiltererEndTime;
+-(EventDate *)getFiltererStartTime;
+-(EventDate *)getFiltererEndTime;
 -(double)getFiltererMinCost;
 -(double)getFiltererMaxCost;
 -(int)getFiltererMinDuration;
@@ -110,5 +111,14 @@ typedef struct Filterer {
 -(NSString *)getFiltererAvailabilityDay;
 -(int)getFiltererAvailabilityTime;
 -(NSString *)getTypeName;
+
+//toString methods for the filters
+-(NSString *)nameString;
+-(NSString *)artistString;
+-(NSString *)timeString;
+-(NSString *)costString;
+-(NSString *)durationString;
+-(NSString *)locationString;
+-(NSString *)availabilityString;
 
 @end
