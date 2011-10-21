@@ -41,13 +41,30 @@
 	return (i == len) && status;					 
 }
 
--(EventDate *)initializeEmptyDate {
+-(EventDate *)initEmptyDate {
 	self = [super init];
 	return self;
 }
 
+-(EventDate *)initWithDate:(EventDate *)date {
+	self = [super init];
+	
+	if(self != nil) {
+		[self setYear: [date getYear]];
+		[self setMonth: [date getMonth]];
+		[self setDay: [date getDay]];
+		[self setHour: [date getHour]];
+		[self setMinute: [date getMinute]];
+		[self setSecond: [date getSecond]];
+		
+		return self;
+	}
+	
+	return nil;
+}
+
 //Builds a date from a string the in the format "MM-DD-YYYY HH:MM:SS(pm/am)" or the format "MM/DD/YYYY HH:MM:SS(pm/am)"
--(EventDate *)initializeFromString: (NSString *) string {
+-(EventDate *)initWithString: (NSString *) string {
 	self = [super init];
 	
 	if(self != nil) {
@@ -77,7 +94,7 @@
 	return nil;
 }
 
--(EventDate *)initializeWithMonth: (int) mon Day: (int) d Year: (int) y Hour: (int) h Minute: (int) min Second: (int) s {
+-(EventDate *)initWithMonth: (int) mon Day: (int) d Year: (int) y Hour: (int) h Minute: (int) min Second: (int) s {
 	self = [super init];
 	
 	if(self != nil) {

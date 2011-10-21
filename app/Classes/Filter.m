@@ -71,17 +71,37 @@
 	return InvalidFilterType;
 }
 
--(Filter *)initializeFilterWithType: (FilterType) t andFilterer: (Filterer *) f {
+-(Filter *)initWithFilter:(Filter *)filter {
+	self = [super init];
+	
+	if(self != nil) {
+		[self setFilterType: [filter getFilterType]];
+		if([self checkFilterer: [filter getFilterer]] == YES) {
+			filterer = (Filterer *)malloc(sizeof(Filterer));
+			if(filterer != nil) {
+				[self copyFilterer: [filter getFilterer]];
+			}
+		}
+		
+		[self dealloc];
+	}
+	
+	return nil;
+}
+
+-(Filter *)initWithType: (FilterType) t andFilterer: (Filterer *) f {
 	self = [super init];
 	
 	if(self != nil) {
 		[self setFilterType: t];
-		if([self setFilterer: f]) {
-			return self;
+		if([self checkFilterer: f] == YES) {
+			filterer = (Filterer *)malloc(sizeof(Filterer));
+			if(filterer != nil) {
+				[self copyFilterer: f];
+			}
 		}
 		
 		[self dealloc];
-	
 	}
 	
 	return nil;
@@ -89,7 +109,7 @@
 
 /*Builds the specified filter if the data is valid */
 
--(Filter *)initializeNameFilter: (NSString *)name {
+-(Filter *)initNameFilter: (NSString *)name {
 	self = [super init];
 	
 	if(self != nil) {
@@ -98,7 +118,7 @@
 		
 			filterer = (Filterer *)malloc(sizeof(Filterer));
 			if(filterer != nil) {
-				filterer->name = name;
+				filterer->name = [[NSString alloc] initWithString: name];
 				return self;
 			}
 		}
@@ -109,7 +129,7 @@
 	return nil;
 }
 
--(Filter *)initializeArtistFilter: (NSString *) artist {
+-(Filter *)initArtistFilter: (NSString *) artist {
 	self = [super init];
 	
 	if(self != nil) {
@@ -118,7 +138,7 @@
 		
 			filterer = (Filterer *)malloc(sizeof(Filterer));
 			if(filterer != nil) {
-				filterer->artist = artist;
+				filterer->artist = [[NSString alloc] initWithString: artist];
 				return self;
 			}
 		}
@@ -129,7 +149,7 @@
 	return nil;
 }
 
--(Filter *)initializeTimeFilterStart: (EventDate *) start End: (EventDate *) end {
+-(Filter *)initTimeFilterStart: (EventDate *) start End: (EventDate *) end {
 	self = [super init];
 	
 	if(self != nil) {
@@ -138,8 +158,8 @@
 		
 			filterer = (Filterer *)malloc(sizeof(Filterer));
 			if(filterer != nil) {
-				filterer->start = start;
-				filterer->end = end;
+				filterer->start = [[EventDate alloc] initWithDate: start];
+				filterer->end = [[EventDate alloc] initWithDate: end];
 				return self;
 			}
 		}
@@ -150,7 +170,7 @@
 	return nil;
 }
 
--(Filter *)initializeCostFilterMin: (double) min Max: (double) max {
+-(Filter *)initCostFilterMin: (double) min Max: (double) max {
 	self = [super init];
 	
 	if(self != nil) {
@@ -171,7 +191,7 @@
 	return nil;
 }
 
--(Filter *)initializeDurationFilterMin: (int) min Max: (int) max {
+-(Filter *)initDurationFilterMin: (int) min Max: (int) max {
 	self = [super init]; 
 	
 	if(self != nil) {
@@ -192,7 +212,7 @@
 	return nil;
 }
 
--(Filter *)initializeLocationFilter: (EventLocation *) loc Radius: (double) rad {
+-(Filter *)initLocationFilter: (EventLocation *) loc Radius: (double) rad {
 	self = [super init];
 	
 	if(self != nil) {
@@ -201,7 +221,7 @@
 			
 			filterer = (Filterer *)malloc(sizeof(Filterer));
 			if(filterer != nil) {
-				filterer->loc = loc;
+				filterer->loc = [[EventLocation alloc] initWithLocation: loc];
 				filterer->radius = rad;
 				return self;
 			}
@@ -213,7 +233,7 @@
 	return nil;
 }
 
--(Filter *)initializeAvailabilityFilter:(NSString *) d Time: (int) t {
+-(Filter *)initAvailabilityFilter:(NSString *) d Time: (int) t {
 	self = [super init];
 	
 	if(self != nil) {
@@ -222,7 +242,7 @@
 			
 			filterer = (Filterer *)malloc(sizeof(Filterer));
 			if(filterer != nil) {
-				filterer->day = d;
+				filterer->day = [[NSString alloc] initWithString: d];
 				filterer->time = t;
 				return self;
 			}
@@ -349,12 +369,8 @@
 	return type;
 }
 
--(BOOL)setFilterer: (Filterer *) f {
-	if([self checkFilterer: f]) {
-		filterer = f;
-		return YES;
-	}
-	return NO;
+-(void)setFilterer: (Filterer *) f {
+	filterer = f;
 }
 
 -(Filterer *)getFilterer {
@@ -478,6 +494,21 @@
 
 	return [NSString stringWithFormat:@"Day: %@ Time: %d:%dam", 
 			filterer->day, time, min];
+}
+
+-(void)copyFilterer: (Filterer *) f {
+	filterer->name = [[NSString alloc] initWithString: f->name];
+	filterer->artist = [[NSString alloc] initWithString: f->artist];
+	filterer->start = [[EventDate alloc] initWithDate: f->start];
+	filterer->end = [[EventDate alloc] initWithDate: f->end];
+	filterer->minCost = f->minCost;
+	filterer->maxCost = f->maxCost;
+	filterer->minDuration = f->minDuration;
+	filterer->maxDuration = f->maxDuration;
+	filterer->loc = [[EventLocation alloc] initWithLocation: f->loc];
+	filterer->radius = f->radius;
+	filterer->day = [[NSString alloc] initWithString: f->day];
+	filterer->time = f->time;
 }
 
 @end

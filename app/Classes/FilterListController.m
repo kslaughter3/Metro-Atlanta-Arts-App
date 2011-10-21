@@ -32,8 +32,18 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+	NSLog(@"Reached View Will Appear");
 	[myTableView reloadData];
+	[super viewWillAppear: animated];
+	NSLog(@"End of View Will Appear");
 }
+
+-(void)viewDidAppear:(BOOL)animated {
+	NSLog(@"Reached View Did Appear");
+	[super viewDidAppear: animated];
+	NSLog(@"End View Did Appear");
+}
+
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -51,20 +61,21 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *MyIdentifier = @"MyIdentifier";
+	//NSLog([NSString stringWithFormat: @"Reached cellForRowAtIndexPath %d", indexPath.row]);
+	
 	NSString *string;
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	if(cell == nil) {
+		//NSLog(@"Cell Not Set");
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
 	}
 	
-
 	Content *content = [Content getInstance];
-	NSMutableArray *filters = [content getFilters];
-	
+	NSMutableArray *filters = [content getFilters];	
 	Filter *f = (Filter *)[filters objectAtIndex:indexPath.row];
 	
-	cell.detailTextLabel.text = [f getTypeName];
+//	NSLog(@"Got Filters");
 	
 	switch ([f getFilterType]) {
 		case NameFilterType:

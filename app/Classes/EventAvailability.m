@@ -12,7 +12,22 @@
 @implementation EventAvailability
 
 /* Initializers */
--(EventAvailability *)initiaize: (NSMutableArray *) d Start: (int) start End: (int) end {
+-(EventAvailability *)initWithAvailability:(EventAvailability *)avail {
+	self = [super init];
+	
+	if(self != nil) {
+		days = [[NSMutableArray alloc] init];
+		[days addObjectsFromArray: [avail getDays]];
+		startTime = [avail getStartTime];
+		endTime = [avail getEndTime];
+		
+		return self;
+	}
+	
+	return nil;
+}
+
+-(EventAvailability *)initWithDay: (NSMutableArray *) d Start: (int) start End: (int) end {
 	if((d == nil) || (start < 0) || (start >= 2400) || (end < 0) || (end >= 2400)) {
 		return nil;
 	}
@@ -20,9 +35,10 @@
 	self = [super init];
 	
 	if(self != nil) {
-		[self setDays: d];
-		[self setStartTime: start];
-		[self setEndTime: end];
+		days = [[NSMutableArray alloc] init];
+		[days addObjectsFromArray: d];
+		startTime = start;
+		endTime = end;
 		
 		return self;
 	}

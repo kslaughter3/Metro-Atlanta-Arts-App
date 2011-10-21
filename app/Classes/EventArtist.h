@@ -18,7 +18,9 @@
 }
 
 /* Initializers */
--(EventArtist *)initializeArtist: (NSString *) n Description: (NSString *) desc;
+-(EventArtist *)initWithArtist: (EventArtist *) art;
+
+-(EventArtist *)initWithArtistName: (NSString *) n Description: (NSString *) desc;
 
 /* Getters and Setters */
 -(void)setName: (NSString *) str;

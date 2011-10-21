@@ -22,13 +22,16 @@
 +(BOOL)checkDate: (EventDate *)date;
 +(BOOL)isNumeric: (NSString *) str;
 
--(EventDate *)initializeEmptyDate;
+-(EventDate *)initEmptyDate;
+
+//Copy Constructor
+-(EventDate *)initWithDate: (EventDate *) date;
 
 //Builds a date from a string the in the format "MM-DD-YYYY HH:MM:SS(pm/am)" or the format "MM/DD/YYYY HH:MM:SS(pm/am)"
--(EventDate *)initializeFromString: (NSString *) string;
+-(EventDate *)initWithString: (NSString *) string;
 
 //Military Time
--(EventDate *)initializeWithMonth: (int) mon Day: (int) d Year: (int) y Hour: (int) h Minute: (int) min Second: (int) s;
+-(EventDate *)initWithMonth: (int) mon Day: (int) d Year: (int) y Hour: (int) h Minute: (int) min Second: (int) s;
 
 
 

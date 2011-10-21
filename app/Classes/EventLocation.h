@@ -9,21 +9,30 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+#define MINLAT -90
+#define MAXLAT 90
+#define MINLON -180
+#define MAXLON 180
+#define MILESTOMETERS 1609
+
 @interface EventLocation : NSObject {
 	NSString *streetAddress;
 	NSString *city;
 	NSString *state;
 	NSString *zip;
-	CLLocation *location;
+	CLLocationCoordinate2D coordinate;
 	
 	NSMutableArray *events;	 /* List of Events at this location */
 }
 
-/* Initializer */
--(EventLocation *)initializeWithAddress: (NSString *) add City: (NSString *) c State: (NSString *) s 
-								Zip: (NSString *) z Location: (CLLocation *) loc;
+/* Initializers */
 
--(EventLocation *)initializeWithAddress:(NSString *)add City:(NSString *)c 
+-(EventLocation *)initWithLocation: (EventLocation *) loc;
+
+-(EventLocation *)initWithAddress: (NSString *) add City: (NSString *) c State: (NSString *) s 
+								Zip: (NSString *) z Location: (CLLocationCoordinate2D) coord;
+
+-(EventLocation *)initWithAddress:(NSString *)add City:(NSString *)c 
 								State:(NSString *)s Zip:(NSString *)z;
 
 /* getters and setters */
@@ -39,15 +48,13 @@
 -(void)setZip: (NSString *) str;
 -(NSString *)getZip;
 
--(void)setLocation: (CLLocation *) loc;
--(CLLocation *)getLocation;
+-(void)setCoordinates: (CLLocationCoordinate2D) coord;
+-(CLLocationCoordinate2D)getCoordinates;
 
 /* end getters and setters */
 
 
 /* distance to method */
 -(double)distanceFromLocation: (EventLocation *) loc;
-
--(CLLocationCoordinate2D)getCoordinates;
 
 @end

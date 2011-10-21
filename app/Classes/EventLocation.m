@@ -12,20 +12,17 @@
 @implementation EventLocation
 
 /* Initializer */
--(EventLocation *)initializeWithAddress: (NSString *) add City: (NSString *) c State: (NSString *) s 
-								Zip: (NSString *) z Location: (CLLocation *) loc {
-	if((add == nil) || (c == nil) || (s == nil) || (z == nil) || (loc == nil)) {
-		return nil;
-	}
-	
+
+-(EventLocation *)initWithLocation:(EventLocation *)loc {	
 	self = [super init];
 	
 	if(self != nil) {
-		[self setStreetAddress: add];
-		[self setCity: c];
-		[self setState: s];
-		[self setZip: z];
-		[self setLocation: loc];
+		streetAddress = [[NSString alloc] initWithString: [loc getStreetAddress]];
+		city = [[NSString alloc] initWithString: [loc getCity]];
+		state = [[NSString alloc] initWithString: [loc getState]];
+		zip = [[NSString alloc] initWithString: [loc getZip]];
+		coordinate.latitude = [loc getCoordinates].latitude;
+		coordinate.longitude = [loc getCoordinates].longitude;
 		
 		return self;
 	}
@@ -33,7 +30,34 @@
 	return nil;
 }
 
--(EventLocation *)initializeWithAddress: (NSString *) add City: (NSString *) c State: (NSString *) s 
+-(EventLocation *)initWithAddress: (NSString *) add City: (NSString *) c State: (NSString *) s 
+								Zip: (NSString *) z Location: (CLLocationCoordinate2D) coord {
+	if((add == nil) || (c == nil) || (s == nil) || (z == nil)) {
+		return nil;
+	}
+	
+	if((coord.latitude < MINLAT) || (coord.latitude > MAXLAT) || 
+	   (coord.longitude < MINLON) || (coord.longitude > MAXLON)) {
+		return nil;
+	}
+	
+	self = [super init];
+	
+	if(self != nil) {
+		streetAddress = [[NSString alloc] initWithString: add];
+		city = [[NSString alloc] initWithString: c];
+		state = [[NSString alloc] initWithString: s];
+		zip = [[NSString alloc] initWithString: z];
+		coordinate.latitude = coord.latitude;
+		coordinate.longitude = coord.longitude;
+		
+		return self;
+	}
+	
+	return nil;
+}
+
+-(EventLocation *)initWithAddress: (NSString *) add City: (NSString *) c State: (NSString *) s 
 									Zip: (NSString *) z {
 	if((add == nil) || (c == nil) || (s == nil) || (z == nil)) {
 		return nil;
@@ -42,10 +66,10 @@
 	self = [super init];
 	
 	if(self != nil) {
-		[self setStreetAddress: add];
-		[self setCity: c];
-		[self setState: s];
-		[self setZip: z];
+		streetAddress = [[NSString alloc] initWithString: add];
+		city = [[NSString alloc] initWithString: c];
+		state = [[NSString alloc] initWithString: s];
+		zip = [[NSString alloc] initWithString: z];
 		//TODO: add call to database to get the CLLocations
 		return self;
 	}
@@ -86,12 +110,12 @@
 	return zip;
 }
 
--(void)setLocation: (CLLocation *) loc {
-	location = loc;
+-(void)setCoordinates: (CLLocationCoordinate2D) coord {
+	coordinate = coord;
 }
 
--(CLLocation *)getLocation {
-	return location;
+-(CLLocationCoordinate2D)getCoordinates {
+	return coordinate;
 }
 
 /* end getters and setters */
@@ -99,11 +123,18 @@
 
 /* distance to method */
 -(double)distanceFromLocation: (EventLocation *) loc {
-	return [[self getLocation] distanceFromLocation: [loc getLocation]];
+	double distance;
+	/*CLLocation *myLoc = [[CLLocation alloc] initWithLatitude:coordinate.latitude
+						longitude: coordinate.longitude];
+	CLLocation *otherLoc = [[CLLocation alloc] initWithLatitude:[loc getCoordinates].latitude
+						longitude: [loc getCoordinates].longitude];
+	
+	distance = [myLoc distanceFromLocation: otherLoc];
+	[myLoc release];
+	[otherLoc release];
+*/	
+	return distance;
 }
 
--(CLLocationCoordinate2D)getCoordinates {
-	return location.coordinate;
-}
 
 @end

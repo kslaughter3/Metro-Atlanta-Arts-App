@@ -12,10 +12,7 @@
 
 /* Definitions of the minimum and maximum valid latitudes and longitudes
    can restrict these more and move these definitions to a more useful place if necessary */
-#define MINLAT -90
-#define MAXLAT 90
-#define MINLON -180
-#define MAXLON 180
+
 
 #define NAMESTRING				"Name Filter"
 #define ARTISTSTRING			"Artist Filter"
@@ -44,8 +41,8 @@ typedef enum FilterType {
 typedef struct Filterer {
 	NSString				*name;				/* Name Filter */
 	NSString				*artist;			/* Artist Filter */
-	EventDate					*start;				/* Time Filter */
-	EventDate					*end;				/* Time Filter */
+	EventDate				*start;				/* Time Filter */
+	EventDate				*end;				/* Time Filter */
 	double					minCost;			/* Cost Filter */
 	double					maxCost;			/* Cost Filter */
 	int						minDuration;		/* Duration Filter */
@@ -68,16 +65,18 @@ typedef struct Filterer {
 
 /* Attempts to build a filter if the filter structure does not match the filter type no filter 
    is created and NULL is returned */
--(Filter *)initializeFilterWithType: (FilterType) t andFilterer: (Filterer *) f;
+-(Filter *)initWithFilter: (Filter *)filter;
+
+-(Filter *)initWithType: (FilterType) t andFilterer: (Filterer *) f;
 
 /*Builds the specified filter if the data is valid */
--(Filter *)initializeNameFilter: (NSString *)name;
--(Filter *)initializeArtistFilter: (NSString *) artist;
--(Filter *)initializeTimeFilterStart: (EventDate *) start End: (EventDate *) end;
--(Filter *)initializeCostFilterMin: (double) min Max: (double) max;
--(Filter *)initializeDurationFilterMin: (int) min Max: (int) max;
--(Filter *)initializeLocationFilter: (EventLocation *) loc Radius: (double) rad;
--(Filter *)initializeAvailabilityFilter: (NSString *) d Time: (int) t;
+-(Filter *)initNameFilter: (NSString *)name;
+-(Filter *)initArtistFilter: (NSString *) artist;
+-(Filter *)initTimeFilterStart: (EventDate *) start End: (EventDate *) end;
+-(Filter *)initCostFilterMin: (double) min Max: (double) max;
+-(Filter *)initDurationFilterMin: (int) min Max: (int) max;
+-(Filter *)initLocationFilter: (EventLocation *) loc Radius: (double) rad;
+-(Filter *)initAvailabilityFilter: (NSString *) d Time: (int) t;
 
 /* Filterer Checkers */
 -(BOOL)checkFilterer: (Filterer *) f;
@@ -95,7 +94,7 @@ typedef struct Filterer {
 -(void)setFilterType: (FilterType) t;
 -(FilterType)getFilterType;
 
--(BOOL)setFilterer: (Filterer *) f;
+-(void)setFilterer: (Filterer *) f;
 -(Filterer *)getFilterer;
 
 -(NSString *)getFiltererName;
@@ -120,5 +119,7 @@ typedef struct Filterer {
 -(NSString *)durationString;
 -(NSString *)locationString;
 -(NSString *)availabilityString;
+
+-(void)copyFilterer: (Filterer *) f;
 
 @end

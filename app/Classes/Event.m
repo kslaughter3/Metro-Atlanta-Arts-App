@@ -14,6 +14,26 @@
 @implementation Event
 
 /* Initialize Method */
+-(Event *)initWithEvent:(Event *)event {
+	self = [super init];
+	
+	if (self != nil) {
+		name = [[NSString alloc] initWithString: [event getEventName]];
+		artist = [[EventArtist alloc] initWithArtist: [event getArtist]];
+		description = [[NSString alloc] initWithString: [event getDescription]];
+		website = [[NSURL alloc] initWithString: [[event getWebsite] absoluteString]];
+		location = [[EventLocation alloc] initWithLocation: [event getLocation]];
+		startDate = [[EventDate alloc] initWithDate: [event getStartDate]];
+		endDate = [[EventDate alloc] initWithDate: [event getEndDate]];
+		duration = [event getDuration];
+		cost = [event getCost];
+		availability = [[EventAvailability alloc] initWithAvailability: [event getAvailability]];
+		return self;
+	}
+	
+	return nil;
+}
+
 -(Event *)initEventWithName: (NSString *) n Artist: (EventArtist *) a Description: (NSString *) desc
 					Website: (NSURL *) url Location: (EventLocation *) loc Start: (EventDate *) start 
 					End: (EventDate *) end Duration: (int) length Cost: (double) price 
@@ -29,16 +49,16 @@
 	self = [super init];
 	
 	if (self != nil) {
-		[self setEventName: n];
-		[self setArtist: a];
-		[self setDescription: desc];
-		[self setWebsite: url];
-		[self setLocation: loc];
-		[self setStartDate: start];
-		[self setEndDate: end];
-		[self setDuration: length];
-		[self setCost: price];
-		[self setAvailability: avail];
+		name = [[NSString alloc] initWithString: n];
+		artist = [[EventArtist alloc] initWithArtist: a];
+		description = [[NSString alloc] initWithString: desc];
+		website = [[NSURL alloc] initWithString: [url absoluteString]];
+		location = [[EventLocation alloc] initWithLocation: loc];
+		startDate = [[EventDate alloc] initWithDate: start];
+		endDate = [[EventDate alloc] initWithDate: end];
+		duration = length;
+		cost = price;
+		availability = [[EventAvailability alloc] initWithAvailability: avail];
 		
 		return self;
 	}

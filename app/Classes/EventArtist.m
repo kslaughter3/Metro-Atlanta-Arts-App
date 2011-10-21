@@ -12,7 +12,19 @@
 @implementation EventArtist
 
 /* Initializers */
--(EventArtist *)initializeArtist: (NSString *) n Description: (NSString *) desc {
+-(EventArtist *)initWithArtist:(EventArtist *)art {
+	self = [super init];
+	
+	if(self != nil) {
+		name = [[NSString alloc] initWithString: [art getName]];
+		description = [[NSString alloc] initWithString: [art getDescription]];
+		return self;
+	}
+	
+	return nil;
+}
+
+-(EventArtist *)initWithArtistName: (NSString *) n Description: (NSString *) desc {
 	if((n == nil) || (desc == nil)) {
 		return nil;
 	}
@@ -20,9 +32,8 @@
 	self = [super init];
 	
 	if(self != nil) {
-		[self setName: n];
-		[self setDescription: desc];
-		
+		name = [[NSString alloc] initWithString: n];
+		description = [[NSString alloc] initWithString: desc];
 		return self;
 	}
 	

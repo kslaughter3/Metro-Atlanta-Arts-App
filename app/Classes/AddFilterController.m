@@ -264,38 +264,40 @@ inComponent:(NSInteger)component
 	
 	switch(t) {
 		case NameFilterType:
-			filter = [[Filter alloc] initializeNameFilter: topField.text];
+			filter = [[Filter alloc] initNameFilter: topField.text];
 			break;
 		case ArtistFilterType:
-			filter = [[Filter alloc] initializeArtistFilter: topField.text];
+			filter = [[Filter alloc] initArtistFilter: topField.text];
 			break;
 		case TimeFilterType:
-			filter = [[Filter alloc] initializeTimeFilterStart:start End:end];
+			filter = [[Filter alloc] initTimeFilterStart:start End:end];
 			break;
 		case CostFilterType:
 			minCost = [topField.text doubleValue];
 			maxCost = [middleField.text doubleValue];
-			filter = [[Filter alloc] initializeCostFilterMin:minCost Max:maxCost];
+			filter = [[Filter alloc] initCostFilterMin:minCost Max:maxCost];
 			break;
 		case DurationFilterType:
 			minLength = [topField.text intValue];
 			maxLength = [middleField.text intValue];
-			filter = [[Filter alloc] initializeDurationFilterMin:minLength Max:maxLength];
+			filter = [[Filter alloc] initDurationFilterMin:minLength Max:maxLength];
 			break;
 		case LocationFilterType:
-			loc = [loc initializeWithAddress:topField.text
+			loc = [loc initWithAddress:topField.text
 				City: @"Atlanta" State: @"GA" Zip: middleField.text];
 			radius = [bottomField.text doubleValue];
-			filter = [[Filter alloc] initializeLocationFilter:loc Radius: radius];
+			filter = [[Filter alloc] initLocationFilter:loc Radius: radius];
 			break;
 		case AvailabilityFilterType:
 			time = [self buildTime: middleField.text];
-			filter = [[Filter alloc] initializeAvailabilityFilter: topField.text Time: time];
+			filter = [[Filter alloc] initAvailabilityFilter: topField.text Time: time];
 			break;
 		default:
 			//Should never happen
 			break;
 	}
+	
+	NSLog(@"Filter Created");
 	
 	if(filter == nil) {
 		UIAlertView *alert = [[UIAlertView alloc] 
@@ -313,6 +315,8 @@ inComponent:(NSInteger)component
 		if([content addFilter: filter AndFilter: YES] == NO) {
 			NSLog(@"Error: Add Filter Failed with a Valid Filter");
 		}
+		
+		NSLog(@"Filter Added");
 
 		[self.parentViewController dismissModalViewControllerAnimated: YES];
 	}

@@ -16,7 +16,9 @@
 }
 
 /* Initializers */
--(EventAvailability *)initiaize: (NSMutableArray *) d Start: (int) start End: (int) end;
+-(EventAvailability *)initWithAvailability: (EventAvailability *) avail;
+
+-(EventAvailability *)initWithDay: (NSMutableArray *) d Start: (int) start End: (int) end;
 
 /* Getters and Setters */
 -(void)setDays: (NSMutableArray *) d;

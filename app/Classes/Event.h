@@ -12,8 +12,6 @@
 #import "EventLocation.h"
 #import "EventDate.h"
 
-#define MILESTOMETERS 1609
-
 @interface Event : NSObject {
 	NSString *name;						/* Name of the Event */
 	EventArtist *artist;				/* Name of the Artist (where applicable) */
@@ -28,6 +26,8 @@
 }
 
 /* Initializer */
+-(Event *)initWithEvent: (Event *)event;
+
 -(Event *)initEventWithName: (NSString *) n Artist: (EventArtist *) a Description: (NSString *) desc
 					Website: (NSURL *) url Location: (EventLocation *) loc Start: (EventDate *) start End: (EventDate *) end
 				   Duration: (int) length Cost: (double) price Availability: (EventAvailability *) avail;
