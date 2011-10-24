@@ -9,6 +9,7 @@
 #import "Content.h"
 #import "Filter.h"
 #import "Event.h"
+#import "EventArtist.h"
 
 static Content *instance;
 
@@ -49,6 +50,26 @@ static Content *instance;
 
 //-(void)filterOldEvents {
 //}
+-(BOOL)addArtist: (EventArtist *) artist{
+	/* Check to see if the filter is nil or invalid */
+	if(artist == nil) {
+		return NO;
+	}
+
+	[artists addObject: artist];
+
+	return YES;
+}
+-(BOOL)addEvent: (Event *) event{
+	/* Check to see if the filter is nil or invalid */
+	if(event == nil) {
+		return NO;
+	}
+	
+	[displayedEvents addObject: event];
+	
+	return YES;
+}
 
 
 -(BOOL)addFilter: (Filter *) filter AndFilter: (BOOL) type {
@@ -66,7 +87,7 @@ static Content *instance;
 	/* Add the filter */
 	[filters addObject: filter];
 	
-	NSLog([NSString stringWithFormat:@"Number of Filters: %d", [filters count]]); 
+	//NSLog([NSString stringWithFormat:@"Number of Filters: %d", [filters count]]); 
 
 	/* Add the filter as either an AND filter or an OR Filter based on type */
 /*	if(type == YES) {
