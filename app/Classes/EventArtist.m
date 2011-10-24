@@ -28,7 +28,7 @@
 	if((n == nil) || (desc == nil)) {
 		return nil;
 	}
-	
+
 	self = [super init];
 	
 	if(self != nil) {

@@ -12,9 +12,14 @@
 @interface ArtistController : UIViewController {
 	EventArtist *artist;
 	IBOutlet UINavigationBar *myTitleBar;
+	IBOutlet UIImageView *myImageView;
+	IBOutlet UITextView *myTextView;
 }
 
 @property(nonatomic, retain) IBOutlet UINavigationBar *myTitleBar;
+@property(nonatomic, retain) IBOutlet UITextView *myTextView;
+@property(nonatomic, retain) IBOutlet UIImageView *myImageView;
+
 
 -(IBAction)close: (id) sender;
 -(void)setArtist: (EventArtist *) a;

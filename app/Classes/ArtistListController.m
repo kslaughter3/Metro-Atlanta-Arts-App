@@ -87,7 +87,8 @@
 		self.myArtistController = [[ArtistController alloc] initWithNibName: @"ArtistView" bundle: nil];
 	}
 	
-	
+	EventArtist *temp = [[EventArtist alloc] initWithArtistName: @"hi" Description: @"hi2"];
+	[myArtistController setArtist: temp];
 	//[myArtistController setArtist: [[content getArtists] objectAtIndex: idx]];
 	[self presentModalViewController: self.myArtistController animated:YES];
 }

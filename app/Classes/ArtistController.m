@@ -10,8 +10,18 @@
 
 
 @implementation ArtistController
-@synthesize myTitleBar;
+@synthesize myTitleBar, myTextView, myImageView;
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	if(artist == nil)
+	{
+		return;
+	}
+	myTitleBar.topItem.title = [artist getName];
+	myTextView.text = [artist getDescription];
+}
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {

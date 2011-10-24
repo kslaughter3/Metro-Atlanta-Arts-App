@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ArtistController.h"
+#import "EventArtist.h"
 
 @class ArtistListController;
 
