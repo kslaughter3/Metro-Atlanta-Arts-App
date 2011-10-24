@@ -63,7 +63,7 @@
 	return nil;
 }
 
-//Builds a date from a string the in the format "MM-DD-YYYY HH:MM:SS(pm/am)" or the format "MM/DD/YYYY HH:MM:SS(pm/am)"
+//Builds a date from a string the in the format "MM-DD-YYYY HH:MM:(SS)(pm/am)" or the format "MM/DD/YYYY HH:MM:(SS)(pm/am)"
 -(EventDate *)initWithString: (NSString *) string {
 	self = [super init];
 	
@@ -162,6 +162,7 @@
 	NSString *temp;
 	NSArray *components = [date componentsSeparatedByString:@"/"];
 	
+	
 	//Should have 3 components (month, day, year)
 	if([components count] != 3) {
 		//Try the other format
@@ -195,6 +196,8 @@
 	NSString *temp, *suffix;
 	NSArray *components = [time componentsSeparatedByString:@":"];
 	
+	
+	
 	if([components count] == 3) {
 		temp = (NSString *)[components objectAtIndex: 0];
 		if([EventDate isNumeric: temp] == YES) {
@@ -219,6 +222,27 @@
 		}
 	}
 	
+	if([components count] == 2) {
+		temp = (NSString *)[components objectAtIndex: 0];
+		if([EventDate isNumeric: temp] == YES) {
+			hour = [temp intValue];
+			temp = (NSString *)[components objectAtIndex: 1];
+			temp = [temp lowercaseString];
+			if(([temp hasSuffix:@"pm"] == YES) || ([temp hasSuffix: @"am"] == YES)) {
+				suffix = [temp substringFromIndex:([temp length] - 2)];
+				temp = [temp substringToIndex:([temp length] -2)];
+			}
+			if([EventDate isNumeric: temp] == YES) {
+				minute = [temp intValue];
+				second = 0;
+				if([suffix compare: @"pm"] == 0) {
+					hour = hour + 12;
+				}
+				return;
+			}
+		}
+	}
+	
 	//Invalidate the date
 	hour = -1;
 	minute = -1;
@@ -226,35 +250,64 @@
 }
 
 -(NSString *)getDateTimeFormatMilitary {
-	return [NSString stringWithFormat:@"%d/%d/%d %d:%d:%d", month, day, year, hour, minute, second];
+	if(second == 0) {
+		return [NSString stringWithFormat:@"%d/%02d/%02d %02d:%02d", month, day, year, hour, minute];
+	}
+	return [NSString stringWithFormat:@"%d/%02d/%02d %02d:%02d:%02d", month, day, year, hour, minute, second];
 }
 
 -(NSString *)getDateTimeFormatStandard {
 	if(hour > 12) {
-		return [NSString stringWithFormat:@"%d/%d/%d %d:%d:%dpm", month, day, year, (hour-12), minute, second];
+		if(second == 0) {
+			return [NSString stringWithFormat:@"%d/%02d/%02d %d:%02dpm", month, day, year, (hour-12), minute];
+		}
+		return [NSString stringWithFormat:@"%d/%02d/%02d %d:%02d:%02dpm", month, day, year, (hour-12), minute, second];
 	}
 	else if(hour == 12) {
-		return [NSString stringWithFormat:@"%d/%d/%d %d:%d:%dpm", month, day, year, hour, minute, second];
+		if(second == 0) {
+			return [NSString stringWithFormat:@"%d/%02d/%02d %d:%02dpm", month, day, year, hour, minute];
+		}
+		return [NSString stringWithFormat:@"%d/%02d/%02d %d:%02d:%02dpm", month, day, year, hour, minute, second];
 	}
-	return [NSString stringWithFormat:@"%d/%d/%d %d:%d:%dam", month, day, year, hour, minute, second];
+	
+	if(second == 0) {
+		return [NSString stringWithFormat:@"%d/%02d/%02d %d:%02dam", month, day, year, (hour-12), minute];
+	}
+	return [NSString stringWithFormat:@"%d/%02d/%02d %d:%02d:%02dam", month, day, year, (hour-12), minute, second];
 }
 
 -(NSString *)getDate {
-	return [NSString stringWithFormat:@"%d/%d/%d", month, day, year];
+	return [NSString stringWithFormat:@"%d/%02d/%02d", month, day, year];
 }
 
 -(NSString *)getTimeMilitaryFormat {
-	return [NSString stringWithFormat:@"%d:%d:%d", hour, minute, second];
+	if(second == 0) {
+		return [NSString stringWithFormat:@"%02d:%02d", hour, minute];
+	}
+	return [NSString stringWithFormat:@"%02d:%02d:%02d", hour, minute, second];
 }
 
 -(NSString *)getTimeStandardFormat {
 	if(hour > 12) {
-		return [NSString stringWithFormat:@"%d:%d:%dpm", (hour-12), minute, second];
+		if(second == 0) {
+			return [NSString stringWithFormat:@"%d:%02dpm", (hour-12), minute];
+		}
+		
+		return [NSString stringWithFormat:@"%d:%02d:%02dpm", (hour-12), minute, second];
 	}
 	else if(hour == 12) {
-		return [NSString stringWithFormat:@"%d:%d:%dpm", hour, minute, second];
+		if(second == 0) {
+			return [NSString stringWithFormat:@"%d:%02dpm", hour, minute];
+		}
+		
+		return [NSString stringWithFormat:@"%d:%02d:%02dpm", hour, minute, second];
 	}
-	return [NSString stringWithFormat:@"%d:%d:%dam", hour, minute, second];
+	
+	if(second == 0) {
+		return [NSString stringWithFormat:@"%d:%am", hour, minute];
+	}
+	
+	return [NSString stringWithFormat:@"%d:%02d:%02dam", hour, minute, second];
 }
 
 -(BOOL)checkYear {

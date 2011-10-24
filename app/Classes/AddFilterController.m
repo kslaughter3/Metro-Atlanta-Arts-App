@@ -281,6 +281,12 @@ inComponent:(NSInteger)component
 			filter = [[Filter alloc] initArtistFilter: topField.text];
 			break;
 		case TimeFilterType:
+			start = [[EventDate alloc] initEmptyDate];
+			end = [[EventDate alloc] initEmptyDate];
+			[start setDate: topField.text];
+			[start setTime: middleField.text];
+			[end setDate: topField.text];
+			[end setTime: bottomField.text];
 			filter = [[Filter alloc] initTimeFilterStart:start End:end];
 			break;
 		case CostFilterType:

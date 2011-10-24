@@ -249,8 +249,8 @@
 				filterer->day = [[NSString alloc] initWithString: d];
 				filterer->startTime = start;
 				filterer->endTime = end;
-				NSLog([NSString stringWithFormat: @"Day: %@ Start: %d End: %d",
-					  filterer->day, filterer->startTime, filterer->endTime]);
+			//	NSLog([NSString stringWithFormat: @"Day: %@ Start: %d End: %d",
+			//		  filterer->day, filterer->startTime, filterer->endTime]);
 				return self;
 			}
 		}
@@ -476,7 +476,7 @@
 }
 
 -(NSString *)timeString {
-	return [NSString stringWithFormat:@"Date: %@ Start: %@ End: %@", 
+	return [NSString stringWithFormat:@"%@ %@-%@", 
 			[filterer->start getDate], [filterer->start getTimeStandardFormat],
 			[filterer->end getTimeStandardFormat]];
 }
@@ -515,14 +515,14 @@
 	}
 	
 	if(filterer->startTime >= 1200) {
-		return [NSString stringWithFormat:@"Day: %@ Time: %02d:%02d-%02d:%02dpm", 
+		return [NSString stringWithFormat:@"Day: %@ Time: %02d:%02dpm-%02d:%02dpm", 
 				filterer->day, startH, startM, endH, endM];
 	}
 	else if(filterer->endTime >= 1200) {
 		return [NSString stringWithFormat:@"Day: %@ Time: %02d:%02dam-%02d:%02dpm", 
 				filterer->day, startH, startM, endH, endM];
 	}
-	return [NSString stringWithFormat:@"Day: %@ Time: %02d:%02d-%02d:%02dam", 
+	return [NSString stringWithFormat:@"Day: %@ Time: %02d:%02dam-%02d:%02dam", 
 			filterer->day, startH, startM, endH, endM];
 }
 
