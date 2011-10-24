@@ -97,8 +97,8 @@
 		3A29A96B1448A959004E2C2D /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		3A98777C142A57A600D80A8C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Metro_Atlanta_Arts_App-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Metro_Atlanta_Arts_App-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		BF15C45C144F4DAD00969E72 /* TripPlanningController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TripPlanningController.h; path = ../TripPlanningController.h; sourceTree = "<group>"; };
-		BF15C45D144F4DAD00969E72 /* TripPlanningController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TripPlanningController.m; path = ../TripPlanningController.m; sourceTree = "<group>"; };
+		BF15C45C144F4DAD00969E72 /* TripPlanningController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripPlanningController.h; sourceTree = "<group>"; };
+		BF15C45D144F4DAD00969E72 /* TripPlanningController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripPlanningController.m; sourceTree = "<group>"; };
 		BF15C462144F4DFE00969E72 /* TripPlanningView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripPlanningView.xib; sourceTree = "<group>"; };
 		BFF266A8143F928800084695 /* FilterListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterListController.h; sourceTree = "<group>"; };
 		BFF266A9143F928800084695 /* FilterListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterListController.m; sourceTree = "<group>"; };

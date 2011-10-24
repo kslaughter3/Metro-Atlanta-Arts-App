@@ -300,7 +300,7 @@ inComponent:(NSInteger)component
 			filter = [[Filter alloc] initDurationFilterMin:minLength Max:maxLength];
 			break;
 		case LocationFilterType:
-			loc = [loc initWithAddress:topField.text
+			loc = [[EventLocation alloc] initWithAddress:topField.text
 				City: @"Atlanta" State: @"GA" Zip: middleField.text];
 			radius = [bottomField.text doubleValue];
 			filter = [[Filter alloc] initLocationFilter:loc Radius: radius];

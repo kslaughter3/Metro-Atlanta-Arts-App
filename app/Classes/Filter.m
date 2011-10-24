@@ -496,12 +496,11 @@
 }
 
 -(NSString *)locationString {
-	return [NSString stringWithFormat:@"Address: %@ Radius: %f", 
-			[filterer->loc getStreetAddress], filterer->radius];
+	return [NSString stringWithFormat:@"Within %.2f miles of %@", 
+			filterer->radius, [filterer->loc getStreetAddress]];
 }
 
 -(NSString *)availabilityString {
-	NSLog(@"Reached Availability String");
 	int startH = (filterer->startTime / 100);
 	int startM = filterer->startTime % 100;
 	if(startH > 12) {

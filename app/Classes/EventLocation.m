@@ -71,6 +71,8 @@
 		state = [[NSString alloc] initWithString: s];
 		zip = [[NSString alloc] initWithString: z];
 		//TODO: add call to database to get the CLLocations
+		coordinate.latitude = 33.7728837;
+		coordinate.longitude = -84.393816;
 		return self;
 	}
 	

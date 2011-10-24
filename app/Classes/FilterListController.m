@@ -56,20 +56,18 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	Content *content = [Content getInstance];
-	NSLog([NSString stringWithFormat:@"Number of Rows: %d", [content getFilterCount]]);
 	return [content getFilterCount];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *MyIdentifier = @"MyIdentifier";
-	NSLog([NSString stringWithFormat: @"Reached cellForRowAtIndexPath %d", indexPath.row]);
 	
 	NSString *string;
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	if(cell == nil) {
-		NSLog(@"Cell Not Set");
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
+		cell.textLabel.font = [UIFont fontWithName:@"ArialMT" size:16];
 	}
 	
 	Content *content = [Content getInstance];
