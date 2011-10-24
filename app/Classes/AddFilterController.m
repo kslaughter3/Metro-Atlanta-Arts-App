@@ -77,6 +77,11 @@
 	/* Hide the label/fields that are not used for this type and set the text of the 
 	 displayed labels/fields */
 	typeField.text = [Filter getFilterTypeString: FirstFilterType];
+
+	//Reselect the name filter from the picker view
+	UIPickerView *picker = (UIPickerView *)typeField.inputView;
+	[picker selectRow: 0 inComponent: 0 animated: NO];
+	
 	topLabel.hidden = NO;
 	topField.hidden = NO;
 	middleLabel.hidden = YES;
@@ -84,7 +89,11 @@
 	bottomLabel.hidden = YES;
 	bottomField.hidden = YES;
 	topLabel.text = @"Name:";
+	
+	//Clear all the old fields
 	topField.text = @"";
+	middleField.text = @"";
+	bottomField.text = @"";
 }
 
 
@@ -184,10 +193,11 @@ inComponent:(NSInteger)component
 			topField.hidden = NO;
 			middleLabel.hidden = NO;
 			middleField.hidden = NO;
-			bottomLabel.hidden = YES;
-			bottomField.hidden = YES;
+			bottomLabel.hidden = NO;
+			bottomField.hidden = NO;
 			topLabel.text = @"Day of the Week:";
-			middleLabel.text = @"Time:";
+			middleLabel.text = @"Start Time:";
+			bottomLabel.text = @"End Time:";
 			break;
 		default:
 			//Should never happen
@@ -257,7 +267,8 @@ inComponent:(NSInteger)component
 	int maxLength;
 	EventLocation *loc;
 	double radius;
-	int time;
+	int startTime;
+	int endTime;
 	Content *content;
 	
 	t = [Filter getFilterTypeFromString: typeField.text];
@@ -289,15 +300,15 @@ inComponent:(NSInteger)component
 			filter = [[Filter alloc] initLocationFilter:loc Radius: radius];
 			break;
 		case AvailabilityFilterType:
-			time = [self buildTime: middleField.text];
-			filter = [[Filter alloc] initAvailabilityFilter: topField.text Time: time];
+			startTime = [EventAvailability buildTime: middleField.text];
+			endTime = [EventAvailability buildTime: bottomField.text];
+			filter = [[Filter alloc] initAvailabilityFilter: topField.text 
+				Start: startTime End: endTime];
 			break;
 		default:
 			//Should never happen
 			break;
 	}
-	
-	NSLog(@"Filter Created");
 	
 	if(filter == nil) {
 		UIAlertView *alert = [[UIAlertView alloc] 
@@ -310,6 +321,7 @@ inComponent:(NSInteger)component
 		[alert release];
 	}
 	else {
+		NSLog(@"Filter Created");
 		content = [Content getInstance];
 		
 		if([content addFilter: filter AndFilter: YES] == NO) {
@@ -330,11 +342,6 @@ inComponent:(NSInteger)component
 	[textField resignFirstResponder];
 	return YES;
 }
-
--(int)buildTime:(NSString *)time {
-	return -1;
-}
-
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

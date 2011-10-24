@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EventDate.h"
+#import "EventAvailability.h"
 
 
 @class AddFilterController;
@@ -38,8 +39,6 @@
 -(IBAction)cancel:(id)sender;
 -(IBAction)ok:(id)sender;
 -(IBAction)pickerDoneClicked:(id)sender;
-
--(int)buildTime: (NSString *)time;
 
 //-(void)setInputType: (UITextField *) field Type: (int) type;
 

@@ -180,10 +180,11 @@
 			topField.hidden = NO;
 			middleLabel.hidden = NO;
 			middleField.hidden = NO;
-			bottomLabel.hidden = YES;
-			bottomField.hidden = YES;
+			bottomLabel.hidden = NO;
+			bottomField.hidden = NO;
 			topLabel.text = @"Day of the Week:";
-			middleLabel.text = @"Time:";
+			middleLabel.text = @"Start Time:";
+			bottomLabel.text = @"End Time:";
 			break;
 		default:
 			//Should never happen
@@ -193,16 +194,21 @@
 
 -(void)setValues {
 	double minC, maxC, rad;
-	int minD, maxD, time;
+	int minD, maxD, startTime, endTime;
+	NSString *startTimeString, *endTimeString;
 	EventDate *start, *end;	
 	EventLocation *loc;
 	FilterType type = [myFilter getFilterType];
 	switch(type) {
 		case NameFilterType:
 			topField.text = [myFilter getFiltererName];
+			middleField.text = @"";
+			bottomField.text = @"";
 			break;
 		case ArtistFilterType:
 			topField.text = [myFilter getFiltererArtist];
+			middleField.text = @"";
+			bottomField.text = @"";
 			break;
 		case TimeFilterType:
 			start = [myFilter getFiltererStartTime];
@@ -212,14 +218,16 @@
 		case CostFilterType:
 			minC = [myFilter getFiltererMinCost];
 			maxC = [myFilter getFiltererMaxCost];
-			topField.text = [NSString stringWithFormat: @"%f", minC];
-			middleField.text = [NSString stringWithFormat: @"%f", maxC];
+			topField.text = [NSString stringWithFormat: @"%.2f", minC];
+			middleField.text = [NSString stringWithFormat: @"%.2f", maxC];
+			bottomField.text = @"";
 			break;
 		case DurationFilterType:
 			minD = [myFilter getFiltererMinDuration];
 			maxD = [myFilter getFiltererMaxDuration];
 			topField.text = [NSString stringWithFormat:@"%i", minD];
 			middleField.text = [NSString stringWithFormat: @"%i", maxD];
+			bottomField.text = @"";
 			break;
 		case LocationFilterType:
 			loc = [myFilter getFiltererLocation];
@@ -229,9 +237,14 @@
 			bottomField.text = [NSString stringWithFormat:@"%f", rad];
 			break;
 		case AvailabilityFilterType:
-			time = [myFilter getFiltererAvailabilityTime];
+			startTime = [myFilter getFiltererAvailabilityStartTime];
+			endTime = [myFilter getFiltererAvailabilityEndTime];
+			startTimeString = [EventAvailability getTimeString: startTime];
+			endTimeString = [EventAvailability getTimeString: endTime];
+			
 			topField.text = [myFilter getFiltererAvailabilityDay];
-			middleField.text = [NSString stringWithFormat:@"%i", time];
+			middleField.text = startTimeString;
+			bottomField.text = endTimeString;
 			break;
 		default:
 			//Should never happen
@@ -268,7 +281,8 @@
 	int maxLength;
 	EventLocation *loc;
 	double radius;
-	int time;
+	int startTime;
+	int endTime;
 	Content *content;
 	
 	t = [Filter getFilterTypeFromString: typeField.text];
@@ -300,8 +314,10 @@
 			filter = [[Filter alloc] initLocationFilter:loc Radius: radius];
 			break;
 		case AvailabilityFilterType:
-			time = [self buildTime: middleField.text];
-			filter = [[Filter alloc] initAvailabilityFilter: topField.text Time: time];
+			startTime = [EventAvailability buildTime: middleField.text];
+			endTime = [EventAvailability buildTime: bottomField.text];
+			filter = [[Filter alloc] initAvailabilityFilter: topField.text 
+				Start: startTime End: endTime];
 			break;
 		default:
 			//Should never happen
@@ -321,18 +337,22 @@
 	else {
 		content = [Content getInstance];
 		
-	/*	if([content addFilter: filter AndFilter: YES] == NO) {
-			NSLog(@"Error: Add Filter Failed with a Valid Filter");
+		if([content replaceFilter: myFilter WithFilter: filter AndFilter: YES] == NO) {
+			NSLog(@"Error: Replace Filter Failed with a Valid Filter");
 		}
-	*/	
+		
 		[self.parentViewController dismissModalViewControllerAnimated: YES];
 	}
 }
 
 -(IBAction)remove: (id) sender {
 	NSLog(@"Delete Clicked");
+	Content *content = [Content getInstance];
+
+	[content removeFilter: myFilter AndFilter: YES];
+	myFilter = nil;
 	
-	//TODO: delete the filter
+	[self.parentViewController dismissModalViewControllerAnimated:YES];
 }
 
 -(IBAction)pickerDoneClicked: (id) sender {
@@ -342,10 +362,6 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
 	[textField resignFirstResponder];
 	return YES;
-}
-
--(int)buildTime:(NSString *)time {
-	return -1;
 }
 
 

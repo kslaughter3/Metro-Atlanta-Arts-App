@@ -15,6 +15,9 @@
 	int endTime;
 }
 
++(int)buildTime: (NSString *)string;
++(NSString *)getTimeString: (int) time;
+
 /* Initializers */
 -(EventAvailability *)initWithAvailability: (EventAvailability *) avail;
 

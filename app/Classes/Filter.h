@@ -50,7 +50,8 @@ typedef struct Filterer {
 	EventLocation			*loc;				/* Location Filter */
 	double					radius;				/* Location Filter */
 	NSString				*day;				/* Availability Filter */
-	int 					time;				/* Availability Filter */
+	int 					startTime;			/* Availability Filter */
+	int						endTime;			/* Availability Filter */
 } Filterer;
 
 @interface Filter : NSObject {
@@ -76,7 +77,7 @@ typedef struct Filterer {
 -(Filter *)initCostFilterMin: (double) min Max: (double) max;
 -(Filter *)initDurationFilterMin: (int) min Max: (int) max;
 -(Filter *)initLocationFilter: (EventLocation *) loc Radius: (double) rad;
--(Filter *)initAvailabilityFilter: (NSString *) d Time: (int) t;
+-(Filter *)initAvailabilityFilter: (NSString *) d Start: (int) start End: (int) end;
 
 /* Filterer Checkers */
 -(BOOL)checkFilterer: (Filterer *) f;
@@ -86,7 +87,7 @@ typedef struct Filterer {
 -(BOOL)checkCostFiltererMin: (double) min Max: (double) max;
 -(BOOL)checkDurationFiltererMin: (int) min Max: (int) max;
 -(BOOL)checkLocationFilterer: (EventLocation *) loc Radius: (double) radius;
--(BOOL)checkAvailabilityFilterer: (NSString *)day Time: (int) time;
+-(BOOL)checkAvailabilityFilterer: (NSString *)day Start: (int) start End: (int) end;
 
 -(BOOL)checkDayString: (NSString *) str;
 
@@ -108,7 +109,8 @@ typedef struct Filterer {
 -(EventLocation *)getFiltererLocation;
 -(double)getFiltererRadius;
 -(NSString *)getFiltererAvailabilityDay;
--(int)getFiltererAvailabilityTime;
+-(int)getFiltererAvailabilityStartTime;
+-(int)getFiltererAvailabilityEndTime;
 -(NSString *)getTypeName;
 
 //toString methods for the filters

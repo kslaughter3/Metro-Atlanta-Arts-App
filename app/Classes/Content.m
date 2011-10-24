@@ -65,6 +65,8 @@ static Content *instance;
 	
 	/* Add the filter */
 	[filters addObject: filter];
+	
+	NSLog([NSString stringWithFormat:@"Number of Filters: %d", [filters count]]); 
 
 	/* Add the filter as either an AND filter or an OR Filter based on type */
 /*	if(type == YES) {
@@ -95,12 +97,34 @@ static Content *instance;
 	[filters removeObjectIdenticalTo: filter];
 	
 	/* Remove the filter as either an AND Filter or an OR Filter based on type */
-	if(type == YES) {
+/*	if(type == YES) {
 		[self removeAndFilter];
 	}
 	else {
 		[self removeOrFilter];
 	}
+*/	
+	return YES;
+}
+
+-(BOOL)replaceFilter:(Filter *)oldFilter WithFilter:(Filter *)newFilter AndFilter:(BOOL)type {
+	if(oldFilter == nil || newFilter == nil) {
+		return NO;
+	}
+	
+	Filterer *filterer = [newFilter getFilterer];
+	
+	if([newFilter checkFilterer: filterer] == NO) {
+		return NO;
+	}
+	
+	int index = [filters indexOfObjectIdenticalTo: oldFilter];
+	
+	if(index == -1) {
+		return NO;
+	}
+	
+	[filters replaceObjectAtIndex:index withObject:newFilter];
 	
 	return YES;
 }

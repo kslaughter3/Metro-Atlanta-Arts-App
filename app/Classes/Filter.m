@@ -233,17 +233,24 @@
 	return nil;
 }
 
--(Filter *)initAvailabilityFilter:(NSString *) d Time: (int) t {
+-(Filter *)initAvailabilityFilter:(NSString *) d Start: (int) start End: (int) end {
 	self = [super init];
+	NSLog(@"Reached Init Availability");
 	
 	if(self != nil) {
-		if([self checkAvailabilityFilterer: d Time: t] == YES) {
+		NSLog(@"Not Nil");
+		if([self checkAvailabilityFilterer: d Start: start End: end] == YES) {
+			NSLog(@"Filter Passed");
 			[self setFilterType: AvailabilityFilterType];
 			
 			filterer = (Filterer *)malloc(sizeof(Filterer));
 			if(filterer != nil) {
+				NSLog(@"Filterer Not Nil");
 				filterer->day = [[NSString alloc] initWithString: d];
-				filterer->time = t;
+				filterer->startTime = start;
+				filterer->endTime = end;
+				NSLog([NSString stringWithFormat: @"Day: %@ Start: %d End: %d",
+					  filterer->day, filterer->startTime, filterer->endTime]);
 				return self;
 			}
 		}
@@ -281,7 +288,7 @@
 			return [self checkLocationFilterer: f->loc Radius: f->radius];
 			break;
 		case AvailabilityFilterType:
-			return [self checkAvailabilityFilterer: f->day Time: f->time];
+			return [self checkAvailabilityFilterer: f->day Start: f->startTime End: f->endTime];
 			break;
 		default:
 			return NO;
@@ -334,14 +341,13 @@
 	return YES;
 }
 
--(BOOL)checkAvailabilityFilterer:(NSString *) day Time: (int) time {
-
-		
+-(BOOL)checkAvailabilityFilterer:(NSString *) day Start: (int) start End: (int) end {
+	NSLog(@"Reached Check Availability Filter");
 	if([self checkDayString: day] == NO) {
 		return NO;
 	}
 	
-	if(time >= 0 && time <= 2359) {	
+	if((start >= 0) && (end <= 2359) && (start <= end)) {	
 		return YES;
 	}
 	
@@ -349,6 +355,8 @@
 }
 
 -(BOOL)checkDayString: (NSString *) str {
+	NSLog(@"Reached check Day String");
+	str = [str uppercaseString];
 	
 	if(([str isEqualToString: @"SUNDAY"]) || ([str isEqualToString: @"MONDAY"]) || 
 	   ([str isEqualToString: @"TUESDAY"]) || ([str isEqualToString: @"WEDNESDAY"]) ||  
@@ -421,8 +429,12 @@
 	return filterer->day;
 }
 
--(int)getFiltererAvailabilityTime {
-	return filterer->time;
+-(int)getFiltererAvailabilityStartTime {
+	return filterer->startTime;
+}
+
+-(int)getFiltererAvailabilityEndTime {
+	return filterer->endTime;
 }
 
 -(NSString *)getTypeName {
@@ -470,12 +482,16 @@
 }
 
 -(NSString *)costString {
-	return [NSString stringWithFormat:@"Min: $%f Max: $%f",
+	if(filterer->minCost == 0 && filterer->maxCost == 0)
+	{
+		return @"Cost: FREE";
+	}
+	return [NSString stringWithFormat:@"Cost: $%.2f-$%.2f",
 			filterer->minCost, filterer->maxCost];
 }
 
 -(NSString *)durationString {
-	return [NSString stringWithFormat:@"Min: %d Max: %d", 
+	return [NSString stringWithFormat:@"Duration: %d-%d minutes", 
 			filterer->minDuration, filterer->maxDuration];
 }
 
@@ -485,15 +501,29 @@
 }
 
 -(NSString *)availabilityString {
-	int time = (filterer->time / 100) % 12;
-	int min = filterer->time % 100;
-	if(filterer->time > 1200) {
-		return [NSString stringWithFormat:@"Day: %@ Time: %d:%dpm", 
-				filterer->day, time, min];
+	NSLog(@"Reached Availability String");
+	int startH = (filterer->startTime / 100);
+	int startM = filterer->startTime % 100;
+	if(startH > 12) {
+		startH -= 12;
 	}
-
-	return [NSString stringWithFormat:@"Day: %@ Time: %d:%dam", 
-			filterer->day, time, min];
+	
+	int endH = (filterer->endTime / 100);
+	int endM = filterer->endTime % 100;
+	if(endH > 12) {
+		endH -= 12;
+	}
+	
+	if(filterer->startTime >= 1200) {
+		return [NSString stringWithFormat:@"Day: %@ Time: %02d:%02d-%02d:%02dpm", 
+				filterer->day, startH, startM, endH, endM];
+	}
+	else if(filterer->endTime >= 1200) {
+		return [NSString stringWithFormat:@"Day: %@ Time: %02d:%02dam-%02d:%02dpm", 
+				filterer->day, startH, startM, endH, endM];
+	}
+	return [NSString stringWithFormat:@"Day: %@ Time: %02d:%02d-%02d:%02dam", 
+			filterer->day, startH, startM, endH, endM];
 }
 
 -(void)copyFilterer: (Filterer *) f {
@@ -508,7 +538,8 @@
 	filterer->loc = [[EventLocation alloc] initWithLocation: f->loc];
 	filterer->radius = f->radius;
 	filterer->day = [[NSString alloc] initWithString: f->day];
-	filterer->time = f->time;
+	filterer->startTime = f->startTime;
+	filterer->endTime = f->endTime;
 }
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Filter.h"
 #import "EventLocation.h"
-
+#import "EventAvailability.h"
 
 @class EditFilterController;
 
@@ -46,5 +46,4 @@ UITextFieldDelegate> {
 -(IBAction)remove:(id)sender;
 -(IBAction)pickerDoneClicked:(id)sender;
 
--(int)buildTime: (NSString *)time;
 @end

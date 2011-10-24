@@ -39,12 +39,14 @@
 /* Type is true if this is an AND Filter and false if this is an OR filter */
 -(BOOL)addFilter: (Filter *) filter AndFilter: (BOOL) type;
 -(BOOL)removeFilter: (Filter *) filter AndFilter: (BOOL) type;
+-(BOOL)replaceFilter: (Filter *) oldFilter WithFilter: (Filter *) newFilter AndFilter: (BOOL) type;
 
 /* These methods are private */
 -(void)addAndFilter: (Filter *) filter;
 -(void)removeAndFilter;
 -(void)addOrFilter: (Filter *) filter;
 -(void)removeOrFilter;
+
 
 /* Filter Mode methods */
 -(void)switchToAndFilters;
