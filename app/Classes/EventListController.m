@@ -34,13 +34,9 @@
 
  // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
  - (void)viewDidLoad {
-	 UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero 
-														   style: UITableViewStylePlain];
 	 
-	 [tableView setDelegate: self];
-	 [tableView setDataSource: self];
-	 myTableView = tableView;
-	 [tableView release];
+	 [myTableView setDelegate: self];
+	 [myTableView setDataSource: self];
 	 
 	 NSArray *list = [[NSArray alloc] initWithObjects: @"Event" , @"List", nil];
 	 self.listData = list;
@@ -56,14 +52,14 @@
 // return (interfaceOrientation == UIInterfaceOrientationPortrait);
  }
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	return 1;
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	//Content *content = [Content getInstance];
 	//return [content getFilterCount];
-	if([self.listData count] > 0) {
-		return [self.listData count];
-	}
-	return 1;
+	return [self.listData count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
