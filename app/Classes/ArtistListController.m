@@ -23,17 +23,18 @@
     return self;
 }
 */
-
-
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	
 	[myTableView setDelegate: self];
 	[myTableView setDataSource: self];
-	
-	NSArray *list = [[NSArray alloc] initWithObjects: @"Artist" , @"List", nil];
-	self.listData = list;
-	[list release];
+
+	Content *content = [Content getInstance];
+	EventArtist *temp = [[EventArtist alloc] initWithArtistName: @"jun" Description: @"hi"];
+	[content addArtist: temp];
+	//NSArray *list = [[NSArray alloc] initWithObjects: temp, nil];
+	self.listData = [content getArtists];
+	//[list release];	
 	
     [super viewDidLoad];
 }
@@ -43,9 +44,9 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	//Content *content = [Content getInstance];
-	//return [content getFilterCount];
-		return [self.listData count];
+	Content *content = [Content getInstance];
+	return [content getArtistCount];
+		//return [self.listData count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -56,13 +57,13 @@
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
 	}
 	
-	//Content *content = [Content getInstance];
-	//Filter *f = (Filter *)[[content getFilters] objectAtIndex:indexPath.row];
+	Content *content = [Content getInstance];
+	EventArtist *ea = (EventArtist *)[content getArtistAtIndex: indexPath.row];
+	cell.textLabel.text = [ea getName];
 	
-	NSUInteger row = [indexPath row];
-	cell.textLabel.text = [listData objectAtIndex: row];
-	
-	//cell.textLabel.text = [f getTypeName];
+	//NSUInteger row = [indexPath row];
+	//cell.textLabel.text = [listData objectAtIndex: row];
+
 	//TODO: set the detailed text based on the filterer's values 
 	//cell.textLabel.text = @"Hello World";
 	
@@ -84,8 +85,9 @@
 		self.myArtistController = [[ArtistController alloc] initWithNibName: @"ArtistView" bundle: nil];
 	}
 	
-	EventArtist *temp = [[EventArtist alloc] initWithArtistName: @"hi" Description: @"hi2"];
-	[myArtistController setArtist: temp];
+	//EventArtist *temp = [[EventArtist alloc] initWithArtistName: @"hi" Description: @"hi2"];
+	Content *content = [Content getInstance];
+	[myArtistController setArtist: [content getArtistAtIndex: indexPath.row]];
 	//[myArtistController setArtist: [[content getArtists] objectAtIndex: idx]];
 	[self presentModalViewController: self.myArtistController animated:YES];
 }

@@ -36,6 +36,10 @@
 
 /* Filtering methods */
 
+/* adding event and artist */
+-(BOOL)addArtist:(EventArtist *)artist;
+-(BOOL)addEvent:(Event *)event;
+
 /* Type is true if this is an AND Filter and false if this is an OR filter */
 -(BOOL)addFilter: (Filter *) filter AndFilter: (BOOL) type;
 -(BOOL)removeFilter: (Filter *) filter AndFilter: (BOOL) type;
