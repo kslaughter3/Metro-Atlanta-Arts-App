@@ -501,6 +501,7 @@
 }
 
 -(NSString *)availabilityString {
+	NSLog(@"Reached Availability String");
 	int startH = (filterer->startTime / 100);
 	int startM = filterer->startTime % 100;
 	if(startH > 12) {

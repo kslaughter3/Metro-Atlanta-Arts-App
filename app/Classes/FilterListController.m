@@ -15,6 +15,7 @@
 			myNavigationBar,
 			myAddFilterController, 
 			myEditFilterController;
+//@synthesize checkedIndexPath;
 
 /* // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -70,6 +71,13 @@
 		cell.textLabel.font = [UIFont fontWithName:@"ArialMT" size:16];
 	}
 	
+	/*if([self.checkedIndexPath isEqual:indexPath]) {
+		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+	}
+	else {
+		cell.accessoryType = UITableViewCellAccessoryNone;
+	}*/
+	
 	Content *content = [Content getInstance];
 	NSMutableArray *filters = [content getFilters];	
 	Filter *f = (Filter *)[filters objectAtIndex:indexPath.row];
@@ -123,6 +131,14 @@
 		self.myEditFilterController = new_view;
 		[new_view release];
 	}
+	
+	/*UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+	if (cell.accessoryType == UITableViewCellAccessoryNone) {
+		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+	}
+	else {
+		cell.accessoryType = UITableViewCellAccessoryNone;
+	}*/
 	
 	Content *content = [Content getInstance];
 	Filter *filter = [content getFilterAtIndex: [indexPath row]];
