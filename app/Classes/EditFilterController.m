@@ -253,8 +253,8 @@
 		case AvailabilityFilterType:
 			startTime = [myFilter getFiltererAvailabilityStartTime];
 			endTime = [myFilter getFiltererAvailabilityEndTime];
-			startTimeString = [EventAvailability getTimeString: startTime];
-			endTimeString = [EventAvailability getTimeString: endTime];
+			startTimeString = [EventAvailability timeString: startTime];
+			endTimeString = [EventAvailability timeString: endTime];
 			
 			topField.text = [myFilter getFiltererAvailabilityDay];
 			middleField.text = startTimeString;

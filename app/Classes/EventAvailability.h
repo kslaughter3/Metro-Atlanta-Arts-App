@@ -16,7 +16,7 @@
 }
 
 +(int)buildTime: (NSString *)string;
-+(NSString *)getTimeString: (int) time;
++(NSString *)timeString: (int) time;
 
 /* Initializers */
 -(EventAvailability *)initWithAvailability: (EventAvailability *) avail;

@@ -31,7 +31,7 @@
 	}
 	
 	int time = [[string substringToIndex: colon.location] intValue];
-	if(afternoon == YES) {
+	if((afternoon == YES) && (time != 12)) {
 		time += 12;
 	}
 	time *= 100;
@@ -41,12 +41,10 @@
 	
 	time += min;
 	
-	[temp dealloc];
-	
 	return time;
 }
 
-+(NSString *)getTimeString:(int)time {
++(NSString *)timeString:(int)time {
 	int hour = time / 100;
 	int min = time % 100;
 	
@@ -55,10 +53,10 @@
 	}
 	
 	if(time >= 1200) {
-		return [NSString stringWithFormat:@"%02d:%02dpm", hour, min];
+		return [NSString stringWithFormat:@"%d:%02dpm", hour, min];
 	}
 	
-	return [NSString stringWithFormat:@"%02d:%02dam", hour, min];
+	return [NSString stringWithFormat:@"%d:%02dam", hour, min];
 }
 
 /* Initializers */

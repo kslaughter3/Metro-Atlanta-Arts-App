@@ -87,8 +87,7 @@ static Content *instance;
 	/* Add the filter */
 	[filters addObject: filter];
 	
-	//NSLog([NSString stringWithFormat:@"Number of Filters: %d", [filters count]]); 
-
+	 
 	/* Add the filter as either an AND filter or an OR Filter based on type */
 /*	if(type == YES) {
 		[self addAndFilter: filter];

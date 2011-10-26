@@ -293,23 +293,17 @@
 
 -(Filter *)initAvailabilityFilter:(NSString *) d Start: (int) start End: (int) end {
 	self = [super init];
-	NSLog(@"Reached Init Availability");
-	
+
 	if(self != nil) {
-		NSLog(@"Not Nil");
 		if([self checkAvailabilityFilterer: d Start: start End: end] == YES) {
-			NSLog(@"Filter Passed");
 			[self setFilterType: AvailabilityFilterType];
 			
 			filterer = (Filterer *)malloc(sizeof(Filterer));
 			if(filterer != nil) {
-				NSLog(@"Filterer Not Nil");
 				filterer->day = [[NSString alloc] initWithString: d];
 				filterer->startTime = start;
 				filterer->endTime = end;
 				isEnabled = YES;
-			//	NSLog([NSString stringWithFormat: @"Day: %@ Start: %d End: %d",
-			//		  filterer->day, filterer->startTime, filterer->endTime]);
 				return self;
 			}
 		}
@@ -408,7 +402,6 @@
 }
 
 -(BOOL)checkAvailabilityFilterer:(NSString *) day Start: (int) start End: (int) end {
-	NSLog(@"Reached Check Availability Filter");
 	if([self checkDayString: day] == NO) {
 		return NO;
 	}
@@ -586,32 +579,15 @@
 }
 
 -(NSString *)availabilityString {
-	NSLog(@"Reached Availability String");
-	int startH = (filterer->startTime / 100);
-	int startM = filterer->startTime % 100;
-	if(startH > 12) {
-		startH -= 12;
-	}
+	NSString *start = [EventAvailability timeString: filterer->startTime];
+	NSString *end = [EventAvailability timeString: filterer->endTime];
 	
-	int endH = (filterer->endTime / 100);
-	int endM = filterer->endTime % 100;
-	if(endH > 12) {
-		endH -= 12;
-	}
-	
-	if(filterer->startTime >= 1200) {
-		return [NSString stringWithFormat:@"Day: %@ Time: %02d:%02dpm-%02d:%02dpm", 
-				filterer->day, startH, startM, endH, endM];
-	}
-	else if(filterer->endTime >= 1200) {
-		return [NSString stringWithFormat:@"Day: %@ Time: %02d:%02dam-%02d:%02dpm", 
-				filterer->day, startH, startM, endH, endM];
-	}
-	return [NSString stringWithFormat:@"Day: %@ Time: %02d:%02dam-%02d:%02dam", 
-			filterer->day, startH, startM, endH, endM];
+	return [NSString stringWithFormat:@"%@ %@-%@", 
+			filterer->day, start, end];
 }
 
 -(void)copyFilterer: (Filterer *) f {
+	filterer->query = [[NSString alloc] initWithString: f->query];
 	filterer->name = [[NSString alloc] initWithString: f->name];
 	filterer->artist = [[NSString alloc] initWithString: f->artist];
 	filterer->start = [[EventDate alloc] initWithDate: f->start];

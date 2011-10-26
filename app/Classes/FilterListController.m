@@ -33,17 +33,9 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-	NSLog(@"Reached View Will Appear");
 	[myTableView reloadData];
 	myRow = -1;
 	[super viewWillAppear: animated];
-	NSLog(@"End of View Will Appear");
-}
-
--(void)viewDidAppear:(BOOL)animated {
-	NSLog(@"Reached View Did Appear");
-	[super viewDidAppear: animated];
-	NSLog(@"End View Did Appear");
 }
 
 
@@ -59,6 +51,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	Content *content = [Content getInstance];
 	return [content getFilterCount];
+
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
