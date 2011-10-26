@@ -114,6 +114,15 @@
 
 -(void) setUpFields: (FilterType) type {
 	switch(type) {
+		case SearchFilterType:
+			topLabel.hidden = NO;
+			topField.hidden = NO;
+			middleLabel.hidden = YES;
+			middleField.hidden = YES;
+			bottomLabel.hidden = YES;
+			bottomField.hidden = YES;
+			topLabel.text = @"Query:";
+			break;
 		case NameFilterType:
 			topLabel.hidden = NO;
 			topField.hidden = NO;
@@ -200,6 +209,11 @@
 	EventLocation *loc;
 	FilterType type = [myFilter getFilterType];
 	switch(type) {
+		case SearchFilterType:
+			topField.text = [myFilter getFiltererQuery];
+			middleField.text = @"";
+			bottomField.text = @"";
+			break;
 		case NameFilterType:
 			topField.text = [myFilter getFiltererName];
 			middleField.text = @"";
@@ -288,6 +302,9 @@
 	t = [Filter getFilterTypeFromString: typeField.text];
 	
 	switch(t) {
+		case SearchFilterType:
+			filter = [[Filter alloc] initSearchFilter: topField.text];
+			break;
 		case NameFilterType:
 			filter = [[Filter alloc] initNameFilter: topField.text];
 			break;

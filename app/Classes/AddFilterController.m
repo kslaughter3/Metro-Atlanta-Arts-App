@@ -88,7 +88,7 @@
 	middleField.hidden = YES;
 	bottomLabel.hidden = YES;
 	bottomField.hidden = YES;
-	topLabel.text = @"Name:";
+	topLabel.text = @"Query:";
 	
 	//Clear all the old fields
 	topField.text = @"";
@@ -120,6 +120,16 @@ inComponent:(NSInteger)component
 	/* Hide the label/fields that are not used for this type and set the text of the 
 	 displayed labels/fields */
 	switch(type) {
+		case SearchFilterType:
+//			[self setInputType: topField Type: SearchFilterType];
+			topLabel.hidden = NO;
+			topField.hidden = NO;
+			middleLabel.hidden = YES;
+			middleField.hidden = YES;
+			bottomLabel.hidden = YES;
+			bottomField.hidden = YES;
+			topLabel.text = @"Query:";
+			break;
 		case NameFilterType:
 //			[self setInputType: topField Type: NameFilterType];
 			topLabel.hidden = NO;
@@ -274,6 +284,9 @@ inComponent:(NSInteger)component
 	t = [Filter getFilterTypeFromString: typeField.text];
 	
 	switch(t) {
+		case SearchFilterType:
+			filter = [[Filter alloc] initSearchFilter: topField.text];
+			break;
 		case NameFilterType:
 			filter = [[Filter alloc] initNameFilter: topField.text];
 			break;

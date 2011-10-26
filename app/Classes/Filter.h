@@ -13,7 +13,7 @@
 /* Definitions of the minimum and maximum valid latitudes and longitudes
    can restrict these more and move these definitions to a more useful place if necessary */
 
-
+#define SEARCHSTRING			"Search Filter"
 #define NAMESTRING				"Name Filter"
 #define ARTISTSTRING			"Artist Filter"
 #define TIMESTRING				"Time Filter"
@@ -27,8 +27,9 @@
 /* All the different valid filter types */
 typedef enum FilterType {
 	InvalidFilterType = -1,
+	SearchFilterType,
+	FirstFilterType = SearchFilterType,
 	NameFilterType,
-	FirstFilterType = NameFilterType,
 	ArtistFilterType, 
 	TimeFilterType, 
 	CostFilterType,
@@ -39,6 +40,7 @@ typedef enum FilterType {
 } FilterType;
 
 typedef struct Filterer {
+	NSString				*query;				/* Search Filter */
 	NSString				*name;				/* Name Filter */
 	NSString				*artist;			/* Artist Filter */
 	EventDate				*start;				/* Time Filter */
@@ -57,6 +59,7 @@ typedef struct Filterer {
 @interface Filter : NSObject {
 	FilterType		type;
 	Filterer		*filterer;
+	BOOL			isEnabled;
 }
 
 +(NSString *)getFilterTypeString: (FilterType) t;
@@ -68,9 +71,11 @@ typedef struct Filterer {
    is created and NULL is returned */
 -(Filter *)initWithFilter: (Filter *)filter;
 
--(Filter *)initWithType: (FilterType) t andFilterer: (Filterer *) f;
+-(Filter *)initWithType: (FilterType) t AndFilterer: (Filterer *) f;
+-(Filter *)initWithType: (FilterType) t AndFilterer: (Filterer *) f Enabled: (BOOL) enabled;
 
 /*Builds the specified filter if the data is valid */
+-(Filter *)initSearchFilter: (NSString *)query;
 -(Filter *)initNameFilter: (NSString *)name;
 -(Filter *)initArtistFilter: (NSString *) artist;
 -(Filter *)initTimeFilterStart: (EventDate *) start End: (EventDate *) end;
@@ -81,6 +86,7 @@ typedef struct Filterer {
 
 /* Filterer Checkers */
 -(BOOL)checkFilterer: (Filterer *) f;
+-(BOOL)checkSearchFilterer: (NSString *)query;
 -(BOOL)checkNameFilterer: (NSString *) name;
 -(BOOL)checkArtistFilterer: (NSString *) artist;
 -(BOOL)checkTimeFiltererStart: (EventDate *) start End: (EventDate *) end;
@@ -98,6 +104,10 @@ typedef struct Filterer {
 -(void)setFilterer: (Filterer *) f;
 -(Filterer *)getFilterer;
 
+-(void)setEnabled: (BOOL) enabled;
+-(BOOL)isEnabled;
+
+-(NSString *)getFiltererQuery;
 -(NSString *)getFiltererName;
 -(NSString *)getFiltererArtist;
 -(EventDate *)getFiltererStartTime;
@@ -114,6 +124,7 @@ typedef struct Filterer {
 -(NSString *)getTypeName;
 
 //toString methods for the filters
+-(NSString *)searchString;
 -(NSString *)nameString;
 -(NSString *)artistString;
 -(NSString *)timeString;

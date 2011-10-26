@@ -41,8 +41,6 @@
 	
 	time += min;
 	
-	NSLog([NSString stringWithFormat:@"%d", time]);
-	
 	[temp dealloc];
 	
 	return time;

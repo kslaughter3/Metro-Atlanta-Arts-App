@@ -12,6 +12,9 @@
 
 +(NSString *)getFilterTypeString: (FilterType) t {
 	switch(t) {
+		case SearchFilterType:
+			return @SEARCHSTRING;
+			break;
 		case NameFilterType:
 			return @NAMESTRING;
 			break;
@@ -40,6 +43,10 @@
 }
 
 +(FilterType)getFilterTypeFromString: (NSString *) str {
+	if([str isEqualToString: @SEARCHSTRING]) {
+		return SearchFilterType;
+	}
+	
 	if([str isEqualToString: @NAMESTRING]) {
 		return NameFilterType;
 	}
@@ -80,6 +87,8 @@
 			filterer = (Filterer *)malloc(sizeof(Filterer));
 			if(filterer != nil) {
 				[self copyFilterer: [filter getFilterer]];
+				isEnabled = [filter isEnabled];
+				return self;
 			}
 		}
 		
@@ -89,7 +98,7 @@
 	return nil;
 }
 
--(Filter *)initWithType: (FilterType) t andFilterer: (Filterer *) f {
+-(Filter *)initWithType: (FilterType) t AndFilterer: (Filterer *) f {
 	self = [super init];
 	
 	if(self != nil) {
@@ -98,6 +107,28 @@
 			filterer = (Filterer *)malloc(sizeof(Filterer));
 			if(filterer != nil) {
 				[self copyFilterer: f];
+				isEnabled = YES;
+				return self;
+			}
+		}
+		
+		[self dealloc];
+	}
+	
+	return nil;
+}
+
+-(Filter *)initWithType: (FilterType) t AndFilterer: (Filterer *) f Enabled: (BOOL) enabled {
+	self = [super init];
+	
+	if(self != nil) {
+		[self setFilterType: t];
+		if([self checkFilterer: f] == YES) {
+			filterer = (Filterer *)malloc(sizeof(Filterer));
+			if(filterer != nil) {
+				[self copyFilterer: f];
+				isEnabled = enabled;
+				return self;
 			}
 		}
 		
@@ -109,6 +140,27 @@
 
 /*Builds the specified filter if the data is valid */
 
+-(Filter *)initSearchFilter: (NSString *)query {
+	self = [super init];
+	
+	if(self != nil) {
+		if([self checkSearchFilterer: query] == YES) {
+			[self setFilterType: SearchFilterType];
+			
+			filterer = (Filterer *)malloc(sizeof(Filterer));
+			if(filterer != nil) {
+				filterer->query = [[NSString alloc] initWithString: query];
+				isEnabled = YES;
+				return self;
+			}
+		}
+		
+		[self dealloc];
+	}
+	
+	return nil;
+}
+
 -(Filter *)initNameFilter: (NSString *)name {
 	self = [super init];
 	
@@ -119,6 +171,7 @@
 			filterer = (Filterer *)malloc(sizeof(Filterer));
 			if(filterer != nil) {
 				filterer->name = [[NSString alloc] initWithString: name];
+				isEnabled = YES;
 				return self;
 			}
 		}
@@ -139,6 +192,7 @@
 			filterer = (Filterer *)malloc(sizeof(Filterer));
 			if(filterer != nil) {
 				filterer->artist = [[NSString alloc] initWithString: artist];
+				isEnabled = YES;
 				return self;
 			}
 		}
@@ -160,6 +214,7 @@
 			if(filterer != nil) {
 				filterer->start = [[EventDate alloc] initWithDate: start];
 				filterer->end = [[EventDate alloc] initWithDate: end];
+				isEnabled = YES;
 				return self;
 			}
 		}
@@ -181,6 +236,7 @@
 			if(filterer != nil) {
 				filterer->minCost = min;
 				filterer->maxCost = max;
+				isEnabled = YES;
 				return self;
 			}
 		}
@@ -202,6 +258,7 @@
 			if(filterer != nil) {
 				filterer->minDuration = min;
 				filterer->maxDuration = max;
+				isEnabled = YES;
 				return self;
 			}
 		}
@@ -223,6 +280,7 @@
 			if(filterer != nil) {
 				filterer->loc = [[EventLocation alloc] initWithLocation: loc];
 				filterer->radius = rad;
+				isEnabled = YES;
 				return self;
 			}
 		}
@@ -249,6 +307,7 @@
 				filterer->day = [[NSString alloc] initWithString: d];
 				filterer->startTime = start;
 				filterer->endTime = end;
+				isEnabled = YES;
 			//	NSLog([NSString stringWithFormat: @"Day: %@ Start: %d End: %d",
 			//		  filterer->day, filterer->startTime, filterer->endTime]);
 				return self;
@@ -269,6 +328,9 @@
 	
 	/* Check to see if the correct union member is specified */ 
 	switch ([self getFilterType]) {
+		case SearchFilterType:
+			return [self checkSearchFilterer: f->query];
+			break;
 		case NameFilterType:
 			return [self checkNameFilterer: f->name];
 			break;
@@ -296,6 +358,10 @@
 	}
 	
 	return NO;
+}
+
+-(BOOL)checkSearchFilterer: (NSString *) query {
+	return ((query != nil) && ([query isEqualToString: @""]) == NO);
 }
 
 -(BOOL)checkNameFilterer: (NSString *) name {
@@ -385,6 +451,18 @@
 	return filterer;
 }
 
+-(void)setEnabled: (BOOL) enabled {
+	isEnabled = enabled;
+}
+
+-(BOOL)isEnabled {
+	return isEnabled;
+}
+
+-(NSString *)getFiltererQuery {
+	return filterer->query;
+}
+
 -(NSString *)getFiltererName {
 	return filterer->name;
 }
@@ -439,6 +517,9 @@
 
 -(NSString *)getTypeName {
 	switch(type) {
+		case SearchFilterType:
+			return @SEARCHSTRING;
+			break;
 		case NameFilterType:
 			return @NAMESTRING;
 			break;
@@ -467,6 +548,10 @@
 }
 
 //toString methods
+-(NSString *)searchString {
+	return [NSString stringWithFormat:@"Query: %@", filterer->query];
+}
+
 -(NSString *)nameString {
 	return [NSString stringWithFormat:@"Name: %@", filterer->name];
 }

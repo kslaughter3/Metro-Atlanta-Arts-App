@@ -85,6 +85,10 @@
 //	NSLog(@"Got Filters");
 	
 	switch ([f getFilterType]) {
+		case SearchFilterType:
+			string = [f searchString];
+			cell.textLabel.text = string;
+			break;
 		case NameFilterType:
 			string = [f nameString];
 			cell.textLabel.text = string;
