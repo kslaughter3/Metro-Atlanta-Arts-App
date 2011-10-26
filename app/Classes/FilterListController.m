@@ -14,8 +14,8 @@
 @synthesize myTableView,
 			myNavigationBar,
 			myAddFilterController, 
-			myEditFilterController;
-//@synthesize checkedIndexPath;
+			myEditFilterController,
+			myIndexPath;
 
 /* // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -71,16 +71,17 @@
 		cell.textLabel.font = [UIFont fontWithName:@"ArialMT" size:16];
 	}
 	
-	/*if([self.checkedIndexPath isEqual:indexPath]) {
+	Content *content = [Content getInstance];
+	Filter *f = (Filter *)[content getFilterAtIndex: indexPath.row];
+	
+	if([f isEnabled] == YES) {
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	}
 	else {
 		cell.accessoryType = UITableViewCellAccessoryNone;
-	}*/
+	}
 	
-	Content *content = [Content getInstance];
-	NSMutableArray *filters = [content getFilters];	
-	Filter *f = (Filter *)[filters objectAtIndex:indexPath.row];
+	
 	
 //	NSLog(@"Got Filters");
 	
@@ -125,42 +126,19 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSLog(@"Row Selected Clicked\n");
-	
-	/*TODO: Make sure that there is a filter selected */
-	
-	if(self.myEditFilterController == nil) {
-		EditFilterController *new_view = [[EditFilterController alloc] 
-										  initWithNibName: @"EditFilterView" bundle: nil];
-		self.myEditFilterController = new_view;
-		[new_view release];
-	}
-	
-	/*UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
-	if (cell.accessoryType == UITableViewCellAccessoryNone) {
-		cell.accessoryType = UITableViewCellAccessoryCheckmark;
-	}
-	else {
-		cell.accessoryType = UITableViewCellAccessoryNone;
-	}*/
-	
+	NSLog(@"Row Selected\n");
+	myIndexPath = indexPath;
 	Content *content = [Content getInstance];
 	Filter *filter = [content getFilterAtIndex: [indexPath row]];
 	
-	if(filter == nil) {
-		NSLog(@"Error: Invalid Filter");
-		UIAlertView *alert = [[UIAlertView alloc] 
-							  initWithTitle:@"Error: Invalid Filter" 
-							  message: @"The filter is not valid" 
-							  delegate: nil 
-							  cancelButtonTitle: @"OK" 
-							  otherButtonTitles: nil];
-		[alert show];
-		[alert release];
+	UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+	if (cell.accessoryType == UITableViewCellAccessoryNone) {
+		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+		[filter setEnabled: YES];
 	}
 	else {
-		self.myEditFilterController.myFilter = filter;
-		[self presentModalViewController: self.myEditFilterController animated:YES];
+		cell.accessoryType = UITableViewCellAccessoryNone;
+		[filter setEnabled: NO];
 	}
 }
 		
@@ -176,6 +154,56 @@
 	
 	[self presentModalViewController: self.myAddFilterController animated:YES];
 
+}
+
+-(IBAction)editFilter: (id) sender {
+	NSLog(@"Edit Filter Clicked\n");
+	
+	Content *content = [Content getInstance];
+	int row = [myIndexPath row];
+	
+	if((row < 0) || (row > [content getFilterCount])) {
+		NSLog(@"No Filter Selected");
+		UIAlertView *alert = [[UIAlertView alloc] 
+							  initWithTitle:@"No Filter Selected" 
+							  message: @"Select a filter"
+							  delegate: nil 
+							  cancelButtonTitle: @"OK" 
+							  otherButtonTitles: nil];
+		[alert show];
+		[alert release];
+	}
+	else {
+		if(self.myEditFilterController == nil) {
+			EditFilterController *new_view = [[EditFilterController alloc] 
+											  initWithNibName: @"EditFilterView" bundle: nil];
+			self.myEditFilterController = new_view;
+			[new_view release];
+		}
+		
+		Filter *filter = [content getFilterAtIndex: row];
+		
+		if(filter == nil) {
+			NSLog(@"Error: Invalid Filter");
+			UIAlertView *alert = [[UIAlertView alloc] 
+								  initWithTitle:@"Error: Invalid Filter" 
+								  message: @"The filter is not valid" 
+								  delegate: nil 
+								  cancelButtonTitle: @"OK" 
+								  otherButtonTitles: nil];
+			[alert show];
+			[alert release];
+		}
+		else {
+			self.myEditFilterController.myFilter = filter;
+			[self presentModalViewController: self.myEditFilterController animated:YES];
+		}
+	}
+}
+
+-(IBAction)back: (id)sender {
+	NSLog(@"Back Clicked\n");
+	[self.parentViewController dismissModalViewControllerAnimated: YES];
 }
 
 - (void)didReceiveMemoryWarning {

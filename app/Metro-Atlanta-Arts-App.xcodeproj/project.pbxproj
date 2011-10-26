@@ -39,6 +39,8 @@
 		F2771D801445F35600FC8C0C /* EditFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2771D7E1445F35600FC8C0C /* EditFilterController.m */; };
 		F2771D811445F35600FC8C0C /* EditFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2771D7F1445F35600FC8C0C /* EditFilterView.xib */; };
 		F2771E82144609DB00FC8C0C /* EventController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2771E80144609DB00FC8C0C /* EventController.m */; };
+		F2AEAACF145864F200B6D34E /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2AEAACD145864F200B6D34E /* SearchController.m */; };
+		F2AEAAD0145864F200B6D34E /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2AEAACE145864F200B6D34E /* SearchView.xib */; };
 		F2B45EB8143F5E18002B0729 /* EventLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EB7143F5E18002B0729 /* EventLocation.m */; };
 		F2B45EBB143F5E3C002B0729 /* EventAvailability.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EBA143F5E3C002B0729 /* EventAvailability.m */; };
 		F2B45EBE143F5E48002B0729 /* EventArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EBD143F5E48002B0729 /* EventArtist.m */; };
@@ -64,8 +66,8 @@
 		225AB099143A43A40075EC49 /* EventAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAnnotation.h; sourceTree = "<group>"; };
 		225AB09A143A43A40075EC49 /* EventAnnotation.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = EventAnnotation.m; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2899E5210DE3E06400AC0155 /* MapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapView.xib; sourceTree = "<group>"; };
-		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		2899E5210DE3E06400AC0155 /* MapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MapView.xib; path = Resources/MapView.xib; sourceTree = "<group>"; };
+		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = Resources/MainWindow.xib; sourceTree = "<group>"; };
 		28D7ACF60DDB3853001CB0EB /* MapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapController.h; sourceTree = "<group>"; };
 		28D7ACF70DDB3853001CB0EB /* MapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,19 +101,22 @@
 		8D1107310486CEB800E47090 /* Metro_Atlanta_Arts_App-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Metro_Atlanta_Arts_App-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		BF15C45C144F4DAD00969E72 /* TripPlanningController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripPlanningController.h; sourceTree = "<group>"; };
 		BF15C45D144F4DAD00969E72 /* TripPlanningController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripPlanningController.m; sourceTree = "<group>"; };
-		BF15C462144F4DFE00969E72 /* TripPlanningView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripPlanningView.xib; sourceTree = "<group>"; };
+		BF15C462144F4DFE00969E72 /* TripPlanningView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TripPlanningView.xib; path = Resources/TripPlanningView.xib; sourceTree = "<group>"; };
 		BFF266A8143F928800084695 /* FilterListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterListController.h; sourceTree = "<group>"; };
 		BFF266A9143F928800084695 /* FilterListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterListController.m; sourceTree = "<group>"; };
-		BFF8F6C5143A278200D5DA96 /* FilterListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterListView.xib; sourceTree = "<group>"; };
-		BFF8F6CA143A2B7F00D5DA96 /* EventListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventListView.xib; sourceTree = "<group>"; };
-		BFF8F6E2143A2FB500D5DA96 /* EventView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventView.xib; sourceTree = "<group>"; };
+		BFF8F6C5143A278200D5DA96 /* FilterListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FilterListView.xib; path = Resources/FilterListView.xib; sourceTree = "<group>"; };
+		BFF8F6CA143A2B7F00D5DA96 /* EventListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EventListView.xib; path = Resources/EventListView.xib; sourceTree = "<group>"; };
+		BFF8F6E2143A2FB500D5DA96 /* EventView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EventView.xib; path = Resources/EventView.xib; sourceTree = "<group>"; };
 		F206D87C1451D66800A5B8A7 /* EventDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDate.h; sourceTree = "<group>"; };
 		F206D87D1451D66800A5B8A7 /* EventDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDate.m; sourceTree = "<group>"; };
 		F2771D7D1445F35600FC8C0C /* EditFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFilterController.h; sourceTree = "<group>"; };
 		F2771D7E1445F35600FC8C0C /* EditFilterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFilterController.m; sourceTree = "<group>"; };
-		F2771D7F1445F35600FC8C0C /* EditFilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditFilterView.xib; sourceTree = "<group>"; };
+		F2771D7F1445F35600FC8C0C /* EditFilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EditFilterView.xib; path = Resources/EditFilterView.xib; sourceTree = "<group>"; };
 		F2771E7F144609DB00FC8C0C /* EventController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventController.h; sourceTree = "<group>"; };
 		F2771E80144609DB00FC8C0C /* EventController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventController.m; sourceTree = "<group>"; };
+		F2AEAACC145864F200B6D34E /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchController.h; sourceTree = "<group>"; };
+		F2AEAACD145864F200B6D34E /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchController.m; sourceTree = "<group>"; };
+		F2AEAACE145864F200B6D34E /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchView.xib; path = Resources/SearchView.xib; sourceTree = "<group>"; };
 		F2B45EB6143F5E18002B0729 /* EventLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventLocation.h; sourceTree = "<group>"; };
 		F2B45EB7143F5E18002B0729 /* EventLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventLocation.m; sourceTree = "<group>"; };
 		F2B45EB9143F5E3C002B0729 /* EventAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAvailability.h; sourceTree = "<group>"; };
@@ -124,13 +129,13 @@
 		F2B4AD2714363B7900FA5091 /* Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Filter.m; sourceTree = "<group>"; };
 		F2B586AE1443546B000A4A68 /* ArtistListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistListController.h; sourceTree = "<group>"; };
 		F2B586AF1443546B000A4A68 /* ArtistListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistListController.m; sourceTree = "<group>"; };
-		F2B586B01443546B000A4A68 /* ArtistListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistListView.xib; sourceTree = "<group>"; };
+		F2B586B01443546B000A4A68 /* ArtistListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ArtistListView.xib; path = Resources/ArtistListView.xib; sourceTree = "<group>"; };
 		F2B5877514436292000A4A68 /* ArtistController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistController.h; sourceTree = "<group>"; };
 		F2B5877614436292000A4A68 /* ArtistController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistController.m; sourceTree = "<group>"; };
-		F2B5877714436292000A4A68 /* ArtistView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistView.xib; sourceTree = "<group>"; };
+		F2B5877714436292000A4A68 /* ArtistView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ArtistView.xib; path = Resources/ArtistView.xib; sourceTree = "<group>"; };
 		F2B587851443659B000A4A68 /* AddFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFilterController.h; sourceTree = "<group>"; };
 		F2B587861443659B000A4A68 /* AddFilterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFilterController.m; sourceTree = "<group>"; };
-		F2B587871443659B000A4A68 /* AddFilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFilterView.xib; sourceTree = "<group>"; };
+		F2B587871443659B000A4A68 /* AddFilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AddFilterView.xib; path = Resources/AddFilterView.xib; sourceTree = "<group>"; };
 		F2BF2AE6143A35DE00FBD2F5 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		F2BF2AE7143A35DE00FBD2F5 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		F2BF2AEB143A362E00FBD2F5 /* EventListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventListController.h; sourceTree = "<group>"; };
@@ -194,6 +199,8 @@
 				F2771E80144609DB00FC8C0C /* EventController.m */,
 				F206D87C1451D66800A5B8A7 /* EventDate.h */,
 				F206D87D1451D66800A5B8A7 /* EventDate.m */,
+				F2AEAACC145864F200B6D34E /* SearchController.h */,
+				F2AEAACD145864F200B6D34E /* SearchController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -230,6 +237,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F2AEAACE145864F200B6D34E /* SearchView.xib */,
 				F2771D7F1445F35600FC8C0C /* EditFilterView.xib */,
 				F2B587871443659B000A4A68 /* AddFilterView.xib */,
 				F2B5877714436292000A4A68 /* ArtistView.xib */,
@@ -350,6 +358,7 @@
 				F2B587891443659B000A4A68 /* AddFilterView.xib in Resources */,
 				F2771D811445F35600FC8C0C /* EditFilterView.xib in Resources */,
 				BF15C463144F4DFE00969E72 /* TripPlanningView.xib in Resources */,
+				F2AEAAD0145864F200B6D34E /* SearchView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +400,7 @@
 				3A29A9771448A959004E2C2D /* SBJsonWriter.m in Sources */,
 				BF15C45E144F4DAD00969E72 /* TripPlanningController.m in Sources */,
 				F206D87E1451D66800A5B8A7 /* EventDate.m in Sources */,
+				F2AEAACF145864F200B6D34E /* SearchController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
