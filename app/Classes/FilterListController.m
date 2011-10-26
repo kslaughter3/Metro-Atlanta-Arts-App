@@ -14,8 +14,7 @@
 @synthesize myTableView,
 			myNavigationBar,
 			myAddFilterController, 
-			myEditFilterController,
-			myIndexPath;
+			myEditFilterController;
 
 /* // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -29,12 +28,14 @@
 - (void)viewDidLoad {
 	[myTableView setDelegate: self];
 	[myTableView setDataSource: self];
+	myRow = -1;
     [super viewDidLoad];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
 	NSLog(@"Reached View Will Appear");
 	[myTableView reloadData];
+	myRow = -1;
 	[super viewWillAppear: animated];
 	NSLog(@"End of View Will Appear");
 }
@@ -81,8 +82,6 @@
 		cell.accessoryType = UITableViewCellAccessoryNone;
 	}
 	
-	
-	
 //	NSLog(@"Got Filters");
 	
 	switch ([f getFilterType]) {
@@ -127,7 +126,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSLog(@"Row Selected\n");
-	myIndexPath = indexPath;
+	myRow = [indexPath row];
 	Content *content = [Content getInstance];
 	Filter *filter = [content getFilterAtIndex: [indexPath row]];
 	
@@ -160,9 +159,8 @@
 	NSLog(@"Edit Filter Clicked\n");
 	
 	Content *content = [Content getInstance];
-	int row = [myIndexPath row];
 	
-	if((row < 0) || (row > [content getFilterCount])) {
+	if((myRow < 0) || (myRow > [content getFilterCount])) {
 		NSLog(@"No Filter Selected");
 		UIAlertView *alert = [[UIAlertView alloc] 
 							  initWithTitle:@"No Filter Selected" 
@@ -181,7 +179,7 @@
 			[new_view release];
 		}
 		
-		Filter *filter = [content getFilterAtIndex: row];
+		Filter *filter = [content getFilterAtIndex: myRow];
 		
 		if(filter == nil) {
 			NSLog(@"Error: Invalid Filter");

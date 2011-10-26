@@ -18,14 +18,13 @@
 	IBOutlet UINavigationBar *myNavigationBar;
 	AddFilterController *myAddFilterController;
 	EditFilterController *myEditFilterController;
-	NSIndexPath *myIndexPath;
+	int myRow;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
 @property (nonatomic, retain) IBOutlet UINavigationBar *myNavigationBar;
 @property (nonatomic, retain) AddFilterController *myAddFilterController;
 @property (nonatomic, retain) EditFilterController *myEditFilterController;
-@property (nonatomic, retain) NSIndexPath *myIndexPath;
 
 -(IBAction)addFilter:(id)sender;
 -(IBAction)editFilter:(id)sender;

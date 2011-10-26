@@ -317,6 +317,42 @@
 			F2AEAB7B14586FA900B6D34E /* PBXTextBookmark */ = F2AEAB7B14586FA900B6D34E /* PBXTextBookmark */;
 			F2AEAB7C14586FA900B6D34E /* PBXTextBookmark */ = F2AEAB7C14586FA900B6D34E /* PBXTextBookmark */;
 			F2AEAB7D14586FA900B6D34E /* PBXTextBookmark */ = F2AEAB7D14586FA900B6D34E /* PBXTextBookmark */;
+			F2AEAEB51458773100B6D34E /* PBXBookmark */ = F2AEAEB51458773100B6D34E /* PBXBookmark */;
+			F2AEAEB81458775400B6D34E /* PBXTextBookmark */ = F2AEAEB81458775400B6D34E /* PBXTextBookmark */;
+			F2AEAEB91458775400B6D34E /* PlistBookmark */ = F2AEAEB91458775400B6D34E /* PlistBookmark */;
+			F2AEAEBA1458775400B6D34E /* PlistBookmark */ = F2AEAEBA1458775400B6D34E /* PlistBookmark */;
+			F2AEAEBD1458775400B6D34E /* PBXTextBookmark */ = F2AEAEBD1458775400B6D34E /* PBXTextBookmark */;
+			F2AEAEBE1458775400B6D34E /* PBXTextBookmark */ = F2AEAEBE1458775400B6D34E /* PBXTextBookmark */;
+			F2AEAEBF1458775400B6D34E /* PBXTextBookmark */ = F2AEAEBF1458775400B6D34E /* PBXTextBookmark */;
+			F2AEAEC4145877A000B6D34E /* PBXBookmark */ = F2AEAEC4145877A000B6D34E /* PBXBookmark */;
+			F2AEAEC5145877AE00B6D34E /* PlistBookmark */ = F2AEAEC5145877AE00B6D34E /* PlistBookmark */;
+			F2AEAEC8145877AE00B6D34E /* PBXTextBookmark */ = F2AEAEC8145877AE00B6D34E /* PBXTextBookmark */;
+			F2AEAEC9145877AE00B6D34E /* PBXTextBookmark */ = F2AEAEC9145877AE00B6D34E /* PBXTextBookmark */;
+			F2AEAECA145877AE00B6D34E /* PBXTextBookmark */ = F2AEAECA145877AE00B6D34E /* PBXTextBookmark */;
+			F2AEAECB145877AE00B6D34E /* PBXTextBookmark */ = F2AEAECB145877AE00B6D34E /* PBXTextBookmark */;
+			F2AEAECC145877AE00B6D34E /* PBXTextBookmark */ = F2AEAECC145877AE00B6D34E /* PBXTextBookmark */;
+			F2AEAED2145877DB00B6D34E /* PlistBookmark */ = F2AEAED2145877DB00B6D34E /* PlistBookmark */;
+			F2AEAED3145877DB00B6D34E /* PBXTextBookmark */ = F2AEAED3145877DB00B6D34E /* PBXTextBookmark */;
+			F2AEAED4145877DB00B6D34E /* PBXTextBookmark */ = F2AEAED4145877DB00B6D34E /* PBXTextBookmark */;
+			F2AEAED5145877DB00B6D34E /* PBXTextBookmark */ = F2AEAED5145877DB00B6D34E /* PBXTextBookmark */;
+			F2AEAEDB145877FB00B6D34E /* XCBuildMessageTextBookmark */ = F2AEAEDB145877FB00B6D34E /* XCBuildMessageTextBookmark */;
+			F2AEAEDE1458780200B6D34E /* PlistBookmark */ = F2AEAEDE1458780200B6D34E /* PlistBookmark */;
+			F2AEAEDF1458780200B6D34E /* XCBuildMessageTextBookmark */ = F2AEAEDF1458780200B6D34E /* XCBuildMessageTextBookmark */;
+			F2AEAEE01458780200B6D34E /* PBXTextBookmark */ = F2AEAEE01458780200B6D34E /* PBXTextBookmark */;
+			F2AEAEE11458780200B6D34E /* PBXTextBookmark */ = F2AEAEE11458780200B6D34E /* PBXTextBookmark */;
+			F2AEAEE21458780200B6D34E /* PBXTextBookmark */ = F2AEAEE21458780200B6D34E /* PBXTextBookmark */;
+			F2AEAEE31458780200B6D34E /* PBXTextBookmark */ = F2AEAEE31458780200B6D34E /* PBXTextBookmark */;
+			F2AEAEE61458782100B6D34E /* PBXTextBookmark */ = F2AEAEE61458782100B6D34E /* PBXTextBookmark */;
+			F2AEAEE71458782100B6D34E /* PBXTextBookmark */ = F2AEAEE71458782100B6D34E /* PBXTextBookmark */;
+			F2AEAEE81458782100B6D34E /* PBXTextBookmark */ = F2AEAEE81458782100B6D34E /* PBXTextBookmark */;
+			F2AEAEE91458782100B6D34E /* PBXTextBookmark */ = F2AEAEE91458782100B6D34E /* PBXTextBookmark */;
+			F2AEAEEA1458783A00B6D34E /* PBXTextBookmark */ = F2AEAEEA1458783A00B6D34E /* PBXTextBookmark */;
+			F2AEAEEB1458783A00B6D34E /* XCBuildMessageTextBookmark */ = F2AEAEEB1458783A00B6D34E /* XCBuildMessageTextBookmark */;
+			F2AEAEEC1458783A00B6D34E /* PBXTextBookmark */ = F2AEAEEC1458783A00B6D34E /* PBXTextBookmark */;
+			F2AEAEF11458784000B6D34E /* PBXTextBookmark */ = F2AEAEF11458784000B6D34E /* PBXTextBookmark */;
+			F2AEAEF21458784000B6D34E /* PBXTextBookmark */ = F2AEAEF21458784000B6D34E /* PBXTextBookmark */;
+			F2AEAEF31458784000B6D34E /* PBXTextBookmark */ = F2AEAEF31458784000B6D34E /* PBXTextBookmark */;
+			F2AEAEF41458784000B6D34E /* PBXTextBookmark */ = F2AEAEF41458784000B6D34E /* PBXTextBookmark */;
 			F2B45F20143F6F2B002B0729 = F2B45F20143F6F2B002B0729 /* PBXTextBookmark */;
 			F2B587411443601B000A4A68 = F2B587411443601B000A4A68 /* PBXTextBookmark */;
 			F2B587461443601B000A4A68 = F2B587461443601B000A4A68 /* PBXTextBookmark */;
@@ -346,6 +382,11 @@
 			sepNavVisRange = "{0, 213}";
 		};
 	};
+	8D1107310486CEB800E47090 /* Metro_Atlanta_Arts_App-Info.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{1981, 350}, {977, 803}}";
+		};
+	};
 	BF15C45C144F4DAD00969E72 /* TripPlanningController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {705, 351}}";
@@ -364,18 +405,18 @@
 	};
 	BFF266A8143F928800084695 /* FilterListController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {691, 464}}";
-			sepNavSelRange = "{867, 56}";
-			sepNavVisRange = "{0, 1026}";
+			sepNavIntBoundsRect = "{{0, 0}, {591, 507}}";
+			sepNavSelRange = "{950, 0}";
+			sepNavVisRange = "{0, 26}";
 			sepNavWindowFrame = "{{973, 349}, {750, 592}}";
 		};
 	};
 	BFF266A9143F928800084695 /* FilterListController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1160, 2925}}";
-			sepNavSelRange = "{368, 0}";
-			sepNavVisRange = "{0, 1402}";
-			sepNavWindowFrame = "{{2081, 278}, {977, 803}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1160, 2990}}";
+			sepNavSelRange = "{1005, 0}";
+			sepNavVisRange = "{155, 1339}";
+			sepNavWindowFrame = "{{767, 277}, {977, 803}}";
 		};
 	};
 	F206D87C1451D66800A5B8A7 /* EventDate.h */ = {
@@ -560,7 +601,7 @@
 		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
 		name = "FilterListController.h: 28";
 		rLen = 0;
-		rLoc = 868;
+		rLoc = 852;
 		rType = 0;
 		vrLen = 978;
 		vrLoc = 0;
@@ -580,7 +621,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 74";
 		rLen = 0;
-		rLoc = 2221;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 111;
 		vrLoc = 2124;
@@ -590,7 +631,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 74";
 		rLen = 0;
-		rLoc = 2221;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 111;
 		vrLoc = 2124;
@@ -600,7 +641,7 @@
 		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
 		name = "FilterListController.h: 28";
 		rLen = 0;
-		rLoc = 868;
+		rLoc = 852;
 		rType = 0;
 		vrLen = 978;
 		vrLoc = 0;
@@ -722,7 +763,7 @@
 		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
 		name = "FilterListController.h: 34";
 		rLen = 0;
-		rLoc = 1026;
+		rLoc = 955;
 		rType = 0;
 		vrLen = 459;
 		vrLoc = 159;
@@ -732,7 +773,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 74";
 		rLen = 0;
-		rLoc = 2221;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 109;
 		vrLoc = 2126;
@@ -742,7 +783,7 @@
 		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
 		name = "FilterListController.h: 28";
 		rLen = 0;
-		rLoc = 868;
+		rLoc = 852;
 		rType = 0;
 		vrLen = 978;
 		vrLoc = 0;
@@ -786,7 +827,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 74";
 		rLen = 0;
-		rLoc = 2221;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 26;
 		vrLoc = 0;
@@ -796,7 +837,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 74";
 		rLen = 0;
-		rLoc = 2221;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -806,7 +847,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 90";
 		rLen = 0;
-		rLoc = 2535;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 1238;
 		vrLoc = 4138;
@@ -816,7 +857,7 @@
 		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
 		name = "FilterListController.h: 28";
 		rLen = 0;
-		rLoc = 868;
+		rLoc = 852;
 		rType = 0;
 		vrLen = 978;
 		vrLoc = 0;
@@ -836,7 +877,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 74";
 		rLen = 0;
-		rLoc = 2221;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -846,7 +887,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 91";
 		rLen = 0;
-		rLoc = 2535;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 1215;
 		vrLoc = 2124;
@@ -856,7 +897,7 @@
 		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
 		name = "FilterListController.h: 28";
 		rLen = 0;
-		rLoc = 868;
+		rLoc = 852;
 		rType = 0;
 		vrLen = 978;
 		vrLoc = 0;
@@ -947,7 +988,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 74";
 		rLen = 0;
-		rLoc = 2221;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 26;
 		vrLoc = 0;
@@ -1006,7 +1047,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 89";
 		rLen = 0;
-		rLoc = 2466;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 1425;
 		vrLoc = 1845;
@@ -1016,7 +1057,7 @@
 		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
 		name = "FilterListController.h: 28";
 		rLen = 0;
-		rLoc = 868;
+		rLoc = 852;
 		rType = 0;
 		vrLen = 978;
 		vrLoc = 0;
@@ -1095,7 +1136,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 89";
 		rLen = 0;
-		rLoc = 2466;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 1425;
 		vrLoc = 1845;
@@ -1105,7 +1146,7 @@
 		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
 		name = "FilterListController.h: 28";
 		rLen = 0;
-		rLoc = 868;
+		rLoc = 852;
 		rType = 0;
 		vrLen = 978;
 		vrLoc = 0;
@@ -1183,7 +1224,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 89";
 		rLen = 0;
-		rLoc = 2466;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 1458;
 		vrLoc = 1845;
@@ -1193,7 +1234,7 @@
 		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
 		name = "FilterListController.h: 28";
 		rLen = 0;
-		rLoc = 868;
+		rLoc = 852;
 		rType = 0;
 		vrLen = 978;
 		vrLoc = 0;
@@ -1270,7 +1311,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 89";
 		rLen = 0;
-		rLoc = 2466;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 1425;
 		vrLoc = 1845;
@@ -1280,7 +1321,7 @@
 		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
 		name = "FilterListController.h: 28";
 		rLen = 0;
-		rLoc = 868;
+		rLoc = 852;
 		rType = 0;
 		vrLen = 978;
 		vrLoc = 0;
@@ -1320,7 +1361,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 89";
 		rLen = 0;
-		rLoc = 2466;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 1458;
 		vrLoc = 1845;
@@ -1340,7 +1381,7 @@
 		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
 		name = "FilterListController.h: 28";
 		rLen = 0;
-		rLoc = 868;
+		rLoc = 852;
 		rType = 0;
 		vrLen = 978;
 		vrLoc = 0;
@@ -1870,8 +1911,8 @@
 		isa = PBXTextBookmark;
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 168";
-		rLen = 334;
-		rLoc = 3878;
+		rLen = 0;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 1238;
 		vrLoc = 4148;
@@ -1919,7 +1960,7 @@
 		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
 		name = "FilterListController.h: 31";
 		rLen = 0;
-		rLoc = 1019;
+		rLoc = 948;
 		rType = 0;
 		vrLen = 1008;
 		vrLoc = 0;
@@ -1988,7 +2029,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 1;
-		rLoc = 162;
+		rLoc = 160;
 		rType = 1;
 	};
 	F2AEAB5F14586E9000B6D34E /* PBXTextBookmark */ = {
@@ -2007,7 +2048,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 1;
-		rLoc = 162;
+		rLoc = 160;
 		rType = 1;
 	};
 	F2AEAB6114586E9000B6D34E /* PBXTextBookmark */ = {
@@ -2015,7 +2056,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 163";
 		rLen = 0;
-		rLoc = 4338;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -2025,7 +2066,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 17";
 		rLen = 0;
-		rLoc = 368;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 1400;
 		vrLoc = 0;
@@ -2034,8 +2075,8 @@
 		isa = PBXTextBookmark;
 		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
 		name = "FilterListController.h: 27";
-		rLen = 56;
-		rLoc = 867;
+		rLen = 0;
+		rLoc = 852;
 		rType = 0;
 		vrLen = 1026;
 		vrLoc = 0;
@@ -2075,7 +2116,7 @@
 		comments = "Type defaults to 'int' in declaration of 'myIndexPath'";
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
-		rLen = 1;
+		rLen = 0;
 		rLoc = 17;
 		rType = 1;
 	};
@@ -2084,7 +2125,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 18";
 		rLen = 0;
-		rLoc = 369;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 465;
 		vrLoc = 212;
@@ -2094,7 +2135,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 163";
 		rLen = 0;
-		rLoc = 4338;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 26;
 		vrLoc = 0;
@@ -2104,7 +2145,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 17";
 		rLen = 0;
-		rLoc = 368;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 1402;
 		vrLoc = 0;
@@ -2134,7 +2175,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 163";
 		rLen = 0;
-		rLoc = 4338;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 26;
 		vrLoc = 0;
@@ -2144,7 +2185,7 @@
 		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
 		name = "FilterListController.m: 17";
 		rLen = 0;
-		rLoc = 368;
+		rLoc = 366;
 		rType = 0;
 		vrLen = 1402;
 		vrLoc = 0;
@@ -2160,6 +2201,356 @@
 		vrLoc = 2681;
 	};
 	F2AEAB7D14586FA900B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 225AB09A143A43A40075EC49 /* EventAnnotation.m */;
+		name = "EventAnnotation.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 493;
+		vrLoc = 192;
+	};
+	F2AEAEB51458773100B6D34E /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
+	};
+	F2AEAEB81458775400B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
+		name = "FilterListController.m: 163";
+		rLen = 0;
+		rLoc = 366;
+		rType = 0;
+		vrLen = 26;
+		vrLoc = 0;
+	};
+	F2AEAEB91458775400B6D34E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Metro_Atlanta_Arts_App-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/nethome/agendreau3/Documents/Metro-Atlanta-Arts-App/app/Metro_Atlanta_Arts_App-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	F2AEAEBA1458775400B6D34E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Metro_Atlanta_Arts_App-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/nethome/agendreau3/Documents/Metro-Atlanta-Arts-App/app/Metro_Atlanta_Arts_App-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	F2AEAEBD1458775400B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
+		name = "FilterListController.m: 83";
+		rLen = 0;
+		rLoc = 366;
+		rType = 0;
+		vrLen = 1381;
+		vrLoc = 2724;
+	};
+	F2AEAEBE1458775400B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F2B4AD001436346A00FA5091 /* Content.m */;
+		name = "Content.m: 66";
+		rLen = 0;
+		rLoc = 1168;
+		rType = 0;
+		vrLen = 1293;
+		vrLoc = 2681;
+	};
+	F2AEAEBF1458775400B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 225AB09A143A43A40075EC49 /* EventAnnotation.m */;
+		name = "EventAnnotation.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 487;
+		vrLoc = 192;
+	};
+	F2AEAEC4145877A000B6D34E /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
+	};
+	F2AEAEC5145877AE00B6D34E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Metro_Atlanta_Arts_App-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/nethome/agendreau3/Documents/Metro-Atlanta-Arts-App/app/Metro_Atlanta_Arts_App-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	F2AEAEC8145877AE00B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
+		name = "FilterListController.h: 21";
+		rLen = 2;
+		rLoc = 555;
+		rType = 0;
+		vrLen = 1017;
+		vrLoc = 0;
+	};
+	F2AEAEC9145877AE00B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
+		name = "FilterListController.m: 32";
+		rLen = 0;
+		rLoc = 366;
+		rType = 0;
+		vrLen = 1442;
+		vrLoc = 155;
+	};
+	F2AEAECA145877AE00B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
+		name = "FilterListController.m: 32";
+		rLen = 0;
+		rLoc = 366;
+		rType = 0;
+		vrLen = 1442;
+		vrLoc = 155;
+	};
+	F2AEAECB145877AE00B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F2B4AD001436346A00FA5091 /* Content.m */;
+		name = "Content.m: 66";
+		rLen = 0;
+		rLoc = 1168;
+		rType = 0;
+		vrLen = 1348;
+		vrLoc = 2681;
+	};
+	F2AEAECC145877AE00B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 225AB09A143A43A40075EC49 /* EventAnnotation.m */;
+		name = "EventAnnotation.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 493;
+		vrLoc = 192;
+	};
+	F2AEAED2145877DB00B6D34E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Metro_Atlanta_Arts_App-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/nethome/agendreau3/Documents/Metro-Atlanta-Arts-App/app/Metro_Atlanta_Arts_App-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	F2AEAED3145877DB00B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
+		name = "FilterListController.m: 129";
+		rLen = 0;
+		rLoc = 3423;
+		rType = 0;
+		vrLen = 1442;
+		vrLoc = 3113;
+	};
+	F2AEAED4145877DB00B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F2B4AD001436346A00FA5091 /* Content.m */;
+		name = "Content.m: 66";
+		rLen = 0;
+		rLoc = 1168;
+		rType = 0;
+		vrLen = 1348;
+		vrLoc = 2681;
+	};
+	F2AEAED5145877DB00B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 225AB09A143A43A40075EC49 /* EventAnnotation.m */;
+		name = "EventAnnotation.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 493;
+		vrLoc = 192;
+	};
+	F2AEAEDB145877FB00B6D34E /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "'row' undeclared (first use in this function)";
+		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 181;
+		rType = 1;
+	};
+	F2AEAEDE1458780200B6D34E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Metro_Atlanta_Arts_App-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/nethome/agendreau3/Documents/Metro-Atlanta-Arts-App/app/Metro_Atlanta_Arts_App-Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	F2AEAEDF1458780200B6D34E /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Property 'myRow' with 'retain' attribute must be of object type";
+		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 32;
+		rType = 1;
+	};
+	F2AEAEE01458780200B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
+		name = "FilterListController.h: 33";
+		rLen = 0;
+		rLoc = 950;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	F2AEAEE11458780200B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
+		name = "FilterListController.m: 181";
+		rLen = 0;
+		rLoc = 4991;
+		rType = 0;
+		vrLen = 1517;
+		vrLoc = 4283;
+	};
+	F2AEAEE21458780200B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F2B4AD001436346A00FA5091 /* Content.m */;
+		name = "Content.m: 66";
+		rLen = 0;
+		rLoc = 1168;
+		rType = 0;
+		vrLen = 1293;
+		vrLoc = 2681;
+	};
+	F2AEAEE31458780200B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 225AB09A143A43A40075EC49 /* EventAnnotation.m */;
+		name = "EventAnnotation.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 487;
+		vrLoc = 192;
+	};
+	F2AEAEE61458782100B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
+		name = "FilterListController.h: 33";
+		rLen = 0;
+		rLoc = 950;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	F2AEAEE71458782100B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
+		name = "FilterListController.m: 38";
+		rLen = 0;
+		rLoc = 1005;
+		rType = 0;
+		vrLen = 1338;
+		vrLoc = 155;
+	};
+	F2AEAEE81458782100B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F2B4AD001436346A00FA5091 /* Content.m */;
+		name = "Content.m: 66";
+		rLen = 0;
+		rLoc = 1168;
+		rType = 0;
+		vrLen = 1293;
+		vrLoc = 2681;
+	};
+	F2AEAEE91458782100B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 225AB09A143A43A40075EC49 /* EventAnnotation.m */;
+		name = "EventAnnotation.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 487;
+		vrLoc = 192;
+	};
+	F2AEAEEA1458783A00B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
+		name = "FilterListController.h: 33";
+		rLen = 0;
+		rLoc = 950;
+		rType = 0;
+		vrLen = 405;
+		vrLoc = 550;
+	};
+	F2AEAEEB1458783A00B6D34E /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "'row' undeclared (first use in this function)";
+		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 181;
+		rType = 1;
+	};
+	F2AEAEEC1458783A00B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
+		name = "FilterListController.m: 182";
+		rLen = 0;
+		rLoc = 4942;
+		rType = 0;
+		vrLen = 521;
+		vrLoc = 4740;
+	};
+	F2AEAEF11458784000B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFF266A8143F928800084695 /* FilterListController.h */;
+		name = "FilterListController.h: 33";
+		rLen = 0;
+		rLoc = 950;
+		rType = 0;
+		vrLen = 26;
+		vrLoc = 0;
+	};
+	F2AEAEF21458784000B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = BFF266A9143F928800084695 /* FilterListController.m */;
+		name = "FilterListController.m: 38";
+		rLen = 0;
+		rLoc = 1005;
+		rType = 0;
+		vrLen = 1339;
+		vrLoc = 155;
+	};
+	F2AEAEF31458784000B6D34E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F2B4AD001436346A00FA5091 /* Content.m */;
+		name = "Content.m: 66";
+		rLen = 0;
+		rLoc = 1168;
+		rType = 0;
+		vrLen = 1348;
+		vrLoc = 2681;
+	};
+	F2AEAEF41458784000B6D34E /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 225AB09A143A43A40075EC49 /* EventAnnotation.m */;
 		name = "EventAnnotation.m: 1";
