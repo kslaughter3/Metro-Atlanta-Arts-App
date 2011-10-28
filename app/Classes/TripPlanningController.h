@@ -15,12 +15,14 @@
 	IBOutlet UITableView *myTableView;
 	IBOutlet TripPlanningController *myTripController;
 	NSIndexPath* checkedIndexPath;
-	NSArray *listData;
+	NSMutableArray* integers;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
 @property (nonatomic, retain) IBOutlet TripPlanningController *myTripController;
-@property (nonatomic, retain) NSArray *listData;
 @property (nonatomic, retain) NSIndexPath* checkedIndexPath;
+@property (nonatomic, retain) NSMutableArray* integers;
+
+-(IBAction)plan:(id)sender;
 
 @end

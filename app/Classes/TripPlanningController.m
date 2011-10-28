@@ -7,30 +7,14 @@
 //
 
 #import "TripPlanningController.h"
+#import "Content.h"
 
 
 @implementation TripPlanningController
 @synthesize myTableView,
 myTripController,
-listData,
-checkedIndexPath;
-
-// The designated initializer. Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-/*
- - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
- self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
- if (self) {
- // Custom initialization.
- }
- return self;
- }
- */
-
-/*
- // Implement loadView to create a view hierarchy programmatically, without using a nib.
- - (void)loadView {
- }
- */
+checkedIndexPath,
+integers;
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -39,18 +23,19 @@ checkedIndexPath;
 	[myTableView setDelegate: self];
 	[myTableView setDataSource: self];
 	
-	NSArray *list = [[NSArray alloc] initWithObjects: @"Event" , @"List", nil];
-	self.listData = list;
-	[list release];
+	Content *content = [Content getInstance];
+	Event *temp = [[Event alloc] initTestEvent:@"jun2" Description: @"jun2" ];
+	[content addEvent: temp];
+	
+	integers = [[NSMutableArray alloc] init];
+	
 	[super viewDidLoad];
 }
 
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations.
 	return YES;
-	// return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -58,9 +43,8 @@ checkedIndexPath;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	//Content *content = [Content getInstance];
-	//return [content getFilterCount];
-	return [self.listData count];
+	Content *content = [Content getInstance];
+	return [content getEventCount];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -74,21 +58,16 @@ checkedIndexPath;
 	if([self.checkedIndexPath isEqual:indexPath])
 	{
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+
 	}
 	else 
 	{
 		cell.accessoryType = UITableViewCellAccessoryNone;
 	}
-	
-	//Content *content = [Content getInstance];
-	//Filter *f = (Filter *)[[content getFilters] objectAtIndex:indexPath.row];
-	
-	NSUInteger row = [indexPath row];
-	cell.textLabel.text = [listData objectAtIndex: row];
-	
-	//cell.textLabel.text = [f getTypeName];
-	//TODO: set the detailed text based on the filterer's values 
-	//cell.textLabel.text = @"Hello World";
+
+	Content *content = [Content getInstance];
+	Event *event = (Event *)[content getEventAtIndex: indexPath.row];
+	cell.textLabel.text = [event getEventName];
 	
 	return cell;
 }
@@ -98,25 +77,17 @@ checkedIndexPath;
 	
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-	/*Content *content = [Content getInstance];
-	 if(content == nil) {
-	 //Something bad happened handle it 
-	 return;
-	 }*/
-	/*
-	if(myTripController == nil) {
-		self.myTripController = [[TripPlanningController alloc] initWithNibName: @"EventView" bundle: nil];
-	}
-	
-	[self presentModalViewController: self.myTripController animated:YES];
-	//[self.view addSubview:[myEventController view]];*/
 	UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
 	if (cell.accessoryType == UITableViewCellAccessoryNone)
 	{
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+		NSNumber* intRow = [NSNumber numberWithInt:indexPath.row];
+		[integers addObject: intRow];
 	}
 	else {
 		cell.accessoryType = UITableViewCellAccessoryNone;
+		NSNumber* intRow = [NSNumber numberWithInt:indexPath.row];
+		[integers removeObjectIdenticalTo: intRow];
 	}
 
 	self.checkedIndexPath = indexPath;
@@ -138,6 +109,13 @@ checkedIndexPath;
 
 - (void)dealloc {
     [super dealloc];
+}
+
+-(IBAction)plan:(id)sender;
+{
+	for(id num in integers) {
+		NSLog([NSString stringWithFormat:@"Index: %d", [num intValue]]);
+	}
 }
 
 
