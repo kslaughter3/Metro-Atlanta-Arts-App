@@ -10,7 +10,7 @@
 
 
 @implementation ArtistController
-@synthesize myTitleBar, myTextView, myImageView;
+@synthesize myTitleBar, myWebView, myImageView;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -20,32 +20,45 @@
 		return;
 	}
 	myTitleBar.topItem.title = [artist getName];
-	myTextView.text = [artist getDescription];
+	
+	NSString *html = [self buildHTMLString];
+	[myWebView loadHTMLString:html baseURL:[NSURL URLWithString: @"http:://www.apple.com"]];
 }
+
+-(NSString *)buildHTMLString 
+{
+	NSString *html = [NSString stringWithFormat:@"<html><head><meta name=""viewport"" content=""width=320""/></head>"\
+					  "<body><h3>Description</h3><p>%@</p></body></html>", [artist getDescription]];
+	
+	NSLog(html);
+	
+	return html;
+}
+
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
+ - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+ if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
+ // Custom initialization
+ }
+ return self;
+ }
+ */
 
 /*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-*/
+ // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+ - (void)viewDidLoad {
+ [super viewDidLoad];
+ }
+ */
 
 /*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
+ // Override to allow orientations other than the default portrait orientation.
+ - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+ // Return YES for supported orientations
+ return (interfaceOrientation == UIInterfaceOrientationPortrait);
+ }
+ */
 
 -(IBAction)close: (id)sender {
 	NSLog(@"Close Clicked\n");
