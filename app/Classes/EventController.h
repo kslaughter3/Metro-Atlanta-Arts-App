@@ -7,12 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Event.h"
 
 @interface EventController : UIViewController {
-
+	IBOutlet UINavigationBar *myTitleBar;
+	IBOutlet UIWebView *descriptionView;
+	IBOutlet UIWebView *detailView;
+	IBOutlet UIImageView *imageView;
+	Event *myEvent;
 }
 
+@property(nonatomic, retain) IBOutlet UINavigationBar *myTitleBar;
+@property(nonatomic, retain) IBOutlet UIWebView *detailView;
+@property(nonatomic, retain) IBOutlet UIWebView *descriptionView;
+@property(nonatomic, retain) IBOutlet UIImageView *imageView;
+@property(nonatomic, retain) Event *myEvent;
+
+-(NSString *)buildDetailHTMLString;
+-(NSString *)buildDescriptionHTMLString;
 -(IBAction)close:(id)sender;
 
 @end

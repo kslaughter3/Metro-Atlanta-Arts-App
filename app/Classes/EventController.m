@@ -10,6 +10,7 @@
 
 
 @implementation EventController
+@synthesize descriptionView, detailView, imageView, myTitleBar;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -35,6 +36,38 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 */
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	myEvent = [[Event alloc] initTestEvent: @"test" Description: @"1 2 3 4"];
+	if(myEvent == nil)
+	{
+		return;
+	}
+	myTitleBar.topItem.title = [myEvent getEventName];
+	
+	NSString *deschtml = [self buildDescriptionHTMLString];
+	[descriptionView loadHTMLString:deschtml baseURL:[NSURL URLWithString: @"http:://www.apple.com"]];
+
+}
+
+-(NSString *)buildDescriptionHTMLString 
+{
+	NSString *locationString = [NSString stringWithFormat: @"%@", [[myEvent getLocation] getStreetAddress]];
+	NSString *timeString = [NSString stringWithFormat:@"%@-%@", [[myEvent getStartDate] getTimeStandardFormat],
+							[[myEvent getEndDate] getTimeStandardFormat]];
+	NSString *costString = [NSString stringWithFormat: @"%d",[myEvent getCost]];
+	
+	NSString *html = [NSString stringWithFormat:@"<html><head><meta name=""viewport"" content=""width=320""/></head>"\
+					  "<body><h3>Location</h3><p>%@</p><h3>Time</h3><p>%@</p> <h3> Cost </h3> <p>%@</p> <h3>Description</h3><p>%@</p> </body></html>", 
+					  locationString, timeString, costString, [myEvent getDescription]];
+	
+	NSLog(html);
+	
+	return html;
+}
+
 
 -(IBAction)close: (id)sender {
 	NSLog(@"Close Clicked\n");

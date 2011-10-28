@@ -92,7 +92,7 @@
 	
 	
 	self.mapAnnotations = [[NSMutableArray alloc] initWithCapacity:1];
-    EventAnnotation *eventAnnotation = [[EventAnnotation alloc] initWithEvent: event];
+    EventAnnotation *eventAnnotation = [[EventAnnotation alloc] initAnnotationWithEvent: event];
     [self.mapAnnotations insertObject:eventAnnotation atIndex:0];
 	[myMapView addAnnotation:eventAnnotation];
     [eventAnnotation release];    
@@ -228,6 +228,5 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
 }
-
 
 @end

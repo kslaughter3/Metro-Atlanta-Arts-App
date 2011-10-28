@@ -20,7 +20,7 @@
 	
 }
 
--(EventAnnotation *)initWithEvent: (Event *) event;
+-(EventAnnotation *)initAnnotationWithEvent: (Event *) event;
 
 @property (nonatomic, retain) UIImage *image;
 @property (nonatomic, retain) NSNumber *latitude;

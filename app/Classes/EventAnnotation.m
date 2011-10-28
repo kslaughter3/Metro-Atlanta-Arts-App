@@ -16,7 +16,7 @@
 @synthesize longitude;
 @synthesize event;
 
--(EventAnnotation *)initWithEvent: (Event *) e{
+-(EventAnnotation *)initAnnotationWithEvent: (Event *) e{
 	self = [super init];
 	[self setEvent:e];
 	return self;
