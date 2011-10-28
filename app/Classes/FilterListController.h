@@ -28,6 +28,7 @@
 
 -(IBAction)addFilter:(id)sender;
 -(IBAction)editFilter:(id)sender;
+-(IBAction)removeFilter:(id)sender;
 -(IBAction)back:(id)sender;
 
 @end

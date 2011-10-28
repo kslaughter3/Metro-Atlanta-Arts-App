@@ -192,6 +192,44 @@
 	}
 }
 
+-(IBAction)removeFilter: (id) sender {
+	NSLog(@"Remove Clicked");
+	
+	Content *content = [Content getInstance];
+	
+	if((myRow < 0) || (myRow > [content getFilterCount])) {
+		NSLog(@"No Filter Selected");
+		UIAlertView *alert = [[UIAlertView alloc] 
+							  initWithTitle:@"No Filter Selected" 
+							  message: @"Select a filter"
+							  delegate: nil 
+							  cancelButtonTitle: @"OK" 
+							  otherButtonTitles: nil];
+		[alert show];
+		[alert release];
+	}
+	else {
+		
+		Filter *filter = [content getFilterAtIndex: myRow];
+		
+		if(filter == nil) {
+			NSLog(@"Error: Invalid Filter");
+			UIAlertView *alert = [[UIAlertView alloc] 
+								  initWithTitle:@"Error: Invalid Filter" 
+								  message: @"The filter is not valid" 
+								  delegate: nil 
+								  cancelButtonTitle: @"OK" 
+								  otherButtonTitles: nil];
+			[alert show];
+			[alert release];
+		}
+	
+		[content removeFilter: filter AndFilter: YES];
+		[myTableView reloadData];
+		myRow = -1;
+	}
+}
+
 -(IBAction)back: (id)sender {
 	NSLog(@"Back Clicked\n");
 	[self.parentViewController dismissModalViewControllerAnimated: YES];

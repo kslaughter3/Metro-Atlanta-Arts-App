@@ -46,8 +46,8 @@
 	
 	if(filter == nil) {
 		UIAlertView *alert = [[UIAlertView alloc] 
-							  initWithTitle:@"Invalid Filter" 
-							  message: @"The filter's values are not valid" 
+							  initWithTitle:@"Invalid Search" 
+							  message: @"The query's values are not valid" 
 							  delegate: nil 
 							  cancelButtonTitle: @"OK" 
 							  otherButtonTitles: nil];
@@ -63,6 +63,15 @@
 		}
 		
 		NSLog(@"Filter Added");
+		
+		UIAlertView *alert = [[UIAlertView alloc] 
+							  initWithTitle:@"Search Added" 
+							  message: @"The Search query has been added" 
+							  delegate: nil 
+							  cancelButtonTitle: @"OK" 
+							  otherButtonTitles: nil];
+		[alert show];
+		[alert release];
 	}
 }
 
