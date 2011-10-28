@@ -12,13 +12,11 @@
 @interface ArtistController : UIViewController {
 	EventArtist *artist;
 	IBOutlet UINavigationBar *myTitleBar;
-	IBOutlet UIImageView *myImageView;
 	IBOutlet UIWebView *myWebView;
 }
 
 @property(nonatomic, retain) IBOutlet UINavigationBar *myTitleBar;
 @property(nonatomic, retain) IBOutlet UIWebView *myWebView;
-@property(nonatomic, retain) IBOutlet UIImageView *myImageView;
 
 -(NSString *)buildHTMLString;
 

@@ -31,6 +31,8 @@
 		3A98777D142A57A600D80A8C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A98777C142A57A600D80A8C /* MapKit.framework */; };
 		BF15C45E144F4DAD00969E72 /* TripPlanningController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF15C45D144F4DAD00969E72 /* TripPlanningController.m */; };
 		BF15C463144F4DFE00969E72 /* TripPlanningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF15C462144F4DFE00969E72 /* TripPlanningView.xib */; };
+		BFE7F53B145B1A79007A7D06 /* TripPlanningMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE7F539145B1A79007A7D06 /* TripPlanningMapController.m */; };
+		BFE7F53C145B1A79007A7D06 /* TripPlanningMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFE7F53A145B1A79007A7D06 /* TripPlanningMapView.xib */; };
 		BFF266AB143F928800084695 /* FilterListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF266A9143F928800084695 /* FilterListController.m */; };
 		BFF8F6C6143A278200D5DA96 /* FilterListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6C5143A278200D5DA96 /* FilterListView.xib */; };
 		BFF8F6CB143A2B7F00D5DA96 /* EventListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6CA143A2B7F00D5DA96 /* EventListView.xib */; };
@@ -303,6 +305,9 @@
 		BF15C45C144F4DAD00969E72 /* TripPlanningController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripPlanningController.h; sourceTree = "<group>"; };
 		BF15C45D144F4DAD00969E72 /* TripPlanningController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripPlanningController.m; sourceTree = "<group>"; };
 		BF15C462144F4DFE00969E72 /* TripPlanningView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TripPlanningView.xib; path = Resources/TripPlanningView.xib; sourceTree = "<group>"; };
+		BFE7F538145B1A79007A7D06 /* TripPlanningMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripPlanningMapController.h; sourceTree = "<group>"; };
+		BFE7F539145B1A79007A7D06 /* TripPlanningMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripPlanningMapController.m; sourceTree = "<group>"; };
+		BFE7F53A145B1A79007A7D06 /* TripPlanningMapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TripPlanningMapView.xib; path = ../TripPlanningMapView.xib; sourceTree = "<group>"; };
 		BFF266A8143F928800084695 /* FilterListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterListController.h; sourceTree = "<group>"; };
 		BFF266A9143F928800084695 /* FilterListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterListController.m; sourceTree = "<group>"; };
 		BFF8F6C5143A278200D5DA96 /* FilterListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FilterListView.xib; path = Resources/FilterListView.xib; sourceTree = "<group>"; };
@@ -597,12 +602,14 @@
 				BF15C45D144F4DAD00969E72 /* TripPlanningController.m */,
 				BF15C45C144F4DAD00969E72 /* TripPlanningController.h */,
 				F2771D7E1445F35600FC8C0C /* EditFilterController.m */,
-				F2771E7F144609DB00FC8C0C /* EventController.h */,
 				F2771E80144609DB00FC8C0C /* EventController.m */,
+				F2771E7F144609DB00FC8C0C /* EventController.h */,
 				F206D87C1451D66800A5B8A7 /* EventDate.h */,
 				F206D87D1451D66800A5B8A7 /* EventDate.m */,
 				F2AEAACC145864F200B6D34E /* SearchController.h */,
 				F2AEAACD145864F200B6D34E /* SearchController.m */,
+				BFE7F538145B1A79007A7D06 /* TripPlanningMapController.h */,
+				BFE7F539145B1A79007A7D06 /* TripPlanningMapController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -643,13 +650,13 @@
 				F2AEAACE145864F200B6D34E /* SearchView.xib */,
 				F2771D7F1445F35600FC8C0C /* EditFilterView.xib */,
 				F2B587871443659B000A4A68 /* AddFilterView.xib */,
+				2899E5210DE3E06400AC0155 /* MapView.xib */,
 				F2B5877714436292000A4A68 /* ArtistView.xib */,
 				F2B586B01443546B000A4A68 /* ArtistListView.xib */,
 				BF15C462144F4DFE00969E72 /* TripPlanningView.xib */,
 				BFF8F6E2143A2FB500D5DA96 /* EventView.xib */,
 				BFF8F6C5143A278200D5DA96 /* FilterListView.xib */,
 				BFF8F6CA143A2B7F00D5DA96 /* EventListView.xib */,
-				2899E5210DE3E06400AC0155 /* MapView.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Metro_Atlanta_Arts_App-Info.plist */,
 			);
@@ -904,6 +911,7 @@
 				F2AEADE41458755900B6D34E /* 97-puzzle.png */,
 				F2AEADE51458755900B6D34E /* 98-palette.png */,
 				F2AEADE61458755900B6D34E /* 99-umbrella.png */,
+				BFE7F53A145B1A79007A7D06 /* TripPlanningMapView.xib */,
 			);
 			name = icons;
 			path = Resources/icons;
@@ -1172,6 +1180,7 @@
 				F2AEAEAD1458755900B6D34E /* 97-puzzle.png in Resources */,
 				F2AEAEAE1458755900B6D34E /* 98-palette.png in Resources */,
 				F2AEAEAF1458755900B6D34E /* 99-umbrella.png in Resources */,
+				BFE7F53C145B1A79007A7D06 /* TripPlanningMapView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1214,6 +1223,7 @@
 				BF15C45E144F4DAD00969E72 /* TripPlanningController.m in Sources */,
 				F206D87E1451D66800A5B8A7 /* EventDate.m in Sources */,
 				F2AEAACF145864F200B6D34E /* SearchController.m in Sources */,
+				BFE7F53B145B1A79007A7D06 /* TripPlanningMapController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

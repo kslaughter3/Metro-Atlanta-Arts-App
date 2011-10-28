@@ -14,7 +14,8 @@
 @synthesize myTableView,
 myTripController,
 checkedIndexPath,
-integers;
+integers,
+myTripMapController;
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -116,6 +117,10 @@ integers;
 	for(id num in integers) {
 		NSLog([NSString stringWithFormat:@"Index: %d", [num intValue]]);
 	}
+	if(myTripMapController == nil){
+		self.myTripMapController = [[TripPlanningMapController alloc] initWithNibName: @"TripPlanningMapView" bundle: nil];
+	}
+	[self presentModalViewController: self.myTripMapController animated:YES];
 }
 
 
