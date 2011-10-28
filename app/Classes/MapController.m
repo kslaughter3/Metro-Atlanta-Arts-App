@@ -88,12 +88,15 @@
 	span.latitudeDelta=0.2; 
 	span.longitudeDelta=0.2; 
 	
+	Event *event = [[Event alloc] initTestEvent: @"Test" Description: @"1 2 3 4"];
+	
+	
 	self.mapAnnotations = [[NSMutableArray alloc] initWithCapacity:1];
-    EventAnnotation *eventAnnotation = [[EventAnnotation alloc] init];
+    EventAnnotation *eventAnnotation = [[EventAnnotation alloc] initWithEvent: event];
     [self.mapAnnotations insertObject:eventAnnotation atIndex:0];
 	[myMapView addAnnotation:eventAnnotation];
     [eventAnnotation release];    
-		
+	
 	CLLocationCoordinate2D location; 
 	location.latitude = 33.7728837; /* We should make these constants*/
 	location.longitude = -84.393816;
@@ -148,9 +151,9 @@
 
 -(IBAction)loadEventDetails:(id)sender
 {
-	AddFilterController *addFilterView = [[AddFilterController alloc] 
-										  initWithNibName: @"AddFilterView" bundle: nil];
-	[self presentModalViewController: addFilterView animated:YES];
+	EventController *eventView = [[EventController alloc] 
+								  initWithNibName: @"EventView" bundle: nil];
+	[self presentModalViewController: eventView animated:YES];
 	
 }
 

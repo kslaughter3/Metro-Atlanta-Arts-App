@@ -25,6 +25,8 @@
 	EventAvailability *availability;	/* The availability of the event */
 }
 
+-(Event *)initTestEvent:(NSString *)n Description:(NSString *)desc;
+
 /* Initializer */
 -(Event *)initWithEvent: (Event *)event;
 

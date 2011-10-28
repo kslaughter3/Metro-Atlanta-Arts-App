@@ -14,7 +14,13 @@
 @synthesize image;
 @synthesize latitude;
 @synthesize longitude;
+@synthesize event;
 
+-(EventAnnotation *)initWithEvent: (Event *) e{
+	self = [super init];
+	[self setEvent:e];
+	return self;
+}
 
 - (CLLocationCoordinate2D)coordinate;
 {
@@ -33,12 +39,14 @@
 
 - (NSString *)title
 {
+	if(event != nil) return [event getEventName];
     return @"Atlanta";
 }
 
 // optional
 - (NSString *)subtitle
 {
+	if(event != nil) return [event getDescription];
     return @"Needs better coordinate";
 }
 

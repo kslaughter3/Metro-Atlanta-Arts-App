@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import "Event.h"
 
 
 @interface EventAnnotation : NSObject <MKAnnotation>
@@ -15,11 +16,15 @@
     UIImage *image;
     NSNumber *latitude;
     NSNumber *longitude;
+	Event *event;
 	
 }
+
+-(EventAnnotation *)initWithEvent: (Event *) event;
 
 @property (nonatomic, retain) UIImage *image;
 @property (nonatomic, retain) NSNumber *latitude;
 @property (nonatomic, retain) NSNumber *longitude;
+@property (nonatomic, retain) Event *event;
 
 @end

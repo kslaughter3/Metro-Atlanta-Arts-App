@@ -13,6 +13,15 @@
 
 @implementation Event
 
+/*Test Initialize Method*/
+-(Event *)initTestEvent: (NSString *) n Description: (NSString *) desc{
+	self = [super init];
+	[self setEventName: n];
+	[self setDescription: desc];
+	return self;
+}
+
+
 /* Initialize Method */
 -(Event *)initWithEvent:(Event *)event {
 	self = [super init];
