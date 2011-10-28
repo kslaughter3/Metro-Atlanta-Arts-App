@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="51"/>
+			<integer value="60"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -77,12 +77,6 @@
 							</object>
 							<object class="IBUIBarButtonItem" id="952954052">
 								<string key="IBUITitle">Edit</string>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<int key="IBUIStyle">1</int>
-								<reference key="IBUIToolbar" ref="606414733"/>
-							</object>
-							<object class="IBUIBarButtonItem" id="558699248">
-								<string key="IBUITitle">Remove</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="606414733"/>
@@ -177,14 +171,6 @@
 					</object>
 					<int key="connectionID">62</int>
 				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">removeFilter:</string>
-						<reference key="source" ref="558699248"/>
-						<reference key="destination" ref="372490531"/>
-					</object>
-					<int key="connectionID">64</int>
-				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -229,7 +215,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="81714380"/>
 							<reference ref="952954052"/>
-							<reference ref="558699248"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -266,11 +251,6 @@
 						<reference key="object" ref="472466638"/>
 						<reference key="parent" ref="152473900"/>
 					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">63</int>
-						<reference key="object" ref="558699248"/>
-						<reference key="parent" ref="606414733"/>
-					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -288,14 +268,12 @@
 					<string>59.IBPluginDependency</string>
 					<string>60.IBPluginDependency</string>
 					<string>61.IBPluginDependency</string>
-					<string>63.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>FilterListController</string>
 					<string>UIResponder</string>
 					<string>{{2421, 351}, {320, 480}}</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -322,7 +300,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">64</int>
+			<int key="maxID">62</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -337,11 +315,9 @@
 							<string>addFilter:</string>
 							<string>back:</string>
 							<string>editFilter:</string>
-							<string>removeFilter:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -354,7 +330,6 @@
 							<string>addFilter:</string>
 							<string>back:</string>
 							<string>editFilter:</string>
-							<string>removeFilter:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -368,10 +343,6 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">editFilter:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">removeFilter:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>
