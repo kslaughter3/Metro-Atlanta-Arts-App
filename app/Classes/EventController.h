@@ -21,10 +21,11 @@
 @property(nonatomic, retain) IBOutlet UIWebView *detailView;
 @property(nonatomic, retain) IBOutlet UIWebView *descriptionView;
 @property(nonatomic, retain) IBOutlet UIImageView *imageView;
-@property(nonatomic, retain) Event *myEvent;
 
 -(NSString *)buildDetailHTMLString;
 -(NSString *)buildDescriptionHTMLString;
 -(IBAction)close:(id)sender;
+-(void)setEvent:(Event *)event;
+-(Event *)getEvent;
 
 @end

@@ -8,18 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "EventController.h"
+#import "Content.h"
+#import	"Event.h"
 
 @class EventListController;
 
 @interface EventListController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	IBOutlet UITableView *myTableView;
 	IBOutlet EventController *myEventController;
-	NSArray *listData;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
 @property (nonatomic, retain) IBOutlet EventController *myEventController;
-@property (nonatomic, retain) NSArray *listData;
 
 @end
 

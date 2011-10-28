@@ -11,8 +11,7 @@
 
 @implementation EventListController
 @synthesize myTableView,
-			myEventController,
-			listData;
+			myEventController;
 
 // The designated initializer. Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 /*
@@ -38,9 +37,10 @@
 	 [myTableView setDelegate: self];
 	 [myTableView setDataSource: self];
 	 
-	 NSArray *list = [[NSArray alloc] initWithObjects: @"Event" , @"List", nil];
-	 self.listData = list;
-	 [list release];
+	 Content *content = [Content getInstance];
+	 Event *event= [[Event alloc] initTestEvent: @"test" Description: @"1 2 3 4"];
+	 [content addEvent: event];
+	 
 	 [super viewDidLoad];
  }
 
@@ -57,9 +57,8 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	//Content *content = [Content getInstance];
-	//return [content getFilterCount];
-	return [self.listData count];
+	Content *content = [Content getInstance];
+	return [content getDisplayedEventCount];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -70,15 +69,10 @@
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
 	}
 	
-	//Content *content = [Content getInstance];
-	//Filter *f = (Filter *)[[content getFilters] objectAtIndex:indexPath.row];
-	
-	NSUInteger row = [indexPath row];
-	cell.textLabel.text = [listData objectAtIndex: row];
-	
-	//cell.textLabel.text = [f getTypeName];
-	//TODO: set the detailed text based on the filterer's values 
-	//cell.textLabel.text = @"Hello World";
+	Content *content = [Content getInstance];
+	Event *event = (Event *)[[content getDisplayedEvents] objectAtIndex:indexPath.row];
+
+	cell.textLabel.text = [event getEventName];
 	
 	return cell;
 }
@@ -88,15 +82,15 @@
 	
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
-	/*Content *content = [Content getInstance];
-	 if(content == nil) {
-	 //Something bad happened handle it 
-	 return;
-	 }*/
+	Content *content = [Content getInstance];
+	
+	Event *event = [[content getDisplayedEvents] objectAtIndex: indexPath.row];
 	
 	if(myEventController == nil) {
 		self.myEventController = [[EventController alloc] initWithNibName: @"EventView" bundle: nil];
 	}
+	
+	[myEventController setEvent: event];
 	
 	[self presentModalViewController: self.myEventController animated:YES];
 	//[self.view addSubview:[myEventController view]];

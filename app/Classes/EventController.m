@@ -40,7 +40,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-	myEvent = [[Event alloc] initTestEvent: @"test" Description: @"1 2 3 4"];
+	
 	if(myEvent == nil)
 	{
 		return;
@@ -72,6 +72,13 @@
 -(IBAction)close: (id)sender {
 	NSLog(@"Close Clicked\n");
 	[self.parentViewController dismissModalViewControllerAnimated: YES];
+}
+
+-(void)setEvent:(Event *)event {
+	myEvent = event;
+}
+-(Event *)getEvent {
+	return myEvent;
 }
 
 - (void)didReceiveMemoryWarning {
