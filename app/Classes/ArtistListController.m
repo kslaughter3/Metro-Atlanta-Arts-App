@@ -11,9 +11,7 @@
 
 @implementation ArtistListController
 @synthesize myTableView, 
-			myArtistController, 
-			listData;
-
+myArtistController;
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -39,9 +37,6 @@
 						 "so I'm just going to keep on typing until such a time that"\
 						 "I feel like this is pretty long\nso the scrolling works"];
 	[content addArtist: temp];
-	//NSArray *list = [[NSArray alloc] initWithObjects: temp, nil];
-	self.listData = [content getArtists];
-	//[list release];	
 	
     [super viewDidLoad];
 }
@@ -53,7 +48,6 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	Content *content = [Content getInstance];
 	return [content getArtistCount];
-		//return [self.listData count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -68,12 +62,6 @@
 	EventArtist *ea = (EventArtist *)[content getArtistAtIndex: indexPath.row];
 	cell.textLabel.text = [ea getName];
 	
-	//NSUInteger row = [indexPath row];
-	//cell.textLabel.text = [listData objectAtIndex: row];
-
-	//TODO: set the detailed text based on the filterer's values 
-	//cell.textLabel.text = @"Hello World";
-	
 	return cell;
 }
 
@@ -81,21 +69,12 @@
 	//int idx = indexPath.row;
 	
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-	
-	/*Content *content = [Content getInstance];
-	if(content == nil) {
-		//Something bad happened handle it 
-		return;
-	}*/
-	
+
 	if(myArtistController == nil) {
 		self.myArtistController = [[ArtistController alloc] initWithNibName: @"ArtistView" bundle: nil];
 	}
-	
-	//EventArtist *temp = [[EventArtist alloc] initWithArtistName: @"hi" Description: @"hi2"];
 	Content *content = [Content getInstance];
 	[myArtistController setArtist: [content getArtistAtIndex: indexPath.row]];
-	//[myArtistController setArtist: [[content getArtists] objectAtIndex: idx]];
 	[self presentModalViewController: self.myArtistController animated:YES];
 }
 

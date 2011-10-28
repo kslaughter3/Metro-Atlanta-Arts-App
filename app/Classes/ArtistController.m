@@ -10,7 +10,7 @@
 
 
 @implementation ArtistController
-@synthesize myTitleBar, myWebView, myImageView;
+@synthesize myTitleBar, myWebView;
 
 - (void)viewWillAppear:(BOOL)animated
 {
