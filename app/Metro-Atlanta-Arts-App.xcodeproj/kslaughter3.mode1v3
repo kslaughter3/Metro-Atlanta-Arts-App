@@ -274,12 +274,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
+									<integer>55</integer>
 									<integer>44</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 533}, {186, 600}}</string>
+							<string>{{0, 473}, {186, 600}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -326,7 +327,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>2218A03A145B29310020BD7D</string>
+										<string>2218A04A145B2B660020BD7D</string>
 										<key>history</key>
 										<array>
 											<string>220CD6E6144F65F6002E6539</string>
@@ -547,9 +548,9 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>220CD681144F58D2002E6539</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/nethome/kslaughter3/MetroAtlantaArtsFund/Metro-Atlanta-Arts-App/app/Metro-Atlanta-Arts-App.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -901,7 +902,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1184, 648}}</string>
 								<key>RubberWindowFrame</key>
-								<string>646 261 1184 689 0 0 1920 1178 </string>
+								<string>645 261 1184 689 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -930,11 +931,11 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>646 261 1184 689 0 0 1920 1178 </string>
+			<string>645 261 1184 689 0 0 1920 1178 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

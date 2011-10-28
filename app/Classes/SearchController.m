@@ -62,6 +62,15 @@
 			NSLog(@"Error: Add Filter Failed with a Valid Filter");
 		}
 		
+		UIAlertView *alert = [[UIAlertView alloc] 
+							  initWithTitle:@"Search Added" 
+							  message: @"The search was added" 
+							  delegate: nil 
+							  cancelButtonTitle: @"OK" 
+							  otherButtonTitles: nil];
+		[alert show];
+		[alert release];
+		
 		NSLog(@"Filter Added");
 	}
 }

@@ -674,6 +674,16 @@
 		vrLen = 436;
 		vrLoc = 0;
 	};
+	2218A04A145B2B660020BD7D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2218A01D145B28550020BD7D /* TripPlanningMapController.h */;
+		name = "TripPlanningMapController.h: 13";
+		rLen = 0;
+		rLoc = 265;
+		rType = 0;
+		vrLen = 436;
+		vrLoc = 0;
+	};
 	225AB099143A43A40075EC49 /* EventAnnotation.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {755, 403}}";
@@ -960,6 +970,7 @@
 			2218A02E145B28AA0020BD7D /* PBXTextBookmark */ = 2218A02E145B28AA0020BD7D /* PBXTextBookmark */;
 			2218A02F145B28AA0020BD7D /* PBXTextBookmark */ = 2218A02F145B28AA0020BD7D /* PBXTextBookmark */;
 			2218A03A145B29310020BD7D /* PBXTextBookmark */ = 2218A03A145B29310020BD7D /* PBXTextBookmark */;
+			2218A04A145B2B660020BD7D /* PBXTextBookmark */ = 2218A04A145B2B660020BD7D /* PBXTextBookmark */;
 			22E72A2B145B0E5700798378 = 22E72A2B145B0E5700798378 /* PBXTextBookmark */;
 			22E72A2C145B0E5700798378 = 22E72A2C145B0E5700798378 /* PBXTextBookmark */;
 			22E72A2D145B0E5700798378 = 22E72A2D145B0E5700798378 /* PBXTextBookmark */;
@@ -1016,6 +1027,14 @@
 			sepNavVisRange = "{96, 898}";
 		};
 	};
+	BFF266A9143F928800084695 /* FilterListController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1160, 2912}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{2102, 943}";
+			sepNavWindowFrame = "{{-1071, 331}, {910, 676}}";
+		};
+	};
 	F206D87C1451D66800A5B8A7 /* EventDate.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {845, 923}}";
@@ -1056,6 +1075,22 @@
 			sepNavIntBoundsRect = "{{0, 0}, {1146, 1183}}";
 			sepNavSelRange = "{1527, 0}";
 			sepNavVisRange = "{1201, 1519}";
+		};
+	};
+	F2AEAACC145864F200B6D34E /* SearchController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {851, 548}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 658}";
+			sepNavWindowFrame = "{{107, 413}, {910, 676}}";
+		};
+	};
+	F2AEAACD145864F200B6D34E /* SearchController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1146, 1612}}";
+			sepNavSelRange = "{1879, 0}";
+			sepNavVisRange = "{1144, 1032}";
+			sepNavWindowFrame = "{{130, 392}, {910, 676}}";
 		};
 	};
 	F2B45EB6143F5E18002B0729 /* EventLocation.h */ = {
