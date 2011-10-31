@@ -42,6 +42,11 @@ myArtistController;
     [super viewDidLoad];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear: animated];
+	[myTableView reloadData];
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	return 1;
 }
