@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "Event.h"
 
 @class SBJsonStreamParser;
 @class SBJsonStreamParserAdapter;
@@ -26,6 +27,7 @@
 
 @property (nonatomic, retain) IBOutlet MKMapView* myMapView;
 @property (nonatomic, retain) NSMutableArray *mapAnnotations;
+@property (nonatomic, retain) Event *globalEvent;
 
 - (IBAction)go;
 

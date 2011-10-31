@@ -11,13 +11,15 @@
 #import "EventAnnotation.h"
 #import "AddFilterController.h"
 #import "json/SBJson.h"
+#import <objc/runtime.h>
+#import <objc/message.h>
 
 @interface MapController () <SBJsonStreamParserAdapterDelegate>
 @end
 
 @implementation MapController
 
-@synthesize myMapView, mapAnnotations;
+@synthesize myMapView, mapAnnotations, globalEvent;
 
 
 -(IBAction)next:(id)sender {
@@ -89,7 +91,8 @@
 	span.longitudeDelta=0.2; 
 	
 	Event *event = [[Event alloc] initTestEvent: @"Test" Description: @"1 2 3 4"];
-	
+	Event *gevent = [[Event alloc] initTestEvent: @"Global" Description: @"4 3 2 1"];
+	globalEvent = gevent;
 	
 	self.mapAnnotations = [[NSMutableArray alloc] initWithCapacity:1];
     EventAnnotation *eventAnnotation = [[EventAnnotation alloc] initAnnotationWithEvent: event];
@@ -113,7 +116,7 @@
 	
 	if ([annotation isMemberOfClass:[EventAnnotation class]]) {
 		(MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
-		
+		globalEvent = [(EventAnnotation*)annotation event];
 		if (retval == nil) {
 			retval = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:defaultPinID] autorelease];
 		}
@@ -151,8 +154,10 @@
 
 -(IBAction)loadEventDetails:(id)sender
 {
+
 	EventController *eventView = [[EventController alloc] 
 								  initWithNibName: @"EventView" bundle: nil];
+	[eventView setEvent: globalEvent];
 	[self presentModalViewController: eventView animated:YES];
 	
 }

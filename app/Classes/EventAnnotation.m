@@ -26,7 +26,7 @@
 {
     CLLocationCoordinate2D theCoordinate;
     theCoordinate.latitude = 33.7728837;
-    theCoordinate.longitude = -84.393816;;
+    theCoordinate.longitude = -84.393816;
     return theCoordinate; 
 }
 
