@@ -23,6 +23,7 @@
 	int duration;						/* Duration of the Event (in minutes)*/
 	double cost;						/* Cost of the Event */
 	EventAvailability *availability;	/* The availability of the event */
+	NSURL *imageURL;
 }
 
 -(Event *)initTestEvent:(NSString *)n Description:(NSString *)desc;
@@ -33,8 +34,13 @@
 -(Event *)initWithEvent: (Event *)event;
 
 -(Event *)initEventWithName: (NSString *) n Artist: (EventArtist *) a Description: (NSString *) desc
-					Website: (NSURL *) url Location: (EventLocation *) loc Start: (EventDate *) start End: (EventDate *) end
+					Website: (NSString *) url Location: (EventLocation *) loc Start: (EventDate *) start End: (EventDate *) end
 				   Duration: (int) length Cost: (double) price Availability: (EventAvailability *) avail;
+
+-(Event *)initEventWithName: (NSString *) n Artist: (EventArtist *) a Description: (NSString *) desc
+				   ImageURL: (NSString *) iURL Website: (NSString *) url Location: (EventLocation *) loc 
+				   Start: (EventDate *) start End: (EventDate *) end Duration: (int) length 
+				   Cost: (double) price Availability: (EventAvailability *) avail;
 
 /* I don't know if this makes sense but I wrote it anyway */
 -(void)print;
@@ -70,6 +76,9 @@
 
 -(void)setAvailability: (EventAvailability *) avail;
 -(EventAvailability *)getAvailability;
+
+-(void)setImageURL: (NSURL *) url;
+-(NSURL *)getImageURL;
 
 /* End Getters and Setters */
 

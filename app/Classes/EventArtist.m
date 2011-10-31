@@ -28,6 +28,7 @@
 	if(self != nil) {
 		name = [[NSString alloc] initWithString: [art getName]];
 		description = [[NSString alloc] initWithString: [art getDescription]];
+		imageURL = [[NSURL alloc] initWithString: [[art getImageURL] absoluteString]];
 		return self;
 	}
 	
@@ -50,6 +51,40 @@
 	return nil;
 }
 
+-(EventArtist *)initWithArtistName: (NSString *) n ImageURL: (NSString *) url {
+	if((n == nil) || (url == nil)) {
+		return nil;
+	}
+	
+	self = [super init];
+	
+	if(self != nil) {
+		name = [[NSString alloc] initWithString: n];
+		imageURL = [[NSURL alloc] initWithString: url];
+		return self;
+	}
+	
+	return nil;
+}
+
+-(EventArtist *)initWithArtistName: (NSString *) n Description: (NSString *) desc 
+	ImageURL: (NSString *) url {
+	if((n == nil) || (desc == nil) || (url == nil)) {
+		return nil;
+	}
+	
+	self = [super init];
+	
+	if(self != nil) {
+		name = [[NSString alloc] initWithString: n];
+		description = [[NSString alloc] initWithString: desc];
+		imageURL = [[NSURL alloc] initWithString: url];
+		return self;
+	}
+	
+	return nil;
+}
+
 /* Getters and Setters */
 -(void)setName: (NSString *) str {
 	name = str;
@@ -65,6 +100,16 @@
 
 -(NSString *)getDescription {
 	return description;
+}
+
+
+
+-(void)setImageURL: (NSURL *) url {
+	imageURL = url;
+}
+
+-(NSURL *)getImageURL {
+	return imageURL;
 }
 
 /* End Getters and Setters */
