@@ -40,6 +40,7 @@
 		name = [[NSString alloc] initWithString: [event getEventName]];
 		artist = [[EventArtist alloc] initWithArtist: [event getArtist]];
 		description = [[NSString alloc] initWithString: [event getDescription]];
+		imageURL = [[NSURL alloc] initWithString: [[event getImageURL] absoluteString]];
 		website = [[NSURL alloc] initWithString: [[event getWebsite] absoluteString]];
 		location = [[EventLocation alloc] initWithLocation: [event getLocation]];
 		startDate = [[EventDate alloc] initWithDate: [event getStartDate]];
@@ -54,7 +55,7 @@
 }
 
 -(Event *)initEventWithName: (NSString *) n Artist: (EventArtist *) a Description: (NSString *) desc
-					Website: (NSURL *) url Location: (EventLocation *) loc Start: (EventDate *) start 
+					Website: (NSString *) url Location: (EventLocation *) loc Start: (EventDate *) start 
 					End: (EventDate *) end Duration: (int) length Cost: (double) price 
 					Availability: (EventAvailability *) avail {
 	
@@ -71,7 +72,7 @@
 		name = [[NSString alloc] initWithString: n];
 		artist = [[EventArtist alloc] initWithArtist: a];
 		description = [[NSString alloc] initWithString: desc];
-		website = [[NSURL alloc] initWithString: [url absoluteString]];
+		website = [[NSURL alloc] initWithString: url];
 		location = [[EventLocation alloc] initWithLocation: loc];
 		startDate = [[EventDate alloc] initWithDate: start];
 		endDate = [[EventDate alloc] initWithDate: end];
@@ -83,9 +84,41 @@
 	}
 	
 	return nil;
-}
+}		
 
-
+-(Event *)initEventWithName: (NSString *) n Artist: (EventArtist *) a Description: (NSString *) desc
+				   ImageURL: (NSString *) iURL Website: (NSString *) url Location: (EventLocation *) loc 
+				   Start: (EventDate *) start End: (EventDate *) end Duration: (int) length Cost: (double) price 
+				   Availability: (EventAvailability *) avail {
+	
+	/* Check all the data */
+	if((n == nil) || (a == nil) || (desc == nil) || (url == nil) || (loc == nil) ||
+	   (start == nil) || (end == nil) || (avail == nil) || 
+	   (length < 0) || (price < 0) || ([start earlierDate: end] == NO)) {
+		return nil;
+	}
+	
+	self = [super init];
+	
+	if (self != nil) {
+		name = [[NSString alloc] initWithString: n];
+		artist = [[EventArtist alloc] initWithArtist: a];
+		description = [[NSString alloc] initWithString: desc];
+		imageURL = [[NSURL alloc] initWithString: iURL];
+		website = [[NSURL alloc] initWithString: url];
+		location = [[EventLocation alloc] initWithLocation: loc];
+		startDate = [[EventDate alloc] initWithDate: start];
+		endDate = [[EventDate alloc] initWithDate: end];
+		duration = length;
+		cost = price;
+		availability = [[EventAvailability alloc] initWithAvailability: avail];
+		
+		return self;
+	}
+	
+	return nil;
+}	
+					
 -(void) print {
 }
 
@@ -168,6 +201,14 @@
 
 -(EventAvailability *)getAvailability {
 	return availability;
+}
+
+-(void)setImageURL:(NSURL *)url {
+	imageURL = url;
+}
+
+-(NSURL *)getImageURL {
+	return imageURL;
 }
 
 /* End Getters and Setters */

@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 
 
+
 @interface EventArtist : NSObject {
 	NSString *name;
 	NSString *description;
-	
+	NSURL  *imageURL;
+	BOOL   hasImage;
 	//NSMutableArray *events; /* List of events for this artist */
 
 }
@@ -24,12 +26,22 @@
 
 -(EventArtist *)initWithArtistName: (NSString *) n Description: (NSString *) desc;
 
+-(EventArtist *)initWithArtistName:(NSString *)n ImageURL: (NSString *) url;
+
+-(EventArtist *)initWithArtistName:(NSString *)n Description:(NSString *)desc 
+	ImageURL: (NSString *) url;
+
 /* Getters and Setters */
 -(void)setName: (NSString *) str;
 -(NSString *)getName;
 
 -(void)setDescription: (NSString *) str;
 -(NSString *)getDescription;
+
+-(void)setImageURL: (NSURL *) url;
+-(NSURL *)getImageURL;
+
+-(BOOL)hasImage;
 
 /* End Getters and Setters */
 
