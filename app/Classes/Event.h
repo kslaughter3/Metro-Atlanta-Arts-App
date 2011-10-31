@@ -18,7 +18,7 @@
 	NSString *description;				/* Description of Event */
 	NSURL *website;						/* Website URL */
 	EventLocation *location;			/* The location of Event (both street and lat/lon */
-	EventDate *startDate;					/* Start Date and Time */
+	EventDate *startDate;				/* Start Date and Time */
 	EventDate *endDate;					/* End Date and Time */
 	int duration;						/* Duration of the Event (in minutes)*/
 	double cost;						/* Cost of the Event */
@@ -28,6 +28,8 @@
 -(Event *)initTestEvent:(NSString *)n Description:(NSString *)desc;
 
 /* Initializer */
+-(Event *)initEmptyEvent;
+
 -(Event *)initWithEvent: (Event *)event;
 
 -(Event *)initEventWithName: (NSString *) n Artist: (EventArtist *) a Description: (NSString *) desc

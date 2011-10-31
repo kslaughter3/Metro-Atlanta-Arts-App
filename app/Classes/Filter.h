@@ -68,8 +68,10 @@ typedef struct Filterer {
 
 /* Initializers */
 
+-(Filter *)initEmptyFilter;
+
 /* Attempts to build a filter if the filter structure does not match the filter type no filter 
-   is created and NULL is returned */
+  is created and NULL is returned */
 -(Filter *)initWithFilter: (Filter *)filter;
 
 -(Filter *)initWithType: (FilterType) t AndFilterer: (Filterer *) f;

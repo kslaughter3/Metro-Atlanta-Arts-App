@@ -22,7 +22,7 @@
 @property(nonatomic, retain) IBOutlet UIWebView *descriptionView;
 @property(nonatomic, retain) IBOutlet UIImageView *imageView;
 
--(NSString *)buildDetailHTMLString;
+//-(NSString *)buildDetailHTMLString;
 -(NSString *)buildDescriptionHTMLString;
 -(IBAction)close:(id)sender;
 -(void)setEvent:(Event *)event;

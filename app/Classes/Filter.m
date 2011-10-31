@@ -78,6 +78,16 @@
 	return InvalidFilterType;
 }
 
+-(Filter *)initEmptyFilter {
+	self = [super init];
+	
+	if(self != nil) {
+		return self;
+	}
+	
+	return nil;
+}
+
 -(Filter *)initWithFilter:(Filter *)filter {
 	self = [super init];
 	

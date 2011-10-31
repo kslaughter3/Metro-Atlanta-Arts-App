@@ -224,7 +224,7 @@
 			[alert release];
 		}
 		else {
-			[content removeFilter:filter AndFilter:YES];
+			[content removeFilter:filter];
 			[myTableView reloadData];
 			myRow = -1;
 		}

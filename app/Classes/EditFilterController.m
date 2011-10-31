@@ -354,7 +354,7 @@
 	else {
 		content = [Content getInstance];
 		
-		if([content replaceFilter: myFilter WithFilter: filter AndFilter: YES] == NO) {
+		if([content replaceFilter: myFilter WithFilter: filter] == NO) {
 			NSLog(@"Error: Replace Filter Failed with a Valid Filter");
 		}
 		
@@ -366,7 +366,7 @@
 	NSLog(@"Delete Clicked");
 	Content *content = [Content getInstance];
 
-	[content removeFilter: myFilter AndFilter: YES];
+	[content removeFilter: myFilter];
 	myFilter = nil;
 	
 	[self.parentViewController dismissModalViewControllerAnimated:YES];

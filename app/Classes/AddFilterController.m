@@ -343,7 +343,7 @@ inComponent:(NSInteger)component
 		NSLog(@"Filter Created");
 		content = [Content getInstance];
 		
-		if([content addFilter: filter AndFilter: YES] == NO) {
+		if([content addFilter: filter] == NO) {
 			NSLog(@"Error: Add Filter Failed with a Valid Filter");
 		}
 		

@@ -19,6 +19,8 @@
 +(NSString *)timeString: (int) time;
 
 /* Initializers */
+-(EventAvailability *)initEmptyAvailability;
+
 -(EventAvailability *)initWithAvailability: (EventAvailability *) avail;
 
 -(EventAvailability *)initWithDay: (NSMutableArray *) d Start: (int) start End: (int) end;

@@ -13,11 +13,13 @@
 	NSString *name;
 	NSString *description;
 	
-	NSMutableArray *events; /* List of events for this artist */
+	//NSMutableArray *events; /* List of events for this artist */
 
 }
 
 /* Initializers */
+-(EventArtist *)initEmptyArtist;
+
 -(EventArtist *)initWithArtist: (EventArtist *) art;
 
 -(EventArtist *)initWithArtistName: (NSString *) n Description: (NSString *) desc;

@@ -13,10 +13,21 @@
 
 /* Initializer */
 
+-(EventLocation *)initEmptyLocation {
+	self = [super init];
+	
+	if(self != nil) {
+		return self;
+	}
+	
+	return nil;
+}
+
 -(EventLocation *)initWithLocation:(EventLocation *)loc {	
 	self = [super init];
 	
 	if(self != nil) {
+		name = [[NSString alloc] initWithString: [loc getName]];
 		streetAddress = [[NSString alloc] initWithString: [loc getStreetAddress]];
 		city = [[NSString alloc] initWithString: [loc getCity]];
 		state = [[NSString alloc] initWithString: [loc getState]];
@@ -79,7 +90,66 @@
 	return nil;
 }
 
+-(EventLocation *)initWithName: (NSString *) n Address: (NSString *) add City: (NSString *) c State: (NSString *) s 
+							  Zip: (NSString *) z Location: (CLLocationCoordinate2D) coord {
+	if((add == nil) || (c == nil) || (s == nil) || (z == nil)) {
+		return nil;
+	}
+	
+	if((coord.latitude < MINLAT) || (coord.latitude > MAXLAT) || 
+	   (coord.longitude < MINLON) || (coord.longitude > MAXLON)) {
+		return nil;
+	}
+	
+	self = [super init];
+	
+	if(self != nil) {
+		name = [[NSString alloc] initWithString: n];
+		streetAddress = [[NSString alloc] initWithString: add];
+		city = [[NSString alloc] initWithString: c];
+		state = [[NSString alloc] initWithString: s];
+		zip = [[NSString alloc] initWithString: z];
+		coordinate.latitude = coord.latitude;
+		coordinate.longitude = coord.longitude;
+		
+		return self;
+	}
+	
+	return nil;
+}
+
+-(EventLocation *)initWithName: (NSString *) n Address: (NSString *) add City: (NSString *) c State: (NSString *) s 
+							  Zip: (NSString *) z {
+	if((add == nil) || (c == nil) || (s == nil) || (z == nil)) {
+		return nil;
+	}
+	
+	self = [super init];
+	
+	if(self != nil) {
+		name = [[NSString alloc] initWithString: n];
+		streetAddress = [[NSString alloc] initWithString: add];
+		city = [[NSString alloc] initWithString: c];
+		state = [[NSString alloc] initWithString: s];
+		zip = [[NSString alloc] initWithString: z];
+		//TODO: add call to database to get the CLLocations
+		coordinate.latitude = 33.7728837;
+		coordinate.longitude = -84.393816;
+		return self;
+	}
+	
+	return nil;
+}
+
 /* getters and setters */
+-(void)setName:(NSString *)str {
+	name = str;
+}
+
+-(NSString *)getName {
+	return name;
+}
+
 -(void)setStreetAddress: (NSString *) str {
 	streetAddress = str;
 }

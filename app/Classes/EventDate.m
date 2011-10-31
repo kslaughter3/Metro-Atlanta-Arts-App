@@ -43,7 +43,12 @@
 
 -(EventDate *)initEmptyDate {
 	self = [super init];
-	return self;
+	
+	if(self != nil) {
+		return self;
+	}
+	
+	return nil;
 }
 
 -(EventDate *)initWithDate:(EventDate *)date {

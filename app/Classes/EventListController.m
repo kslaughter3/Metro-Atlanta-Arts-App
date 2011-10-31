@@ -58,7 +58,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	Content *content = [Content getInstance];
-	return [content getDisplayedEventCount];
+	return [content getEventCount];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -70,7 +70,7 @@
 	}
 	
 	Content *content = [Content getInstance];
-	Event *event = (Event *)[[content getDisplayedEvents] objectAtIndex:indexPath.row];
+	Event *event = (Event *)[[content getEvents] objectAtIndex:indexPath.row];
 
 	cell.textLabel.text = [event getEventName];
 	
@@ -84,7 +84,7 @@
 	
 	Content *content = [Content getInstance];
 	
-	Event *event = [[content getDisplayedEvents] objectAtIndex: indexPath.row];
+	Event *event = [[content getEvents] objectAtIndex: indexPath.row];
 	
 	if(myEventController == nil) {
 		self.myEventController = [[EventController alloc] initWithNibName: @"EventView" bundle: nil];

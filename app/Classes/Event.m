@@ -23,6 +23,16 @@
 
 
 /* Initialize Method */
+-(Event *)initEmptyEvent {
+	self = [super init];
+	
+	if(self != nil) {
+		return self;
+	}
+	
+	return nil;
+}
+
 -(Event *)initWithEvent:(Event *)event {
 	self = [super init];
 	

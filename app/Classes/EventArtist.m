@@ -12,6 +12,16 @@
 @implementation EventArtist
 
 /* Initializers */
+-(EventArtist *)initEmptyArtist {
+	self = [super init];
+	
+	if(self != nil) {
+		return self;
+	}
+	
+	return nil;
+}
+
 -(EventArtist *)initWithArtist:(EventArtist *)art {
 	self = [super init];
 	
