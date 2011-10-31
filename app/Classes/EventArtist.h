@@ -14,7 +14,7 @@
 	NSString *name;
 	NSString *description;
 	NSURL  *imageURL;
-	
+	BOOL   hasImage;
 	//NSMutableArray *events; /* List of events for this artist */
 
 }
@@ -40,6 +40,8 @@
 
 -(void)setImageURL: (NSURL *) url;
 -(NSURL *)getImageURL;
+
+-(BOOL)hasImage;
 
 /* End Getters and Setters */
 

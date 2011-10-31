@@ -27,12 +27,18 @@
 
 -(NSString *)buildHTMLString 
 {
-	NSString *html = [NSString stringWithFormat:@"<html><head><meta name=""viewport"" content=""width=320""/></head>"\
-					  "<body><h3>Description</h3><p>%@</p></body></html>", [artist getDescription]];
+	if([artist hasImage] == YES)
+	{
+		return [NSString stringWithFormat:@"<html><head><meta name=""viewport"" content=""width=320""/></head>"\
+					  "<body>"\
+					  "<center><p><img src=\"%@\" height=\"%d\"></p></center>"\
+					  "<h3>Description</h3><p>%@</p>"\
+					  "</body></html>", [[artist getImageURL]absoluteString], 100,
+				  [artist getDescription]];
+	}
 	
-	NSLog(html);
-	
-	return html;
+	return [NSString stringWithFormat:@"<html><head><meta name=""viewport"" content=""width=320""/></head>"\
+			  "<body><h3>Description</h3><p>%@</p></body></html>", [artist getDescription]];
 }
 
 /*
