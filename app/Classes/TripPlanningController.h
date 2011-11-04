@@ -27,5 +27,5 @@
 @property (nonatomic, retain) IBOutlet TripPlanningMapController *myTripMapController;
 
 -(IBAction)plan:(id)sender;
-
+-(IBAction)viewPlan:(id)sender;
 @end

@@ -32,6 +32,12 @@
 }
 
 
+-(void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear: animated];
+	
+	mySearchField.text = @"";
+}
+
 /*
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -86,6 +92,17 @@
 	for(id filter in filters) {
 		[filter setEnabled: NO];
 	}
+	
+	UIAlertView *alert = [[UIAlertView alloc] 
+						  initWithTitle:@"Cleared all Filters" 
+						  message: @"All the filters have been disabled" 
+						  delegate: nil 
+						  cancelButtonTitle: @"OK" 
+						  otherButtonTitles: nil];
+	[alert show];
+	[alert release];
+	
+	mySearchField.text = @"";
 }
 
 -(IBAction)advancedSearch: (id) sender {

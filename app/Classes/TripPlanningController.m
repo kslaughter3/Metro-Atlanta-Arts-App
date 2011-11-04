@@ -117,16 +117,93 @@ myTripMapController;
     [super dealloc];
 }
 
--(IBAction)plan:(id)sender;
+-(IBAction)plan:(id)sender
+{	
+	UIAlertView *prompt = [[UIAlertView alloc] initWithTitle:@"Fill in Parameters:"
+													 message:@"\n\n\n"
+													delegate:self
+										   cancelButtonTitle:@"Enter"
+										   otherButtonTitles:@"Cancel", nil];
+	
+	UITextField *timeField = [[UITextField alloc] initWithFrame:CGRectMake(12, 45, 260, 25)];
+	[timeField setBackgroundColor:[UIColor whiteColor]];
+	[timeField setPlaceholder:@"Time (minutes)"];
+	[timeField setKeyboardAppearance:UIKeyboardAppearanceAlert];
+	[prompt addSubview: timeField];
+	
+	UITextField *speedField = [[UITextField alloc] initWithFrame:CGRectMake(12, 80, 260, 25)];
+	[speedField setBackgroundColor:[UIColor whiteColor]];
+	[speedField setPlaceholder:@"Walking Speed (mph)"];
+	[speedField setKeyboardAppearance:UIKeyboardAppearanceAlert];
+	[prompt addSubview:speedField];
+	
+	// show the dialog box
+	[prompt show];
+	//prompt.frame = CGRectMake(0, 0, 350, 300);
+	
+	[prompt release];
+	
+}
+
+
+-(IBAction)viewPlan:(id)sender
 {
-	for(id num in integers) {
-		NSLog([NSString stringWithFormat:@"Index: %d", [num intValue]]);
-	}
 	if(myTripMapController == nil){
 		self.myTripMapController = [[TripPlanningMapController alloc] initWithNibName: @"TripPlanningMapView" bundle: nil];
 	}
 	[self presentModalViewController: self.myTripMapController animated:YES];
 }
 
+- (void) alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if(buttonIndex==0) {
+		NSArray *subviews = alert.subviews;
+		
+		/* Get the time */
+		UITextField *timeField = (UITextField *)[subviews objectAtIndex: 4];
+		NSString *timeStr = timeField.text;
+		int time = [timeStr intValue];
+		
+		/* Get the speed */
+		UITextField *speedField = (UITextField *)[subviews objectAtIndex: 5];
+		NSString *speedStr = speedField.text;
+		int speed = [speedStr intValue];
+		
+		if(time <= 0) {
+			UIAlertView *alert = [[UIAlertView alloc] 
+								  initWithTitle:@"Invalid Input" 
+								  message: @"The amount of time specified is invalid" 
+								  delegate: nil 
+								  cancelButtonTitle: @"OK" 
+								  otherButtonTitles: nil];
+			[alert show];
+			[alert release];
+		}
+		else if(speed <= 0) {
+			UIAlertView *alert = [[UIAlertView alloc] 
+								  initWithTitle:@"Invalid Input" 
+								  message: @"The speed specified is invalid" 
+								  delegate: nil 
+								  cancelButtonTitle: @"OK" 
+								  otherButtonTitles: nil];
+			[alert show];
+			[alert release];
+		}
+		else {
+			for(id num in integers) {
+				NSLog([NSString stringWithFormat:@"Index: %d", [num intValue]]);
+			}
+			
+			if(myTripMapController == nil){
+				self.myTripMapController = [[TripPlanningMapController alloc] initWithNibName: @"TripPlanningMapView" bundle: nil];
+			}
+			
+			[myTripMapController setTime: time];
+			[myTripMapController setSpeed: speed];
+			
+			[self presentModalViewController: self.myTripMapController animated:YES];
+		}
+	}
+}
 
 @end

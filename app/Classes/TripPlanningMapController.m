@@ -38,6 +38,22 @@
 }
 */
 
+-(void)setTime:(int)min {
+	time = min;
+}
+
+-(int)getTime {
+	return time;
+}
+
+-(void)setSpeed:(int)mph {
+	speed = mph;
+}
+
+-(int)getSpeed {
+	return speed;
+}
+
 -(IBAction)close: (id)sender {
 	NSLog(@"Close Clicked\n");
 	[self.parentViewController dismissModalViewControllerAnimated: YES];
