@@ -25,6 +25,10 @@
 
 -(EventAvailability *)initWithDay: (NSMutableArray *) d Start: (int) start End: (int) end;
 
+-(NSString *)getDayRange;
+-(NSString *)getStartTimeString;
+-(NSString *)getEndTimeString;
+
 /* Getters and Setters */
 -(void)setDays: (NSMutableArray *) d;
 -(NSMutableArray *)getDays;
@@ -41,6 +45,7 @@
 -(void)removeDay: (NSString *) day;
 
 -(BOOL)containsDay: (NSString *) day;
+-(BOOL)containsEveryDay;
 
 -(BOOL)availableDuring: (int) time;
 

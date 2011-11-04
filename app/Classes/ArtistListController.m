@@ -30,10 +30,10 @@ myArtistController;
 	Content *content = [Content getInstance];
 	EventArtist *temp = [[EventArtist alloc] initWithArtistName: @"jun"
 													Description: @"This is a long description that should take more than "\
-						 "one line and I want to see if that is a problem for the "\ 
+						 "one line and I want to see if that is a problem for the "\
 						 "text view to handle also I'm inserting a newline character "\
 						 "here\nto see if that works as well lets make this even longer"\
-						 "so it goes beyond the size of the visible box"\ 
+						 "so it goes beyond the size of the visible box"\
 						 "so I'm just going to keep on typing until such a time that"\
 						 "I feel like this is pretty long\n so the scrolling works" 
 						 ImageURL: @"http://gra217b.files.wordpress.com/2011/09/apple-mac-logo.jpg"];

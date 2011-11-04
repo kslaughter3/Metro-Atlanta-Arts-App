@@ -309,7 +309,7 @@
 	}
 	
 	if(second == 0) {
-		return [NSString stringWithFormat:@"%d:%am", hour, minute];
+		return [NSString stringWithFormat:@"%d:%02dam", hour, minute];
 	}
 	
 	return [NSString stringWithFormat:@"%d:%02d:%02dam", hour, minute, second];

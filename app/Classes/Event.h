@@ -16,14 +16,14 @@
 	NSString *name;						/* Name of the Event */
 	EventArtist *artist;				/* Name of the Artist (where applicable) */
 	NSString *description;				/* Description of Event */
-	NSURL *website;						/* Website URL */
+	NSString *website;					/* Website URL */
 	EventLocation *location;			/* The location of Event (both street and lat/lon */
 	EventDate *startDate;				/* Start Date and Time */
 	EventDate *endDate;					/* End Date and Time */
 	int duration;						/* Duration of the Event (in minutes)*/
 	double cost;						/* Cost of the Event */
 	EventAvailability *availability;	/* The availability of the event */
-	NSURL *imageURL;
+	NSString *imageURL;
 }
 
 -(Event *)initTestEvent:(NSString *)n Description:(NSString *)desc;
@@ -56,8 +56,8 @@
 -(void)setDescription: (NSString *) str;
 -(NSString *)getDescription;
 
--(void)setWebsite: (NSURL *) url;
--(NSURL *)getWebsite;
+-(void)setWebsite: (NSString *) url;
+-(NSString *)getWebsite;
 
 -(void)setLocation: (EventLocation *) loc;
 -(EventLocation * )getLocation;
@@ -77,8 +77,8 @@
 -(void)setAvailability: (EventAvailability *) avail;
 -(EventAvailability *)getAvailability;
 
--(void)setImageURL: (NSURL *) url;
--(NSURL *)getImageURL;
+-(void)setImageURL: (NSString *) url;
+-(NSString *)getImageURL;
 
 /* End Getters and Setters */
 

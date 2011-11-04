@@ -40,8 +40,8 @@
 		name = [[NSString alloc] initWithString: [event getEventName]];
 		artist = [[EventArtist alloc] initWithArtist: [event getArtist]];
 		description = [[NSString alloc] initWithString: [event getDescription]];
-		imageURL = [[NSURL alloc] initWithString: [[event getImageURL] absoluteString]];
-		website = [[NSURL alloc] initWithString: [[event getWebsite] absoluteString]];
+		imageURL = [[NSString alloc] initWithString: [event getImageURL]];
+		website = [[NSString alloc] initWithString: [event getWebsite]];
 		location = [[EventLocation alloc] initWithLocation: [event getLocation]];
 		startDate = [[EventDate alloc] initWithDate: [event getStartDate]];
 		endDate = [[EventDate alloc] initWithDate: [event getEndDate]];
@@ -72,7 +72,7 @@
 		name = [[NSString alloc] initWithString: n];
 		artist = [[EventArtist alloc] initWithArtist: a];
 		description = [[NSString alloc] initWithString: desc];
-		website = [[NSURL alloc] initWithString: url];
+		website = [[NSString alloc] initWithString: url];
 		location = [[EventLocation alloc] initWithLocation: loc];
 		startDate = [[EventDate alloc] initWithDate: start];
 		endDate = [[EventDate alloc] initWithDate: end];
@@ -104,8 +104,8 @@
 		name = [[NSString alloc] initWithString: n];
 		artist = [[EventArtist alloc] initWithArtist: a];
 		description = [[NSString alloc] initWithString: desc];
-		imageURL = [[NSURL alloc] initWithString: iURL];
-		website = [[NSURL alloc] initWithString: url];
+		imageURL = [[NSString alloc] initWithString: iURL];
+		website = [[NSString alloc] initWithString: url];
 		location = [[EventLocation alloc] initWithLocation: loc];
 		startDate = [[EventDate alloc] initWithDate: start];
 		endDate = [[EventDate alloc] initWithDate: end];
@@ -147,11 +147,11 @@
 	return description;
 }
 
--(void) setWebsite: (NSURL *) url {
+-(void) setWebsite: (NSString *) url {
 	website = url;
 }
 
--(NSURL *)getWebsite {
+-(NSString *)getWebsite {
 	return website;
 }
 
@@ -203,11 +203,11 @@
 	return availability;
 }
 
--(void)setImageURL:(NSURL *)url {
+-(void)setImageURL:(NSString *)url {
 	imageURL = url;
 }
 
--(NSURL *)getImageURL {
+-(NSString *)getImageURL {
 	return imageURL;
 }
 

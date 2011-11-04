@@ -59,6 +59,17 @@
 	return [NSString stringWithFormat:@"%d:%02dam", hour, min];
 }
 
+-(EventAvailability *)initEmptyAvailability {
+	self = [super init];
+	
+	if(self != nil) {
+		days = [[NSMutableArray alloc] init];
+		return self;
+	}
+	
+	return nil;
+}
+
 /* Initializers */
 -(EventAvailability *)initWithAvailability:(EventAvailability *)avail {
 	self = [super init];
@@ -94,6 +105,78 @@
 	return nil;
 }
 
+-(NSString *)getDayRange {
+	
+	//TODO: This isn't right
+	NSString *start;
+	NSString *end;
+	
+	if([self containsEveryDay] == YES) {
+		return [NSString stringWithFormat:@"Every Day"];
+	}
+	
+	//Get The Start day
+	if([self containsDay: @"SUNDAY"] == YES) {
+		start = [[NSString alloc] initWithString: @"Sunday"];
+	}
+	else if([self containsDay: @"MONDAY"] == YES) {
+		start = [[NSString alloc] initWithString: @"Monday"];
+	}
+	else if([self containsDay: @"TUESDAY"] == YES) {
+		start = [[NSString alloc] initWithString: @"Tuesday"];
+	}
+	else if([self containsDay: @"WEDNESDAY"] == YES) {
+		start = [[NSString alloc] initWithString: @"Wednesday"];
+	}
+	else if([self containsDay: @"THURSDAY"] == YES) {
+		start = [[NSString alloc] initWithString: @"Thursday"];
+	}
+	else if([self containsDay: @"FRIDAY"] == YES) {
+		start = [[NSString alloc] initWithString: @"Friday"];
+	}
+	else if([self containsDay: @"SATURDAY"] == YES) {
+		start = [[NSString alloc] initWithString: @"Saturday"];
+	}
+	
+	
+	//Get the end day
+	if([self containsDay: @"SATURDAY"] == YES) {
+		end = [[NSString alloc] initWithString: @"Saturday"];
+	}
+	else if([self containsDay: @"FRIDAY"] == YES) {
+		end = [[NSString alloc] initWithString: @"Friday"];
+	}
+	else if([self containsDay: @"THURSDAY"] == YES) {
+		end = [[NSString alloc] initWithString: @"Thursday"];
+	}
+	else if([self containsDay: @"WEDNESDAY"] == YES) {
+		end = [[NSString alloc] initWithString: @"Wednesday"];
+	}
+	else if([self containsDay: @"TUESDAY"] == YES) {
+		end = [[NSString alloc] initWithString: @"Tuesday"];
+	}
+	else if([self containsDay: @"MONDAY"] == YES) {
+		end = [[NSString alloc] initWithString: @"Monday"];
+	}
+	else if([self containsDay: @"SUNDAY"] == YES) {
+		end = [[NSString alloc] initWithString: @"Sunday"];
+	}
+	
+	if([start isEqualToString: end] == YES) {
+		return start;
+	}
+	
+	return [NSString stringWithFormat:@"%@-%@", start, end];
+}
+
+-(NSString *)getStartTimeString {
+	return [EventAvailability timeString: startTime];
+}
+
+-(NSString *)getEndTimeString {
+	return [EventAvailability timeString: endTime];
+}
+
 /* Getters and Setters */
 -(void)setDays: (NSMutableArray *) d {
 	days = d;
@@ -122,19 +205,48 @@
 /* end Getters and Setters */
 
 -(void)addDay: (NSString *) day {
-	if([days containsObject: day] == NO) {
-		[days addObject: day];
+	NSString *d = [day uppercaseString];
+	if([days containsObject: d] == NO) {
+		[days addObject: d];
 	}
 }
 
 -(void)removeDay: (NSString *) day {
-	if([days containsObject: day] == YES) {
-		[days removeObjectIdenticalTo: day];
+	NSString *d = [day uppercaseString];
+	if([days containsObject: d] == YES) {
+		[days removeObjectIdenticalTo: d];
 	}
 }
 
 -(BOOL)containsDay: (NSString *) day {
-	return [days containsObject: day];
+	NSString *d = [day uppercaseString];
+	return [days containsObject: d];
+}
+
+-(BOOL)containsEveryDay {
+	if([self containsDay: @"SUNDAY"] == NO) {
+		return NO;
+	}
+	if([self containsDay: @"MONDAY"] == NO) {
+		return NO;
+	}
+	if([self containsDay: @"TUESDAY"] == NO) {
+		return NO;
+	}
+	if([self containsDay: @"WEDNESDAY"] == NO) {
+		return NO;
+	}
+	if([self containsDay: @"THURSDAY"] == NO) {
+		return NO;
+	}
+	if([self containsDay: @"FRIDAY"] == NO) {
+		return NO;
+	}
+	if([self containsDay: @"SATURDAY"] == NO) {
+		return NO;
+	}
+
+	return YES;
 }
 
 -(BOOL)availableDuring: (int) time {

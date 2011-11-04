@@ -38,7 +38,45 @@
 	 [myTableView setDataSource: self];
 	 
 	 Content *content = [Content getInstance];
-	 Event *event= [[Event alloc] initTestEvent: @"test" Description: @"1 2 3 4"];
+	 
+//TEST EVENT	 
+	 Event *event = [[Event alloc] initEmptyEvent];
+	 [event setEventName: @"Test"];
+	 [event setImageURL:@"http://gra217b.files.wordpress.com/2011/09/apple-mac-logo.jpg"];
+	 EventLocation *loc = [[EventLocation alloc] initEmptyLocation];
+	 [loc setName: @"Atlanta Museum of Modern Art"];
+	 [event setLocation: loc];
+	 EventDate *start = [[EventDate alloc] initEmptyDate];
+	 [start setDate: @"11/04/2011"];
+	 [start setTime: @"9:00am"];
+	 EventDate *end = [[EventDate alloc] initEmptyDate];
+	 [end setDate: @"11/11/2011"];
+	 [end setTime: @"5:00pm"];
+	 [event setStartDate: start];
+	 [event setEndDate: end];
+	 
+/*	 EventAvailability *avail = [[EventAvailability alloc] initEmptyAvailability];
+	 [avail addDay: @"Monday"];
+	 [avail addDay: @"Friday"];
+	 [avail setStartTime: 900];
+	 [avail setEndTime: 1700];
+	 [event setAvailability: avail];
+*/
+	 [event setDescription: @"This is a long description that should take more than "\
+	  "one line and I want to see if that is a problem for the "\
+	  "text view to handle also I'm inserting a newline character "\
+	  "here\nto see if that works as well lets make this even longer"\
+	  "so it goes beyond the size of the visible box"\
+	  "so I'm just going to keep on typing until such a time that"\
+	  "I feel like this is pretty long\n so the scrolling works"];
+	 EventArtist *art = [[EventArtist alloc] initEmptyArtist];
+	 [art setName: @"Van Goh"];
+	 [event setArtist: art];
+	 [event setCost: 10.0];
+	 [event setDuration: 20];
+	 [event setWebsite: @"http:://www.apple.com"];
+	 
+	 //Event *event= [[Event alloc] initTestEvent: @"test" Description: @"1 2 3 4"];
 	 [content addEvent: event];
 	 
 	 [super viewDidLoad];

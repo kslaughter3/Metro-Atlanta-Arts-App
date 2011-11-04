@@ -47,21 +47,101 @@
 	}
 	myTitleBar.topItem.title = [myEvent getEventName];
 	
-	NSString *deschtml = [self buildDescriptionHTMLString];
-	[descriptionView loadHTMLString:deschtml baseURL:[NSURL URLWithString: @"http:://www.apple.com"]];
+	NSString *html = [self buildHTMLString];
+	[descriptionView loadHTMLString:html baseURL:[NSURL URLWithString: @"http:://www.apple.com"]];
 
 }
 
--(NSString *)buildDescriptionHTMLString 
+-(NSString *)buildHTMLString 
 {
-	NSString *locationString = [NSString stringWithFormat: @"%@", [[myEvent getLocation] getStreetAddress]];
-	NSString *timeString = [NSString stringWithFormat:@"%@-%@", [[myEvent getStartDate] getTimeStandardFormat],
-							[[myEvent getEndDate] getTimeStandardFormat]];
-	NSString *costString = [NSString stringWithFormat: @"%d",[myEvent getCost]];
+	NSString *html = [NSString stringWithFormat:@"<html>"\
+					  "<head><meta name=""viewport"" content=""width=320""/>"\
+					  "</head><body>"];
+	NSString *temp;
 	
-	NSString *html = [NSString stringWithFormat:@"<html><head><meta name=""viewport"" content=""width=320""/></head>"\
-					  "<body><h3>Location</h3><p>%@</p><h3>Time</h3><p>%@</p> <h3> Cost </h3> <p>%@</p> <h3>Description</h3><p>%@</p> </body></html>", 
-					  locationString, timeString, costString, [myEvent getDescription]];
+	/* Add the fields that are there */
+	if([myEvent getImageURL] != nil && [myEvent getImageURL] != @"") {
+		temp= [NSString stringWithFormat:@"<center><p><img src=\"%@\" "\
+						 "height=\"%d\"></p></center>", [myEvent getImageURL], 100];
+		html = [html stringByAppendingString: temp];
+	}
+	
+	if([myEvent getLocation] != nil) {
+		if([[myEvent getLocation] getName] != @"") {
+			temp = [NSString stringWithFormat:@"<h3>Location</h3><p>%@</p>", 
+							  [[myEvent getLocation] getName]];
+		}
+		else {
+			temp = [NSString stringWithFormat:@"<h3>Location</h3><p>%@<br/>%@, %@ %@ </p>", 
+							  [[myEvent getLocation] getStreetAddress], 
+							  [[myEvent getLocation] getCity],
+							  [[myEvent getLocation] getState],
+							  [[myEvent getLocation] getZip]];
+		}
+		
+		html = [html stringByAppendingString: temp];
+	}
+	
+	if([myEvent getStartDate] != nil && [myEvent getEndDate] != nil) {
+		temp = [NSString stringWithFormat:@"<h3>Availability</h3><h4>Dates</h4>"\
+				"<p>%@-%@</p><h4>Times</h4><p>%@-%@</p>", 
+				[[myEvent getStartDate] getDate], [[myEvent getEndDate] getDate], 
+				[[myEvent getStartDate] getTimeStandardFormat],
+				[[myEvent getEndDate] getTimeStandardFormat]];
+		
+		html = [html stringByAppendingString: temp];
+	}
+	else if([myEvent getAvailability] != nil) {
+		temp = [NSString stringWithFormat:@"<h3>Availability</h3><h4>Days</h4>"\
+				"<p>%@</p><h4>Times</h4><p>%@-%@</p>",
+				[[myEvent getAvailability] getDayRange],
+				[[myEvent getAvailability] getStartTimeString],
+				[[myEvent getAvailability] getEndTimeString]];
+		
+		html = [html stringByAppendingString: temp];
+	}
+	
+	if([myEvent getDescription] != nil && [myEvent getDescription] != @"") {
+		temp = [NSString stringWithFormat:@"<h3>Description</h3><p>%@</p>", 
+				[myEvent getDescription]];
+		
+		html = [html stringByAppendingString: temp];
+	}
+	
+	if([myEvent getArtist] != nil && [[myEvent getArtist] getName] != @"") {
+		temp = [NSString stringWithFormat:@"<h3>Artist</h3><p>%@</p>", 
+						  [[myEvent getArtist] getName]];
+		
+		html = [html stringByAppendingString: temp];
+	}
+	
+	if([myEvent getCost] > 0) {
+		temp = [NSString stringWithFormat:@"<h3>Price</h3><p>$%.2f</p>",
+				[myEvent getCost]];
+		
+		html = [html stringByAppendingString: temp];
+	}
+	else if([myEvent getCost] == 0) {
+		temp = [NSString stringWithFormat:@"<h3>Price</h3><p>Free</p>"];
+		
+		html = [html stringByAppendingString: temp];
+	}
+	
+	if([myEvent getDuration] > 0) {
+		temp = [NSString stringWithFormat:@"<h3>Duration</h3><p>%d minutes</p>",
+				[myEvent getDuration]];
+		
+		html = [html stringByAppendingString: temp];
+	}
+	
+	if([myEvent getWebsite] != nil && [myEvent getWebsite] != @"") {
+		temp = [NSString stringWithFormat:@"<center><p><a href=\"%@\">View Website</a></p></center>",
+				[myEvent getWebsite]];
+		
+		html = [html stringByAppendingString: temp];
+	}
+	
+	html = [html stringByAppendingString: @"</body></html>"];
 	
 	NSLog(html);
 	

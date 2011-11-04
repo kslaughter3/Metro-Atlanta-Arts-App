@@ -197,48 +197,7 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>F2B124A9146445630023FFBB</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>TripPlanningController.m</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>F2B124AA146445630023FFBB</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>TripPlanningController.m</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>F2B1258B146450DC0023FFBB</string>
-						<key>history</key>
-						<array>
-							<string>F2B12583146450B60023FFBB</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {977, 706}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>798 350 977 747 0 0 1920 1178 </string>
-			</dict>
-		</dict>
-	</array>
+	<array/>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>-1</integer>
@@ -334,7 +293,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>700 324 860 703 0 0 1920 1178 </string>
+						<string>413 412 860 703 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -350,7 +309,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>TripPlanningMapController.h</string>
+								<string>EventAvailability.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -358,18 +317,16 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>TripPlanningMapController.h</string>
+										<string>EventAvailability.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F2B1258A146450DC0023FFBB</string>
+										<string>F2B126F514647F500023FFBB</string>
 										<key>history</key>
 										<array>
 											<string>F2BF2AF7143A367E00FBD2F5</string>
 											<string>F2B587B014436A82000A4A68</string>
 											<string>F22EB2751455BB1A00D0B058</string>
-											<string>F2AEAA6A145863E800B6D34E</string>
-											<string>F2AEAAD21458651F00B6D34E</string>
 											<string>F2AEAB1414586AA200B6D34E</string>
 											<string>F2AEAEB81458775400B6D34E</string>
 											<string>F2AEAEDE1458780200B6D34E</string>
@@ -378,30 +335,35 @@
 											<string>F2882E44145F14EA007B7E83</string>
 											<string>F2882EA2145F1C72007B7E83</string>
 											<string>F2882EA4145F1C72007B7E83</string>
-											<string>F2882F08145F2443007B7E83</string>
-											<string>F24A78AA145F2D1100177AE9</string>
-											<string>F24A78AB145F2D1100177AE9</string>
-											<string>F24A78AC145F2D1100177AE9</string>
-											<string>F24A78AD145F2D1100177AE9</string>
-											<string>F24A78AE145F2D1100177AE9</string>
 											<string>F24A78AF145F2D1100177AE9</string>
 											<string>F24A78B0145F2D1100177AE9</string>
 											<string>F24A78B1145F2D1100177AE9</string>
-											<string>F24A78B2145F2D1100177AE9</string>
 											<string>F24A78B3145F2D1100177AE9</string>
 											<string>F24A78B4145F2D1100177AE9</string>
 											<string>F24A78B5145F2D1100177AE9</string>
-											<string>F24A78B6145F2D1100177AE9</string>
-											<string>F24A78B7145F2D1100177AE9</string>
-											<string>F24A78B8145F2D1100177AE9</string>
-											<string>F24A78B9145F2D1100177AE9</string>
-											<string>F24A78BA145F2D1100177AE9</string>
-											<string>F24A78BB145F2D1100177AE9</string>
-											<string>F24A78BC145F2D1100177AE9</string>
-											<string>F24A78BD145F2D1100177AE9</string>
-											<string>F2B124A6146445630023FFBB</string>
 											<string>F2B12580146450B60023FFBB</string>
-											<string>F2B12581146450B60023FFBB</string>
+											<string>F2B1259D14646ABE0023FFBB</string>
+											<string>F2B1259E14646ABE0023FFBB</string>
+											<string>F2B1259F14646ABE0023FFBB</string>
+											<string>F2B125A014646ABE0023FFBB</string>
+											<string>F2B125A114646ABE0023FFBB</string>
+											<string>F2B125A214646ABE0023FFBB</string>
+											<string>F2B125A314646ABE0023FFBB</string>
+											<string>F2B125A414646ABE0023FFBB</string>
+											<string>F2B125A514646ABE0023FFBB</string>
+											<string>F2B125A714646ABE0023FFBB</string>
+											<string>F2B125A814646ABE0023FFBB</string>
+											<string>F2B125A914646ABE0023FFBB</string>
+											<string>F2B12607146476410023FFBB</string>
+											<string>F2B12608146476410023FFBB</string>
+											<string>F2B1260A146476410023FFBB</string>
+											<string>F2B126271464777C0023FFBB</string>
+											<string>F2B126281464777C0023FFBB</string>
+											<string>F2B1265214647A210023FFBB</string>
+											<string>F2B1265314647A210023FFBB</string>
+											<string>F2B1266314647A7B0023FFBB</string>
+											<string>F2B126AD14647D210023FFBB</string>
+											<string>F2B126AE14647D210023FFBB</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -415,7 +377,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {652, 101}}</string>
 								<key>RubberWindowFrame</key>
-								<string>700 324 860 703 0 0 1920 1178 </string>
+								<string>413 412 860 703 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -437,7 +399,7 @@
 								<key>Frame</key>
 								<string>{{0, 106}, {652, 556}}</string>
 								<key>RubberWindowFrame</key>
-								<string>700 324 860 703 0 0 1920 1178 </string>
+								<string>413 412 860 703 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -606,10 +568,9 @@
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>F2B521F9143371A7006D2A52</string>
 		<string>/nethome/agendreau3/Documents/Metro-Atlanta-Arts-App/app/Metro-Atlanta-Arts-App.xcodeproj</string>
-		<string>F2B124A9146445630023FFBB</string>
 	</array>
 	<key>WindowString</key>
-	<string>700 324 860 703 0 0 1920 1178 </string>
+	<string>413 412 860 703 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -630,7 +591,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>TripPlanningController.m</string>
+								<string>Event.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
