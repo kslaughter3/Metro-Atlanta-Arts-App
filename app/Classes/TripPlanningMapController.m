@@ -23,12 +23,12 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
+/*- (void)viewDidLoad {
     [super viewDidLoad];
-}
-*/
+}*/
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -52,6 +52,61 @@
 
 -(int)getSpeed {
 	return speed;
+}
+
+-(void)setEvents: (NSMutableArray *)indices
+{
+	Content *content = [Content getInstance];
+
+	if(myEvents == nil) {
+		myEvents = [[NSMutableArray alloc] init];
+	}
+	
+	//Get rid of the old events
+	[myEvents removeAllObjects];
+	
+	for(id index in indices) {
+		[myEvents addObject: [content getEventAtIndex: [(NSNumber *)index intValue]]];
+	}
+	
+	//[self planTrip];
+}
+
+-(void)planTrip 
+{ 
+	NSMutableArray *eventsLeft = [[NSMutableArray alloc] initWithArray: myEvents];
+	NSMutableArray *sorted = [[NSMutableArray alloc] initWithCapacity: [myEvents count]];
+	//TODO: get this to get my current location from the phone
+	EventLocation *myLoc;
+	double minDist = -1;
+	Event *nextEvent;
+	int timeTaken;
+	
+	while((timeTaken < time) && ([eventsLeft count] > 0)) {
+		for(id e in eventsLeft) {
+			Event *event = (Event *)e;
+			double dist = [[event getLocation] distanceFromLocation: myLoc];
+			if(minDist == -1 || dist < minDist) {
+				minDist = dist;
+				nextEvent = event;
+			}
+		}
+		
+		timeTaken += (minDist/speed);
+		myLoc = [nextEvent getLocation];
+		[eventsLeft removeObjectIdenticalTo: nextEvent];
+		[sorted addObject: nextEvent];
+		minDist = -1;
+	}
+	
+	//Remove the events and add them back sorted
+	[myEvents removeAllObjects];
+	[myEvents addObjectsFromArray: sorted];
+}
+
+-(NSMutableArray *)getEvents
+{
+	return myEvents;
 }
 
 -(IBAction)close: (id)sender {

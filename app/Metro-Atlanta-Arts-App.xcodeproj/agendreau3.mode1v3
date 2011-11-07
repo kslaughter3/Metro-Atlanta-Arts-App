@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>F27C50CC146866B400E92E0F</string>
+						<string>F27C516614686F8100E92E0F</string>
 						<key>history</key>
 						<array>
 							<string>F27C50AA1468657000E92E0F</string>
@@ -270,6 +270,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -305,17 +307,19 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
+								<string>080E96DDFE201D6D7F000001</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
+									<integer>18</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {186, 644}}</string>
+							<string>{{0, 134}, {186, 644}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -345,14 +349,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>EventListController.m</string>
+								<string>TripPlanningMapController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -360,16 +362,15 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>EventListController.m</string>
+										<string>TripPlanningMapController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F27C50CB146866B400E92E0F</string>
+										<string>F27C516514686F8100E92E0F</string>
 										<key>history</key>
 										<array>
 											<string>F2BF2AF7143A367E00FBD2F5</string>
 											<string>F2B587B014436A82000A4A68</string>
-											<string>F22EB2751455BB1A00D0B058</string>
 											<string>F2AEAB1414586AA200B6D34E</string>
 											<string>F2AEAEB81458775400B6D34E</string>
 											<string>F2AEAEDE1458780200B6D34E</string>
@@ -379,8 +380,6 @@
 											<string>F2882EA4145F1C72007B7E83</string>
 											<string>F24A78AF145F2D1100177AE9</string>
 											<string>F24A78B0145F2D1100177AE9</string>
-											<string>F24A78B1145F2D1100177AE9</string>
-											<string>F24A78B3145F2D1100177AE9</string>
 											<string>F24A78B4145F2D1100177AE9</string>
 											<string>F24A78B5145F2D1100177AE9</string>
 											<string>F2B1259D14646ABE0023FFBB</string>
@@ -393,7 +392,6 @@
 											<string>F2B125A414646ABE0023FFBB</string>
 											<string>F2B125A514646ABE0023FFBB</string>
 											<string>F2B125A714646ABE0023FFBB</string>
-											<string>F2B125A914646ABE0023FFBB</string>
 											<string>F2B12608146476410023FFBB</string>
 											<string>F2B1260A146476410023FFBB</string>
 											<string>F2B126271464777C0023FFBB</string>
@@ -603,10 +601,15 @@
 											<string>F27C508A1468602500E92E0F</string>
 											<string>F27C508B1468602500E92E0F</string>
 											<string>F27C508C1468602500E92E0F</string>
-											<string>F27C508D1468602500E92E0F</string>
 											<string>F27C508E1468602500E92E0F</string>
-											<string>F27C50AF146865C400E92E0F</string>
-											<string>F2E5B4D3145B2EEC00706C09</string>
+											<string>F27C50D01468679F00E92E0F</string>
+											<string>F27C50E1146868A800E92E0F</string>
+											<string>F27C512F14686C4100E92E0F</string>
+											<string>F27C513014686C4100E92E0F</string>
+											<string>F27C514214686EF000E92E0F</string>
+											<string>F27C514314686EF000E92E0F</string>
+											<string>F27C514414686EF000E92E0F</string>
+											<string>F27C514514686EF000E92E0F</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -833,7 +836,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>TripPlanningController.m</string>
+								<string>TripPlanningMapController.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>

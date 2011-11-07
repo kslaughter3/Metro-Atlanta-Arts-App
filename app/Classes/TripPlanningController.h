@@ -10,7 +10,8 @@
 #import "TripPlanningController.h"
 #import "TripPlanningMapController.h"
 
-#define WALKING_SPEED	3
+//Store these in meters per minute because distanceTo returns meters and time is in minutes
+#define WALKING_SPEED	3 
 #define BIKING_SPEED	9
 #define DRIVING_SPEED	20
 

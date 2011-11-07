@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-
+#import <CoreLocation/CoreLocation.h>
+#import "Content.h"
 
 @interface TripPlanningMapController : UIViewController<MKMapViewDelegate> {
 	IBOutlet MKMapView* myTripMapView;
 	int time;
 	int speed;
+	NSMutableArray *myEvents;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView* myTripMapView;
@@ -23,6 +25,10 @@
 
 -(void)setSpeed: (int) mph;
 -(int)getSpeed;
+
+-(void)setEvents: (NSMutableArray *)indices;
+-(void)planTrip;
+-(NSMutableArray *)getEvents;
 
 -(IBAction)close: (id)sender;
 

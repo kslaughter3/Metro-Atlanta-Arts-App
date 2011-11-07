@@ -203,13 +203,12 @@ myTripMapController;
 			[alert release];
 		}
 		else {
-			
-			NSLog([NSString stringWithFormat: @"Speed: %d", speed]);
 		
 			if(myTripMapController == nil){
 				self.myTripMapController = [[TripPlanningMapController alloc] initWithNibName: @"TripPlanningMapView" bundle: nil];
 			}
-			
+
+			[myTripMapController setEvents: integers];
 			[myTripMapController setTime: time];
 			[myTripMapController setSpeed: speed];
 			
