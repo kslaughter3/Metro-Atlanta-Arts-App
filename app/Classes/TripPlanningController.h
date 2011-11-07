@@ -10,6 +10,10 @@
 #import "TripPlanningController.h"
 #import "TripPlanningMapController.h"
 
+#define WALKING_SPEED	3
+#define BIKING_SPEED	9
+#define DRIVING_SPEED	20
+
 @class TripPlanningController;
 
 @interface TripPlanningController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
@@ -26,6 +30,7 @@
 @property (nonatomic, retain) NSMutableArray* integers;
 @property (nonatomic, retain) IBOutlet TripPlanningMapController *myTripMapController;
 
+-(void)pickMode:(id)sender;
 -(IBAction)plan:(id)sender;
 -(IBAction)viewPlan:(id)sender;
 @end

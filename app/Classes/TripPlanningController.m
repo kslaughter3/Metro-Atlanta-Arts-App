@@ -131,18 +131,25 @@ myTripMapController;
 	[timeField setKeyboardAppearance:UIKeyboardAppearanceAlert];
 	[prompt addSubview: timeField];
 	
-	UITextField *speedField = [[UITextField alloc] initWithFrame:CGRectMake(12, 80, 260, 25)];
-	[speedField setBackgroundColor:[UIColor whiteColor]];
-	[speedField setPlaceholder:@"Walking Speed (mph)"];
-	[speedField setKeyboardAppearance:UIKeyboardAppearanceAlert];
-	[prompt addSubview:speedField];
+	/* Add the segmeneted control */
+	NSArray *itemArray = [NSArray arrayWithObjects: @"Walk", @"Bike", @"Drive", nil];
+	UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems: itemArray];
+	segmentedControl.frame = CGRectMake(12, 80, 260, 25);
+	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+	segmentedControl.selectedSegmentIndex = 0;
+	[segmentedControl addTarget:self action:@selector(pickMode:) forControlEvents:UIControlEventValueChanged];
+	[prompt addSubview: segmentedControl];
+	[segmentedControl release];
 	
 	// show the dialog box
 	[prompt show];
-	//prompt.frame = CGRectMake(0, 0, 350, 300);
-	
 	[prompt release];
 	
+}
+
+-(void)pickMode:(id)sender 
+{
+	//Doesn't do anything
 }
 
 
@@ -165,9 +172,25 @@ myTripMapController;
 		int time = [timeStr intValue];
 		
 		/* Get the speed */
-		UITextField *speedField = (UITextField *)[subviews objectAtIndex: 5];
-		NSString *speedStr = speedField.text;
-		int speed = [speedStr intValue];
+		UISegmentedControl *segmentedControl = (UISegmentedControl *)[subviews objectAtIndex: 5];
+		int index = [segmentedControl selectedSegmentIndex];
+		int speed; 
+		
+		switch(index)
+		{
+			case 0:
+				speed = WALKING_SPEED;
+				break;
+			case 1:
+				speed = BIKING_SPEED;
+				break;
+			case 2:
+				speed = DRIVING_SPEED;
+				break;
+			default:
+				speed = WALKING_SPEED;
+				break;
+		}
 		
 		if(time <= 0) {
 			UIAlertView *alert = [[UIAlertView alloc] 
@@ -179,21 +202,10 @@ myTripMapController;
 			[alert show];
 			[alert release];
 		}
-		else if(speed <= 0) {
-			UIAlertView *alert = [[UIAlertView alloc] 
-								  initWithTitle:@"Invalid Input" 
-								  message: @"The speed specified is invalid" 
-								  delegate: nil 
-								  cancelButtonTitle: @"OK" 
-								  otherButtonTitles: nil];
-			[alert show];
-			[alert release];
-		}
 		else {
-			for(id num in integers) {
-				NSLog([NSString stringWithFormat:@"Index: %d", [num intValue]]);
-			}
 			
+			NSLog([NSString stringWithFormat: @"Speed: %d", speed]);
+		
 			if(myTripMapController == nil){
 				self.myTripMapController = [[TripPlanningMapController alloc] initWithNibName: @"TripPlanningMapView" bundle: nil];
 			}
