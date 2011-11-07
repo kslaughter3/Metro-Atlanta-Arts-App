@@ -87,7 +87,7 @@
 	 [event setArtist: art];
 	 [event setCost: 10.0];
 	 [event setDuration: 20];
-	 [event setWebsite: @"http:://www.apple.com"];
+	 [event setWebsite: @"http://www.apple.com"];
 	 
 	 //Event *event= [[Event alloc] initTestEvent: @"test" Description: @"1 2 3 4"];
 	 [content addEvent: event];
