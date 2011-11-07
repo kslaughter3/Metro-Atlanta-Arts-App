@@ -10,7 +10,7 @@
 
 
 @implementation EventController
-@synthesize descriptionView, detailView, imageView, myTitleBar;
+@synthesize myWebView, detailView, imageView, myTitleBar;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -22,12 +22,13 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	myWebView.delegate = self;
 }
-*/
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -48,7 +49,7 @@
 	myTitleBar.topItem.title = [myEvent getEventName];
 	
 	NSString *html = [self buildHTMLString];
-	[descriptionView loadHTMLString:html baseURL:[NSURL URLWithString: @"http:://www.apple.com"]];
+	[myWebView loadHTMLString:html baseURL:[NSURL URLWithString: @"http:://www.apple.com"]];
 
 }
 
@@ -143,11 +144,16 @@
 	
 	html = [html stringByAppendingString: @"</body></html>"];
 	
-	NSLog(html);
-	
 	return html;
 }
 
+-(BOOL)webView:(UIWebView *)descriptionTextView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    if (UIWebViewNavigationTypeLinkClicked == navigationType) {
+        [[UIApplication sharedApplication] openURL:[request URL]];
+        return NO;
+    }
+    return YES;
+}
 
 -(IBAction)close: (id)sender {
 	NSLog(@"Close Clicked\n");

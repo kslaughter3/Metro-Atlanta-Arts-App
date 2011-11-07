@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Event.h"
 
-@interface EventController : UIViewController {
+@interface EventController : UIViewController <UIWebViewDelegate> {
 	IBOutlet UINavigationBar *myTitleBar;
-	IBOutlet UIWebView *descriptionView;
+	IBOutlet UIWebView *myWebView;
 	IBOutlet UIWebView *detailView;
 	IBOutlet UIImageView *imageView;
 	Event *myEvent;
@@ -19,7 +19,7 @@
 
 @property(nonatomic, retain) IBOutlet UINavigationBar *myTitleBar;
 @property(nonatomic, retain) IBOutlet UIWebView *detailView;
-@property(nonatomic, retain) IBOutlet UIWebView *descriptionView;
+@property(nonatomic, retain) IBOutlet UIWebView *myWebView;
 @property(nonatomic, retain) IBOutlet UIImageView *imageView;
 
 //-(NSString *)buildDetailHTMLString;
