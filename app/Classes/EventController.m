@@ -67,12 +67,12 @@
 	}
 	
 	if([myEvent getLocation] != nil) {
-		if([[myEvent getLocation] getName] != @"") {
-			temp = [NSString stringWithFormat:@"<h3>Location</h3><p>%@</p>", 
+		if(([[myEvent getLocation] getName] != nil) && ([[myEvent getLocation] getName] != @"")) {
+			temp = [NSString stringWithFormat:@"<p><b>Location</b><br/>%@</p>", 
 							  [[myEvent getLocation] getName]];
 		}
 		else {
-			temp = [NSString stringWithFormat:@"<h3>Location</h3><p>%@<br/>%@, %@ %@ </p>", 
+			temp = [NSString stringWithFormat:@"<p><b>Location</b><br/>%@<br/>%@, %@ %@ </p>", 
 							  [[myEvent getLocation] getStreetAddress], 
 							  [[myEvent getLocation] getCity],
 							  [[myEvent getLocation] getState],
@@ -83,8 +83,8 @@
 	}
 	
 	if([myEvent getStartDate] != nil && [myEvent getEndDate] != nil) {
-		temp = [NSString stringWithFormat:@"<h3>Availability</h3><h4>Dates</h4>"\
-				"<p>%@-%@</p><h4>Times</h4><p>%@-%@</p>", 
+		temp = [NSString stringWithFormat:@"<p><b>Availability</b><br/>"\
+				"%@-%@<br/>%@-%@</p>", 
 				[[myEvent getStartDate] getDate], [[myEvent getEndDate] getDate], 
 				[[myEvent getStartDate] getTimeStandardFormat],
 				[[myEvent getEndDate] getTimeStandardFormat]];
@@ -92,8 +92,8 @@
 		html = [html stringByAppendingString: temp];
 	}
 	else if([myEvent getAvailability] != nil) {
-		temp = [NSString stringWithFormat:@"<h3>Availability</h3><h4>Days</h4>"\
-				"<p>%@</p><h4>Times</h4><p>%@-%@</p>",
+		temp = [NSString stringWithFormat:@"<p><b>Availability</b><br/>"\
+				"%@<br/>%@-%@</p>",
 				[[myEvent getAvailability] getDayRange],
 				[[myEvent getAvailability] getStartTimeString],
 				[[myEvent getAvailability] getEndTimeString]];
@@ -102,33 +102,33 @@
 	}
 	
 	if([myEvent getDescription] != nil && [myEvent getDescription] != @"") {
-		temp = [NSString stringWithFormat:@"<h3>Description</h3><p>%@</p>", 
+		temp = [NSString stringWithFormat:@"<p><b>Description</b><br/>%@</p>", 
 				[myEvent getDescription]];
 		
 		html = [html stringByAppendingString: temp];
 	}
 	
 	if([myEvent getArtist] != nil && [[myEvent getArtist] getName] != @"") {
-		temp = [NSString stringWithFormat:@"<h3>Artist</h3><p>%@</p>", 
+		temp = [NSString stringWithFormat:@"<p><b>Artist</b><br/>%@</p>", 
 						  [[myEvent getArtist] getName]];
 		
 		html = [html stringByAppendingString: temp];
 	}
 	
 	if([myEvent getCost] > 0) {
-		temp = [NSString stringWithFormat:@"<h3>Price</h3><p>$%.2f</p>",
+		temp = [NSString stringWithFormat:@"<p><b>Price</b><br/>$%.2f</p>",
 				[myEvent getCost]];
 		
 		html = [html stringByAppendingString: temp];
 	}
 	else if([myEvent getCost] == 0) {
-		temp = [NSString stringWithFormat:@"<h3>Price</h3><p>Free</p>"];
+		temp = [NSString stringWithFormat:@"<p><b>Price</b><br/>Free</p>"];
 		
 		html = [html stringByAppendingString: temp];
 	}
 	
 	if([myEvent getDuration] > 0) {
-		temp = [NSString stringWithFormat:@"<h3>Duration</h3><p>%d minutes</p>",
+		temp = [NSString stringWithFormat:@"<p><b>Duration</b><br/>%d minutes</p>",
 				[myEvent getDuration]];
 		
 		html = [html stringByAppendingString: temp];

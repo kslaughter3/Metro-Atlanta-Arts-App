@@ -43,10 +43,17 @@
 	 Event *event = [[Event alloc] initEmptyEvent];
 	 [event setEventName: @"Test"];
 	 [event setImageURL:@"http://gra217b.files.wordpress.com/2011/09/apple-mac-logo.jpg"];
+
 	 EventLocation *loc = [[EventLocation alloc] initEmptyLocation];
-	 [loc setName: @"Atlanta Museum of Modern Art"];
+//	 [loc setName: @"Atlanta Museum of Modern Art"];
+	 [loc setStreetAddress:@"123456 Georgia Tech Station"];
+	 [loc setCity: @"Atlanta"];
+	 [loc setState:@"GA"];
+	 [loc setZip:@"30332"];
+	 
 	 [event setLocation: loc];
-	 EventDate *start = [[EventDate alloc] initEmptyDate];
+	 
+/*	 EventDate *start = [[EventDate alloc] initEmptyDate];
 	 [start setDate: @"11/04/2011"];
 	 [start setTime: @"9:00am"];
 	 EventDate *end = [[EventDate alloc] initEmptyDate];
@@ -54,14 +61,20 @@
 	 [end setTime: @"5:00pm"];
 	 [event setStartDate: start];
 	 [event setEndDate: end];
+*/
 	 
-/*	 EventAvailability *avail = [[EventAvailability alloc] initEmptyAvailability];
-	 [avail addDay: @"Monday"];
-	 [avail addDay: @"Friday"];
+	 EventAvailability *avail = [[EventAvailability alloc] initEmptyAvailability];
+	 [avail addDay: @"Sunday"];
+	 //[avail addDay: @"Monday"];
+	 [avail addDay: @"Tuesday"];
+	 [avail addDay: @"WEDNeSDAy"];
+	 [avail addDay: @"Thursday"];
+	 //[avail addDay: @"Friday"];
+	 [avail addDay: @"Saturday"];
 	 [avail setStartTime: 900];
 	 [avail setEndTime: 1700];
 	 [event setAvailability: avail];
-*/
+
 	 [event setDescription: @"This is a long description that should take more than "\
 	  "one line and I want to see if that is a problem for the "\
 	  "text view to handle also I'm inserting a newline character "\

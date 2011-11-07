@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum WeekDays {
+	Sunday = 0,
+	Monday,
+	Tuesday,
+	Wednesday,
+	Thursday, 
+	Friday,
+	Saturday
+} WeekDays;
 
 @interface EventAvailability : NSObject {
 	NSMutableArray *days;

@@ -32,13 +32,13 @@
 		return [NSString stringWithFormat:@"<html><head><meta name=""viewport"" content=""width=320""/></head>"\
 					  "<body>"\
 					  "<center><p><img src=\"%@\" height=\"%d\"></p></center>"\
-					  "<h3>Description</h3><p>%@</p>"\
+					  "<p><b>Description</b><br/>%@</p>"\
 					  "</body></html>", [[artist getImageURL]absoluteString], 100,
 				  [artist getDescription]];
 	}
 	
 	return [NSString stringWithFormat:@"<html><head><meta name=""viewport"" content=""width=320""/></head>"\
-			  "<body><h3>Description</h3><p>%@</p></body></html>", [artist getDescription]];
+			  "<body><p><b>Description</b><br/>%@</p></body></html>", [artist getDescription]];
 }
 
 /*
