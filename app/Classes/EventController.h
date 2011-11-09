@@ -12,15 +12,11 @@
 @interface EventController : UIViewController <UIWebViewDelegate> {
 	IBOutlet UINavigationBar *myTitleBar;
 	IBOutlet UIWebView *myWebView;
-	IBOutlet UIWebView *detailView;
-	IBOutlet UIImageView *imageView;
 	Event *myEvent;
 }
 
 @property(nonatomic, retain) IBOutlet UINavigationBar *myTitleBar;
-@property(nonatomic, retain) IBOutlet UIWebView *detailView;
 @property(nonatomic, retain) IBOutlet UIWebView *myWebView;
-@property(nonatomic, retain) IBOutlet UIImageView *imageView;
 
 //-(NSString *)buildDetailHTMLString;
 -(NSString *)buildHTMLString;

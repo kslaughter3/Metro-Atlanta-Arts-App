@@ -29,10 +29,9 @@
 @property (nonatomic, retain) NSMutableArray *mapAnnotations;
 @property (nonatomic, retain) Event *globalEvent;
 
-- (IBAction)go;
-
 -(IBAction)next:(id)sender;
--(void)displayMYMap;
+-(void)displayMyMap;
+-(void)setUpAnnotations;
 -(IBAction)loadEventDetails:(id)sender;
 
 @end

@@ -79,26 +79,22 @@
 	theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
 	
 	//[self.view addSubview:myMapView];
-	[NSThread detachNewThreadSelector:@selector(displayMYMap) toTarget:self withObject:nil];
+	[NSThread detachNewThreadSelector:@selector(displayMyMap) toTarget:self withObject:nil];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear: animated];
+	[self displayMyMap];
+}
 
--(void)displayMYMap
+-(void)displayMyMap
 {
 	MKCoordinateRegion region; 
 	MKCoordinateSpan span; 
 	span.latitudeDelta=0.2; 
 	span.longitudeDelta=0.2; 
 	
-	Event *event = [[Event alloc] initTestEvent: @"Test" Description: @"1 2 3 4"];
-	Event *gevent = [[Event alloc] initTestEvent: @"Global" Description: @"4 3 2 1"];
-	globalEvent = gevent;
-	
-	self.mapAnnotations = [[NSMutableArray alloc] initWithCapacity:1];
-    EventAnnotation *eventAnnotation = [[EventAnnotation alloc] initAnnotationWithEvent: event];
-    [self.mapAnnotations insertObject:eventAnnotation atIndex:0];
-	[myMapView addAnnotation:eventAnnotation];
-    [eventAnnotation release];    
+	[self setUpAnnotations];
 	
 	CLLocationCoordinate2D location; 
 	location.latitude = 33.7728837; /* We should make these constants*/
@@ -110,13 +106,32 @@
 	[myMapView regionThatFits:region]; 
 }
 
+-(void)setUpAnnotations
+{
+	if(self.mapAnnotations == nil) {
+		self.mapAnnotations = [[NSMutableArray alloc] init];
+	}
+	
+	Content *content = [Content getInstance];
+	NSMutableArray *events = [content getEvents];
+	
+	for(id event in events) {
+		EventAnnotation *eventAnnotation = [[EventAnnotation alloc] initAnnotationWithEvent: event];
+		if([self.mapAnnotations containsObject: eventAnnotation] == NO) {
+			[self.mapAnnotations addObject:eventAnnotation];
+			[myMapView addAnnotation:eventAnnotation];
+		}
+		[eventAnnotation release];   
+	}
+			
+}
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
 	static NSString *defaultPinID = @"EventAnnotation";
 	MKPinAnnotationView *retval = nil;
 	
 	if ([annotation isMemberOfClass:[EventAnnotation class]]) {
-		(MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
-		globalEvent = [(EventAnnotation*)annotation event];
+		retval = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
 		if (retval == nil) {
 			retval = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:defaultPinID] autorelease];
 		}
@@ -150,6 +165,13 @@
 		retval.leftCalloutAccessoryView = eventButton;
 		[eventButton release];
 	}	
+	
+	if(retval.annotation != nil) {
+		id annotation = retval.annotation;
+		if([annotation isMemberOfClass:[EventAnnotation class]]) {
+			globalEvent = ((EventAnnotation*)annotation).event;
+		}
+	}
 }
 
 -(IBAction)loadEventDetails:(id)sender
@@ -185,8 +207,14 @@
 
 
 - (void)dealloc {
-    [super dealloc];
+	[username release];
+	[password release];
+	[tweet release];
 	[myMapView release];
+	[theConnection release];
+	[parser release];
+	[adapter release];
+    [super dealloc];
 }
 
 

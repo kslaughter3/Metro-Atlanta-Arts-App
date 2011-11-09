@@ -377,6 +377,15 @@ inComponent:(NSInteger)component
 
 
 - (void)dealloc {
+	[typeLabel release];
+	[typeField release];
+	[topLabel release];
+	[topField release];
+	[middleLabel release];
+	[middleField release];
+	[bottomLabel release];
+	[bottomField release];
+	[types release];
     [super dealloc];
 }
 

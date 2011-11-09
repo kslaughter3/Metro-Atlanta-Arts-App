@@ -138,6 +138,8 @@
 
 
 - (void)dealloc {
+	[mySearchField release];
+	[myFilterListController release];
     [super dealloc];
 }
 

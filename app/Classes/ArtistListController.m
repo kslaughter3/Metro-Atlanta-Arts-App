@@ -107,6 +107,8 @@ myArtistController;
 
 
 - (void)dealloc {
+	[myTableView release];
+	[myArtistController release];
     [super dealloc];
 }
 

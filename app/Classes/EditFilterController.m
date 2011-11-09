@@ -38,7 +38,7 @@
     FilterType t;
 	
 	[super viewDidLoad];
-	
+
 	types = [[NSMutableArray alloc] init];
 	
 	for(t = FirstFilterType; t <= LastFilterType; t++) {
@@ -397,6 +397,16 @@
 
 
 - (void)dealloc {
+	[typeLabel release];
+	[typeField release];
+	[topLabel release];
+	[topField release];
+	[middleLabel release];
+	[middleField release];
+	[bottomLabel release];
+	[bottomField release];
+	[types release];
+	[myFilter release];
     [super dealloc];
 }
 

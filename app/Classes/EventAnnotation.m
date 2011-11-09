@@ -19,14 +19,24 @@
 -(EventAnnotation *)initAnnotationWithEvent: (Event *) e{
 	self = [super init];
 	[self setEvent:e];
+	NSNumber *lat = [NSNumber numberWithDouble:[[e getLocation] getCoordinates].latitude];
+	NSNumber *lon = [NSNumber numberWithDouble:[[e getLocation] getCoordinates].longitude];
+	[self setLatitude: lat];
+	[self setLongitude: lon];
+	
+	NSLog([NSString stringWithFormat:@"Lat: %f Lon: %f", 
+		   [[e getLocation] getCoordinates].latitude, 
+		   [[e getLocation] getCoordinates].longitude]);
+	
 	return self;
 }
+
 
 - (CLLocationCoordinate2D)coordinate;
 {
     CLLocationCoordinate2D theCoordinate;
-    theCoordinate.latitude = 33.7728837;
-    theCoordinate.longitude = -84.393816;
+    theCoordinate.latitude = [latitude doubleValue];
+    theCoordinate.longitude = [longitude doubleValue];
     return theCoordinate; 
 }
 
@@ -48,6 +58,11 @@
 {
 	if(event != nil) return [event getDescription];
     return @"Needs better coordinate";
+}
+
+-(BOOL)isEqual:(id)object {
+	EventAnnotation *temp = (EventAnnotation *)object;
+	return [event isEqual: temp.event];
 }
 
 @end

@@ -50,7 +50,10 @@
 	 [loc setCity: @"Atlanta"];
 	 [loc setState:@"GA"];
 	 [loc setZip:@"30332"];
-	 
+	 CLLocationCoordinate2D coord;
+	 coord.latitude = 33.7728837;
+	 coord.longitude = -84.393816;
+	 [loc setCoordinates: coord];
 	 [event setLocation: loc];
 	 
 /*	 EventDate *start = [[EventDate alloc] initEmptyDate];
@@ -167,6 +170,8 @@
 
 
 - (void)dealloc {
+	[myTableView release];
+	[myEventController release];
     [super dealloc];
 }
 

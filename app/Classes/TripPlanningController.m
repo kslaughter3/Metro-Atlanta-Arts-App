@@ -12,7 +12,6 @@
 
 @implementation TripPlanningController
 @synthesize myTableView,
-myTripController,
 checkedIndexPath,
 integers,
 myTripMapController;
@@ -25,7 +24,15 @@ myTripMapController;
 	[myTableView setDataSource: self];
 	
 	Content *content = [Content getInstance];
-	Event *temp = [[Event alloc] initTestEvent:@"jun2" Description: @"jun2" ];
+	Event *temp = [[Event alloc] initEmptyEvent];
+	[temp setEventName: @"jun2"];
+	[temp setDescription: @"jun2"];
+	EventLocation *loc = [[EventLocation alloc] init];
+	CLLocationCoordinate2D coord;
+	coord.latitude = 33.7628837;
+	coord.longitude = -84.383816;
+	[loc setCoordinates: coord];
+	[temp setLocation: loc];
 	[content addEvent: temp];
 	
 	integers = [[NSMutableArray alloc] init];
@@ -114,6 +121,10 @@ myTripMapController;
 
 
 - (void)dealloc {
+	[myTableView release];
+	[myTripMapController release];
+	[integers release];
+	[checkedIndexPath release];
     [super dealloc];
 }
 

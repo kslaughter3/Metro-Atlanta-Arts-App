@@ -251,6 +251,10 @@
 
 
 - (void)dealloc {
+	[myTableView release];
+	[myNavigationBar release];
+	[myAddFilterController release];
+	[myEditFilterController release];
     [super dealloc];
 }
 

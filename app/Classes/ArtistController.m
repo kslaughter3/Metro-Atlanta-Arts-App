@@ -86,6 +86,9 @@
 
 
 - (void)dealloc {
+	[artist release];
+	[myTitleBar release];
+	[myWebView release];
     [super dealloc];
 }
 

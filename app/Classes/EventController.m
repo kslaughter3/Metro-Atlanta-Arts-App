@@ -10,7 +10,7 @@
 
 
 @implementation EventController
-@synthesize myWebView, detailView, imageView, myTitleBar;
+@synthesize myWebView, myTitleBar;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -182,6 +182,9 @@
 
 
 - (void)dealloc {
+	[myTitleBar release];
+	[myWebView release];
+	[myEvent release];
     [super dealloc];
 }
 

@@ -129,6 +129,8 @@
 
 
 - (void)dealloc {
+	[myEvents release];
+	[myTripMapView release];
     [super dealloc];
 }
 
