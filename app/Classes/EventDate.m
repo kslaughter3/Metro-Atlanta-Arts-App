@@ -458,4 +458,30 @@
 	return second;
 }
 
+
+-(BOOL)isEqual:(id)object {
+	EventDate *other = (EventDate *)object;
+
+	if(month != [other getMonth]) {
+		return NO;
+	}
+	if(day != [other getDay]) {
+		return NO;
+	}
+	if(year != [other getYear]) {
+		return NO;
+	}
+	if(hour != [other getHour]) {
+		return NO;
+	}
+	if(minute != [other getMinute]) {
+		return NO;
+	}
+	if(second != [other getSecond]) {
+		return NO;
+	}
+	
+	return YES;
+}
+
 @end

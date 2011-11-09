@@ -125,6 +125,7 @@ typedef struct Filterer {
 -(int)getFiltererAvailabilityStartTime;
 -(int)getFiltererAvailabilityEndTime;
 -(NSString *)getTypeName;
+-(BOOL)isFiltererEqual: (Filterer *)other;
 
 //toString methods for the filters
 -(NSString *)searchString;

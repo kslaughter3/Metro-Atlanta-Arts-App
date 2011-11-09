@@ -13,7 +13,7 @@
 @interface EventArtist : NSObject {
 	NSString *name;
 	NSString *description;
-	NSURL  *imageURL;
+	NSString *imageURL;
 	BOOL   hasImage;
 	//NSMutableArray *events; /* List of events for this artist */
 
@@ -38,8 +38,8 @@
 -(void)setDescription: (NSString *) str;
 -(NSString *)getDescription;
 
--(void)setImageURL: (NSURL *) url;
--(NSURL *)getImageURL;
+-(void)setImageURL: (NSString *) url;
+-(NSString *)getImageURL;
 
 -(BOOL)hasImage;
 

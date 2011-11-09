@@ -28,7 +28,7 @@
 	if(self != nil) {
 		name = [[NSString alloc] initWithString: [art getName]];
 		description = [[NSString alloc] initWithString: [art getDescription]];
-		imageURL = [[NSURL alloc] initWithString: [[art getImageURL] absoluteString]];
+		imageURL = [[NSString alloc] initWithString: [art getImageURL]];
 		return self;
 	}
 	
@@ -61,7 +61,7 @@
 	
 	if(self != nil) {
 		name = [[NSString alloc] initWithString: n];
-		imageURL = [[NSURL alloc] initWithString: url];
+		imageURL = [[NSString alloc] initWithString: url];
 		hasImage = YES;
 		return self;
 	}
@@ -80,7 +80,7 @@
 	if(self != nil) {
 		name = [[NSString alloc] initWithString: n];
 		description = [[NSString alloc] initWithString: desc];
-		imageURL = [[NSURL alloc] initWithString: url];
+		imageURL = [[NSString alloc] initWithString: url];
 		hasImage = YES;
 		return self;
 	}
@@ -107,7 +107,7 @@
 
 
 
--(void)setImageURL: (NSURL *) url {
+-(void)setImageURL: (NSString *) url {
 	if(url != nil) {
 		hasImage = YES;
 	}
@@ -118,7 +118,7 @@
 	imageURL = url;
 }
 
--(NSURL *)getImageURL {
+-(NSString *)getImageURL {
 	return imageURL;
 }
 
@@ -126,6 +126,38 @@
 
 -(BOOL)hasImage {
 	return hasImage;
+}
+
+-(BOOL)isEqual:(id)object {
+	EventArtist *other = (EventArtist *)object;
+	
+	if(((name == nil) && ([other getName] != nil)) || ((name != nil) && ([other getName] == nil))) {
+		return NO;
+	}
+	if((name != nil) && ([name isEqualToString: [other getName]] == NO)) {
+		return NO;
+	}
+	
+	if(((description == nil) && ([other getDescription] != nil)) || ((description != nil) && ([other getDescription] == nil))) {
+		return NO;
+	}
+	if((description != nil) && ([description isEqualToString: [other getDescription]] == NO)) {
+		return NO;
+	}
+	
+	if(((imageURL == nil) && ([other getImageURL] != nil)) || ((imageURL != nil) && ([other getImageURL] == nil))) {
+		return NO;
+	}
+	if((imageURL != nil) && ([imageURL isEqualToString: [other getImageURL]] == NO)) {
+		return NO;
+	}
+	
+	
+	if(hasImage != [other hasImage]) {
+		return NO;
+	}
+	
+	return YES;
 }
 
 @end

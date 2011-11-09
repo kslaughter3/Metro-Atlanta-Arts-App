@@ -209,4 +209,52 @@
 }
 
 
+-(BOOL)isEqual:(id)object {
+	EventLocation *other = (EventLocation *)object;
+
+	if(((name == nil) && ([other getName] != nil)) || ((name != nil) && ([other getName] == nil))) {
+		return NO;
+	}
+	if((name != nil) && ([name isEqualToString:[other getName]] == NO)) {
+		return NO;
+	}
+	
+	if(((streetAddress == nil) && ([other getStreetAddress] != nil)) || ((streetAddress != nil) && ([other getStreetAddress] == nil))) {
+		return NO;
+	}
+  	if((streetAddress != nil) && ([streetAddress isEqualToString: [other getStreetAddress]] == NO)) {
+		return NO;
+	}
+	
+	if(((city == nil) && ([other getCity] != nil)) || ((city != nil) && ([other getCity] == nil))) {
+		return NO;
+	}
+	if((city != nil) && ([city isEqualToString: [other getCity]] == NO)) {
+		return NO;
+	}
+	
+	if(((state == nil) && ([other getState] != nil)) || ((state != nil) && ([other getState] == nil))) {
+		return NO;
+	}
+	if((state != nil) && ([state isEqualToString: [other getState]] == NO)) {
+		return NO;
+	}
+	
+	if(((zip == nil) && ([other getZip] != nil)) || ((zip != nil) && ([other getZip] == nil))) {
+		return NO;
+	}
+	if((zip != nil) && ([zip isEqualToString: [other getZip]] == NO)) {
+		return NO;
+	}
+	
+	if(coordinate.latitude != [other getCoordinates].latitude) {
+		return NO;
+	}
+	if(coordinate.longitude != [other getCoordinates].longitude) {
+		return NO;
+	}
+	
+	return YES;
+}
+
 @end

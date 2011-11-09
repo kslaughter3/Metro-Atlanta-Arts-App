@@ -613,4 +613,99 @@
 	filterer->endTime = f->endTime;
 }
 
+-(BOOL)isEqual:(id)object {
+	Filter *other = (Filter *)object;
+	
+	if(type != [other getFilterType]) {
+		return NO;
+	}
+
+	if([self isFiltererEqual: [other getFilterer]] == NO) {
+		return NO;
+	}
+	
+	if(isEnabled != [other isEnabled]) {
+		return NO;
+	}
+	
+	return YES;
+}
+
+
+-(BOOL)isFiltererEqual:(Filterer *)other
+{
+	if(((filterer->query == nil) && (other->query != nil)) || ((filterer->query != nil) && (other->query == nil))) {
+		return NO;
+	}
+	if((filterer->query != nil) && ([filterer->query isEqualToString: other->query] == NO)) {
+		return NO;
+	}
+	
+	if(((filterer->name == nil) && (other->name != nil)) || ((filterer->name != nil) && (other->name == nil))) {
+		return NO;
+	}
+	if((filterer->name != nil) && ([filterer->name isEqualToString: other->name] == NO)) {
+		return NO;
+	}
+	
+	if(((filterer->artist == nil) && (other->artist != nil)) || ((filterer->artist != nil) && (other->artist == nil))) {
+		return NO;
+	}
+	if((filterer->artist != nil) && ([filterer->artist isEqualToString: other->artist] == NO)) {
+		return NO;
+	}
+	
+	if(((filterer->start == nil) && (other->start != nil)) || ((filterer->start != nil) && (other->start == nil))) {
+		return NO;
+	}
+	if((filterer->start != nil) && ([filterer->start isEqual: other->start] == NO)) {
+		return NO;
+	}
+	if(((filterer->end == nil) && (other->end != nil)) || ((filterer->end != nil) && (other->end == nil))) {
+		return NO;
+	}
+	if((filterer->end != nil) && ([filterer->end isEqual: other->end] == NO)) {
+		return NO;
+	}
+	
+	if(filterer->minCost != other->minCost) {
+		return NO;
+	}
+	if(filterer->maxCost != other->maxCost) {
+		return NO;
+	}
+	
+	if(filterer->minDuration != other->minDuration) {
+		return NO;
+	}
+	if(filterer->maxDuration != other->maxDuration) {
+		return NO;
+	}
+	
+	if(((filterer->loc == nil) && (other->loc != nil)) || ((filterer->loc != nil) && (other->loc == nil))) {
+		return NO;
+	}
+	if((filterer->loc != nil) && ([filterer->loc isEqualToString: other->loc] == NO)) {
+		return NO;
+	}
+	if(filterer->radius != other->radius) {
+		return NO;
+	}
+	
+	
+	if(((filterer->day == nil) && (other->day != nil)) || ((filterer->day != nil) && (other->day == nil))) {
+		return NO;
+	}
+	if((filterer->day != nil) && ([filterer->day isEqualToString: other->day] == NO)) {
+		return NO;
+	}
+	if(filterer->startTime != other->startTime) {
+		return NO;
+	}
+	if(filterer->endTime != other->endTime) {
+		return NO;
+	}
+	
+	return YES;
+}
 @end

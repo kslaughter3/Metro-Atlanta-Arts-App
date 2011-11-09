@@ -33,7 +33,7 @@
 					  "<body>"\
 					  "<center><p><img src=\"%@\" height=\"%d\"></p></center>"\
 					  "<p><b>Description</b><br/>%@</p>"\
-					  "</body></html>", [[artist getImageURL]absoluteString], 100,
+					  "</body></html>", [artist getImageURL], 100,
 				  [artist getDescription]];
 	}
 	

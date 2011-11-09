@@ -235,4 +235,31 @@
 	return NO;
 }
 
+-(BOOL)isEqual:(id)object {
+	EventAvailability *other = (EventAvailability *)object;
+	
+	
+	if(((days == nil) && ([other getDays] != nil)) || ((days != nil) && ([other getDays] == nil))) {
+		return NO;
+	}
+	
+	if(days != nil) {
+		for(id day in days) {
+			if([other containsDay: day] == NO) {
+				return NO;
+			}
+		}
+	}
+	
+	if(startTime != [other getStartTime]) {
+		return NO;
+	}
+	
+	if(endTime != [other getEndTime]) {
+		return NO;
+	}
+	
+	return YES;
+}
+
 @end

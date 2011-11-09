@@ -211,6 +211,83 @@
 	return imageURL;
 }
 
+-(BOOL)isEqual:(id)object {
+	Event *other = (Event *)object;
+	
+	if(((name == nil) && ([other getEventName] != nil)) || ((name != nil) && ([other getEventName] == nil))) {
+		return NO;
+	}
+	if((name != nil) && ([name isEqualToString: [other getEventName]] == NO)) {
+		return NO;
+	}
+	
+	if(((artist == nil) && ([other getArtist] != nil)) || ((artist != nil) && ([other getArtist] == nil))) {
+		return NO;
+	}
+	if((artist != nil) && ([artist isEqual: [other getArtist]] == NO)) {
+		return NO;
+	}
+	
+	if(((description == nil) && ([other getDescription] != nil)) || ((description != nil) && ([other getDescription] == nil))) {
+		return NO;
+	}
+	if((description != nil) && ([description isEqualToString: [other getDescription]] == NO)) {
+		return NO;
+	}
+	
+	if(((website == nil) && ([other getWebsite] != nil)) || ((website != nil) && ([other getWebsite] == nil))) {
+		return NO;
+	}
+	if((website != nil) && ([website isEqualToString: [other getWebsite]] == NO)) {
+		return NO;
+	}
+	
+	if(((location == nil) && ([other getLocation] != nil)) ||  ((location != nil) && ([other getLocation] == nil))) {
+		return NO;
+	}
+	if((location != nil) && ([location isEqual: [other getLocation]] == NO)) {
+		return NO;
+	}
+	
+	if(((startDate == nil) && ([other getStartDate] != nil)) || ((startDate != nil) && ([other getStartDate] == nil))) {
+		return NO;
+	}
+	if((startDate != nil) && ([startDate isEqual: [other getStartDate]] == NO)) {
+		return NO;
+	}
+	
+	if(((endDate == nil) && ([other getEndDate] != nil)) || ((endDate != nil) && ([other getEndDate] == nil))) {
+		return NO;
+	}
+	if((endDate != nil) && ([endDate isEqual: [other getEndDate]] == NO)) {
+		return NO;
+	}
+	
+	if(duration != [other getDuration]) {
+		return NO;
+	}
+	
+	if(cost != [other getCost]) {
+		return NO;
+	}
+	
+	if(((availability == nil) && ([other getAvailability] != nil)) || ((availability != nil) && ([other getAvailability] == nil))) {
+		return NO;
+	}
+	if((availability != nil) && ([availability isEqual: [other getAvailability]] == NO)) {
+		return NO;
+	}
+	
+	if(((imageURL == nil) && ([other getImageURL] != nil)) || ((imageURL != nil) && ([other getImageURL] == nil))) {
+		return NO;
+	}
+	if((imageURL != nil) && ([imageURL isEqualToString: [other getImageURL]] == NO)) {
+		return NO;
+	}
+	
+	return YES;
+}
+
 /* End Getters and Setters */
 
 /* Helper Methods */

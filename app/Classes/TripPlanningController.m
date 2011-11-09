@@ -67,16 +67,6 @@ myTripMapController;
 	if(cell == nil) {
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
 	}
-	
-	if([self.checkedIndexPath isEqual:indexPath])
-	{
-		cell.accessoryType = UITableViewCellAccessoryCheckmark;
-
-	}
-	else 
-	{
-		cell.accessoryType = UITableViewCellAccessoryNone;
-	}
 
 	Content *content = [Content getInstance];
 	Event *event = (Event *)[content getEventAtIndex: indexPath.row];

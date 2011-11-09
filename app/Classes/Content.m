@@ -26,6 +26,7 @@ static Content *instance;
 	}
 	
 	if(instance != nil) {
+		[instance populateEvents];
 		return instance;
 	}
 		
@@ -76,8 +77,10 @@ static Content *instance;
 		return NO;
 	}
 
-	[artists addObject: artist];
-
+	if([artists	 containsObject: artist] == NO) {
+		[artists addObject: artist];
+	}
+	
 	return YES;
 }
 -(BOOL)addEvent: (Event *) event{
@@ -86,7 +89,9 @@ static Content *instance;
 		return NO;
 	}
 	
-	[events addObject: event];
+	if([events containsObject: event] == NO) {
+		[events addObject: event];
+	}
 	
 	return YES;
 }
@@ -96,7 +101,9 @@ static Content *instance;
 		return NO;
 	}
 	
-	[locations addObject: location];
+	if([locations containsObject: location] == NO) {
+		[locations addObject: location];
+	}
 	
 	return YES;
 }
@@ -114,7 +121,9 @@ static Content *instance;
 	}
 	
 	/* Add the filter */
-	[filters addObject: filter];
+	if([filters containsObject: filter] == NO) {
+		[filters addObject: filter];
+	}
 	
 	return YES;
 }
@@ -539,7 +548,7 @@ static Content *instance;
 	for(NSDictionary *dic in jsonobj) {
 			NSString* astr=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"event_id"]];
 		//	NSString* astr2=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"descr"]];
-			[self addEvent:[[Event alloc] initTestEvent: astr Description: "description"]];
+			[self addEvent:[[Event alloc] initTestEvent: astr Description: @"description"]];
 	}
 	NSLog(@"Connection data processed.");
 }
