@@ -18,17 +18,17 @@
 
 -(EventAnnotation *)initAnnotationWithEvent: (Event *) e{
 	self = [super init];
-	[self setEvent:e];
-	NSNumber *lat = [NSNumber numberWithDouble:[[e getLocation] getCoordinates].latitude];
-	NSNumber *lon = [NSNumber numberWithDouble:[[e getLocation] getCoordinates].longitude];
-	[self setLatitude: lat];
-	[self setLongitude: lon];
 	
-	NSLog([NSString stringWithFormat:@"Lat: %f Lon: %f", 
-		   [[e getLocation] getCoordinates].latitude, 
-		   [[e getLocation] getCoordinates].longitude]);
+	if(self != nil) {
+		[self setEvent:e];
+		NSNumber *lat = [NSNumber numberWithDouble:[[e getLocation] getCoordinates].latitude];
+		NSNumber *lon = [NSNumber numberWithDouble:[[e getLocation] getCoordinates].longitude];
+		[self setLatitude: lat];
+		[self setLongitude: lon];
+		return self;
+	}
 	
-	return self;
+	return nil;
 }
 
 

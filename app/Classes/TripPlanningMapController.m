@@ -11,7 +11,9 @@
 
 @implementation TripPlanningMapController
 
-@synthesize myTripMapView;
+@synthesize myTripMapView,
+			tripGlobalEvent,
+			tripMapAnnotations;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -24,19 +26,120 @@
 */
 
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-/*- (void)viewDidLoad {
-    [super viewDidLoad];
-}*/
-
-
-/*
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-*/
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+	[NSThread detachNewThreadSelector:@selector(displayTripMap) toTarget:self withObject:nil];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear: animated];
+	[self displayTripMap];
+}
+
+-(void)displayTripMap
+{
+	MKCoordinateRegion region; 
+	MKCoordinateSpan span; 
+	span.latitudeDelta=0.2; 
+	span.longitudeDelta=0.2; 
+	
+	[self setUpTripAnnotations];
+	
+	CLLocationCoordinate2D location; 
+	location.latitude = 33.7728837; /* We should make these constants*/
+	location.longitude = -84.393816;
+	region.span=span; 
+	region.center=location; 
+	
+	[myTripMapView setRegion:region animated:TRUE]; 
+	[myTripMapView regionThatFits:region]; 
+}
+
+-(void)setUpTripAnnotations
+{
+	if(self.tripMapAnnotations == nil) {
+		self.tripMapAnnotations = [[NSMutableArray alloc] init];
+	}
+	
+	Content *content = [Content getInstance];
+	NSMutableArray *events = [content getEvents];
+	
+	for(id event in events) {
+		EventAnnotation *eventAnnotation = [[EventAnnotation alloc] initAnnotationWithEvent: event];
+		if([self.tripMapAnnotations containsObject: eventAnnotation] == NO) {
+			[self.tripMapAnnotations addObject:eventAnnotation];
+			[myTripMapView addAnnotation:eventAnnotation];
+		}
+		[eventAnnotation release];   
+	}
+	
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+	static NSString *defaultPinID = @"EventAnnotation";
+	MKPinAnnotationView *retval = nil;
+	
+	if ([annotation isMemberOfClass:[EventAnnotation class]]) {
+		retval = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
+		if (retval == nil) {
+			retval = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:defaultPinID] autorelease];
+		}
+		
+		// Set a bunch of other stuff
+		if (retval) {
+			[retval setPinColor:MKPinAnnotationColorGreen];
+			retval.animatesDrop = YES;
+			retval.canShowCallout = YES;
+		}
+	}
+	
+	return retval;
+}
+
+-(void)mapView: (MKMapView *)mapView didSelectAnnotationView: (MKAnnotationView *) retval {	
+	if(retval.leftCalloutAccessoryView == nil)
+	{
+		// Set up the Left callout
+		UIButton *eventButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+		[eventButton addTarget:self 
+						action:@selector(loadTripEventDetails:)
+			  forControlEvents:UIControlEventTouchDown];
+		[eventButton setTitle:@"More" forState:UIControlStateNormal];
+		eventButton.frame = CGRectMake(40.0, 105.0, 40.0, 40.0);
+		
+		// Set the image for the button
+		//[eventButton setImage:[UIImage imageNamed:@"Event.png"] forState:UIControlStateNormal];
+		
+		// Set the button as the callout view
+		retval.leftCalloutAccessoryView = eventButton;
+		[eventButton release];
+	}	
+	
+	if(retval.annotation != nil) {
+		id annotation = retval.annotation;
+		if([annotation isMemberOfClass:[EventAnnotation class]]) {
+			tripGlobalEvent = ((EventAnnotation*)annotation).event;
+		}
+	}
+}
+
+-(IBAction)loadTripEventDetails:(id)sender
+{
+	
+	EventController *eventView = [[EventController alloc] 
+								  initWithNibName: @"EventView" bundle: nil];
+	[eventView setEvent: tripGlobalEvent];
+	[self presentModalViewController: eventView animated:YES];
+	
+}
+
 
 -(void)setTime:(int)min {
 	time = min;
@@ -131,6 +234,8 @@
 - (void)dealloc {
 	[myEvents release];
 	[myTripMapView release];
+	[tripGlobalEvent release];
+	[tripMapAnnotations release];
     [super dealloc];
 }
 

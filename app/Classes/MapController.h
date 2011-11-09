@@ -23,6 +23,7 @@
     NSURLConnection *theConnection;
     SBJsonStreamParser *parser;
     SBJsonStreamParserAdapter *adapter;
+	NSMutableArray *mapAnnotations;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView* myMapView;

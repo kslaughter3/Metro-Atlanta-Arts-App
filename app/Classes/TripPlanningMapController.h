@@ -10,21 +10,31 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "Content.h"
+#import "EventController.h"
+#import "EventAnnotation.h"
 
 @interface TripPlanningMapController : UIViewController<MKMapViewDelegate> {
 	IBOutlet MKMapView* myTripMapView;
+	Event *tripGlobalEvent;
 	int time;
 	int speed;
 	NSMutableArray *myEvents;
+	NSMutableArray *tripMapAnnotations;
 }
 
-@property (nonatomic, retain) IBOutlet MKMapView* myTripMapView;
+@property (nonatomic, retain) IBOutlet MKMapView *myTripMapView;
+@property (nonatomic, retain) Event *tripGlobalEvent;
+@property (nonatomic, retain) NSMutableArray *tripMapAnnotations;
 
 -(void)setTime: (int) min;
 -(int)getTime;
 
 -(void)setSpeed: (int) mph;
 -(int)getSpeed;
+
+-(void)displayTripMap;
+-(void)setUpTripAnnotations;
+-(IBAction)loadTripEventDetails:(id)sender;
 
 -(void)setEvents: (NSMutableArray *)indices;
 -(void)planTrip;
