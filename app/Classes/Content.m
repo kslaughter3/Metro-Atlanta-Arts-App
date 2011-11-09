@@ -10,8 +10,13 @@
 #import "Filter.h"
 #import "Event.h"
 #import "EventArtist.h"
+#import "json/SBJson.h"
 
 static Content *instance;
+
+@interface Content () <SBJsonStreamParserAdapterDelegate>
+@end
+
 
 @implementation Content
 
@@ -28,20 +33,35 @@ static Content *instance;
 	return nil;
 }
 
+
+-(void)populateEvents {
+	adapter = [[SBJsonStreamParserAdapter alloc] init];
+	adapter.delegate = self;
+	parser = [[SBJsonStreamParser alloc] init];
+	parser.delegate = adapter;
+	parser.supportMultipleDocuments = YES;
+	NSString *url = @"http://meta.gimmefiction.com/";
+	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]
+											  cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+	theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+}
+
 -(Content *)getContent {
 	self = [super init];
 	
 	if(self != nil)
 	{
+		NSLog(@"object didnt exist");
 		events = [[NSMutableArray alloc] init];
 		locations = [[NSMutableArray alloc] init];
 		artists = [[NSMutableArray alloc] init];
 		filters = [[NSMutableArray alloc] init];
-	
+		
 		/* TODO: Get events from database */
-	
+		NSLog(@"Call populate");
+		[self populateEvents];
 		//[self filterOldEvents];
-	
+		
 		return self;
 	}
 	
@@ -482,6 +502,55 @@ static Content *instance;
 
 -(NSInteger)getLocationCount {
 	return locations.count;
+}
+
+- (void)parser:(SBJsonStreamParser *)parser foundArray:(NSArray *)array {
+    [NSException raise:@"unexpected" format:@"Should not get here"];
+}
+
+- (void)parser:(SBJsonStreamParser *)parser foundObject:(NSDictionary *)dict {
+	tweet.text = [dict objectForKey:@"text"];
+}
+
+#pragma mark NSURLConnectionDelegate methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+	NSLog(@"Connection didReceiveResponse: %@ - %@", response, [response MIMEType]);
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+	NSLog(@"Connection didReceiveAuthenticationChallenge: %@", challenge);
+	
+	NSURLCredential *credential = [NSURLCredential credentialWithUser:username.text
+															 password:password.text
+														  persistence:NSURLCredentialPersistenceForSession];
+	
+	[[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+	NSLog(@"Connection didReceiveData of length: %u", data.length);
+	
+	// Parse the new chunk of data. The parser will append it to
+	// its internal buffer, then parse from where it left off in
+	// the last chunk.
+	NSString *payloadAsString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+	NSDictionary *jsonobj=[payloadAsString JSONValue];
+	for(NSDictionary *dic in jsonobj) {
+			NSString* astr=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"event_id"]];
+		//	NSString* astr2=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"descr"]];
+			[self addEvent:[[Event alloc] initTestEvent: astr Description: "description"]];
+	}
+	NSLog(@"Connection data processed.");
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    NSLog(@"Connection failed! Error - %@ %@",
+          [error localizedDescription],
+          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
 }
 
 @end
