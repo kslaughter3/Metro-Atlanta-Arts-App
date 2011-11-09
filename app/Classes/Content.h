@@ -11,25 +11,34 @@
 #import "Event.h"
 #import "EventLocation.h"
 
+@class SBJsonStreamParser;
+@class SBJsonStreamParserAdapter;
+
 @class Content;
 
 @interface Content : NSObject {
 	NSMutableArray *events;
-//	NSMutableArray *filteredEvents;
-//	NSMutableArray *oldEvents; /* Holds the events that are filtered because they are no longer valid */
+	//	NSMutableArray *filteredEvents;
+	//	NSMutableArray *oldEvents; /* Holds the events that are filtered because they are no longer valid */
 	NSMutableArray *filters;
 	NSMutableArray *artists;
 	NSMutableArray *locations;
+    NSURLConnection *theConnection;
+    IBOutlet UITextField *username;
+    IBOutlet UITextField *password;
+    IBOutlet UITextView *tweet;
+    SBJsonStreamParser *parser;
+    SBJsonStreamParserAdapter *adapter;
 }
 
 /* Gets the current instance of the content if there is one 
-   if there isn't an instance yet it tries to instaniate one then returns that */
+ if there isn't an instance yet it tries to instaniate one then returns that */
 +(Content *)getInstance;
-
+-(void)populateEvents;
 
 /* Gets all the events from the database and stores them in the events array 
-   Also calls filterOldEvents to remove any events in the database that are out of date 
-   Returns true if the update was successful false otherwise */
+ Also calls filterOldEvents to remove any events in the database that are out of date 
+ Returns true if the update was successful false otherwise */
 -(Content *)getContent; /* TODO: Fix this to connect to the database/web service */
 
 /* Filters all the events that are no longer valid */
@@ -48,30 +57,30 @@
 -(BOOL)replaceFilter: (Filter *) oldFilter WithFilter: (Filter *) newFilter;
 
 /*-(BOOL)addFilter: (Filter *) filter AndFilter: (BOOL) type;
--(BOOL)removeFilter: (Filter *) filter AndFilter: (BOOL) type;
--(BOOL)replaceFilter: (Filter *) oldFilter WithFilter: (Filter *) newFilter AndFilter: (BOOL) type;
-*/
+ -(BOOL)removeFilter: (Filter *) filter AndFilter: (BOOL) type;
+ -(BOOL)replaceFilter: (Filter *) oldFilter WithFilter: (Filter *) newFilter AndFilter: (BOOL) type;
+ */
 
 /* These methods are private */
 /*-(void)addAndFilter: (Filter *) filter;
--(void)removeAndFilter;
--(void)addOrFilter: (Filter *) filter;
--(void)removeOrFilter;
-*/
+ -(void)removeAndFilter;
+ -(void)addOrFilter: (Filter *) filter;
+ -(void)removeOrFilter;
+ */
 
 /* Filter Mode methods */
 /*-(void)switchToAndFilters;
--(void)switchToOrFilters;
-*/
+ -(void)switchToOrFilters;
+ */
 
 /* Filtering Helper Methods these methods are private */
 /*-(BOOL)checkName: (Event *) event withFilter: (Filter *) filter;
--(BOOL)checkArtist: (Event *) event withFilter: (Filter *) filter;
--(BOOL)checkTime: (Event *) event withFilter: (Filter *) filter;
--(BOOL)checkCost: (Event *) event withFilter: (Filter *) filter;
--(BOOL)checkDuration: (Event *) event withFilter: (Filter *) filter;
--(BOOL)checkLocation: (Event *) event withFilter: (Filter *) filter;
-*/
+ -(BOOL)checkArtist: (Event *) event withFilter: (Filter *) filter;
+ -(BOOL)checkTime: (Event *) event withFilter: (Filter *) filter;
+ -(BOOL)checkCost: (Event *) event withFilter: (Filter *) filter;
+ -(BOOL)checkDuration: (Event *) event withFilter: (Filter *) filter;
+ -(BOOL)checkLocation: (Event *) event withFilter: (Filter *) filter;
+ */
 
 -(Event *)getEventAtIndex: (int) index;
 -(EventArtist *)getArtistAtIndex: (int) index;
