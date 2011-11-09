@@ -19,7 +19,7 @@
 
 @implementation MapController
 
-@synthesize myMapView, mapAnnotations, globalEvent;
+@synthesize myMapView, mapAnnotations, globalEvent, locationManager;
 
 
 -(IBAction)next:(id)sender {
@@ -80,6 +80,35 @@
 	
 	//[self.view addSubview:myMapView];
 	[NSThread detachNewThreadSelector:@selector(displayMyMap) toTarget:self withObject:nil];
+	
+	//try to update location
+	
+	locationManager = [[CLLocationManager alloc] init];
+	locationManager.delegate = self;
+	locationManager.distanceFilter = kCLDistanceFilterNone;
+	locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+	[locationManager startUpdatingLocation];
+}
+
+
+//does not work with iPhone Simulator
+- (void)locationManager:(CLLocationManager *)manager 
+	didUpdateToLocation:(CLLocation *) newLocation
+		   fromLocation:(CLLocation *) oldLocation
+{
+	NSLog(@"called");
+	MKCoordinateRegion region; 
+	MKCoordinateSpan span;
+	span.latitudeDelta=0.2; 
+	span.longitudeDelta=0.2; 
+	region.span = span;
+	CLLocationCoordinate2D userCoordinate = locationManager.location.coordinate;
+	region.center = userCoordinate;
+	[myMapView setCenterCoordinate:userCoordinate animated:YES];
+	[myMapView setShowsUserLocation:YES];
+	[myMapView setRegion:region animated:TRUE]; 
+	[myMapView regionThatFits:region];
+	NSLog(@"updated");
 }
 
 -(void)viewWillAppear:(BOOL)animated {
