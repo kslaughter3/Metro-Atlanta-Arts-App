@@ -15,7 +15,7 @@
 
 @class MapController;
 
-@interface MapController : UIViewController<MKMapViewDelegate> {
+@interface MapController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate> {
     IBOutlet UITextField *username;
     IBOutlet UITextField *password;
     IBOutlet UITextView *tweet;
@@ -24,16 +24,22 @@
     SBJsonStreamParser *parser;
     SBJsonStreamParserAdapter *adapter;
 	NSMutableArray *mapAnnotations;
+	CLLocationManager *locationManager;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView* myMapView;
 @property (nonatomic, retain) NSMutableArray *mapAnnotations;
 @property (nonatomic, retain) Event *globalEvent;
+@property (nonatomic, retain) CLLocationManager *locationManager;
 
 -(IBAction)next:(id)sender;
 -(void)displayMyMap;
 -(void)setUpAnnotations;
 -(IBAction)loadEventDetails:(id)sender;
+- (void)locationManager:(CLLocationManager *)manager 
+	didUpdateToLocation:(CLLocation *) newLocation
+		   fromLocation:(CLLocation *) oldLocation;
+
 
 @end
 
