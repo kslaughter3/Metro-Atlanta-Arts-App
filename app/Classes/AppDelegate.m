@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-//#import "Metro_Atlanta_Arts_AppViewController.h"
-//#import "NextView.h"
 
 @implementation AppDelegate
 

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EventListController.h"
 
 @class AppDelegate;
 
@@ -23,6 +22,5 @@
 @property (nonatomic, retain) IBOutlet UITabBarItem *tabBarItem3;
 @property (nonatomic, retain) IBOutlet UITabBarItem *tabBarItem4;
 @property (nonatomic, retain) IBOutlet UITabBarItem *tabBarItem5;
-//file://localhost/nethome/hpark68/Metro-Atlanta-Arts-App/app/Classes/filterController.xib
 @end
 

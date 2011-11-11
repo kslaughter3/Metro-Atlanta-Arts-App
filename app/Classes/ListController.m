@@ -6,10 +6,10 @@
 // Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "EventListController.h"
+#import "ListController.h"
 
 
-@implementation EventListController
+@implementation ListController
 @synthesize myTableView,
 			myEventController,
 			myArtistController,
@@ -43,7 +43,7 @@
 	 [myTableView setDelegate: self];
 	 [myTableView setDataSource: self];
 	 tablePage = 1;
-	 listType = 1;
+	 listType = EVENTLIST;
 	 lastPage = 10; //TODO: Set this based on the number of pages
 	 [self setListTitle];
 	 
@@ -105,6 +105,21 @@
 	 //Event *event= [[Event alloc] initTestEvent: @"test" Description: @"1 2 3 4"];
 	 [content addEvent: event];
 	 
+//TEST ARTIST
+	 EventArtist *temp = [[EventArtist alloc] initWithArtistName: @"jun"
+													 Description: @"This is a long description that should take more than "\
+						  "one line and I want to see if that is a problem for the "\
+						  "text view to handle also I'm inserting a newline character "\
+						  "here\nto see if that works as well lets make this even longer"\
+						  "so it goes beyond the size of the visible box"\
+						  "so I'm just going to keep on typing until such a time that"\
+						  "I feel like this is pretty long\n so the scrolling works" 
+														ImageURL: @"http://gra217b.files.wordpress.com/2011/09/apple-mac-logo.jpg"];
+	 [content addArtist: temp];
+	 
+//TEST LOCATION
+	 
+	 
 	 [super viewDidLoad];
  }
 
@@ -120,9 +135,7 @@
 
  // Override to allow orientations other than the default portrait orientation.
  - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
- // Return YES for supported orientations.
 	 return YES;
-// return (interfaceOrientation == UIInterfaceOrientationPortrait);
  }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

@@ -13,13 +13,13 @@
 #import "Content.h"
 #import	"Event.h"
 
-@class EventListController;
+@class ListController;
 
 #define EVENTLIST		0
 #define ARTISTLIST		1
 #define LOCATIONLIST	2
 
-@interface EventListController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface ListController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	IBOutlet UITableView *myTableView;
 	EventController *myEventController;
 	ArtistController *myArtistController;

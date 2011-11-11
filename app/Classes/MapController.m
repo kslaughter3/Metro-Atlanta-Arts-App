@@ -7,12 +7,6 @@
 //
 
 #import "MapController.h"
-#import "EventListController.h"
-#import "EventAnnotation.h"
-#import "AddFilterController.h"
-#import "json/SBJson.h"
-#import <objc/runtime.h>
-#import <objc/message.h>
 
 @interface MapController () <SBJsonStreamParserAdapterDelegate>
 @end
@@ -20,12 +14,6 @@
 @implementation MapController
 
 @synthesize myMapView, mapAnnotations, globalEvent, locationManager;
-
-
--(IBAction)next:(id)sender {
-	EventListController *NView = [[EventListController alloc] initWithNibName:nil bundle:nil];
-	[self presentModalViewController:NView animated:YES];
-}
 
 /*
 // The designated initializer. Override to perform setup that is required before the view is loaded.
@@ -48,6 +36,8 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	myPage = 1;
+	lastPage = 10; //TODO: Get this from server
 	
 	// We don't want *all* the individual messages from the
 	// SBJsonStreamParser, just the top-level objects. The stream
@@ -213,12 +203,53 @@
 	
 }
 
+-(IBAction)previousPage:(id)sender {
+	if(myPage > 1) {
+		myPage--;
+		[self enabledNavigationButtons];
+		//TODO: Get page from server 
+		//[self displayMyMap];
+	}
+}
+
+-(IBAction)nextPage:(id)sender {
+	if(myPage < lastPage) {
+		myPage++;
+		[self enabledNavigationButtons];
+		//TODO: Get page from server 
+		//[self displayMyMap];
+	}
+}
+
+-(void)changeEventType:(id)sender {
+	myEventType = [mySelectionBar selectedSegmentIndex];
+	myPage = 1;
+	[self enabledNavigationButtons];
+	[self displayMyMap];
+}
+
+
+
+-(void)enabledNavigationButtons {
+	if(myPage == 1) {
+		previousButton.enabled = NO;
+	}
+	else {
+		previousButton.enabled = YES;
+	}
+	
+	if(myPage == lastPage) { 
+		nextButton.enabled = NO;
+	}
+	else {
+		nextButton.enabled = YES;
+	}
+}
+
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
 	return YES;
-    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 
