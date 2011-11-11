@@ -141,6 +141,21 @@
 	return nil;
 }
 
+-(BOOL)hasAddress {
+	if((streetAddress == nil) || ([streetAddress isEqualToString:@""]) || 
+	   (city == nil) || ([city isEqualToString:@""]) ||
+	   (state == nil) || ([state isEqualToString: @""]) ||
+	   (zip == nil) || ([zip isEqualToString: @""])) {
+		return NO;
+	}
+	return YES;
+}
+
+-(NSString *)getAddress {
+	return [NSString stringWithFormat: @"%@\n%@ %@, %@",
+			streetAddress, city, state, zip];
+}
+
 /* getters and setters */
 -(void)setName:(NSString *)str {
 	name = str;
@@ -180,6 +195,30 @@
 
 -(NSString *)getZip {
 	return zip;
+}
+
+-(void)setDescription: (NSString *)str {
+	description = str;
+}
+
+-(NSString *)getDescription {
+	return description;
+}
+
+-(void)setWebsite: (NSString *)url {
+	website = url;
+}
+
+-(NSString *)getWebsite {
+	return website;
+}
+
+-(void)setImage: (NSString *)img {
+	image = img;
+}
+
+-(NSString *)getImage {
+	return image;
 }
 
 -(void)setCoordinates: (CLLocationCoordinate2D) coord {

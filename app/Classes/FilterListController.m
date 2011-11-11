@@ -182,6 +182,7 @@
 								  delegate: nil 
 								  cancelButtonTitle: @"OK" 
 								  otherButtonTitles: nil];
+			alert.backgroundColor = [UIColor blackColor];
 			[alert show];
 			[alert release];
 		}
@@ -205,6 +206,7 @@
 							  delegate: nil 
 							  cancelButtonTitle: @"OK" 
 							  otherButtonTitles: nil];
+		alert.backgroundColor = [UIColor blackColor];
 		[alert show];
 		[alert release];
 	}
@@ -220,6 +222,7 @@
 								  delegate: nil 
 								  cancelButtonTitle: @"OK" 
 								  otherButtonTitles: nil];
+			alert.backgroundColor = [UIColor blackColor];
 			[alert show];
 			[alert release];
 		}

@@ -249,6 +249,11 @@
 		F2B35E88146D8BA5005BC775 /* LocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B35E86146D8BA5005BC775 /* LocationView.xib */; };
 		F2B35F13146D97ED005BC775 /* SelfCuratedListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B35F11146D97ED005BC775 /* SelfCuratedListController.m */; };
 		F2B35F14146D97ED005BC775 /* SelfCuratedListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B35F12146D97ED005BC775 /* SelfCuratedListView.xib */; };
+		F2B35FB0146D9DB2005BC775 /* MoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B35FAE146D9DB2005BC775 /* MoreController.m */; };
+		F2B35FB1146D9DB2005BC775 /* MoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B35FAF146D9DB2005BC775 /* MoreView.xib */; };
+		F2B35FFC146DA39A005BC775 /* AboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B35FFA146DA39A005BC775 /* AboutUsController.m */; };
+		F2B35FFD146DA39A005BC775 /* AboutUsVIew.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B35FFB146DA39A005BC775 /* AboutUsVIew.xib */; };
+		F2B36021146DA5BD005BC775 /* AboutUs.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B36020146DA5BD005BC775 /* AboutUs.m */; };
 		F2B45EB8143F5E18002B0729 /* EventLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EB7143F5E18002B0729 /* EventLocation.m */; };
 		F2B45EBB143F5E3C002B0729 /* EventAvailability.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EBA143F5E3C002B0729 /* EventAvailability.m */; };
 		F2B45EBE143F5E48002B0729 /* EventArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B45EBD143F5E48002B0729 /* EventArtist.m */; };
@@ -534,6 +539,14 @@
 		F2B35F10146D97ED005BC775 /* SelfCuratedListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfCuratedListController.h; sourceTree = "<group>"; };
 		F2B35F11146D97ED005BC775 /* SelfCuratedListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfCuratedListController.m; sourceTree = "<group>"; };
 		F2B35F12146D97ED005BC775 /* SelfCuratedListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SelfCuratedListView.xib; path = Resources/SelfCuratedListView.xib; sourceTree = "<group>"; };
+		F2B35FAD146D9DB2005BC775 /* MoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreController.h; sourceTree = "<group>"; };
+		F2B35FAE146D9DB2005BC775 /* MoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreController.m; sourceTree = "<group>"; };
+		F2B35FAF146D9DB2005BC775 /* MoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MoreView.xib; path = Resources/MoreView.xib; sourceTree = "<group>"; };
+		F2B35FF9146DA39A005BC775 /* AboutUsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsController.h; sourceTree = "<group>"; };
+		F2B35FFA146DA39A005BC775 /* AboutUsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsController.m; sourceTree = "<group>"; };
+		F2B35FFB146DA39A005BC775 /* AboutUsVIew.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AboutUsVIew.xib; path = Resources/AboutUsVIew.xib; sourceTree = "<group>"; };
+		F2B3601F146DA5BD005BC775 /* AboutUs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUs.h; sourceTree = "<group>"; };
+		F2B36020146DA5BD005BC775 /* AboutUs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUs.m; sourceTree = "<group>"; };
 		F2B45EB6143F5E18002B0729 /* EventLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventLocation.h; sourceTree = "<group>"; };
 		F2B45EB7143F5E18002B0729 /* EventLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventLocation.m; sourceTree = "<group>"; };
 		F2B45EB9143F5E3C002B0729 /* EventAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAvailability.h; sourceTree = "<group>"; };
@@ -604,11 +617,11 @@
 				F2B587851443659B000A4A68 /* AddFilterController.h */,
 				F2B587861443659B000A4A68 /* AddFilterController.m */,
 				F2771D7D1445F35600FC8C0C /* EditFilterController.h */,
-				BF15C45D144F4DAD00969E72 /* TripPlanningController.m */,
-				BF15C45C144F4DAD00969E72 /* TripPlanningController.h */,
 				F2771D7E1445F35600FC8C0C /* EditFilterController.m */,
-				F2771E80144609DB00FC8C0C /* EventController.m */,
+				BF15C45C144F4DAD00969E72 /* TripPlanningController.h */,
+				BF15C45D144F4DAD00969E72 /* TripPlanningController.m */,
 				F2771E7F144609DB00FC8C0C /* EventController.h */,
+				F2771E80144609DB00FC8C0C /* EventController.m */,
 				F206D87C1451D66800A5B8A7 /* EventDate.h */,
 				F206D87D1451D66800A5B8A7 /* EventDate.m */,
 				F2AEAACC145864F200B6D34E /* SearchController.h */,
@@ -619,6 +632,12 @@
 				F2B35E85146D8BA5005BC775 /* LocationController.m */,
 				F2B35F10146D97ED005BC775 /* SelfCuratedListController.h */,
 				F2B35F11146D97ED005BC775 /* SelfCuratedListController.m */,
+				F2B35FAD146D9DB2005BC775 /* MoreController.h */,
+				F2B35FAE146D9DB2005BC775 /* MoreController.m */,
+				F2B35FF9146DA39A005BC775 /* AboutUsController.h */,
+				F2B35FFA146DA39A005BC775 /* AboutUsController.m */,
+				F2B3601F146DA5BD005BC775 /* AboutUs.h */,
+				F2B36020146DA5BD005BC775 /* AboutUs.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -655,10 +674,12 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F2AEAD1D1458755900B6D34E /* icons */,
 				F2B35F12146D97ED005BC775 /* SelfCuratedListView.xib */,
+				F2B35FFB146DA39A005BC775 /* AboutUsVIew.xib */,
+				F2B35FAF146D9DB2005BC775 /* MoreView.xib */,
 				F2B35E86146D8BA5005BC775 /* LocationView.xib */,
 				2218A01F145B28550020BD7D /* TripPlanningMapView.xib */,
-				F2AEAD1D1458755900B6D34E /* icons */,
 				F2AEAACE145864F200B6D34E /* SearchView.xib */,
 				F2771D7F1445F35600FC8C0C /* EditFilterView.xib */,
 				F2B587871443659B000A4A68 /* AddFilterView.xib */,
@@ -1194,6 +1215,8 @@
 				2218A021145B28550020BD7D /* TripPlanningMapView.xib in Resources */,
 				F2B35E88146D8BA5005BC775 /* LocationView.xib in Resources */,
 				F2B35F14146D97ED005BC775 /* SelfCuratedListView.xib in Resources */,
+				F2B35FB1146D9DB2005BC775 /* MoreView.xib in Resources */,
+				F2B35FFD146DA39A005BC775 /* AboutUsVIew.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1238,6 +1261,9 @@
 				2218A020145B28550020BD7D /* TripPlanningMapController.m in Sources */,
 				F2B35E87146D8BA5005BC775 /* LocationController.m in Sources */,
 				F2B35F13146D97ED005BC775 /* SelfCuratedListController.m in Sources */,
+				F2B35FB0146D9DB2005BC775 /* MoreController.m in Sources */,
+				F2B35FFC146DA39A005BC775 /* AboutUsController.m in Sources */,
+				F2B36021146DA5BD005BC775 /* AboutUs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

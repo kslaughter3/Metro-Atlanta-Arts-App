@@ -1,18 +1,16 @@
 //
-//  LocationController.m
+//  AboutUsController.m
 //  Metro-Atlanta-Arts-App
 //
 //  Created by Gendreau, Anthony S on 11/11/11.
 //  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
 
-#import "LocationController.h"
+#import "AboutUsController.h"
 
 
-@implementation LocationController
-@synthesize myTitleBar,
-			myWebView;
-
+@implementation AboutUsController
+@synthesize myWebView;
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -30,66 +28,55 @@
 }
 */
 
+-(void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear: animated];
+	
+	NSString *html = [self buildHTMLString];
+	[myWebView loadHTMLString:html baseURL:[NSURL URLWithString:@"http://www.apple.com"]];
+}
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
 
-
--(void)viewWillAppear:(BOOL)animated {
-	[super viewWillAppear: animated];
-	if(location == nil) {
-		return;
-	}
-	
-	if(([location getName] != nil) && ([[location getName] isEqualToString: @""] == NO)) {
-		myTitleBar.topItem.title = [location getName];
-	}
-	else {
-		myTitleBar.topItem.title = [location getStreetAddress];
-	}
-	
-	NSString *html = [self buildHTMLString];
-	[myWebView loadHTMLString:html baseURL:[NSURL URLWithString:@"http://www.apple.com"]];
-}
-
 -(NSString *)buildHTMLString {
 	NSString *html = [NSString stringWithFormat:@"<html>"\
 					  "<head><meta name=""viewport"" content=""width=320""/>"\
 					  "</head><body>"];
+	Content *content = [Content getInstance];
+	AboutUs *myAboutUs = [content getAboutUs];
 	NSString *temp;
 	
 	/* Add the fields that are there */
-	if([location getImage] != nil && [location getImage] != @"") {
+	if([myAboutUs getImage] != nil && [myAboutUs getImage] != @"") {
 		temp= [NSString stringWithFormat:@"<center><p><img src=\"%@\" "\
-			   "height=\"%d\"></p></center>", [location getImage], 100];
+			   "height=\"%d\"></p></center>", [myAboutUs getImage], 100];
 		html = [html stringByAppendingString: temp];
 	}
 	
-	if([location hasAddress] == YES) {
-		temp = [NSString stringWithFormat:@"<p><b>Address</b><br/>%@</p>", 
-				[location getAddress]];
+	if([myAboutUs getName] != nil && [myAboutUs getName] != @"") {
+		temp = [NSString stringWithFormat:@"<p><b>Name</b><br/>%@</p>", 
+				[myAboutUs getName]];
 		
 		html = [html stringByAppendingString: temp];
 	}
 	
-	if([location getDescription] != nil && [location getDescription] != @"") {
+	if([myAboutUs getDescription] != nil && [myAboutUs getDescription] != @"") {
 		temp = [NSString stringWithFormat:@"<p><b>Description</b><br/>%@</p>", 
-				[location getDescription]];
+				[myAboutUs getDescription]];
 		
 		html = [html stringByAppendingString: temp];
 	}
 	
-	if([location getWebsite] != nil && [location getWebsite] != @"") {
+	if([myAboutUs getWebsite] != nil && [myAboutUs getWebsite] != @"") {
 		temp = [NSString stringWithFormat:@"<center><p><a href=\"%@\">View Website</a></p></center>",
-				[location getWebsite]];
+				[myAboutUs getWebsite]];
 		
 		html = [html stringByAppendingString: temp];
 	}
 	
-	html = [html stringByAppendingString: @"</body></html>"];
-	
+	html = [html stringByAppendingString: @"</body></html>"];	
 	return html;
 }
 
@@ -104,13 +91,6 @@
 -(IBAction)close: (id)sender {
 	NSLog(@"Close Clicked\n");
 	[self.parentViewController dismissModalViewControllerAnimated: YES];
-}
-
--(void)setLocation:(EventLocation *)loc {
-	location = loc;
-}
--(EventLocation	*)getLocation{
-	return location;
 }
 
 - (void)didReceiveMemoryWarning {

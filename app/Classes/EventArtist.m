@@ -45,7 +45,6 @@
 	if(self != nil) {
 		name = [[NSString alloc] initWithString: n];
 		description = [[NSString alloc] initWithString: desc];
-		hasImage = NO;
 		return self;
 	}
 	
@@ -62,7 +61,6 @@
 	if(self != nil) {
 		name = [[NSString alloc] initWithString: n];
 		imageURL = [[NSString alloc] initWithString: url];
-		hasImage = YES;
 		return self;
 	}
 	
@@ -81,7 +79,6 @@
 		name = [[NSString alloc] initWithString: n];
 		description = [[NSString alloc] initWithString: desc];
 		imageURL = [[NSString alloc] initWithString: url];
-		hasImage = YES;
 		return self;
 	}
 	
@@ -108,13 +105,6 @@
 
 
 -(void)setImageURL: (NSString *) url {
-	if(url != nil) {
-		hasImage = YES;
-	}
-	else {
-		hasImage = NO;
-	}
-	
 	imageURL = url;
 }
 
@@ -124,8 +114,12 @@
 
 /* End Getters and Setters */
 
--(BOOL)hasImage {
-	return hasImage;
+-(void)setWebsite:(NSString *)url {
+	websiteURL = url;
+}
+
+-(NSString *)getWebsite {
+	return websiteURL;
 }
 
 -(BOOL)isEqual:(id)object {
@@ -149,11 +143,6 @@
 		return NO;
 	}
 	if((imageURL != nil) && ([imageURL isEqualToString: [other getImageURL]] == NO)) {
-		return NO;
-	}
-	
-	
-	if(hasImage != [other hasImage]) {
 		return NO;
 	}
 	

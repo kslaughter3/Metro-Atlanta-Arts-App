@@ -47,6 +47,30 @@ static Content *instance;
 	theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
 }
 
+-(void)populateArtists {
+}
+
+-(void)populateLocations {
+}
+
+-(void)populateAboutUs {
+	//TEST aboutUS 
+	if(myAboutUs == nil) {
+		myAboutUs = [[AboutUs alloc] initEmptyAboutUs];
+	}
+	
+	[myAboutUs setName:@"Metro Atlanta Arts Foundation"];
+	[myAboutUs setDescription:@"We are a non profit conglumorate of over twenty arts organizations "\
+		"in the Atlanta area dedicated to bringing the arts to the those interested. "\
+		"We developed this app to allow people to view the art events going on in the Atlanta area. "\
+		"This app was developed as a Senior Design Project by five students from Georgia Institute of Technology. "\
+		"Those students are: Anthony Gendreau, Drew Bratcher, Hyuk Jun Park, Kevin Slaughter, and Will Hancock. "\
+		"The icons in used in this app were provided by Glyphish who can be found at http://glyphish.com."];
+	
+	[myAboutUs setImage:@"http://www.metroatlantaartsfund.org/images/maaf_logo.gif"];
+	[myAboutUs setWebsite:@"http://www.metroatlantaartsfund.org/"];
+}
+
 -(Content *)getContent {
 	self = [super init];
 	
@@ -466,6 +490,11 @@ static Content *instance;
 	}
 	
 	return (EventLocation *)[locations objectAtIndex: index];
+}
+
+-(AboutUs *)getAboutUs {
+	[self populateAboutUs]; //For Testing remove once the server does this
+	return myAboutUs;
 }
 
 -(NSMutableArray *)getEvents {

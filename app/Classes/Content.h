@@ -10,6 +10,7 @@
 #import "Filter.h"
 #import "Event.h"
 #import "EventLocation.h"
+#import "AboutUs.h"
 
 @class SBJsonStreamParser;
 @class SBJsonStreamParserAdapter;
@@ -23,6 +24,7 @@
 	NSMutableArray *filters;
 	NSMutableArray *artists;
 	NSMutableArray *locations;
+	AboutUs *myAboutUs; //Stores the one copy of about us from the server
     NSURLConnection *theConnection;
     IBOutlet UITextField *username;
     IBOutlet UITextField *password;
@@ -35,6 +37,9 @@
  if there isn't an instance yet it tries to instaniate one then returns that */
 +(Content *)getInstance;
 -(void)populateEvents;
+-(void)populateArtists; 
+-(void)populateLocations;
+-(void)populateAboutUs;
 
 /* Gets all the events from the database and stores them in the events array 
  Also calls filterOldEvents to remove any events in the database that are out of date 
@@ -86,6 +91,7 @@
 -(EventArtist *)getArtistAtIndex: (int) index;
 -(Filter *)getFilterAtIndex: (int) index;
 -(EventLocation *)getLocationAtIndex: (int) index;
+-(AboutUs *)getAboutUs;
 
 -(NSMutableArray *)getEvents;
 //-(NSMutableArray *)getFilteredEvents;

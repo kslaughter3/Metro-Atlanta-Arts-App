@@ -91,10 +91,10 @@
 	 [event setDescription: @"This is a long description that should take more than "\
 	  "one line and I want to see if that is a problem for the "\
 	  "text view to handle also I'm inserting a newline character "\
-	  "here\nto see if that works as well lets make this even longer"\
-	  "so it goes beyond the size of the visible box"\
-	  "so I'm just going to keep on typing until such a time that"\
-	  "I feel like this is pretty long\n so the scrolling works"];
+	  "here\nto see if that works as well lets make this even longer "\
+	  "so it goes beyond the size of the visible box "\
+	  "so I'm just going to keep on typing until such a time that "\
+	  "I feel like this is pretty long\n so the scrolling works "];
 	 EventArtist *art = [[EventArtist alloc] initEmptyArtist];
 	 [art setName: @"Van Goh"];
 	 [event setArtist: art];
@@ -110,16 +110,33 @@
 													 Description: @"This is a long description that should take more than "\
 						  "one line and I want to see if that is a problem for the "\
 						  "text view to handle also I'm inserting a newline character "\
-						  "here\nto see if that works as well lets make this even longer"\
-						  "so it goes beyond the size of the visible box"\
-						  "so I'm just going to keep on typing until such a time that"\
+						  "here\nto see if that works as well lets make this even longer "\
+						  "so it goes beyond the size of the visible box "\
+						  "so I'm just going to keep on typing until such a time that "\
 						  "I feel like this is pretty long\n so the scrolling works" 
-														ImageURL: @"http://gra217b.files.wordpress.com/2011/09/apple-mac-logo.jpg"];
+						   ImageURL: @"http://gra217b.files.wordpress.com/2011/09/apple-mac-logo.jpg"];
+	 [temp setWebsite: @"http://www.apple.com"];
 	 [content addArtist: temp];
 	 
 //TEST LOCATION
+	 EventLocation *testLoc = [[EventLocation alloc] initEmptyLocation];
+	 [testLoc setName: @"Atlanta High Muesem"];
+	 [testLoc setStreetAddress: @"1290 Peachtree Street NE"];
+	 [testLoc setCity: @"Atlanta"];
+	 [testLoc setState: @"GA"];
+	 [testLoc setZip: @"30309"];
+	 [testLoc setDescription: @"The High Museum of Art is the leading art museum in the southeastern United States. "\
+	  "Located in Midtown Atlanta’s arts and business district, the High has more than 12,000 works of art "\
+	  "in its permanent collection. The Museum has an extensive anthology of 19th- and 20th-century American art; "\
+	  "significant holdings of European paintings and decorative art; a growing collection of African American art; "\
+	  "and burgeoning collections of modern and contemporary art, photography and African art. "\
+	  "The High is also dedicated to supporting and collecting works by Southern artists and is distinguished "\
+	  "as the only major museum in North America to have a curatorial department specifically devoted "\
+	  "to the field of folk and self-taught art."];
+	 [testLoc setImage: @"http://hugomartinezart.com/wp-content/uploads/2011/02/high-museum-of-art-2265.jpg"];
+	 [testLoc setWebsite: @"http://www.high.org/"];
 	 
-	 
+	 [content addLocation: testLoc];
 	 [super viewDidLoad];
  }
 
@@ -192,6 +209,7 @@
 			else {
 				cell.textLabel.text = [loc getStreetAddress];
 			}
+			break;
 		}
 		default:
 		{

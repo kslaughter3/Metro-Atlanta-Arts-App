@@ -32,4 +32,6 @@
 -(void)pickMode:(id)sender;
 -(IBAction)plan:(id)sender;
 -(IBAction)viewPlan:(id)sender;
+-(IBAction)close:(id)sender;
+
 @end

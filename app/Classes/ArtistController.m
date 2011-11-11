@@ -27,18 +27,35 @@
 
 -(NSString *)buildHTMLString 
 {
-	if([artist hasImage] == YES)
-	{
-		return [NSString stringWithFormat:@"<html><head><meta name=""viewport"" content=""width=320""/></head>"\
-					  "<body>"\
-					  "<center><p><img src=\"%@\" height=\"%d\"></p></center>"\
-					  "<p><b>Description</b><br/>%@</p>"\
-					  "</body></html>", [artist getImageURL], 100,
-				  [artist getDescription]];
+	NSString *html = [NSString stringWithFormat:@"<html>"\
+					  "<head><meta name=""viewport"" content=""width=320""/>"\
+					  "</head><body>"];
+	NSString *temp;
+	
+	/* Add the fields that are there */
+	if([artist getImageURL] != nil && [artist getImageURL] != @"") {
+		temp= [NSString stringWithFormat:@"<center><p><img src=\"%@\" "\
+			   "height=\"%d\"></p></center>", [artist getImageURL], 100];
+		html = [html stringByAppendingString: temp];
 	}
 	
-	return [NSString stringWithFormat:@"<html><head><meta name=""viewport"" content=""width=320""/></head>"\
-			  "<body><p><b>Description</b><br/>%@</p></body></html>", [artist getDescription]];
+	if([artist getDescription] != nil && [artist getDescription] != @"") {
+		temp = [NSString stringWithFormat:@"<p><b>Description</b><br/>%@</p>", 
+				[artist getDescription]];
+		
+		html = [html stringByAppendingString: temp];
+	}
+	
+	if([artist getWebsite] != nil && [artist getWebsite] != @"") {
+		temp = [NSString stringWithFormat:@"<center><p><a href=\"%@\">View Website</a></p></center>",
+				[artist getWebsite]];
+		
+		html = [html stringByAppendingString: temp];
+	}
+	
+	html = [html stringByAppendingString: @"</body></html>"];
+	
+	return html;
 }
 
 /*

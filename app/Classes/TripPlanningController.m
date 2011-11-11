@@ -96,6 +96,11 @@ myTripMapController;
 	self.checkedIndexPath = indexPath;
 }
 
+-(IBAction)close: (id)sender {
+	NSLog(@"Close Clicked\n");
+	[self.parentViewController dismissModalViewControllerAnimated: YES];
+}
+
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
@@ -125,7 +130,7 @@ myTripMapController;
 													delegate:self
 										   cancelButtonTitle:@"Enter"
 										   otherButtonTitles:@"Cancel", nil];
-	
+
 	UITextField *timeField = [[UITextField alloc] initWithFrame:CGRectMake(12, 45, 260, 25)];
 	[timeField setBackgroundColor:[UIColor whiteColor]];
 	[timeField setPlaceholder:@"Time (minutes)"];
@@ -141,7 +146,7 @@ myTripMapController;
 	[segmentedControl addTarget:self action:@selector(pickMode:) forControlEvents:UIControlEventValueChanged];
 	[prompt addSubview: segmentedControl];
 	[segmentedControl release];
-	
+
 	// show the dialog box
 	[prompt show];
 	[prompt release];
