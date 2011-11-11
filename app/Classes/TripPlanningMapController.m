@@ -68,10 +68,7 @@
 		self.tripMapAnnotations = [[NSMutableArray alloc] init];
 	}
 	
-	Content *content = [Content getInstance];
-	NSMutableArray *events = [content getEvents];
-	
-	for(id event in events) {
+	for(id event in myEvents) {
 		EventAnnotation *eventAnnotation = [[EventAnnotation alloc] initAnnotationWithEvent: event];
 		if([self.tripMapAnnotations containsObject: eventAnnotation] == NO) {
 			[self.tripMapAnnotations addObject:eventAnnotation];
@@ -167,6 +164,9 @@
 	
 	//Get rid of the old events
 	[myEvents removeAllObjects];
+	
+	[myTripMapView removeAnnotations: self.tripMapAnnotations];
+	[self.tripMapAnnotations removeAllObjects];
 	
 	for(id index in indices) {
 		[myEvents addObject: [content getEventAtIndex: [(NSNumber *)index intValue]]];

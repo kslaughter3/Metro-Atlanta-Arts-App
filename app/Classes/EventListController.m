@@ -42,7 +42,7 @@
 //TEST EVENT	 
 	 Event *event = [[Event alloc] initEmptyEvent];
 	 [event setEventName: @"Test"];
-	 [event setImageURL:@"http://gra217b.files.wordpress.com/2011/09/apple-mac-logo.jpg"];
+	 [event setImageURL:@"http://4.bp.blogspot.com/_rtOXMZlMTkg/TKgII4-qwRI/AAAAAAAADuQ/mnQicdtiE3U/s1600/sn_MuslimStarryNight.jpg"];
 
 	 EventLocation *loc = [[EventLocation alloc] initEmptyLocation];
 //	 [loc setName: @"Atlanta Museum of Modern Art"];
