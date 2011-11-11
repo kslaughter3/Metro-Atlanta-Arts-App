@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EventArtist.h"
 
-@interface ArtistController : UIViewController {
+@interface ArtistController : UIViewController <UIWebViewDelegate> {
 	EventArtist *artist;
 	IBOutlet UINavigationBar *myTitleBar;
 	IBOutlet UIWebView *myWebView;

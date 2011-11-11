@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="63"/>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -88,6 +88,10 @@
 								<reference key="IBUIToolbar" ref="606414733"/>
 							</object>
 						</object>
+						<object class="NSColor" key="IBUITintColor" id="615659407">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MCAwIDAAA</bytes>
+						</object>
 					</object>
 					<object class="IBUINavigationBar" id="989188130">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -95,6 +99,7 @@
 						<string key="NSFrameSize">{320, 44}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<reference key="IBUITintColor" ref="615659407"/>
 						<object class="NSArray" key="IBUIItems">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUINavigationItem" id="152473900">
@@ -201,8 +206,8 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="484410887"/>
-							<reference ref="606414733"/>
 							<reference ref="989188130"/>
+							<reference ref="606414733"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>

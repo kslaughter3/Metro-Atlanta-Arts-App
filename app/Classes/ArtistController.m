@@ -22,7 +22,7 @@
 	myTitleBar.topItem.title = [artist getName];
 	
 	NSString *html = [self buildHTMLString];
-	[myWebView loadHTMLString:html baseURL:[NSURL URLWithString: @"http:://www.apple.com"]];
+	[myWebView loadHTMLString:html baseURL:[NSURL URLWithString: @"http://www.apple.com"]];
 }
 
 -(NSString *)buildHTMLString 
@@ -65,6 +65,14 @@
  return (interfaceOrientation == UIInterfaceOrientationPortrait);
  }
  */
+
+-(BOOL)webView:(UIWebView *)descriptionTextView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    if (UIWebViewNavigationTypeLinkClicked == navigationType) {
+        [[UIApplication sharedApplication] openURL:[request URL]];
+        return NO;
+    }
+    return YES;
+}
 
 -(IBAction)close: (id)sender {
 	NSLog(@"Close Clicked\n");

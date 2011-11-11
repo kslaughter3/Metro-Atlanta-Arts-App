@@ -49,7 +49,7 @@
 	myTitleBar.topItem.title = [myEvent getEventName];
 	
 	NSString *html = [self buildHTMLString];
-	[myWebView loadHTMLString:html baseURL:[NSURL URLWithString: @"http:://www.apple.com"]];
+	[myWebView loadHTMLString:html baseURL:[NSURL URLWithString: @"http://www.apple.com"]];
 
 }
 

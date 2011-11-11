@@ -11,7 +11,13 @@
 
 @implementation EventListController
 @synthesize myTableView,
-			myEventController;
+			myEventController,
+			myArtistController,
+			myLocationController,
+			myTitleBar,
+			mySelectionBar,
+			previousButton,
+			nextButton;
 
 // The designated initializer. Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 /*
@@ -36,6 +42,10 @@
 	 
 	 [myTableView setDelegate: self];
 	 [myTableView setDataSource: self];
+	 tablePage = 1;
+	 listType = 1;
+	 lastPage = 10; //TODO: Set this based on the number of pages
+	 [self setListTitle];
 	 
 	 Content *content = [Content getInstance];
 	 
@@ -100,6 +110,10 @@
 
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
+	
+	[self setListTitle];
+	[self enabledNavigationButtons];
+	
 	[myTableView reloadData];
 }
 
@@ -117,7 +131,20 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	Content *content = [Content getInstance];
-	return [content getEventCount];
+	switch (listType) {
+		case EVENTLIST:
+			return [content getEventCount];
+			break;
+		case ARTISTLIST:
+			return [content getArtistCount];
+			break;
+		case LOCATIONLIST:
+			return [content getLocationCount];
+			break;
+		default:
+			return [content getEventCount];
+			break;
+	}
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -129,9 +156,37 @@
 	}
 	
 	Content *content = [Content getInstance];
-	Event *event = (Event *)[[content getEvents] objectAtIndex:indexPath.row];
-
-	cell.textLabel.text = [event getEventName];
+	
+	switch (listType) {
+		case EVENTLIST:
+		{
+			Event *event = (Event *)[content getEventAtIndex: indexPath.row];
+			cell.textLabel.text = [event getEventName];
+			break;
+		}
+		case ARTISTLIST:
+		{
+			EventArtist *artist = (EventArtist *)[content getArtistAtIndex: indexPath.row];
+			cell.textLabel.text = [artist getName];
+			break;
+		}
+		case LOCATIONLIST:
+		{
+			EventLocation *loc = (EventLocation *)[content getLocationAtIndex: indexPath.row];
+			if([loc getName] != nil && [[loc getName] isEqualToString: @""] == NO) {
+				cell.textLabel.text = [loc getName];
+			}
+			else {
+				cell.textLabel.text = [loc getStreetAddress];
+			}
+		}
+		default:
+		{
+			Event *event = (Event *)[content getEventAtIndex: indexPath.row];
+			cell.textLabel.text = [event getEventName];
+			break;
+		}
+	}
 	
 	return cell;
 }
@@ -143,16 +198,107 @@
 	
 	Content *content = [Content getInstance];
 	
-	Event *event = [[content getEvents] objectAtIndex: indexPath.row];
-	
-	if(myEventController == nil) {
-		self.myEventController = [[EventController alloc] initWithNibName: @"EventView" bundle: nil];
+	switch (listType) {
+		case EVENTLIST:
+		{
+			Event *event = (Event *)[content getEventAtIndex: indexPath.row];
+			if(myEventController == nil) {
+				self.myEventController = [[EventController alloc] initWithNibName: @"EventView" bundle: nil];
+			}
+			[myEventController setEvent: event];
+			[self presentModalViewController: self.myEventController animated:YES];
+			break;
+		}
+		case ARTISTLIST:
+		{
+			EventArtist *artist = (EventArtist *)[content getArtistAtIndex: indexPath.row];
+			if(myArtistController == nil) {
+				self.myArtistController = [[ArtistController alloc] initWithNibName: @"ArtistView" bundle:nil];
+			}
+			[myArtistController setArtist: artist];
+			[self presentModalViewController:self.myArtistController animated:YES];
+			break;
+		}
+		case LOCATIONLIST:
+		{
+			EventLocation *loc = (EventLocation *)[content getLocationAtIndex: indexPath.row];
+			if(myLocationController == nil) {
+				self.myLocationController = [[LocationController alloc] initWithNibName: @"LocationView" bundle:nil];
+			}
+			[myLocationController setLocation: loc];
+			[self presentModalViewController:self.myLocationController animated:YES];
+			break;
+		}
+		default:
+		{
+			Event *event = [content getEventAtIndex: indexPath.row];
+			if(myEventController == nil) {
+				self.myEventController = [[EventController alloc] initWithNibName: @"EventView" bundle: nil];
+			}
+			[myEventController setEvent: event];
+			[self presentModalViewController: self.myEventController animated:YES];
+			break;
+		}
+	}
+}
+
+-(void)setListTitle {
+	switch (listType) {
+		case EVENTLIST:
+			myTitleBar.topItem.title = @"Events";
+			break;
+		case ARTISTLIST:
+			myTitleBar.topItem.title = @"Artists";
+			break;
+		case LOCATIONLIST:
+			myTitleBar.topItem.title = @"Locations";
+			break;
+		default:
+			myTitleBar.topItem.title = @"Events";
+			break;
+	}
+}
+
+-(void)enabledNavigationButtons {
+	if(tablePage == 1) {
+		previousButton.enabled = NO;
+	}
+	else {
+		previousButton.enabled = YES;
 	}
 	
-	[myEventController setEvent: event];
-	
-	[self presentModalViewController: self.myEventController animated:YES];
-	//[self.view addSubview:[myEventController view]];
+	if(tablePage == lastPage) { 
+		nextButton.enabled = NO;
+	}
+	else {
+		nextButton.enabled = YES;
+	}
+}
+
+-(void)changeListType:(id)sender {
+	listType = [mySelectionBar selectedSegmentIndex];
+	[self setListTitle];
+	tablePage = 1;
+	[self enabledNavigationButtons];
+	[myTableView reloadData];
+}
+
+-(IBAction)previousPage:(id)sender {
+	if(tablePage > 1) {
+		tablePage--;
+		[self enabledNavigationButtons];
+		//TODO: Get page from server 
+		//[myTableView reloadData];
+	}
+}
+
+-(IBAction)nextPage:(id)sender {
+	if(tablePage < lastPage) {
+		tablePage++;
+		[self enabledNavigationButtons];
+		//TODO: Get page from server 
+		//[myTableView reloadData];
+	}
 }
 
 - (void)didReceiveMemoryWarning {

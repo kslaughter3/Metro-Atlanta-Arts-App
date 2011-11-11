@@ -65,6 +65,10 @@
 								<reference key="IBUIToolbar" ref="712783354"/>
 							</object>
 						</object>
+						<object class="NSColor" key="IBUITintColor" id="2837310">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MCAwIDAAA</bytes>
+						</object>
 					</object>
 					<object class="IBUINavigationBar" id="872652676">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -72,6 +76,7 @@
 						<string key="NSFrame">{{0, -5}, {320, 44}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<reference key="IBUITintColor" ref="2837310"/>
 						<object class="NSArray" key="IBUIItems">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUINavigationItem" id="662823838">
@@ -92,10 +97,7 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Name:</string>
-						<object class="NSColor" key="IBUITextColor" id="2837310">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MCAwIDAAA</bytes>
-						</object>
+						<reference key="IBUITextColor" ref="2837310"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
@@ -355,7 +357,6 @@
 						<reference key="object" ref="191373211"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="712783354"/>
 							<reference ref="872652676"/>
 							<reference ref="253152085"/>
 							<reference ref="710328904"/>
@@ -365,6 +366,7 @@
 							<reference ref="178337211"/>
 							<reference ref="23247638"/>
 							<reference ref="252971612"/>
+							<reference ref="712783354"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -614,7 +616,6 @@
 							<string>topLabel</string>
 							<string>typeField</string>
 							<string>typeLabel</string>
-							<string>typePickerView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -626,7 +627,6 @@
 							<string>UILabel</string>
 							<string>UITextField</string>
 							<string>UILabel</string>
-							<string>UIPickerView</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -641,7 +641,6 @@
 							<string>topLabel</string>
 							<string>typeField</string>
 							<string>typeLabel</string>
-							<string>typePickerView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -676,10 +675,6 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">typeLabel</string>
 								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">typePickerView</string>
-								<string key="candidateClassName">UIPickerView</string>
 							</object>
 						</object>
 					</object>
@@ -840,14 +835,6 @@
 					<string key="className">UINavigationItem</string>
 					<string key="superclassName">NSObject</string>
 					<reference key="sourceIdentifier" ref="582048556"/>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">UIPickerView</string>
-					<string key="superclassName">UIView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBFrameworkSource</string>
-						<string key="minorKey">UIKit.framework/Headers/UIPickerView.h</string>
-					</object>
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">UIResponder</string>
