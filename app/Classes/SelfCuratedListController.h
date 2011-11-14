@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SelfCuratedListController.h"
+#import "SelfCuratedViewController.h"
 
+@class SelfCuratedListController;
 
-@interface SelfCuratedListController : UIViewController {
-
+@interface SelfCuratedListController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+	IBOutlet UITableView *myTableView;
+	SelfCuratedViewController *mySelfCuratedViewController;
 }
+
+@property (nonatomic, retain) IBOutlet UITableView *myTableView;
+@property (nonatomic, retain) SelfCuratedViewController *mySelfCuratedViewController;
 
 @end

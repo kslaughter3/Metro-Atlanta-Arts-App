@@ -61,4 +61,12 @@
 	return plan;
 }
 
+-(void)setWebsite:(NSString *)url {
+	website = url;
+}
+
+-(NSString *)getWebsite {
+	return website;
+}
+
 @end

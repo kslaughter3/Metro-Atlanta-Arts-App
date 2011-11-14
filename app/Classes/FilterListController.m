@@ -63,6 +63,7 @@
 	if(cell == nil) {
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
 		cell.textLabel.font = [UIFont fontWithName:@"ArialMT" size:16];
+		cell.textLabel.textColor = [UIColor whiteColor];
 	}
 	
 	Content *content = [Content getInstance];

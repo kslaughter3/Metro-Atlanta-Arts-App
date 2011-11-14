@@ -183,6 +183,7 @@
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	if(cell == nil) {
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
+		cell.textLabel.textColor = [UIColor whiteColor];
 	}
 	
 	Content *content = [Content getInstance];
@@ -190,14 +191,33 @@
 	switch (listType) {
 		case EVENTLIST:
 		{
+			//cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
 			Event *event = (Event *)[content getEventAtIndex: indexPath.row];
 			cell.textLabel.text = [event getEventName];
+			if([event getImageURL] != nil && [event getImageURL] != @"") {
+				NSURL *url = [NSURL URLWithString: [event getImageURL]];
+				NSData *data = [NSData dataWithContentsOfURL:url];
+				UIImage *image = [UIImage imageWithData:data];
+				cell.imageView.image = image;				
+			}
+			else {
+				cell.imageView.image = [UIImage imageNamed: @"ipod-icon-unknown.jpg"];
+			}
 			break;
 		}
 		case ARTISTLIST:
 		{
 			EventArtist *artist = (EventArtist *)[content getArtistAtIndex: indexPath.row];
 			cell.textLabel.text = [artist getName];
+			if([artist getImageURL] != nil && [artist getImageURL] != @"") {
+				NSURL *url = [NSURL URLWithString: [artist getImageURL]];
+				NSData *data = [NSData dataWithContentsOfURL:url];
+				UIImage *image = [UIImage imageWithData:data];
+				cell.imageView.image = image;				
+			}
+			else {
+				cell.imageView.image = [UIImage imageNamed: @"ipod-icon-unknown.jpg"];
+			}
 			break;
 		}
 		case LOCATIONLIST:
@@ -208,6 +228,15 @@
 			}
 			else {
 				cell.textLabel.text = [loc getStreetAddress];
+			}
+			if([loc getImage] != nil && [loc getImage] != @"") {
+				NSURL *url = [NSURL URLWithString: [loc getImage]];
+				NSData *data = [NSData dataWithContentsOfURL:url];
+				UIImage *image = [UIImage imageWithData:data];
+				cell.imageView.image = image;				
+			}
+			else {
+				cell.imageView.image = [UIImage imageNamed: @"ipod-icon-unknown.jpg"];
 			}
 			break;
 		}
