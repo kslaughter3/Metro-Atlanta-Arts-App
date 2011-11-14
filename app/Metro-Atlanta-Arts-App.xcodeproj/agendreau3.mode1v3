@@ -271,18 +271,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>51</integer>
-									<integer>1</integer>
-									<integer>0</integer>
-								</array>
-								<array>
-									<integer>52</integer>
+									<integer>28</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {232, 644}}</string>
+							<string>{{0, 60}, {232, 644}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -317,7 +312,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>SelfCuratedEntry.m</string>
+								<string>EventLocation.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -325,11 +320,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>SelfCuratedEntry.m</string>
+										<string>EventLocation.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F28A626114719309001B991F</string>
+										<string>F28A62CD147198C4001B991F</string>
 										<key>history</key>
 										<array>
 											<string>F2BF2AF7143A367E00FBD2F5</string>
@@ -539,12 +534,10 @@
 											<string>F27C508B1468602500E92E0F</string>
 											<string>F27C508C1468602500E92E0F</string>
 											<string>F27C508E1468602500E92E0F</string>
-											<string>F27C514214686EF000E92E0F</string>
 											<string>F2AAB37D146ADE2A00C3E05D</string>
 											<string>F2AAB4AB146AE76B00C3E05D</string>
 											<string>F2AAB505146AEA9100C3E05D</string>
 											<string>F2AAB51F146AEB5200C3E05D</string>
-											<string>F2AAB535146AEDE300C3E05D</string>
 											<string>F2AAB60B146B004100C3E05D</string>
 											<string>F2AAB616146B028300C3E05D</string>
 											<string>F2AAB644146B195D00C3E05D</string>
@@ -581,7 +574,9 @@
 											<string>F28A61DB14718C99001B991F</string>
 											<string>F28A625E14719309001B991F</string>
 											<string>F28A625F14719309001B991F</string>
-											<string>F28A626014719309001B991F</string>
+											<string>F28A626D1471957D001B991F</string>
+											<string>F28A626E1471957D001B991F</string>
+											<string>F27C514214686EF000E92E0F</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>

@@ -214,6 +214,10 @@
 }
 
 -(Filter *)initTimeFilterStart: (EventDate *) start End: (EventDate *) end {
+	if((start == nil) || (end == nil)) {
+		return nil;
+	}
+	
 	self = [super init];
 	
 	if(self != nil) {
@@ -229,9 +233,9 @@
 			}
 		}
 		
-		[self dealloc];
+		//[self release];
 	}
-	
+
 	return nil;
 }
 
@@ -280,6 +284,10 @@
 }
 
 -(Filter *)initLocationFilter: (EventLocation *) loc Radius: (double) rad {
+	if(loc == nil) {
+		return nil;
+	}
+	
 	self = [super init];
 	
 	if(self != nil) {
