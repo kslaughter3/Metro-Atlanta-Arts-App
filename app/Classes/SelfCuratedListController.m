@@ -64,6 +64,15 @@
 	Content *content = [Content getInstance];
 	SelfCuratedEntry *selfCuratedEntry = (SelfCuratedEntry *)[content getSelfCuratedEntryAtIndex: indexPath.row];
 	cell.textLabel.text = [selfCuratedEntry getName];
+	if([selfCuratedEntry getImage] != nil && [selfCuratedEntry getImage] != @"") {
+		NSURL *url = [NSURL URLWithString: [selfCuratedEntry getImage]];
+		NSData *data = [NSData dataWithContentsOfURL:url];
+		UIImage *image = [UIImage imageWithData:data];
+		cell.imageView.image = image;				
+	}
+	else {
+		cell.imageView.image = [UIImage imageNamed: @"28-star.png"];
+	}
 	
 	return cell;
 }
