@@ -293,13 +293,19 @@ inComponent:(NSInteger)component
 			filter = [[Filter alloc] initArtistFilter: topField.text];
 			break;
 		case TimeFilterType:
-			start = [[EventDate alloc] initEmptyDate];
-			end = [[EventDate alloc] initEmptyDate];
-			[start setDate: topField.text];
-			[start setTime: middleField.text];
-			[end setDate: topField.text];
-			[end setTime: bottomField.text];
-			filter = [[Filter alloc] initTimeFilterStart:start End:end];
+			if([topField.text isEqualToString:@""] || [middleField.text isEqualToString: @""] 
+			   || [bottomField.text isEqualToString:@""]) {
+				filter = nil;
+			}
+			else {
+				start = [[EventDate alloc] initEmptyDate];
+				end = [[EventDate alloc] initEmptyDate];
+				[start setDate: topField.text];
+				[start setTime: middleField.text];
+				[end setDate: topField.text];
+				[end setTime: bottomField.text];
+				filter = [[Filter alloc] initTimeFilterStart:start End:end];
+			}
 			break;
 		case CostFilterType:
 			minCost = [topField.text doubleValue];
@@ -327,6 +333,8 @@ inComponent:(NSInteger)component
 			//Should never happen
 			break;
 	}
+	
+
 	
 	if(filter == nil) {
 		UIAlertView *alert = [[UIAlertView alloc] 

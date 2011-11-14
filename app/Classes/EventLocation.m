@@ -70,7 +70,10 @@
 
 -(EventLocation *)initWithAddress: (NSString *) add City: (NSString *) c State: (NSString *) s 
 									Zip: (NSString *) z {
-	if((add == nil) || (c == nil) || (s == nil) || (z == nil)) {
+	if((add == nil) || ([add isEqualToString: @""]) || 
+	   (c == nil) || ([c isEqualToString: @""]) || 
+	   (s == nil) || ([s isEqualToString: @""]) || 
+	   (z == nil) || ([z isEqualToString: @""])) {
 		return nil;
 	}
 	
