@@ -11,6 +11,7 @@
 
 
 @interface EventArtist : NSObject {
+	int artistID;
 	NSString *name;
 	NSString *description;
 	NSString *imageURL;
@@ -31,7 +32,12 @@
 -(EventArtist *)initWithArtistName:(NSString *)n Description:(NSString *)desc 
 	ImageURL: (NSString *) url;
 
+-(BOOL)isArtistIDEqual:(EventArtist *)other;
+
 /* Getters and Setters */
+-(void)setArtistID:(int)num;
+-(int)getArtistID;
+
 -(void)setName: (NSString *) str;
 -(NSString *)getName;
 

@@ -85,7 +85,19 @@
 	return nil;
 }
 
+-(BOOL)isArtistIDEqual:(EventArtist *)other	{
+	return artistID == [other getArtistID];
+}
+
 /* Getters and Setters */
+-(void)setArtistID:(int)num {
+	artistID = num;
+}
+
+-(int)getArtistID {
+	return artistID;
+}
+
 -(void)setName: (NSString *) str {
 	name = str;
 }
@@ -124,6 +136,10 @@
 
 -(BOOL)isEqual:(id)object {
 	EventArtist *other = (EventArtist *)object;
+	
+	if(artistID != [other getArtistID]) {
+		return NO;
+	}
 	
 	if(((name == nil) && ([other getName] != nil)) || ((name != nil) && ([other getName] == nil))) {
 		return NO;

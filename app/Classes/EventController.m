@@ -83,20 +83,34 @@
 	}
 	
 	if([myEvent getStartDate] != nil && [myEvent getEndDate] != nil) {
-		temp = [NSString stringWithFormat:@"<p><b>Availability</b><br/>"\
-				"%@-%@<br/>%@-%@</p>", 
-				[[myEvent getStartDate] getDate], [[myEvent getEndDate] getDate], 
-				[[myEvent getStartDate] getTimeStandardFormat],
-				[[myEvent getEndDate] getTimeStandardFormat]];
+		if([[myEvent getStartDate] isEqualTime: [myEvent getEndDate]]) {
+			temp = [NSString stringWithFormat:@"<p><b>Availability</b><br/>"\
+					"%@-%@<br/>All Day</p>", 
+					[[myEvent getStartDate] getDate], [[myEvent getEndDate] getDate]];
+		}
+		else {
+			temp = [NSString stringWithFormat:@"<p><b>Availability</b><br/>"\
+					"%@-%@<br/>%@-%@</p>", 
+					[[myEvent getStartDate] getDate], [[myEvent getEndDate] getDate], 
+					[[myEvent getStartDate] getTimeStandardFormat],
+					[[myEvent getEndDate] getTimeStandardFormat]];
+		}
 		
 		html = [html stringByAppendingString: temp];
 	}
 	else if([myEvent getAvailability] != nil) {
-		temp = [NSString stringWithFormat:@"<p><b>Availability</b><br/>"\
-				"%@<br/>%@-%@</p>",
-				[[myEvent getAvailability] getDayRange],
-				[[myEvent getAvailability] getStartTimeString],
-				[[myEvent getAvailability] getEndTimeString]];
+		if([[myEvent getAvailability] availableAllDay] == YES) {
+			temp = [NSString stringWithFormat:@"<p><b>Availability</b><br/>"\
+					"%@<br/>All Day</p>",
+					[[myEvent getAvailability] getDayRange]];
+		}
+		else {
+			temp = [NSString stringWithFormat:@"<p><b>Availability</b><br/>"\
+					"%@<br/>%@-%@</p>",
+					[[myEvent getAvailability] getDayRange],
+					[[myEvent getAvailability] getStartTimeString],
+					[[myEvent getAvailability] getEndTimeString]];
+		}
 		
 		html = [html stringByAppendingString: temp];
 	}
@@ -108,21 +122,45 @@
 		html = [html stringByAppendingString: temp];
 	}
 	
-	if([myEvent getArtist] != nil && [[myEvent getArtist] getName] != @"") {
-		temp = [NSString stringWithFormat:@"<p><b>Artist</b><br/>%@</p>", 
-						  [[myEvent getArtist] getName]];
-		
+	NSMutableArray *artists = [myEvent getArtists];
+	
+	if([artists count] >= 1) {
+		if([artists count] == 1) {
+			temp = [NSString stringWithFormat: @"<p><b>Artist</b><br/>$@</p>",
+					[artists objectAtIndex: 0]];
+		}
+		else {
+			temp = [NSString stringWithFormat: @"<p><b>Artists</b>"];
+			for(id art in artists) {
+				NSString *artistString = [NSString stringWithFormat:@"<br/>%@", 
+										 [(EventArtist *)art getName]];
+				temp = [temp stringByAppendingString: artistString];
+			}
+			temp = [temp stringByAppendingString:@"</p>"];
+		}
 		html = [html stringByAppendingString: temp];
 	}
 	
-	if([myEvent getCost] > 0) {
-		temp = [NSString stringWithFormat:@"<p><b>Price</b><br/>$%.2f</p>",
-				[myEvent getCost]];
+	
+	if(([myEvent getMaxCost] >= 0) || ([myEvent getMaxCost] >= 0)) {
 		
-		html = [html stringByAppendingString: temp];
-	}
-	else if([myEvent getCost] == 0) {
-		temp = [NSString stringWithFormat:@"<p><b>Price</b><br/>Free</p>"];
+		if([myEvent getMinCost] == 0) {
+			if([myEvent getMaxCost] == 0) {
+				temp = [NSString stringWithFormat:@"<p><b>Price</b><br/>Free</p>"];
+			}
+			else {
+				temp = [NSString stringWithFormat:@"<p><b>Price</b><br/>Free-%.2f</p>",
+						[myEvent getMaxCost]];
+			}
+		}
+		else if(([myEvent getMinCost] < 0) || ([myEvent getMinCost] == [myEvent getMaxCost]))  {
+			temp = [NSString stringWithFormat:@"<p><b>Price</b><br/>%.2f</p>", 
+					[myEvent getMaxCost]];
+		}
+		else {
+			temp = [NSString stringWithFormat:@"<p><b>Price</b><br/>%.2f-%.2f</p>",
+					[myEvent getMinCost], [myEvent getMaxCost]];
+		}
 		
 		html = [html stringByAppendingString: temp];
 	}

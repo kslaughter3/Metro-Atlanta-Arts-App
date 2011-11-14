@@ -685,7 +685,7 @@
 	if(((filterer->loc == nil) && (other->loc != nil)) || ((filterer->loc != nil) && (other->loc == nil))) {
 		return NO;
 	}
-	if((filterer->loc != nil) && ([filterer->loc isEqual: other->loc] == NO)) {
+	if((filterer->loc != nil) && ([filterer->loc isLocationIDEqual: other->loc] == NO)) {
 		return NO;
 	}
 	if(filterer->radius != other->radius) {

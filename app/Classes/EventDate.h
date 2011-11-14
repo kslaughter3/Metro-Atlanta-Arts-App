@@ -34,6 +34,7 @@
 -(EventDate *)initWithMonth: (int) mon Day: (int) d Year: (int) y Hour: (int) h Minute: (int) min Second: (int) s;
 
 
+-(BOOL)isEqualTime:(EventDate *)other;
 
 -(BOOL)earlierDate: (EventDate *)other;
 

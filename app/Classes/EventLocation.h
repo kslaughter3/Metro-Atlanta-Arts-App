@@ -16,6 +16,7 @@
 #define MILESTOMETERS 1609
 
 @interface EventLocation : NSObject {
+	int locationID;
 	NSString *name; 
 	NSString *streetAddress;
 	NSString *city;
@@ -50,7 +51,12 @@
 
 -(NSString *)getAddress;
 
+-(BOOL)isLocationIDEqual:(EventLocation *)other;
+
 /* getters and setters */
+-(void)setLocationID:(int)num;
+-(int)getLocationID;
+
 -(void)setName: (NSString *)str;
 -(NSString *)getName;
 

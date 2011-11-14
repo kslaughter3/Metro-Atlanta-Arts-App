@@ -97,8 +97,8 @@
 	  "I feel like this is pretty long\n so the scrolling works "];
 	 EventArtist *art = [[EventArtist alloc] initEmptyArtist];
 	 [art setName: @"Van Goh"];
-	 [event setArtist: art];
-	 [event setCost: 10.0];
+	 [event addArtist: art];
+	 [event setMinCost: 10.0];
 	 [event setDuration: 20];
 	 [event setWebsite: @"http://www.apple.com"];
 	 

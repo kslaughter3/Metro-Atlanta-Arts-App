@@ -156,7 +156,19 @@
 			streetAddress, city, state, zip];
 }
 
+-(BOOL)isLocationIDEqual:(EventLocation *)other {
+	return locationID == [other getLocationID];
+}
+
 /* getters and setters */
+-(void)setLocationID:(int)num {
+	locationID = num;
+}
+
+-(int)getLocationID {
+	return locationID;
+}
+
 -(void)setName:(NSString *)str {
 	name = str;
 }
@@ -250,6 +262,10 @@
 
 -(BOOL)isEqual:(id)object {
 	EventLocation *other = (EventLocation *)object;
+	
+	if(locationID != [other getLocationID]) {
+		return NO;
+	}
 
 	if(((name == nil) && ([other getName] != nil)) || ((name != nil) && ([other getName] == nil))) {
 		return NO;

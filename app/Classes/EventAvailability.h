@@ -38,6 +38,9 @@ typedef enum WeekDays {
 -(NSString *)getStartTimeString;
 -(NSString *)getEndTimeString;
 
+
+-(BOOL)availableAllDay;
+-(void)setAvailableAllDay; //both startTime and endTime are set to 0
 /* Getters and Setters */
 -(void)setDays: (NSMutableArray *) d;
 -(NSMutableArray *)getDays;

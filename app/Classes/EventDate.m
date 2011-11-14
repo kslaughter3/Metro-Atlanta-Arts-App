@@ -121,6 +121,11 @@
 	return nil;
 }
 
+-(BOOL)isEqualTime:(EventDate *)other {
+	return (hour == [other getHour]) && 
+	(minute == [other getMinute]) && (second == [other getSecond]);
+}
+
 -(BOOL)earlierDate: (EventDate *)other {
 	if([other getYear] < year) {
 		return NO;

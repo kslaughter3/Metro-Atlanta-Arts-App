@@ -81,6 +81,28 @@
 		html = [html stringByAppendingString: temp];
 	}
 	
+	NSMutableArray *events = [[Content getInstance] getEventsForLocation: location];
+	
+	if([events count] >= 1) {
+		if([events count] == 1) {
+			Event *event = (Event *)[events objectAtIndex:0];
+			temp = [NSString stringWithFormat:@"<p><b>Event</b><br/>%@</p>",
+					[event getEventName]];
+		}
+		else {
+			temp = [NSString stringWithFormat: @"<p><b>Events</b>"];
+			for(id e in events) {
+				Event *event = (Event *)e;
+				NSString *eventString = [NSString stringWithFormat:@"<br/>%@",
+										 [event getEventName]];
+				temp = [temp stringByAppendingString:eventString];
+			}
+			temp = [temp stringByAppendingString:@"</p>"];
+		}
+		html = [html stringByAppendingString: temp];
+	}
+	
+	
 	if([location getWebsite] != nil && [location getWebsite] != @"") {
 		temp = [NSString stringWithFormat:@"<center><p><a href=\"%@\">View Website</a></p></center>",
 				[location getWebsite]];

@@ -38,7 +38,7 @@
 	
 	if (self != nil) {
 		name = [[NSString alloc] initWithString: [event getEventName]];
-		artist = [[EventArtist alloc] initWithArtist: [event getArtist]];
+		artists = [[NSMutableArray alloc] initWithArray: [event getArtists]];
 		description = [[NSString alloc] initWithString: [event getDescription]];
 		imageURL = [[NSString alloc] initWithString: [event getImageURL]];
 		website = [[NSString alloc] initWithString: [event getWebsite]];
@@ -46,7 +46,7 @@
 		startDate = [[EventDate alloc] initWithDate: [event getStartDate]];
 		endDate = [[EventDate alloc] initWithDate: [event getEndDate]];
 		duration = [event getDuration];
-		cost = [event getCost];
+		minCost = [event getMinCost];
 		availability = [[EventAvailability alloc] initWithAvailability: [event getAvailability]];
 		return self;
 	}
@@ -70,14 +70,15 @@
 	
 	if (self != nil) {
 		name = [[NSString alloc] initWithString: n];
-		artist = [[EventArtist alloc] initWithArtist: a];
+		artists = [[NSMutableArray alloc] init];
+		[self addArtist: a];
 		description = [[NSString alloc] initWithString: desc];
 		website = [[NSString alloc] initWithString: url];
 		location = [[EventLocation alloc] initWithLocation: loc];
 		startDate = [[EventDate alloc] initWithDate: start];
 		endDate = [[EventDate alloc] initWithDate: end];
 		duration = length;
-		cost = price;
+		minCost = price;
 		availability = [[EventAvailability alloc] initWithAvailability: avail];
 		
 		return self;
@@ -102,7 +103,8 @@
 	
 	if (self != nil) {
 		name = [[NSString alloc] initWithString: n];
-		artist = [[EventArtist alloc] initWithArtist: a];
+		artists = [[NSMutableArray alloc] init];
+		[self addArtist: a];
 		description = [[NSString alloc] initWithString: desc];
 		imageURL = [[NSString alloc] initWithString: iURL];
 		website = [[NSString alloc] initWithString: url];
@@ -110,7 +112,7 @@
 		startDate = [[EventDate alloc] initWithDate: start];
 		endDate = [[EventDate alloc] initWithDate: end];
 		duration = length;
-		cost = price;
+		minCost = price;
 		availability = [[EventAvailability alloc] initWithAvailability: avail];
 		
 		return self;
@@ -119,10 +121,20 @@
 	return nil;
 }	
 					
--(void) print {
+-(BOOL)isEventIDEqual:(Event *)other {
+	return (eventID == [other getEventID]);
 }
 
 /*Getters and Setters */
+
+-(void)setEventID:(int)num {
+	eventID = num;
+}
+
+-(int)getEventID	{
+	return eventID;
+}
+
 -(void) setEventName: (NSString *) str {
 	name = str;
 }
@@ -131,12 +143,22 @@
 	return name;
 }
 
--(void) setArtist: (EventArtist *) str {
-	artist = str;
+-(void) addArtist: (EventArtist *) str {
+	if([artists containsObject: str] == NO) {
+		[artists addObject: str];
+	}
 }
 
--(EventArtist *)getArtist {
-	return artist;
+-(EventArtist *)getArtistAtIndex: (int)index {
+	return [artists objectAtIndex: index] ;
+}
+
+-(void)setArtists:(NSMutableArray *)arts {
+	artists = arts;
+}
+
+-(NSMutableArray *)getArtists {
+	return artists;
 }
 
 -(void) setDescription: (NSString *) str {
@@ -187,12 +209,32 @@
 	return duration;
 }
 
--(void) setCost: (double) price {
-	cost = price;
+-(void) setMinCost: (double) price {
+	//Keep the order correct
+	if(price > maxCost) {
+		minCost = maxCost;
+		maxCost = price;
+		return;
+	}
+	minCost = price;
 }
 
--(double)getCost {
-	return cost;
+-(double)getMinCost {
+	return minCost;
+}
+
+-(void) setMaxCost:(double)price {
+	//Keep the order correct
+	if(price < minCost) {
+		maxCost = minCost;
+		minCost = price;
+		return;
+	}
+	maxCost = price;
+}
+	
+-(double)getMaxCost {
+	return maxCost;
 }
 
 -(void)setAvailability: (EventAvailability *) avail {
@@ -214,6 +256,10 @@
 -(BOOL)isEqual:(id)object {
 	Event *other = (Event *)object;
 	
+	if(eventID != [other getEventID]) {
+		return NO;
+	}
+	
 	if(((name == nil) && ([other getEventName] != nil)) || ((name != nil) && ([other getEventName] == nil))) {
 		return NO;
 	}
@@ -221,10 +267,10 @@
 		return NO;
 	}
 	
-	if(((artist == nil) && ([other getArtist] != nil)) || ((artist != nil) && ([other getArtist] == nil))) {
+	if(((artists == nil) && ([other getArtists] != nil)) || ((artists != nil) && ([other getArtists] == nil))) {
 		return NO;
 	}
-	if((artist != nil) && ([artist isEqual: [other getArtist]] == NO)) {
+	if((artists != nil) && ([artists isEqual: [other getArtists]] == NO)) {
 		return NO;
 	}
 	
@@ -267,7 +313,10 @@
 		return NO;
 	}
 	
-	if(cost != [other getCost]) {
+	if(minCost != [other getMinCost]) {
+		return NO;
+	}
+	if(maxCost != [other getMaxCost]) {
 		return NO;
 	}
 	
@@ -310,11 +359,14 @@
 
 /* Returns YES if the event's artist begins with the given artist NO otherwise */
 -(BOOL)ArtistFilter: (NSString *) str {
-	if(str != nil && artist != nil) {
-		NSString * temp = [[artist getName] uppercaseString];
-		str = [str uppercaseString];
-		if([temp hasPrefix: str]) {
-			return YES;
+	if(str != nil && artists != nil) {
+		for(id a in artists) {
+			EventArtist *artist = (EventArtist *)a;
+			NSString * temp = [[artist getName] uppercaseString];
+			str = [str uppercaseString];
+			if([temp hasPrefix: str]) {
+				return YES;
+			}
 		}
 	}
 	return NO;
@@ -332,7 +384,7 @@
 
 /* Returns YES if the cost of this event is between the given min and max costs */
 -(BOOL)CostFilterMin: (double) min andMax: (double) max {
-	if((cost >= min) && (cost <= max)) {
+	if((minCost >= min) && (minCost <= max)) {
 		return YES;
 	}
 	return NO;

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EventLocation.h"
+#import "Content.h"
 
 @interface LocationController : UIViewController <UIWebViewDelegate> {
 	EventLocation *location;

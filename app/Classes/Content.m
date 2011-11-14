@@ -517,6 +517,34 @@ static Content *instance;
 	return locations;
 }
 
+-(NSMutableArray *)getEventsForArtist:(EventArtist *)artist {
+	NSMutableArray *temp = [[NSMutableArray alloc] init];
+	
+	for(id event in events) {
+		for(id art in [(Event *)event getArtists]) {
+			if([artist isArtistIDEqual:(EventArtist *)art]) {
+				[temp addObject: event];
+				break;
+			}
+		}
+	}
+	
+	return temp;
+}
+
+-(NSMutableArray *)getEventsForLocation:(EventLocation *)location {
+	NSMutableArray *temp = [[NSMutableArray alloc] init];
+	
+	for (id event in events) {
+		if([location isLocationIDEqual:[(Event *)event getLocation]]) {
+			[temp addObject: event];
+		}
+	}
+	
+	return temp;
+}
+
+
 -(NSInteger)getEventCount {
 	return events.count;
 }

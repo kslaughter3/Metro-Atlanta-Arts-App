@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EventArtist.h"
+#import "Content.h"
 
 @interface ArtistController : UIViewController <UIWebViewDelegate> {
 	EventArtist *artist;

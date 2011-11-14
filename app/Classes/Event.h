@@ -13,15 +13,17 @@
 #import "EventDate.h"
 
 @interface Event : NSObject {
+	int eventID;								/* Events unique id */
 	NSString *name;						/* Name of the Event */
-	EventArtist *artist;				/* Name of the Artist (where applicable) */
+	NSMutableArray *artists;			/* List of EventArtists for this event */
 	NSString *description;				/* Description of Event */
 	NSString *website;					/* Website URL */
 	EventLocation *location;			/* The location of Event (both street and lat/lon */
 	EventDate *startDate;				/* Start Date and Time */
 	EventDate *endDate;					/* End Date and Time */
 	int duration;						/* Duration of the Event (in minutes)*/
-	double cost;						/* Cost of the Event */
+	double minCost;						/* Min Cost of the Event */
+	double maxCost;						/* Max Cost of the Event */
 	EventAvailability *availability;	/* The availability of the event */
 	NSString *imageURL;
 }
@@ -42,16 +44,21 @@
 				   Start: (EventDate *) start End: (EventDate *) end Duration: (int) length 
 				   Cost: (double) price Availability: (EventAvailability *) avail;
 
-/* I don't know if this makes sense but I wrote it anyway */
--(void)print;
+-(BOOL)isEventIDEqual: (Event *)other;
 
 /* Getters and Setters */
+
+-(void)setEventID:(int)num;
+-(int)getEventID;
 
 -(void)setEventName: (NSString *) str;
 -(NSString *)getEventName;
 
--(void)setArtist: (EventArtist *) art;
--(EventArtist *)getArtist;
+-(void)addArtist: (EventArtist *) art;
+-(EventArtist *)getArtistAtIndex: (int) index;
+
+-(void)setArtists: (NSMutableArray *)arts;
+-(NSMutableArray *)getArtists;
 
 -(void)setDescription: (NSString *) str;
 -(NSString *)getDescription;
@@ -71,8 +78,11 @@
 -(void)setDuration: (int) length;
 -(int)getDuration;
 
--(void)setCost: (double) price;
--(double)getCost;
+-(void)setMinCost: (double) price;
+-(double)getMinCost;
+
+-(void)setMaxCost: (double) price;
+-(double)getMaxCost;
 
 -(void)setAvailability: (EventAvailability *) avail;
 -(EventAvailability *)getAvailability;

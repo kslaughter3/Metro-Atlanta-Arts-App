@@ -62,7 +62,7 @@
 
 -(BOOL)isEqual:(id)object {
 	EventAnnotation *temp = (EventAnnotation *)object;
-	return [event isEqual: temp.event];
+	return [event isEventIDEqual: temp.event];
 }
 
 @end

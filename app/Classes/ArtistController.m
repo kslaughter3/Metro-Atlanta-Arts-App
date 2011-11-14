@@ -46,6 +46,27 @@
 		html = [html stringByAppendingString: temp];
 	}
 	
+	NSMutableArray *events = [[Content getInstance] getEventsForArtist: artist];
+	
+	if([events count] >= 1) {
+		if([events count] == 1) {
+			Event *event = (Event *)[events objectAtIndex:0];
+			temp = [NSString stringWithFormat:@"<p><b>Event</b><br/>%@</p>",
+					[event getEventName]];
+		}
+		else {
+			temp = [NSString stringWithFormat: @"<p><b>Events</b>"];
+			for(id e in events) {
+				Event *event = (Event *)e;
+				NSString *eventString = [NSString stringWithFormat:@"<br/>%@",
+										 [event getEventName]];
+				temp = [temp stringByAppendingString:eventString];
+			}
+			temp = [temp stringByAppendingString:@"</p>"];
+		}
+		html = [html stringByAppendingString: temp];
+	}
+	
 	if([artist getWebsite] != nil && [artist getWebsite] != @"") {
 		temp = [NSString stringWithFormat:@"<center><p><a href=\"%@\">View Website</a></p></center>",
 				[artist getWebsite]];

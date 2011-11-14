@@ -168,6 +168,15 @@
 	return [EventAvailability timeString: endTime];
 }
 
+-(BOOL)availableAllDay {
+	return (startTime == 0) && (endTime == 0);
+}
+
+-(void)setAvailableAllDay {
+	startTime = 0;
+	endTime = 0;
+}
+
 /* Getters and Setters */
 -(void)setDays: (NSMutableArray *) d {
 	days = d;
@@ -246,6 +255,12 @@
 	if(days != nil) {
 		for(id day in days) {
 			if([other containsDay: day] == NO) {
+				return NO;
+			}
+		}
+		
+		for(id day in [other getDays]) {
+			if([days containsObject: day] == NO) {
 				return NO;
 			}
 		}

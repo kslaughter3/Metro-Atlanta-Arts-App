@@ -99,6 +99,10 @@
 -(NSMutableArray *)getArtists;
 -(NSMutableArray *)getLocations;
 
+-(NSMutableArray *)getEventsForArtist: (EventArtist *)artist;
+-(NSMutableArray *)getEventsForLocation: (EventLocation *)location;
+
+
 -(NSInteger)getEventCount;
 //-(NSInteger)getDisplayedEventCount;
 //-(NSInteger)getFilteredEventCount;
