@@ -34,6 +34,10 @@
 	Content *content = [Content getInstance];
 	SelfCuratedEntry *temp = [[SelfCuratedEntry alloc] initEmptySelfCuratedEntry];
 	[temp setName: @"jun3"];
+	[temp setImage: @"http://4.bp.blogspot.com/_rtOXMZlMTkg/TKgII4-qwRI/AAAAAAAADuQ/mnQicdtiE3U/s1600/sn_MuslimStarryNight.jpg"];
+	[temp setOccupation: @"Editor of the Atlanta Journal of the Arts"];
+	[temp setPlan: @"Visit these events: Test, Jun2, 22, 233, dashjklf"];
+	[temp setWebsite: @"http://www.apple.com"];
 	[content addSelfCuratedEntry: temp];
 	
 	[super viewDidLoad];
@@ -71,12 +75,13 @@
 -(void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath{
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
-	//Content *content = [Content getInstance];
-	//SelfCuratedEntry *selfCuratedEntry = (SelfCuratedEntry *)[content getSelfCuratedEntryAtIndex: indexPath.row];
+	Content *content = [Content getInstance];
+	SelfCuratedEntry *entry = (SelfCuratedEntry *)[content getSelfCuratedEntryAtIndex: indexPath.row];
 	if(mySelfCuratedViewController == nil) {
 		self.mySelfCuratedViewController = [[SelfCuratedViewController alloc] initWithNibName: @"SelfCuratedView" bundle: nil];
 	}
-	//[mySelfCuratedViewController setEvent: event];
+	
+	[mySelfCuratedViewController setEntry: entry];
 	[self presentModalViewController: self.mySelfCuratedViewController animated:YES];
 	
 }

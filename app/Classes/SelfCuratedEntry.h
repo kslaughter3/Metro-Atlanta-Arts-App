@@ -15,6 +15,7 @@
 	NSString *occupation;
 	NSString *image;
 	NSString *plan;
+	NSString *website;
 }
 
 -(SelfCuratedEntry *)initEmptySelfCuratedEntry;
@@ -33,5 +34,8 @@
 
 -(void)setPlan: (NSString *)str;
 -(NSString *)getPlan;
+
+-(void)setWebsite:(NSString *)url;
+-(NSString *)getWebsite;
 
 @end
