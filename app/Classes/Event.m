@@ -144,12 +144,24 @@
 }
 
 -(void) addArtist: (EventArtist *) str {
+	if(artists == nil) {
+		artists = [[NSMutableArray alloc] init];
+	}
+	
 	if([artists containsObject: str] == NO) {
 		[artists addObject: str];
 	}
 }
 
 -(EventArtist *)getArtistAtIndex: (int)index {
+	if(artists == nil) {
+		artists = [[NSMutableArray alloc] init];
+	}
+	
+	if(index >= [artists count]) {
+		return nil;
+	}
+	
 	return [artists objectAtIndex: index] ;
 }
 

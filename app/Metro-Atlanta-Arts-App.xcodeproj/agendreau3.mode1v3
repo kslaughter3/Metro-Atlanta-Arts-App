@@ -273,13 +273,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>62</integer>
-									<integer>52</integer>
+									<integer>16</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 611}, {232, 644}}</string>
+							<string>{{0, 188}, {232, 644}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -314,7 +314,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>EventAvailability.m</string>
+								<string>ArtistController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -322,11 +322,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>EventAvailability.m</string>
+										<string>ArtistController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F28A61BF14718AED001B991F</string>
+										<string>F28A6244147190A0001B991F</string>
 										<key>history</key>
 										<array>
 											<string>F2BF2AF7143A367E00FBD2F5</string>
@@ -536,7 +536,6 @@
 											<string>F27C508B1468602500E92E0F</string>
 											<string>F27C508C1468602500E92E0F</string>
 											<string>F27C508E1468602500E92E0F</string>
-											<string>F27C512F14686C4100E92E0F</string>
 											<string>F27C514214686EF000E92E0F</string>
 											<string>F2AAB37D146ADE2A00C3E05D</string>
 											<string>F2AAB4AB146AE76B00C3E05D</string>
@@ -575,8 +574,9 @@
 											<string>F28A619814718A19001B991F</string>
 											<string>F28A619914718A19001B991F</string>
 											<string>F28A619A14718A19001B991F</string>
+											<string>F28A61DA14718C99001B991F</string>
+											<string>F28A61DB14718C99001B991F</string>
 											<string>F28A619B14718A19001B991F</string>
-											<string>F28A619C14718A19001B991F</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -1115,6 +1115,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
