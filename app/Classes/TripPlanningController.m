@@ -72,7 +72,7 @@ myTripMapController;
 	Content *content = [Content getInstance];
 	Event *event = (Event *)[content getEventAtIndex: indexPath.row];
 	cell.textLabel.text = [event getEventName];
-	
+
 	return cell;
 }
 

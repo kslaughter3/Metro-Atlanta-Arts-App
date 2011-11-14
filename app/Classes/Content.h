@@ -11,6 +11,7 @@
 #import "Event.h"
 #import "EventLocation.h"
 #import "AboutUs.h"
+#import "SelfCuratedEntry.h"
 
 @class SBJsonStreamParser;
 @class SBJsonStreamParserAdapter;
@@ -24,6 +25,7 @@
 	NSMutableArray *filters;
 	NSMutableArray *artists;
 	NSMutableArray *locations;
+	NSMutableArray *selfCuratedEntries;
 	AboutUs *myAboutUs; //Stores the one copy of about us from the server
     NSURLConnection *theConnection;
     IBOutlet UITextField *username;
@@ -55,6 +57,7 @@
 -(BOOL)addArtist:(EventArtist *)artist;
 -(BOOL)addEvent:(Event *)event;
 -(BOOL)addLocation: (EventLocation *)location;
+-(BOOL)addSelfCuratedEntry:(SelfCuratedEntry *)selfCuratedEntry;
 
 /* Type is true if this is an AND Filter and false if this is an OR filter */
 -(BOOL)addFilter: (Filter *) filter;
@@ -91,6 +94,7 @@
 -(EventArtist *)getArtistAtIndex: (int) index;
 -(Filter *)getFilterAtIndex: (int) index;
 -(EventLocation *)getLocationAtIndex: (int) index;
+-(SelfCuratedEntry *)getSelfCuratedEntryAtIndex: (int) index;
 -(AboutUs *)getAboutUs;
 
 -(NSMutableArray *)getEvents;
@@ -98,6 +102,7 @@
 -(NSMutableArray *)getFilters;
 -(NSMutableArray *)getArtists;
 -(NSMutableArray *)getLocations;
+-(NSMutableArray *)getSelfCuratedEntries;
 
 -(NSMutableArray *)getEventsForArtist: (EventArtist *)artist;
 -(NSMutableArray *)getEventsForLocation: (EventLocation *)location;
@@ -109,5 +114,6 @@
 -(NSInteger)getFilterCount;
 -(NSInteger)getArtistCount;
 -(NSInteger)getLocationCount;
+-(NSInteger)getSelfCuratedEntryCount;
 
 @end
