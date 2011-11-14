@@ -442,6 +442,16 @@
 			F205660D1471A92D00127754 /* PBXBookmark */ = F205660D1471A92D00127754 /* PBXBookmark */;
 			F205660E1471A92D00127754 /* PBXBookmark */ = F205660E1471A92D00127754 /* PBXBookmark */;
 			F20566131471A92D00127754 /* PBXTextBookmark */ = F20566131471A92D00127754 /* PBXTextBookmark */;
+			F205661E1471AA9300127754 /* PBXBookmark */ = F205661E1471AA9300127754 /* PBXBookmark */;
+			F205661F1471AA9300127754 /* PBXTextBookmark */ = F205661F1471AA9300127754 /* PBXTextBookmark */;
+			F205662A1471AB4B00127754 /* PBXBookmark */ = F205662A1471AB4B00127754 /* PBXBookmark */;
+			F205662B1471AB4B00127754 /* PBXBookmark */ = F205662B1471AB4B00127754 /* PBXBookmark */;
+			F205662C1471AB4B00127754 /* PBXBookmark */ = F205662C1471AB4B00127754 /* PBXBookmark */;
+			F205662D1471AB4B00127754 /* PBXBookmark */ = F205662D1471AB4B00127754 /* PBXBookmark */;
+			F205662E1471AB4B00127754 /* PBXBookmark */ = F205662E1471AB4B00127754 /* PBXBookmark */;
+			F205662F1471AB4B00127754 /* PBXBookmark */ = F205662F1471AB4B00127754 /* PBXBookmark */;
+			F20566301471AB4B00127754 /* PBXTextBookmark */ = F20566301471AB4B00127754 /* PBXTextBookmark */;
+			F20566371471AB6700127754 /* PBXTextBookmark */ = F20566371471AB6700127754 /* PBXTextBookmark */;
 			F255D3C514684A1A00A69307 = F255D3C514684A1A00A69307 /* PBXTextBookmark */;
 			F255D41614684ED400A69307 = F255D41614684ED400A69307 /* PBXTextBookmark */;
 			F27C4FC61468602500E92E0F = F27C4FC61468602500E92E0F /* PBXBookmark */;
@@ -958,9 +968,9 @@
 	};
 	BF15C45D144F4DAD00969E72 /* TripPlanningController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {918, 2925}}";
-			sepNavSelRange = "{1912, 0}";
-			sepNavVisRange = "{855, 1674}";
+			sepNavIntBoundsRect = "{{0, 0}, {918, 3094}}";
+			sepNavSelRange = "{2415, 0}";
+			sepNavVisRange = "{884, 1681}";
 			sepNavWindowFrame = "{{2488, 189}, {977, 803}}";
 		};
 	};
@@ -1825,6 +1835,64 @@
 		rType = 0;
 		vrLen = 1624;
 		vrLoc = 173;
+	};
+	F205661E1471AA9300127754 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = F2AEAD9F1458755900B6D34E /* 28-star.png */;
+	};
+	F205661F1471AA9300127754 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F2B35F11146D97ED005BC775 /* SelfCuratedListController.m */;
+		name = "SelfCuratedListController.m: 126";
+		rLen = 0;
+		rLoc = 4040;
+		rType = 0;
+		vrLen = 1555;
+		vrLoc = 174;
+	};
+	F205662A1471AB4B00127754 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = F2AEAD9F1458755900B6D34E /* 28-star.png */;
+	};
+	F205662B1471AB4B00127754 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = F2AEADB31458755900B6D34E /* 48-fork-and-knife.png */;
+	};
+	F205662C1471AB4B00127754 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = F2AEADAD1458755900B6D34E /* 42-photos.png */;
+	};
+	F205662D1471AB4B00127754 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = F2AEADC41458755900B6D34E /* 65-note.png */;
+	};
+	F205662E1471AB4B00127754 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = F2AEADC81458755900B6D34E /* 69-display.png */;
+	};
+	F205662F1471AB4B00127754 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = F2AEADCA1458755900B6D34E /* 71-compass.png */;
+	};
+	F20566301471AB4B00127754 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F2B35F11146D97ED005BC775 /* SelfCuratedListController.m */;
+		name = "SelfCuratedListController.m: 35";
+		rLen = 0;
+		rLoc = 985;
+		rType = 0;
+		vrLen = 340;
+		vrLoc = 726;
+	};
+	F20566371471AB6700127754 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F2B35F11146D97ED005BC775 /* SelfCuratedListController.m */;
+		name = "SelfCuratedListController.m: 35";
+		rLen = 0;
+		rLoc = 985;
+		rType = 0;
+		vrLen = 467;
+		vrLoc = 726;
 	};
 	F206D87C1451D66800A5B8A7 /* EventDate.h */ = {
 		uiCtxt = {
@@ -4619,7 +4687,7 @@
 		fRef = BF15C45D144F4DAD00969E72 /* TripPlanningController.m */;
 		name = "TripPlanningController.m: 141";
 		rLen = 0;
-		rLoc = 3981;
+		rLoc = 3991;
 		rType = 0;
 		vrLen = 309;
 		vrLoc = 5734;
@@ -4683,7 +4751,7 @@
 		fRef = F2BF2AEC143A362E00FBD2F5 /* ListController.m */;
 		name = "ListController.m: 221";
 		rLen = 0;
-		rLoc = 7349;
+		rLoc = 7359;
 		rType = 0;
 		vrLen = 1255;
 		vrLoc = 6086;
@@ -4711,7 +4779,7 @@
 		fRef = F2BF2AEC143A362E00FBD2F5 /* ListController.m */;
 		name = "ListController.m: 221";
 		rLen = 0;
-		rLoc = 7349;
+		rLoc = 7359;
 		rType = 0;
 		vrLen = 269;
 		vrLoc = 7072;
@@ -4739,7 +4807,7 @@
 		fRef = F2BF2AEC143A362E00FBD2F5 /* ListController.m */;
 		name = "ListController.m: 221";
 		rLen = 0;
-		rLoc = 7349;
+		rLoc = 7359;
 		rType = 0;
 		vrLen = 204;
 		vrLoc = 7137;
@@ -4749,7 +4817,7 @@
 		fRef = F2BF2AEC143A362E00FBD2F5 /* ListController.m */;
 		name = "ListController.m: 221";
 		rLen = 0;
-		rLoc = 7349;
+		rLoc = 7359;
 		rType = 0;
 		vrLen = 1271;
 		vrLoc = 6086;
@@ -4759,7 +4827,7 @@
 		fRef = F2BF2AEC143A362E00FBD2F5 /* ListController.m */;
 		name = "ListController.m: 220";
 		rLen = 0;
-		rLoc = 7349;
+		rLoc = 7359;
 		rType = 0;
 		vrLen = 167;
 		vrLoc = 7183;
@@ -4779,7 +4847,7 @@
 		fRef = F2BF2AEC143A362E00FBD2F5 /* ListController.m */;
 		name = "ListController.m: 220";
 		rLen = 0;
-		rLoc = 7349;
+		rLoc = 7359;
 		rType = 0;
 		vrLen = 169;
 		vrLoc = 7183;
@@ -4793,7 +4861,7 @@
 		fRef = F2BF2AEC143A362E00FBD2F5 /* ListController.m */;
 		name = "ListController.m: 220";
 		rLen = 0;
-		rLoc = 7349;
+		rLoc = 7359;
 		rType = 0;
 		vrLen = 167;
 		vrLoc = 7183;
@@ -4813,7 +4881,7 @@
 		fRef = F2BF2AEC143A362E00FBD2F5 /* ListController.m */;
 		name = "ListController.m: 220";
 		rLen = 0;
-		rLoc = 7349;
+		rLoc = 7359;
 		rType = 0;
 		vrLen = 167;
 		vrLoc = 7183;
@@ -4833,7 +4901,7 @@
 		fRef = F2BF2AEC143A362E00FBD2F5 /* ListController.m */;
 		name = "ListController.m: 220";
 		rLen = 0;
-		rLoc = 7349;
+		rLoc = 7359;
 		rType = 0;
 		vrLen = 167;
 		vrLoc = 7183;
@@ -4853,7 +4921,7 @@
 		fRef = F2BF2AEC143A362E00FBD2F5 /* ListController.m */;
 		name = "ListController.m: 220";
 		rLen = 0;
-		rLoc = 7349;
+		rLoc = 7359;
 		rType = 0;
 		vrLen = 169;
 		vrLoc = 7183;
@@ -4863,7 +4931,7 @@
 		fRef = F2BF2AEC143A362E00FBD2F5 /* ListController.m */;
 		name = "ListController.m: 220";
 		rLen = 0;
-		rLoc = 7349;
+		rLoc = 7359;
 		rType = 0;
 		vrLen = 169;
 		vrLoc = 7183;
@@ -5115,9 +5183,9 @@
 	};
 	F2B35F11146D97ED005BC775 /* SelfCuratedListController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1146, 1560}}";
-			sepNavSelRange = "{1377, 0}";
-			sepNavVisRange = "{173, 1624}";
+			sepNavIntBoundsRect = "{{0, 0}, {1146, 1586}}";
+			sepNavSelRange = "{985, 0}";
+			sepNavVisRange = "{726, 467}";
 			sepNavWindowFrame = "{{1981, 401}, {1052, 752}}";
 		};
 	};
@@ -5222,7 +5290,7 @@
 		fRef = BF15C45D144F4DAD00969E72 /* TripPlanningController.m */;
 		name = "TripPlanningController.m: 141";
 		rLen = 0;
-		rLoc = 3981;
+		rLoc = 3991;
 		rType = 0;
 		vrLen = 356;
 		vrLoc = 5736;
@@ -5595,9 +5663,9 @@
 	};
 	F2BF2AEC143A362E00FBD2F5 /* ListController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {691, 4706}}";
-			sepNavSelRange = "{7349, 0}";
-			sepNavVisRange = "{7183, 169}";
+			sepNavIntBoundsRect = "{{0, 0}, {880, 4940}}";
+			sepNavSelRange = "{8333, 0}";
+			sepNavVisRange = "{6504, 1598}";
 			sepNavWindowFrame = "{{740, 267}, {905, 727}}";
 		};
 	};

@@ -200,7 +200,7 @@
 				cell.imageView.image = image;				
 			}
 			else {
-				cell.imageView.image = [UIImage imageNamed: @"28-star.png"];
+				cell.imageView.image = [UIImage imageNamed: @"ipod-icon-unknown.jpg"];
 			}
 			break;
 		}
@@ -215,7 +215,7 @@
 				cell.imageView.image = image;				
 			}
 			else {
-				cell.imageView.image = [UIImage imageNamed: @"28-star.png"];
+				cell.imageView.image = [UIImage imageNamed: @"ipod-icon-unknown.jpg"];
 			}
 			break;
 		}
@@ -235,7 +235,7 @@
 				cell.imageView.image = image;				
 			}
 			else {
-				cell.imageView.image = [UIImage imageNamed: @"28-star.png"];
+				cell.imageView.image = [UIImage imageNamed: @"ipod-icon-unknown.jpg"];
 			}
 			break;
 		}

@@ -40,6 +40,7 @@
 		BFF8F6C6143A278200D5DA96 /* FilterListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6C5143A278200D5DA96 /* FilterListView.xib */; };
 		BFF8F6CB143A2B7F00D5DA96 /* ListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6CA143A2B7F00D5DA96 /* ListView.xib */; };
 		BFF8F6E3143A2FB500D5DA96 /* EventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFF8F6E2143A2FB500D5DA96 /* EventView.xib */; };
+		F20566221471AADB00127754 /* ipod-icon-unknown.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F20566211471AADB00127754 /* ipod-icon-unknown.jpg */; };
 		F206D87E1451D66800A5B8A7 /* EventDate.m in Sources */ = {isa = PBXBuildFile; fileRef = F206D87D1451D66800A5B8A7 /* EventDate.m */; };
 		F2771D801445F35600FC8C0C /* EditFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2771D7E1445F35600FC8C0C /* EditFilterController.m */; };
 		F2771D811445F35600FC8C0C /* EditFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2771D7F1445F35600FC8C0C /* EditFilterView.xib */; };
@@ -328,6 +329,7 @@
 		BFF8F6C5143A278200D5DA96 /* FilterListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FilterListView.xib; path = Resources/FilterListView.xib; sourceTree = "<group>"; };
 		BFF8F6CA143A2B7F00D5DA96 /* ListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ListView.xib; path = Resources/ListView.xib; sourceTree = "<group>"; };
 		BFF8F6E2143A2FB500D5DA96 /* EventView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EventView.xib; path = Resources/EventView.xib; sourceTree = "<group>"; };
+		F20566211471AADB00127754 /* ipod-icon-unknown.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ipod-icon-unknown.jpg"; sourceTree = "<group>"; };
 		F206D87C1451D66800A5B8A7 /* EventDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDate.h; sourceTree = "<group>"; };
 		F206D87D1451D66800A5B8A7 /* EventDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDate.m; sourceTree = "<group>"; };
 		F2771D7D1445F35600FC8C0C /* EditFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFilterController.h; sourceTree = "<group>"; };
@@ -755,6 +757,7 @@
 		F2AEAD1D1458755900B6D34E /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				F20566211471AADB00127754 /* ipod-icon-unknown.jpg */,
 				F2AEAD1E1458755900B6D34E /* 00-Read me first - license.txt */,
 				F2AEAD1F1458755900B6D34E /* 01-refresh.png */,
 				F2AEAD201458755900B6D34E /* 02-redo.png */,
@@ -1231,6 +1234,7 @@
 				F2B35FB1146D9DB2005BC775 /* MoreView.xib in Resources */,
 				F2B35FFD146DA39A005BC775 /* AboutUsVIew.xib in Resources */,
 				BFA1C85614719C7500DD9607 /* SelfCuratedView.xib in Resources */,
+				F20566221471AADB00127754 /* ipod-icon-unknown.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
