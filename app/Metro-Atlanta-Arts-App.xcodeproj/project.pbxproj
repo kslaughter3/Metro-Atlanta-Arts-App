@@ -42,6 +42,7 @@
 		F2771D801445F35600FC8C0C /* EditFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2771D7E1445F35600FC8C0C /* EditFilterController.m */; };
 		F2771D811445F35600FC8C0C /* EditFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2771D7F1445F35600FC8C0C /* EditFilterView.xib */; };
 		F2771E82144609DB00FC8C0C /* EventController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2771E80144609DB00FC8C0C /* EventController.m */; };
+		F28A6252147191EE001B991F /* SelfCuratedEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = F28A6251147191EE001B991F /* SelfCuratedEntry.m */; };
 		F2AEAACF145864F200B6D34E /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2AEAACD145864F200B6D34E /* SearchController.m */; };
 		F2AEAAD0145864F200B6D34E /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2AEAACE145864F200B6D34E /* SearchView.xib */; };
 		F2AEADE71458755900B6D34E /* 00-Read me first - license.txt in Resources */ = {isa = PBXBuildFile; fileRef = F2AEAD1E1458755900B6D34E /* 00-Read me first - license.txt */; };
@@ -329,6 +330,8 @@
 		F2771D7F1445F35600FC8C0C /* EditFilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EditFilterView.xib; path = Resources/EditFilterView.xib; sourceTree = "<group>"; };
 		F2771E7F144609DB00FC8C0C /* EventController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventController.h; sourceTree = "<group>"; };
 		F2771E80144609DB00FC8C0C /* EventController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventController.m; sourceTree = "<group>"; };
+		F28A6250147191EE001B991F /* SelfCuratedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfCuratedEntry.h; sourceTree = "<group>"; };
+		F28A6251147191EE001B991F /* SelfCuratedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfCuratedEntry.m; sourceTree = "<group>"; };
 		F2AEAACC145864F200B6D34E /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchController.h; sourceTree = "<group>"; };
 		F2AEAACD145864F200B6D34E /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchController.m; sourceTree = "<group>"; };
 		F2AEAACE145864F200B6D34E /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchView.xib; path = Resources/SearchView.xib; sourceTree = "<group>"; };
@@ -638,6 +641,8 @@
 				F2B35FFA146DA39A005BC775 /* AboutUsController.m */,
 				F2B3601F146DA5BD005BC775 /* AboutUs.h */,
 				F2B36020146DA5BD005BC775 /* AboutUs.m */,
+				F28A6250147191EE001B991F /* SelfCuratedEntry.h */,
+				F28A6251147191EE001B991F /* SelfCuratedEntry.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1264,6 +1269,7 @@
 				F2B35FB0146D9DB2005BC775 /* MoreController.m in Sources */,
 				F2B35FFC146DA39A005BC775 /* AboutUsController.m in Sources */,
 				F2B36021146DA5BD005BC775 /* AboutUs.m in Sources */,
+				F28A6252147191EE001B991F /* SelfCuratedEntry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

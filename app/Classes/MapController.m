@@ -104,6 +104,7 @@
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
 	[self displayMyMap];
+	[self enabledNavigationButtons];
 }
 
 -(void)displayMyMap
