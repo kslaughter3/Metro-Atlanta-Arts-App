@@ -265,19 +265,18 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
-								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>28</integer>
+									<integer>48</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 60}, {232, 644}}</string>
+							<string>{{0, 272}, {232, 644}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -312,7 +311,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>EventLocation.h</string>
+								<string>ListController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -320,11 +319,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>EventLocation.h</string>
+										<string>ListController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F28A62CD147198C4001B991F</string>
+										<string>F28A63291471A161001B991F</string>
 										<key>history</key>
 										<array>
 											<string>F2BF2AF7143A367E00FBD2F5</string>
@@ -550,25 +549,19 @@
 											<string>F2B35F8C146D9BB2005BC775</string>
 											<string>F2B35F8D146D9BB2005BC775</string>
 											<string>F2B35FC9146DA1EB005BC775</string>
-											<string>F2B35FE5146DA298005BC775</string>
 											<string>F2B35FE6146DA298005BC775</string>
 											<string>F2B35FFE146DA3B9005BC775</string>
 											<string>F2B36043146DAA48005BC775</string>
 											<string>F2B36044146DAA48005BC775</string>
 											<string>F2B36045146DAA48005BC775</string>
 											<string>F2B36047146DAA48005BC775</string>
-											<string>F2B360B6146DB184005BC775</string>
 											<string>F2B360C2146DB1B0005BC775</string>
 											<string>F2B36104146DB8A8005BC775</string>
 											<string>F28A610114717FE3001B991F</string>
 											<string>F28A610214717FE3001B991F</string>
-											<string>F28A617214718807001B991F</string>
-											<string>F28A617314718807001B991F</string>
 											<string>F28A619514718A19001B991F</string>
 											<string>F28A619614718A19001B991F</string>
 											<string>F28A619714718A19001B991F</string>
-											<string>F28A619814718A19001B991F</string>
-											<string>F28A619914718A19001B991F</string>
 											<string>F28A619A14718A19001B991F</string>
 											<string>F28A61DA14718C99001B991F</string>
 											<string>F28A61DB14718C99001B991F</string>
@@ -576,7 +569,13 @@
 											<string>F28A625F14719309001B991F</string>
 											<string>F28A626D1471957D001B991F</string>
 											<string>F28A626E1471957D001B991F</string>
-											<string>F27C514214686EF000E92E0F</string>
+											<string>F28A62D614719DD9001B991F</string>
+											<string>F28A62D714719DD9001B991F</string>
+											<string>F28A62D814719DD9001B991F</string>
+											<string>F28A62D914719DD9001B991F</string>
+											<string>F28A62E214719F02001B991F</string>
+											<string>F28A62EA14719F16001B991F</string>
+											<string>F28A62EB14719F16001B991F</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -804,7 +803,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>EventAvailability.m</string>
+								<string>ListController.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
