@@ -11,6 +11,8 @@
 
 @implementation SelfCuratedListController
 
+@synthesize myTableView;
+
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -21,13 +23,37 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-    [super viewDidLoad];
+    [myTableView setDelegate: self];
+	[myTableView setDataSource: self];
+	[super viewDidLoad];
 }
-*/
 
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger) section {
+	return 1;
+}
+
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+	return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	static NSString *myIdentifier = @"MyIdentifier";
+	
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:myIdentifier];
+	
+	if(cell == nil){
+		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:myIdentifier] autorelease];
+	}
+	
+	return cell;
+}
+
+-(void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath{
+	
+}
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -50,6 +76,7 @@
 
 
 - (void)dealloc {
+	[myTableView release];
     [super dealloc];
 }
 
