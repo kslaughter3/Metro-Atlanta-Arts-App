@@ -7,11 +7,13 @@
 //
 
 #import "SelfCuratedListController.h"
+#import "Content.h"
 
 
 @implementation SelfCuratedListController
 
-@synthesize myTableView;
+@synthesize myTableView,
+			mySelfCuratedViewController;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -28,11 +30,23 @@
 - (void)viewDidLoad {
     [myTableView setDelegate: self];
 	[myTableView setDataSource: self];
+	
+	Content *content = [Content getInstance];
+	SelfCuratedEntry *temp = [[SelfCuratedEntry alloc] initEmptySelfCuratedEntry];
+	[temp setName: @"jun3"];
+	[content addSelfCuratedEntry: temp];
+	
 	[super viewDidLoad];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear: animated];
+	[myTableView reloadData];
+}
+
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger) section {
-	return 1;
+	Content *content = [Content getInstance];
+	return [content getSelfCuratedEntryCount];
 }
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
@@ -40,18 +54,30 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	static NSString *myIdentifier = @"MyIdentifier";
+	static NSString *MyIdentifier = @"MyIdentifier";
 	
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:myIdentifier];
-	
-	if(cell == nil){
-		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:myIdentifier] autorelease];
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+	if(cell == nil) {
+		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
 	}
+	
+	Content *content = [Content getInstance];
+	SelfCuratedEntry *selfCuratedEntry = (SelfCuratedEntry *)[content getSelfCuratedEntryAtIndex: indexPath.row];
+	cell.textLabel.text = [selfCuratedEntry getName];
 	
 	return cell;
 }
 
 -(void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath{
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	
+	//Content *content = [Content getInstance];
+	//SelfCuratedEntry *selfCuratedEntry = (SelfCuratedEntry *)[content getSelfCuratedEntryAtIndex: indexPath.row];
+	if(mySelfCuratedViewController == nil) {
+		self.mySelfCuratedViewController = [[SelfCuratedViewController alloc] initWithNibName: @"SelfCuratedView" bundle: nil];
+	}
+	//[mySelfCuratedViewController setEvent: event];
+	[self presentModalViewController: self.mySelfCuratedViewController animated:YES];
 	
 }
 

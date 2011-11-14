@@ -126,14 +126,16 @@
 	
 	if([artists count] >= 1) {
 		if([artists count] == 1) {
-			temp = [NSString stringWithFormat: @"<p><b>Artist</b><br/>$@</p>",
-					[artists objectAtIndex: 0]];
+			EventArtist *art = (EventArtist *)[artists objectAtIndex: 0];
+			temp = [NSString stringWithFormat: @"<p><b>Artist</b><br/>%@</p>",
+					[art getName]];
 		}
 		else {
 			temp = [NSString stringWithFormat: @"<p><b>Artists</b>"];
-			for(id art in artists) {
+			for(id a in artists) {
+				EventArtist *art = (EventArtist *)a;
 				NSString *artistString = [NSString stringWithFormat:@"<br/>%@", 
-										 [(EventArtist *)art getName]];
+										  [art getName]];
 				temp = [temp stringByAppendingString: artistString];
 			}
 			temp = [temp stringByAppendingString:@"</p>"];
@@ -149,16 +151,16 @@
 				temp = [NSString stringWithFormat:@"<p><b>Price</b><br/>Free</p>"];
 			}
 			else {
-				temp = [NSString stringWithFormat:@"<p><b>Price</b><br/>Free-%.2f</p>",
+				temp = [NSString stringWithFormat:@"<p><b>Price</b><br/>Free-$%.2f</p>",
 						[myEvent getMaxCost]];
 			}
 		}
 		else if(([myEvent getMinCost] < 0) || ([myEvent getMinCost] == [myEvent getMaxCost]))  {
-			temp = [NSString stringWithFormat:@"<p><b>Price</b><br/>%.2f</p>", 
+			temp = [NSString stringWithFormat:@"<p><b>Price</b><br/>$%.2f</p>", 
 					[myEvent getMaxCost]];
 		}
 		else {
-			temp = [NSString stringWithFormat:@"<p><b>Price</b><br/>%.2f-%.2f</p>",
+			temp = [NSString stringWithFormat:@"<p><b>Price</b><br/>$%.2f-$%.2f</p>",
 					[myEvent getMinCost], [myEvent getMaxCost]];
 		}
 		

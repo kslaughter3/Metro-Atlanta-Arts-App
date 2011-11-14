@@ -11,6 +11,7 @@
 #import "Event.h"
 #import "EventArtist.h"
 #import "json/SBJson.h"
+#import "SelfCuratedEntry.h"
 
 static Content *instance;
 
@@ -81,6 +82,7 @@ static Content *instance;
 		locations = [[NSMutableArray alloc] init];
 		artists = [[NSMutableArray alloc] init];
 		filters = [[NSMutableArray alloc] init];
+		selfCuratedEntries = [[NSMutableArray alloc] init];
 		
 		/* TODO: Get events from database */
 		NSLog(@"Call populate");
@@ -147,6 +149,19 @@ static Content *instance;
 	/* Add the filter */
 	if([filters containsObject: filter] == NO) {
 		[filters addObject: filter];
+	}
+	
+	return YES;
+}
+
+-(BOOL)addSelfCuratedEntry:	(SelfCuratedEntry *) selfCuratedEntry{
+	NSLog(@"here");
+	if(selfCuratedEntry == nil){
+		return NO;
+	}
+	
+	if([selfCuratedEntries containsObject: selfCuratedEntry] == NO){
+		[selfCuratedEntries addObject: selfCuratedEntry];
 	}
 	
 	return YES;
@@ -492,6 +507,14 @@ static Content *instance;
 	return (EventLocation *)[locations objectAtIndex: index];
 }
 
+-(SelfCuratedEntry *)getSelfCuratedEntryAtIndex:(int)index {
+	if(index < 0 || index >= [self getSelfCuratedEntryCount]) {
+		return nil;
+	}
+	
+	return (SelfCuratedEntry *)[selfCuratedEntries objectAtIndex: index];
+}
+
 -(AboutUs *)getAboutUs {
 	[self populateAboutUs]; //For Testing remove once the server does this
 	return myAboutUs;
@@ -515,6 +538,10 @@ static Content *instance;
 
 -(NSMutableArray *)getLocations {
 	return locations;
+}
+
+-(NSMutableArray *)getSelfCuratedEntries {
+	return selfCuratedEntries;
 }
 
 -(NSMutableArray *)getEventsForArtist:(EventArtist *)artist {
@@ -568,6 +595,10 @@ static Content *instance;
 
 -(NSInteger)getLocationCount {
 	return locations.count;
+}
+
+-(NSInteger)getSelfCuratedEntryCount {
+	return selfCuratedEntries.count;
 }
 
 - (void)parser:(SBJsonStreamParser *)parser foundArray:(NSArray *)array {
