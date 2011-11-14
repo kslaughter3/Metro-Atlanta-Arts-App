@@ -66,6 +66,7 @@ myTripMapController;
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
 	if(cell == nil) {
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
+		cell.textLabel.textColor = [UIColor whiteColor];
 	}
 
 	Content *content = [Content getInstance];
