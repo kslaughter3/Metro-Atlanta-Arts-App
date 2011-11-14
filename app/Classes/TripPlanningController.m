@@ -25,6 +25,7 @@ myTripMapController;
 	
 	Content *content = [Content getInstance];
 	Event *temp = [[Event alloc] initEmptyEvent];
+	[temp setEventID: 2];
 	[temp setEventName: @"jun2"];
 	[temp setDescription: @"jun2"];
 	EventLocation *loc = [[EventLocation alloc] init];

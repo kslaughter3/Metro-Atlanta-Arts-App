@@ -51,6 +51,7 @@
 	 
 //TEST EVENT	 
 	 Event *event = [[Event alloc] initEmptyEvent];
+	 [event setEventID: 1];
 	 [event setEventName: @"Test"];
 	 [event setImageURL:@"http://4.bp.blogspot.com/_rtOXMZlMTkg/TKgII4-qwRI/AAAAAAAADuQ/mnQicdtiE3U/s1600/sn_MuslimStarryNight.jpg"];
 

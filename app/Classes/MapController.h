@@ -60,6 +60,7 @@ typedef enum EventType {
 
 -(void)displayMyMap;
 -(void)setUpAnnotations;
+-(void)calibrateRegion;
 -(IBAction)loadEventDetails:(id)sender;
 -(IBAction)previousPage:(id)sender;
 -(IBAction)nextPage:(id)sender;
