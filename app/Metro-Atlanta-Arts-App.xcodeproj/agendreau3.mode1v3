@@ -229,8 +229,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -267,18 +265,19 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
+								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>30</integer>
-									<integer>1</integer>
+									<integer>66</integer>
+									<integer>58</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 143}, {232, 644}}</string>
+							<string>{{0, 724}, {232, 644}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -297,7 +296,7 @@
 							<real>232</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>487 292 860 703 0 0 1920 1178 </string>
+						<string>2516 265 860 703 1920 0 1920 1200 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -313,7 +312,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Filter.h</string>
+								<string>EventAnnotation.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -321,11 +320,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Filter.h</string>
+										<string>EventAnnotation.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F2AF018A147431F600893B9A</string>
+										<string>F2AF01CA147437E700893B9A</string>
 										<key>history</key>
 										<array>
 											<string>F2BF2AF7143A367E00FBD2F5</string>
@@ -574,14 +573,14 @@
 											<string>F205662E1471AB4B00127754</string>
 											<string>F205662F1471AB4B00127754</string>
 											<string>F2AF00C51474244B00893B9A</string>
-											<string>F2AF00DF1474247400893B9A</string>
 											<string>F2AF00F3147425BD00893B9A</string>
 											<string>F2AF015D14742FC600893B9A</string>
 											<string>F2AF016014742FC600893B9A</string>
 											<string>F2AF016114742FC600893B9A</string>
 											<string>F2AF0188147431F600893B9A</string>
 											<string>F2AF0189147431F600893B9A</string>
-											<string>F2AF015F14742FC600893B9A</string>
+											<string>F2AF01C8147437E700893B9A</string>
+											<string>F2AF01C9147437E700893B9A</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -595,7 +594,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {606, 128}}</string>
 								<key>RubberWindowFrame</key>
-								<string>487 292 860 703 0 0 1920 1178 </string>
+								<string>2516 265 860 703 1920 0 1920 1200 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -603,6 +602,8 @@
 							<string>128pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -615,7 +616,7 @@
 								<key>Frame</key>
 								<string>{{0, 133}, {606, 529}}</string>
 								<key>RubberWindowFrame</key>
-								<string>487 292 860 703 0 0 1920 1178 </string>
+								<string>2516 265 860 703 1920 0 1920 1200 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -779,7 +780,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>F2AF018B147431F600893B9A</string>
 		<string>F2AF00D51474244B00893B9A</string>
 		<string>F2AF00D61474244B00893B9A</string>
 		<string>1C78EAAD065D492600B07095</string>
@@ -788,7 +788,7 @@
 		<string>/nethome/agendreau3/Documents/Metro-Atlanta-Arts-App/app/Metro-Atlanta-Arts-App.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>487 292 860 703 0 0 1920 1178 </string>
+	<string>2516 265 860 703 1920 0 1920 1200 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>

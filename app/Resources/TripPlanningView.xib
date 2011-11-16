@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="3"/>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -94,6 +94,11 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSMutableArray" key="IBUIItems">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBUIBarButtonItem" id="586315329">
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<reference key="IBUIToolbar" ref="717608572"/>
+								<int key="IBUISystemItemIdentifier">5</int>
+							</object>
 							<object class="IBUIBarButtonItem" id="990040542">
 								<string key="IBUITitle">Plan</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -105,6 +110,11 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIStyle">1</int>
 								<reference key="IBUIToolbar" ref="717608572"/>
+							</object>
+							<object class="IBUIBarButtonItem" id="1026973436">
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<reference key="IBUIToolbar" ref="717608572"/>
+								<int key="IBUISystemItemIdentifier">5</int>
 							</object>
 						</object>
 						<reference key="IBUITintColor" ref="289647911"/>
@@ -241,6 +251,8 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="990040542"/>
 							<reference ref="90660865"/>
+							<reference ref="586315329"/>
+							<reference ref="1026973436"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -259,6 +271,16 @@
 						<reference key="object" ref="17811446"/>
 						<reference key="parent" ref="356473523"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">23</int>
+						<reference key="object" ref="586315329"/>
+						<reference key="parent" ref="717608572"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">24</int>
+						<reference key="object" ref="1026973436"/>
+						<reference key="parent" ref="717608572"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -272,6 +294,8 @@
 					<string>10.IBPluginDependency</string>
 					<string>19.IBPluginDependency</string>
 					<string>21.IBPluginDependency</string>
+					<string>23.IBPluginDependency</string>
+					<string>24.IBPluginDependency</string>
 					<string>3.IBPluginDependency</string>
 					<string>4.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
@@ -281,7 +305,9 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>TripPlanningController</string>
 					<string>UIResponder</string>
-					<string>{{2376, 456}, {320, 480}}</string>
+					<string>{{2108, 548}, {320, 480}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -308,7 +334,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">22</int>
+			<int key="maxID">24</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
