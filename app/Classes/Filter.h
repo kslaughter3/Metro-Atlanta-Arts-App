@@ -10,6 +10,7 @@
 #import "EventLocation.h"
 #import "EventDate.h"
 #import "EventAvailability.h"
+#import "Filterer.h"
 
 /* Definitions of the minimum and maximum valid latitudes and longitudes
    can restrict these more and move these definitions to a more useful place if necessary */
@@ -39,23 +40,6 @@ typedef enum FilterType {
 	AvailabilityFilterType,
 	LastFilterType = AvailabilityFilterType
 } FilterType;
-
-typedef struct Filterer {
-	NSString				*query;				/* Search Filter */
-	NSString				*name;				/* Name Filter */
-	NSString				*artist;			/* Artist Filter */
-	EventDate				*start;				/* Time Filter */
-	EventDate				*end;				/* Time Filter */
-	double					minCost;			/* Cost Filter */
-	double					maxCost;			/* Cost Filter */
-	int						minDuration;		/* Duration Filter */
-	int						maxDuration;		/* Duration Filter */
-	EventLocation			*loc;				/* Location Filter */
-	double					radius;				/* Location Filter */
-	NSString				*day;				/* Availability Filter */
-	int 					startTime;			/* Availability Filter */
-	int						endTime;			/* Availability Filter */
-} Filterer;
 
 @interface Filter : NSObject {
 	FilterType		type;

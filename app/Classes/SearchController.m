@@ -46,8 +46,15 @@
 
 
 -(IBAction)search: (id) sender {
-	Filter *filter = [[Filter alloc] initSearchFilter: mySearchField.text];
 	Content *content;
+	Filter *filter;
+	if([mySearchField.text isEqualToString: @""]) {
+		filter = nil;
+	}
+	else {
+		//filter = nil;
+		filter = [[Filter alloc] initSearchFilter: mySearchField.text];
+	}
 	
 	if(filter == nil) {
 		UIAlertView *alert = [[UIAlertView alloc] 
@@ -64,19 +71,25 @@
 		content = [Content getInstance];
 		
 		if([content addFilter: filter] == NO) {
-			NSLog(@"Error: Add Filter Failed with a Valid Filter");
+			UIAlertView *alert = [[UIAlertView alloc] 
+								  initWithTitle:@"Filter Not Added" 
+								  message: @"An identical filter already exists filter not added" 
+								  delegate: nil 
+								  cancelButtonTitle: @"OK" 
+								  otherButtonTitles: nil];
+			[alert show];
+			[alert release];
 		}
-		
-		UIAlertView *alert = [[UIAlertView alloc] 
-							  initWithTitle:@"Search Added" 
-							  message: @"The search was added" 
-							  delegate: nil 
-							  cancelButtonTitle: @"OK" 
-							  otherButtonTitles: nil];
-		[alert show];
-		[alert release];
-		
-		NSLog(@"Filter Added");
+		else {
+			UIAlertView *alert = [[UIAlertView alloc] 
+								  initWithTitle:@"Search Added" 
+								  message: @"The search was added" 
+								  delegate: nil 
+								  cancelButtonTitle: @"OK" 
+								  otherButtonTitles: nil];
+			[alert show];
+			[alert release];
+		}
 	}
 }
 

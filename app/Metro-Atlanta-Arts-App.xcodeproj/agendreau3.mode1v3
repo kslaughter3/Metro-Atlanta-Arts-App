@@ -197,48 +197,7 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>F2AF00CB1474244B00893B9A</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>MapController.h</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>F2AF00CC1474244B00893B9A</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>MapController.h</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>F2AF00E11474247400893B9A</string>
-						<key>history</key>
-						<array>
-							<string>F2AF00961474206100893B9A</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {750, 461}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>2213 366 750 502 1920 0 1920 1200 </string>
-			</dict>
-		</dict>
-	</array>
+	<array/>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>-1</integer>
@@ -313,13 +272,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>8</integer>
+									<integer>30</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {232, 644}}</string>
+							<string>{{0, 143}, {232, 644}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -338,7 +297,7 @@
 							<real>232</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>718 312 860 703 0 0 1920 1178 </string>
+						<string>487 292 860 703 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -354,7 +313,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>MapController.m</string>
+								<string>Filter.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -362,11 +321,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>MapController.m</string>
+										<string>Filter.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F2AF00E01474247400893B9A</string>
+										<string>F2AF018A147431F600893B9A</string>
 										<key>history</key>
 										<array>
 											<string>F2BF2AF7143A367E00FBD2F5</string>
@@ -375,12 +334,9 @@
 											<string>F2B125A014646ABE0023FFBB</string>
 											<string>F2B1265214647A210023FFBB</string>
 											<string>F255D41614684ED400A69307</string>
-											<string>F2AAB37D146ADE2A00C3E05D</string>
-											<string>F2AAB4AB146AE76B00C3E05D</string>
 											<string>F2AAB505146AEA9100C3E05D</string>
 											<string>F2AAB51F146AEB5200C3E05D</string>
 											<string>F2AAB60B146B004100C3E05D</string>
-											<string>F2AAB616146B028300C3E05D</string>
 											<string>F2AAB644146B195D00C3E05D</string>
 											<string>F2AAB645146B195D00C3E05D</string>
 											<string>F2B35EBB146D905F005BC775</string>
@@ -619,7 +575,13 @@
 											<string>F205662F1471AB4B00127754</string>
 											<string>F2AF00C51474244B00893B9A</string>
 											<string>F2AF00DF1474247400893B9A</string>
-											<string>F28A619514718A19001B991F</string>
+											<string>F2AF00F3147425BD00893B9A</string>
+											<string>F2AF015D14742FC600893B9A</string>
+											<string>F2AF016014742FC600893B9A</string>
+											<string>F2AF016114742FC600893B9A</string>
+											<string>F2AF0188147431F600893B9A</string>
+											<string>F2AF0189147431F600893B9A</string>
+											<string>F2AF015F14742FC600893B9A</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -633,7 +595,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {606, 128}}</string>
 								<key>RubberWindowFrame</key>
-								<string>718 312 860 703 0 0 1920 1178 </string>
+								<string>487 292 860 703 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -653,7 +615,7 @@
 								<key>Frame</key>
 								<string>{{0, 133}, {606, 529}}</string>
 								<key>RubberWindowFrame</key>
-								<string>718 312 860 703 0 0 1920 1178 </string>
+								<string>487 292 860 703 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -817,16 +779,16 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>F2AF018B147431F600893B9A</string>
 		<string>F2AF00D51474244B00893B9A</string>
 		<string>F2AF00D61474244B00893B9A</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>F2AF00CB1474244B00893B9A</string>
 		<string>F2B521F9143371A7006D2A52</string>
 		<string>/nethome/agendreau3/Documents/Metro-Atlanta-Arts-App/app/Metro-Atlanta-Arts-App.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>718 312 860 703 0 0 1920 1178 </string>
+	<string>487 292 860 703 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -847,7 +809,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>EventAnnotation.m</string>
+								<string>Filter.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -918,7 +880,7 @@
 			<key>WindowToolGUID</key>
 			<string>F2B521F9143371A7006D2A52</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>

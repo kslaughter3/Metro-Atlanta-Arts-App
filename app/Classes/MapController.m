@@ -107,15 +107,12 @@
 	[self enabledNavigationButtons];
 }
 
--(void)displayMyMap
-{
+-(void)displayMyMap {
 	[self setUpAnnotations];
 	[self calibrateRegion];
-	
 }
 
--(void)setUpAnnotations
-{
+-(void)setUpAnnotations {
 	if(self.mapAnnotations == nil) {
 		self.mapAnnotations = [[NSMutableArray alloc] init];
 	}
@@ -134,8 +131,7 @@
 			
 }
 
--(void)calibrateRegion
-{
+-(void)calibrateRegion {
 	Content *content = [Content getInstance];
 	NSMutableArray *events = [content getEvents];
 	EventLocation *loc = [EventLocation alloc];

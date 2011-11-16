@@ -351,12 +351,18 @@ inComponent:(NSInteger)component
 		content = [Content getInstance];
 		
 		if([content addFilter: filter] == NO) {
-			NSLog(@"Error: Add Filter Failed with a Valid Filter");
+			UIAlertView *alert = [[UIAlertView alloc] 
+								  initWithTitle:@"Filter Not Added" 
+								  message: @"An identical filter already exists filter not added" 
+								  delegate: nil 
+								  cancelButtonTitle: @"OK" 
+								  otherButtonTitles: nil];
+			[alert show];
+			[alert release];
 		}
-		
-		NSLog(@"Filter Added");
-
-		[self.parentViewController dismissModalViewControllerAnimated: YES];
+		else {
+			[self.parentViewController dismissModalViewControllerAnimated: YES];
+		}
 	}
 }
 

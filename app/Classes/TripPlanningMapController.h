@@ -33,6 +33,7 @@
 -(int)getSpeed;
 
 -(void)displayTripMap;
+-(void)calibrateTripRegion;
 -(void)setUpTripAnnotations;
 -(IBAction)loadTripEventDetails:(id)sender;
 

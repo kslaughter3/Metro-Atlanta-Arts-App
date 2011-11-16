@@ -42,27 +42,12 @@
 	[self displayTripMap];
 }
 
--(void)displayTripMap
-{
-	MKCoordinateRegion region; 
-	MKCoordinateSpan span; 
-	span.latitudeDelta=0.2; 
-	span.longitudeDelta=0.2; 
-	
+-(void)displayTripMap {
 	[self setUpTripAnnotations];
-	
-	CLLocationCoordinate2D location; 
-	location.latitude = 33.7728837; /* We should make these constants*/
-	location.longitude = -84.393816;
-	region.span=span; 
-	region.center=location; 
-	
-	[myTripMapView setRegion:region animated:TRUE]; 
-	[myTripMapView regionThatFits:region]; 
+	[self calibrateTripRegion];
 }
 
--(void)setUpTripAnnotations
-{
+-(void)setUpTripAnnotations {
 	if(self.tripMapAnnotations == nil) {
 		self.tripMapAnnotations = [[NSMutableArray alloc] init];
 	}
@@ -74,8 +59,56 @@
 			[myTripMapView addAnnotation:eventAnnotation];
 		}
 		[eventAnnotation release];   
+	}	
+}
+
+-(void)calibrateTripRegion {
+	EventLocation *loc = [EventLocation alloc];
+	double latMin = 9999, longMin = 9999;
+	double latMax = -9999, longMax = -9999;
+	int numCoords = 0;
+	for(id event in myEvents) {
+		loc = [event getLocation];
+		if (loc != nil){
+			if([loc getCoordinates].latitude < latMin) latMin = [loc getCoordinates].latitude;
+			if([loc getCoordinates].longitude < longMin) longMin = [loc getCoordinates].longitude;
+			if([loc getCoordinates].latitude > latMax) latMax = [loc getCoordinates].latitude;
+			if([loc getCoordinates].longitude > longMax) longMax = [loc getCoordinates].longitude;
+			numCoords++;
+		}
 	}
 	
+	
+	MKCoordinateRegion region; 
+	MKCoordinateSpan span; 
+	CLLocationCoordinate2D location; 
+	
+	if(numCoords == 0){
+		span.latitudeDelta=0.2; 
+		span.longitudeDelta=0.2; 
+		location.latitude = 33.7728837; /* We should make these constants*/
+		location.longitude = -84.393816;
+	}
+	else {
+		location.latitude = ( latMax + latMin )/ 2;
+		location.longitude = ( longMax + longMin )/ 2;
+		span.latitudeDelta=1.2*(latMax - latMin); 
+		span.longitudeDelta=1.1*(longMax - longMin); 
+	}
+	
+	if(span.latitudeDelta < 0.0125) {
+		span.latitudeDelta = 0.0125;
+	}
+	
+	if(span.longitudeDelta < 0.0125) {
+		span.longitudeDelta = 0.0125;
+	}
+	
+	
+	region.span=span; 
+	region.center=location; 
+	[myTripMapView setRegion:region animated:TRUE]; 
+	[myTripMapView regionThatFits:region]; 	
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
@@ -115,7 +148,6 @@
 		
 		// Set the button as the callout view
 		retval.leftCalloutAccessoryView = eventButton;
-		[eventButton release];
 	}	
 	
 	if(retval.annotation != nil) {

@@ -19,13 +19,11 @@
 
 @interface TripPlanningController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	IBOutlet UITableView *myTableView;
-	NSIndexPath* checkedIndexPath;
 	NSMutableArray* integers;
 	IBOutlet TripPlanningMapController *myTripMapController;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
-@property (nonatomic, retain) NSIndexPath* checkedIndexPath;
 @property (nonatomic, retain) NSMutableArray* integers;
 @property (nonatomic, retain) IBOutlet TripPlanningMapController *myTripMapController;
 

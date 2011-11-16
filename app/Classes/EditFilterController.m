@@ -365,10 +365,18 @@
 		content = [Content getInstance];
 		
 		if([content replaceFilter: myFilter WithFilter: filter] == NO) {
-			NSLog(@"Error: Replace Filter Failed with a Valid Filter");
+			UIAlertView *alert = [[UIAlertView alloc] 
+								  initWithTitle:@"Filter Not Replaced" 
+								  message: @"An identical filter already exists filter not replaced" 
+								  delegate: nil 
+								  cancelButtonTitle: @"OK" 
+								  otherButtonTitles: nil];
+			[alert show];
+			[alert release];
 		}
-		
-		[self.parentViewController dismissModalViewControllerAnimated: YES];
+		else {
+			[self.parentViewController dismissModalViewControllerAnimated: YES];
+		}
 	}
 }
 

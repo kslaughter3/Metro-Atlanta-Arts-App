@@ -94,15 +94,13 @@
 	if(self != nil) {
 		[self setFilterType: [filter getFilterType]];
 		if([self checkFilterer: [filter getFilterer]] == YES) {
-			filterer = (Filterer *)malloc(sizeof(Filterer));
+			filterer = [[Filterer alloc] initEmptyFilterer];
 			if(filterer != nil) {
 				[self copyFilterer: [filter getFilterer]];
 				isEnabled = [filter isEnabled];
 				return self;
 			}
 		}
-		
-		[self dealloc];
 	}
 	
 	return nil;
@@ -114,15 +112,13 @@
 	if(self != nil) {
 		[self setFilterType: t];
 		if([self checkFilterer: f] == YES) {
-			filterer = (Filterer *)malloc(sizeof(Filterer));
+			filterer = [[Filterer alloc] initEmptyFilterer];
 			if(filterer != nil) {
 				[self copyFilterer: f];
 				isEnabled = YES;
 				return self;
 			}
 		}
-		
-		[self dealloc];
 	}
 	
 	return nil;
@@ -134,15 +130,13 @@
 	if(self != nil) {
 		[self setFilterType: t];
 		if([self checkFilterer: f] == YES) {
-			filterer = (Filterer *)malloc(sizeof(Filterer));
+			filterer = [[Filterer alloc] initEmptyFilterer];
 			if(filterer != nil) {
 				[self copyFilterer: f];
 				isEnabled = enabled;
 				return self;
 			}
 		}
-		
-		[self dealloc];
 	}
 	
 	return nil;
@@ -156,16 +150,13 @@
 	if(self != nil) {
 		if([self checkSearchFilterer: query] == YES) {
 			[self setFilterType: SearchFilterType];
-			
-			filterer = (Filterer *)malloc(sizeof(Filterer));
+			filterer = [[Filterer alloc] initEmptyFilterer];
 			if(filterer != nil) {
-				filterer->query = [[NSString alloc] initWithString: query];
+				filterer.query = [[NSString alloc] initWithString: query];
 				isEnabled = YES;
 				return self;
 			}
 		}
-		
-		[self dealloc];
 	}
 	
 	return nil;
@@ -178,15 +169,13 @@
 		if([self checkNameFilterer: name] == YES) {
 			[self setFilterType: NameFilterType];
 		
-			filterer = (Filterer *)malloc(sizeof(Filterer));
+			filterer = [[Filterer alloc] initEmptyFilterer];
 			if(filterer != nil) {
-				filterer->name = [[NSString alloc] initWithString: name];
+				filterer.name = [[NSString alloc] initWithString: name];
 				isEnabled = YES;
 				return self;
 			}
 		}
-		
-		[self dealloc];
 	}
 	
 	return nil;
@@ -199,15 +188,13 @@
 		if([self checkArtistFilterer: artist] == YES) {
 			[self setFilterType: ArtistFilterType];
 		
-			filterer = (Filterer *)malloc(sizeof(Filterer));
+			filterer = [[Filterer alloc] initEmptyFilterer];
 			if(filterer != nil) {
-				filterer->artist = [[NSString alloc] initWithString: artist];
+				filterer.artist = [[NSString alloc] initWithString: artist];
 				isEnabled = YES;
 				return self;
 			}
 		}
-		
-		[self dealloc];
 	}
 	
 	return nil;
@@ -224,16 +211,14 @@
 		if([self checkTimeFiltererStart: start End: end] == YES) {
 			[self setFilterType: TimeFilterType];
 		
-			filterer = (Filterer *)malloc(sizeof(Filterer));
+			filterer = [[Filterer alloc] initEmptyFilterer];
 			if(filterer != nil) {
-				filterer->start = [[EventDate alloc] initWithDate: start];
-				filterer->end = [[EventDate alloc] initWithDate: end];
+				filterer.start = [[EventDate alloc] initWithDate: start];
+				filterer.end = [[EventDate alloc] initWithDate: end];
 				isEnabled = YES;
 				return self;
 			}
 		}
-		
-		//[self release];
 	}
 
 	return nil;
@@ -246,16 +231,15 @@
 		if([self checkCostFiltererMin: min Max: max] == YES) {
 			[self setFilterType: CostFilterType];
 			
-			filterer = (Filterer *)malloc(sizeof(Filterer));
+			filterer = [[Filterer alloc] initEmptyFilterer];
 			if(filterer != nil) {
-				filterer->minCost = min;
-				filterer->maxCost = max;
+				filterer.minCost = min;
+				filterer.maxCost = max;
 				isEnabled = YES;
 				return self;
 			}
 		}
-		
-		[self dealloc];
+
 	}
 	
 	return nil;
@@ -268,16 +252,14 @@
 		if([self checkDurationFiltererMin: min Max: max] == YES) {
 			[self setFilterType: DurationFilterType];
 			
-			filterer = (Filterer *)malloc(sizeof(Filterer));
+			filterer = [[Filterer alloc] initEmptyFilterer];
 			if(filterer != nil) {
-				filterer->minDuration = min;
-				filterer->maxDuration = max;
+				filterer.minDuration = min;
+				filterer.maxDuration = max;
 				isEnabled = YES;
 				return self;
 			}
 		}
-		
-		[self dealloc];
 	}
 	
 	return nil;
@@ -294,16 +276,14 @@
 		if([self checkLocationFilterer: loc Radius: rad] == YES) {
 			[self setFilterType: LocationFilterType];
 			
-			filterer = (Filterer *)malloc(sizeof(Filterer));
+			filterer = [[Filterer alloc] initEmptyFilterer];
 			if(filterer != nil) {
-				filterer->loc = [[EventLocation alloc] initWithLocation: loc];
-				filterer->radius = rad;
+				filterer.loc = [[EventLocation alloc] initWithLocation: loc];
+				filterer.radius = rad;
 				isEnabled = YES;
 				return self;
 			}
 		}
-		
-		[self dealloc];
 	}
 	
 	return nil;
@@ -316,17 +296,15 @@
 		if([self checkAvailabilityFilterer: d Start: start End: end] == YES) {
 			[self setFilterType: AvailabilityFilterType];
 			
-			filterer = (Filterer *)malloc(sizeof(Filterer));
+			filterer = [[Filterer alloc] initEmptyFilterer];
 			if(filterer != nil) {
-				filterer->day = [[NSString alloc] initWithString: d];
-				filterer->startTime = start;
-				filterer->endTime = end;
+				filterer.day = [[NSString alloc] initWithString: d];
+				filterer.startTime = start;
+				filterer.endTime = end;
 				isEnabled = YES;
 				return self;
 			}
 		}
-		
-		[self dealloc];
 	}
 	
 	return nil;
@@ -341,28 +319,28 @@
 	/* Check to see if the correct union member is specified */ 
 	switch ([self getFilterType]) {
 		case SearchFilterType:
-			return [self checkSearchFilterer: f->query];
+			return [self checkSearchFilterer: f.query];
 			break;
 		case NameFilterType:
-			return [self checkNameFilterer: f->name];
+			return [self checkNameFilterer: f.name];
 			break;
 		case ArtistFilterType:
-			return [self checkArtistFilterer: f->artist];
+			return [self checkArtistFilterer: f.artist];
 			break;
 		case TimeFilterType:
-			return [self checkTimeFiltererStart: f->start End: f->end];
+			return [self checkTimeFiltererStart: f.start End: f.end];
 			break;
 		case CostFilterType:
-			return [self checkCostFiltererMin: f->minCost Max: f->maxCost];
+			return [self checkCostFiltererMin: f.minCost Max: f.maxCost];
 			break;
 		case DurationFilterType:
-			return [self checkDurationFiltererMin: f->minDuration Max: f->maxDuration];
+			return [self checkDurationFiltererMin: f.minDuration Max: f.maxDuration];
 			break;
 		case LocationFilterType:
-			return [self checkLocationFilterer: f->loc Radius: f->radius];
+			return [self checkLocationFilterer: f.loc Radius: f.radius];
 			break;
 		case AvailabilityFilterType:
-			return [self checkAvailabilityFilterer: f->day Start: f->startTime End: f->endTime];
+			return [self checkAvailabilityFilterer: f.day Start: f.startTime End: f.endTime];
 			break;
 		default:
 			return NO;
@@ -471,59 +449,59 @@
 }
 
 -(NSString *)getFiltererQuery {
-	return filterer->query;
+	return filterer.query;
 }
 
 -(NSString *)getFiltererName {
-	return filterer->name;
+	return filterer.name;
 }
 
 -(NSString *)getFiltererArtist {
-	return filterer->artist;
+	return filterer.artist;
 }
 
 -(EventDate *)getFiltererStartTime {
-	return filterer->start;
+	return filterer.start;
 }
 
 -(EventDate *)getFiltererEndTime {
-	return filterer->end;
+	return filterer.end;
 }
 
 -(double)getFiltererMinCost {
-	return filterer->minCost;
+	return filterer.minCost;
 }
 
 -(double)getFiltererMaxCost {
-	return filterer->maxCost;
+	return filterer.maxCost;
 }
 
 -(int)getFiltererMinDuration {
-	return filterer->minDuration;
+	return filterer.minDuration;
 }
 
 -(int)getFiltererMaxDuration {
-	return filterer->maxDuration;
+	return filterer.maxDuration;
 }
 
 -(EventLocation *)getFiltererLocation {
-	return filterer->loc;
+	return filterer.loc;
 }
 
 -(double)getFiltererRadius {
-	return filterer->radius;
+	return filterer.radius;
 }
 
 -(NSString *)getFiltererAvailabilityDay {
-	return filterer->day;
+	return filterer.day;
 }
 
 -(int)getFiltererAvailabilityStartTime {
-	return filterer->startTime;
+	return filterer.startTime;
 }
 
 -(int)getFiltererAvailabilityEndTime {
-	return filterer->endTime;
+	return filterer.endTime;
 }
 
 -(NSString *)getTypeName {
@@ -560,65 +538,65 @@
 
 //toString methods
 -(NSString *)searchString {
-	return [NSString stringWithFormat:@"Query: %@", filterer->query];
+	return [NSString stringWithFormat:@"Query: %@", filterer.query];
 }
 
 -(NSString *)nameString {
-	return [NSString stringWithFormat:@"Name: %@", filterer->name];
+	return [NSString stringWithFormat:@"Name: %@", filterer.name];
 }
 
 -(NSString *)artistString {
-	return[NSString stringWithFormat:@"Artist: %@", filterer->artist];
+	return[NSString stringWithFormat:@"Artist: %@", filterer.artist];
 }
 
 -(NSString *)timeString {
 	return [NSString stringWithFormat:@"%@ %@-%@", 
-			[filterer->start getDate], [filterer->start getTimeStandardFormat],
-			[filterer->end getTimeStandardFormat]];
+			[filterer.start getDate], [filterer.start getTimeStandardFormat],
+			[filterer.end getTimeStandardFormat]];
 }
 
 -(NSString *)costString {
-	if(filterer->minCost == 0 && filterer->maxCost == 0)
+	if(filterer.minCost == 0 && filterer.maxCost == 0)
 	{
 		return @"Cost: FREE";
 	}
 	return [NSString stringWithFormat:@"Cost: $%.2f-$%.2f",
-			filterer->minCost, filterer->maxCost];
+			filterer.minCost, filterer.maxCost];
 }
 
 -(NSString *)durationString {
 	return [NSString stringWithFormat:@"Duration: %d-%d minutes", 
-			filterer->minDuration, filterer->maxDuration];
+			filterer.minDuration, filterer.maxDuration];
 }
 
 -(NSString *)locationString {
 	return [NSString stringWithFormat:@"Within %.2f miles of %@", 
-			filterer->radius, [filterer->loc getStreetAddress]];
+			filterer.radius, [filterer.loc getStreetAddress]];
 }
 
 -(NSString *)availabilityString {
-	NSString *start = [EventAvailability timeString: filterer->startTime];
-	NSString *end = [EventAvailability timeString: filterer->endTime];
+	NSString *start = [EventAvailability timeString: filterer.startTime];
+	NSString *end = [EventAvailability timeString: filterer.endTime];
 	
 	return [NSString stringWithFormat:@"%@ %@-%@", 
-			filterer->day, start, end];
+			filterer.day, start, end];
 }
 
 -(void)copyFilterer: (Filterer *) f {
-	filterer->query = [[NSString alloc] initWithString: f->query];
-	filterer->name = [[NSString alloc] initWithString: f->name];
-	filterer->artist = [[NSString alloc] initWithString: f->artist];
-	filterer->start = [[EventDate alloc] initWithDate: f->start];
-	filterer->end = [[EventDate alloc] initWithDate: f->end];
-	filterer->minCost = f->minCost;
-	filterer->maxCost = f->maxCost;
-	filterer->minDuration = f->minDuration;
-	filterer->maxDuration = f->maxDuration;
-	filterer->loc = [[EventLocation alloc] initWithLocation: f->loc];
-	filterer->radius = f->radius;
-	filterer->day = [[NSString alloc] initWithString: f->day];
-	filterer->startTime = f->startTime;
-	filterer->endTime = f->endTime;
+	filterer.query = [[NSString alloc] initWithString: f.query];
+	filterer.name = [[NSString alloc] initWithString: f.name];
+	filterer.artist = [[NSString alloc] initWithString: f.artist];
+	filterer.start = [[EventDate alloc] initWithDate: f.start];
+	filterer.end = [[EventDate alloc] initWithDate: f.end];
+	filterer.minCost = f.minCost;
+	filterer.maxCost = f.maxCost;
+	filterer.minDuration = f.minDuration;
+	filterer.maxDuration = f.maxDuration;
+	filterer.loc = [[EventLocation alloc] initWithLocation: f.loc];
+	filterer.radius = f.radius;
+	filterer.day = [[NSString alloc] initWithString: f.day];
+	filterer.startTime = f.startTime;
+	filterer.endTime = f.endTime;
 }
 
 -(BOOL)isEqual:(id)object {
@@ -642,75 +620,75 @@
 
 -(BOOL)isFiltererEqual:(Filterer *)other
 {
-	if(((filterer->query == nil) && (other->query != nil)) || ((filterer->query != nil) && (other->query == nil))) {
+	if(((filterer.query == nil) && (other.query != nil)) || ((filterer.query != nil) && (other.query == nil))) {
 		return NO;
 	}
-	if((filterer->query != nil) && ([filterer->query isEqualToString: other->query] == NO)) {
-		return NO;
-	}
-	
-	if(((filterer->name == nil) && (other->name != nil)) || ((filterer->name != nil) && (other->name == nil))) {
-		return NO;
-	}
-	if((filterer->name != nil) && ([filterer->name isEqualToString: other->name] == NO)) {
+	if((filterer.query != nil) && ([filterer.query isEqualToString: other.query] == NO)) {
 		return NO;
 	}
 	
-	if(((filterer->artist == nil) && (other->artist != nil)) || ((filterer->artist != nil) && (other->artist == nil))) {
+	if(((filterer.name == nil) && (other.name != nil)) || ((filterer.name != nil) && (other.name == nil))) {
 		return NO;
 	}
-	if((filterer->artist != nil) && ([filterer->artist isEqualToString: other->artist] == NO)) {
-		return NO;
-	}
-	
-	if(((filterer->start == nil) && (other->start != nil)) || ((filterer->start != nil) && (other->start == nil))) {
-		return NO;
-	}
-	if((filterer->start != nil) && ([filterer->start isEqual: other->start] == NO)) {
-		return NO;
-	}
-	if(((filterer->end == nil) && (other->end != nil)) || ((filterer->end != nil) && (other->end == nil))) {
-		return NO;
-	}
-	if((filterer->end != nil) && ([filterer->end isEqual: other->end] == NO)) {
+	if((filterer.name != nil) && ([filterer.name isEqualToString: other.name] == NO)) {
 		return NO;
 	}
 	
-	if(filterer->minCost != other->minCost) {
+	if(((filterer.artist == nil) && (other.artist != nil)) || ((filterer.artist != nil) && (other.artist == nil))) {
 		return NO;
 	}
-	if(filterer->maxCost != other->maxCost) {
-		return NO;
-	}
-	
-	if(filterer->minDuration != other->minDuration) {
-		return NO;
-	}
-	if(filterer->maxDuration != other->maxDuration) {
+	if((filterer.artist != nil) && ([filterer.artist isEqualToString: other.artist] == NO)) {
 		return NO;
 	}
 	
-	if(((filterer->loc == nil) && (other->loc != nil)) || ((filterer->loc != nil) && (other->loc == nil))) {
+	if(((filterer.start == nil) && (other.start != nil)) || ((filterer.start != nil) && (other.start == nil))) {
 		return NO;
 	}
-	if((filterer->loc != nil) && ([filterer->loc isLocationIDEqual: other->loc] == NO)) {
+	if((filterer.start != nil) && ([filterer.start isEqual: other.start] == NO)) {
 		return NO;
 	}
-	if(filterer->radius != other->radius) {
+	if(((filterer.end == nil) && (other.end != nil)) || ((filterer.end != nil) && (other.end == nil))) {
+		return NO;
+	}
+	if((filterer.end != nil) && ([filterer.end isEqual: other.end] == NO)) {
+		return NO;
+	}
+	
+	if(filterer.minCost != other.minCost) {
+		return NO;
+	}
+	if(filterer.maxCost != other.maxCost) {
+		return NO;
+	}
+	
+	if(filterer.minDuration != other.minDuration) {
+		return NO;
+	}
+	if(filterer.maxDuration != other.maxDuration) {
+		return NO;
+	}
+	
+	if(((filterer.loc == nil) && (other.loc != nil)) || ((filterer.loc != nil) && (other.loc == nil))) {
+		return NO;
+	}
+	if((filterer.loc != nil) && ([filterer.loc isLocationIDEqual: other.loc] == NO)) {
+		return NO;
+	}
+	if(filterer.radius != other.radius) {
 		return NO;
 	}
 	
 	
-	if(((filterer->day == nil) && (other->day != nil)) || ((filterer->day != nil) && (other->day == nil))) {
+	if(((filterer.day == nil) && (other.day != nil)) || ((filterer.day != nil) && (other.day == nil))) {
 		return NO;
 	}
-	if((filterer->day != nil) && ([filterer->day isEqualToString: other->day] == NO)) {
+	if((filterer.day != nil) && ([filterer.day isEqualToString: other.day] == NO)) {
 		return NO;
 	}
-	if(filterer->startTime != other->startTime) {
+	if(filterer.startTime != other.startTime) {
 		return NO;
 	}
-	if(filterer->endTime != other->endTime) {
+	if(filterer.endTime != other.endTime) {
 		return NO;
 	}
 	

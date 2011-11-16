@@ -105,9 +105,10 @@ static Content *instance;
 
 	if([artists	 containsObject: artist] == NO) {
 		[artists addObject: artist];
+		return YES;
 	}
 	
-	return YES;
+	return NO;
 }
 -(BOOL)addEvent: (Event *) event{
 	/* Check to see if the filter is nil or invalid */
@@ -117,9 +118,10 @@ static Content *instance;
 	
 	if([events containsObject: event] == NO) {
 		[events addObject: event];
+		return YES;
 	}
 	
-	return YES;
+	return NO;
 }
 
 -(BOOL)addLocation: (EventLocation *) location {
@@ -129,9 +131,10 @@ static Content *instance;
 	
 	if([locations containsObject: location] == NO) {
 		[locations addObject: location];
+		return YES;
 	}
 	
-	return YES;
+	return NO;
 }
 
 -(BOOL)addFilter: (Filter *) filter {
@@ -149,9 +152,10 @@ static Content *instance;
 	/* Add the filter */
 	if([filters containsObject: filter] == NO) {
 		[filters addObject: filter];
+		return YES;
 	}
 	
-	return YES;
+	return NO;
 }
 
 -(BOOL)addSelfCuratedEntry:	(SelfCuratedEntry *) selfCuratedEntry{
@@ -195,6 +199,10 @@ static Content *instance;
 	Filterer *filterer = [newFilter getFilterer];
 	
 	if([newFilter checkFilterer: filterer] == NO) {
+		return NO;
+	}
+	
+	if([filters containsObject: newFilter]) {
 		return NO;
 	}
 	

@@ -12,7 +12,6 @@
 
 @implementation TripPlanningController
 @synthesize myTableView,
-checkedIndexPath,
 integers,
 myTripMapController;
 
@@ -35,6 +34,10 @@ myTripMapController;
 	[loc setCoordinates: coord];
 	[temp setLocation: loc];
 	[content addEvent: temp];
+	Event *temp2 = [[Event alloc] initEmptyEvent];
+	[temp2 setEventID: 3];
+	[temp2 setEventName: @"Jun3"];
+	[content addEvent: temp2];
 	
 	integers = [[NSMutableArray alloc] init];
 	
@@ -68,8 +71,9 @@ myTripMapController;
 	if(cell == nil) {
 		cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier] autorelease];
 		cell.textLabel.textColor = [UIColor whiteColor];
+		cell.accessoryType = UITableViewCellAccessoryNone;
 	}
-
+	
 	Content *content = [Content getInstance];
 	Event *event = (Event *)[content getEventAtIndex: indexPath.row];
 	cell.textLabel.text = [event getEventName];
@@ -82,29 +86,29 @@ myTripMapController;
 	else {
 		cell.imageView.image = [UIImage imageNamed: @"ipod-icon-unknown.jpg"];
 	}
-
+	
+	NSNumber *intRow = [NSNumber numberWithInt:indexPath.row];
+	if([integers containsObject: intRow]) {
+		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+	}
+	else {
+		cell.accessoryType = UITableViewCellAccessoryNone;
+	}
+	
 	return cell;
 }
 
 -(void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
-	//int idx = indexPath.row;
-	
-	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-	UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
-	if (cell.accessoryType == UITableViewCellAccessoryNone)
-	{
-		cell.accessoryType = UITableViewCellAccessoryCheckmark;
-		NSNumber* intRow = [NSNumber numberWithInt:indexPath.row];
-		[integers addObject: intRow];
-	}
-	else {
-		cell.accessoryType = UITableViewCellAccessoryNone;
-		NSNumber* intRow = [NSNumber numberWithInt:indexPath.row];
+	NSNumber *intRow = [NSNumber numberWithInt:indexPath.row];
+	if([integers containsObject: intRow]) {
 		[integers removeObjectIdenticalTo: intRow];
 	}
-
-	self.checkedIndexPath = indexPath;
+	else {
+		[integers addObject: intRow];
+	}
+	
+	[tableView reloadData];
 }
 
 -(IBAction)close: (id)sender {
@@ -130,7 +134,6 @@ myTripMapController;
 	[myTableView release];
 	[myTripMapController release];
 	[integers release];
-	[checkedIndexPath release];
     [super dealloc];
 }
 

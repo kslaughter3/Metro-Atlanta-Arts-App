@@ -249,6 +249,7 @@
 		F2AEAEAD1458755900B6D34E /* 97-puzzle.png in Resources */ = {isa = PBXBuildFile; fileRef = F2AEADE41458755900B6D34E /* 97-puzzle.png */; };
 		F2AEAEAE1458755900B6D34E /* 98-palette.png in Resources */ = {isa = PBXBuildFile; fileRef = F2AEADE51458755900B6D34E /* 98-palette.png */; };
 		F2AEAEAF1458755900B6D34E /* 99-umbrella.png in Resources */ = {isa = PBXBuildFile; fileRef = F2AEADE61458755900B6D34E /* 99-umbrella.png */; };
+		F2AF014114742DE600893B9A /* Filterer.m in Sources */ = {isa = PBXBuildFile; fileRef = F2AF014014742DE600893B9A /* Filterer.m */; };
 		F2B35E87146D8BA5005BC775 /* LocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B35E85146D8BA5005BC775 /* LocationController.m */; };
 		F2B35E88146D8BA5005BC775 /* LocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B35E86146D8BA5005BC775 /* LocationView.xib */; };
 		F2B35F13146D97ED005BC775 /* SelfCuratedListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B35F11146D97ED005BC775 /* SelfCuratedListController.m */; };
@@ -543,6 +544,8 @@
 		F2AEADE41458755900B6D34E /* 97-puzzle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "97-puzzle.png"; sourceTree = "<group>"; };
 		F2AEADE51458755900B6D34E /* 98-palette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "98-palette.png"; sourceTree = "<group>"; };
 		F2AEADE61458755900B6D34E /* 99-umbrella.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "99-umbrella.png"; sourceTree = "<group>"; };
+		F2AF013F14742DE600893B9A /* Filterer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Filterer.h; sourceTree = "<group>"; };
+		F2AF014014742DE600893B9A /* Filterer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Filterer.m; sourceTree = "<group>"; };
 		F2B35E84146D8BA5005BC775 /* LocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationController.h; sourceTree = "<group>"; };
 		F2B35E85146D8BA5005BC775 /* LocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationController.m; sourceTree = "<group>"; };
 		F2B35E86146D8BA5005BC775 /* LocationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LocationView.xib; path = Resources/LocationView.xib; sourceTree = "<group>"; };
@@ -652,6 +655,8 @@
 				F2B36020146DA5BD005BC775 /* AboutUs.m */,
 				F28A6250147191EE001B991F /* SelfCuratedEntry.h */,
 				F28A6251147191EE001B991F /* SelfCuratedEntry.m */,
+				F2AF013F14742DE600893B9A /* Filterer.h */,
+				F2AF014014742DE600893B9A /* Filterer.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1284,6 +1289,7 @@
 				F2B36021146DA5BD005BC775 /* AboutUs.m in Sources */,
 				F28A6252147191EE001B991F /* SelfCuratedEntry.m in Sources */,
 				BFA1C85514719C7500DD9607 /* SelfCuratedViewController.m in Sources */,
+				F2AF014114742DE600893B9A /* Filterer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
