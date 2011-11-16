@@ -56,8 +56,20 @@
 // optional
 - (NSString *)subtitle
 {
-	if(event != nil) return [event getDescription];
-    return @"Needs better coordinate";
+	if(event != nil) {
+		if([event getLocation] != nil) {
+			if([[event getLocation] getName] != nil && 
+			   [[[event getLocation] getName] isEqualToString: @""] == NO) {
+				return [[event getLocation] getName];
+			}
+			else if ([[event getLocation] getStreetAddress] != nil && 
+					 [[[event getLocation] getStreetAddress] isEqualToString: @""] == NO) {
+				return [[event getLocation] getStreetAddress];
+			}
+		}
+		return [event getDescription];
+    }
+	return @"Needs better coordinate";
 }
 
 -(BOOL)isEqual:(id)object {

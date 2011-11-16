@@ -170,6 +170,14 @@
 		span.latitudeDelta=1.2*(latMax - latMin); 
 		span.longitudeDelta=1.1*(longMax - longMin); 
 	}
+	
+	if(span.latitudeDelta < 0.0125) {
+		span.latitudeDelta = 0.0125;
+	}
+	
+	if(span.longitudeDelta < 0.0125) {
+		span.longitudeDelta = 0.0125;
+	}
 
 	
 	region.span=span; 
@@ -200,9 +208,9 @@
 	return retval;
 }
 
--(void)mapView: (MKMapView *)mapView didSelectAnnotationView: (MKAnnotationView *) retval {	
-//	if(retval.leftCalloutAccessoryView == nil)
-//	{
+-(void)mapView: (MKMapView *)mapView didSelectAnnotationView: (MKAnnotationView *) retval {
+	if(retval.leftCalloutAccessoryView == nil)
+	{
 		// Set up the Left callout
 		UIButton *eventButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 		[eventButton addTarget:self 
@@ -216,15 +224,14 @@
 	
 		// Set the button as the callout view
 		retval.leftCalloutAccessoryView = eventButton;
-		[eventButton release];
-//	}	
+		//[eventButton release];
+	}	
 	if(retval.annotation != nil) {
 		id annotation = retval.annotation;
 		if([annotation isMemberOfClass:[EventAnnotation class]]) {
 			globalEvent = ((EventAnnotation*)annotation).event;
 		}
 	}
-
 }
 
 -(IBAction)loadEventDetails:(id)sender
