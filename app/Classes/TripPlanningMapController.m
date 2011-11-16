@@ -13,7 +13,9 @@
 
 @synthesize myTripMapView,
 			tripGlobalEvent,
-			tripMapAnnotations;
+			tripMapAnnotations,
+			routeLine,
+			routeLineView;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -34,6 +36,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	[self loadRoute];
+	if (nil != self.routeLine) {
+		[self.myTripMapView addOverlay:self.routeLine];
+	}
 	[NSThread detachNewThreadSelector:@selector(displayTripMap) toTarget:self withObject:nil];
 }
 
@@ -236,6 +242,7 @@
 	//Remove the events and add them back sorted
 	[myEvents removeAllObjects];
 	[myEvents addObjectsFromArray: sorted];
+	
 }
 
 -(NSMutableArray *)getEvents
@@ -270,5 +277,40 @@
     [super dealloc];
 }
 
+- (void)loadRoute{
+	MKMapPoint* pointArr = malloc(sizeof(CLLocationCoordinate2D) * myEvents.count);
+	for(int i = 0; i < myEvents.count; i++)
+	{
+		Event *myEvent = [myEvents objectAtIndex:i];
+		EventLocation *myLoc2 = [myEvent getLocation];
+		MKMapPoint point = MKMapPointForCoordinate([myLoc2 getCoordinates]);
+		//[myEventsLocation addObject: point];
+		pointArr[i] = point;
+	}
+	
+	self.routeLine = [MKPolyline polylineWithPoints:pointArr count: myEvents.count];
+	free(pointArr);	
+}
+
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay{
+	MKOverlayView* overlayView = nil;
+	
+	if(overlay == self.routeLine)
+	{
+		//if we have not yet created an overlay view for this overlay, create it now. 
+		if(nil == self.routeLineView)
+		{
+			self.routeLineView = [[[MKPolylineView alloc] initWithPolyline:self.routeLine] autorelease];
+			self.routeLineView.fillColor = [UIColor redColor];
+			self.routeLineView.strokeColor = [UIColor redColor];
+			self.routeLineView.lineWidth = 3;
+		}
+		
+		overlayView = self.routeLineView;
+		
+	}
+	
+	return overlayView;
+}
 
 @end

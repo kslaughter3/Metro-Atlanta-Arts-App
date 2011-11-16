@@ -19,12 +19,17 @@
 	int time;
 	int speed;
 	NSMutableArray *myEvents;
+	NSMutableArray *myEventsLocation;
 	NSMutableArray *tripMapAnnotations;
+	MKPolyline *routeLine;
+	MKPolylineView *routeLineView;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView *myTripMapView;
 @property (nonatomic, retain) Event *tripGlobalEvent;
 @property (nonatomic, retain) NSMutableArray *tripMapAnnotations;
+@property (nonatomic, retain) MKPolyline *routeLine;
+@property (nonatomic, retain) MKPolylineView *routeLineView;
 
 -(void)setTime: (int) min;
 -(int)getTime;
@@ -42,5 +47,8 @@
 -(NSMutableArray *)getEvents;
 
 -(IBAction)close: (id)sender;
+
+-(void)loadRoute;
+
 
 @end
