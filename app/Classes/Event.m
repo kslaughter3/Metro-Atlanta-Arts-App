@@ -135,6 +135,14 @@
 	return eventID;
 }
 
+-(void)setEventType:(EventType)t {
+	type = t;
+}
+
+-(EventType)getEventType {
+	return type;
+}
+
 -(void) setEventName: (NSString *) str {
 	name = str;
 }

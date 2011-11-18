@@ -26,8 +26,6 @@
 	NSString *website;
 	NSString *image;
 	CLLocationCoordinate2D coordinate;
-	
-	NSMutableArray *events;	 /* List of Events at this location */
 }
 
 /* Initializers */

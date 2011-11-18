@@ -27,6 +27,7 @@ static Content *instance;
 	}
 	
 	if(instance != nil) {
+		[instance populateEvents];
 		return instance;
 	}
 		

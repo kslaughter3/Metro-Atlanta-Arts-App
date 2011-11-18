@@ -18,25 +18,6 @@
 
 @class Content;
 
-//TODO: Change these to sylvie's types
-typedef enum EventType {
-	EventTypeAll =		0,
-	FirstEventType = EventTypeAll,
-	EventTypeTwo,
-	EventTypeThree,
-	EventTypeFour,
-	EventTypeFive,
-	EventTypeSix,
-	LastEventType = EventTypeSix
-} EventType;
-
-#define EVENTTYPEALL		"All"
-#define EVENTTYPETWO		"Two"
-#define EVENTTYPETHREE		"Three"
-#define EVENTTYPEFOUR		"Four"
-#define EVENTTYPEFIVE		"Five"
-#define EVENTTYPESIX		"Six"
-
 @interface Content : NSObject {
 	NSMutableArray *events;
 	//	NSMutableArray *filteredEvents;

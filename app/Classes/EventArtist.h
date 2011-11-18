@@ -16,8 +16,6 @@
 	NSString *description;
 	NSString *imageURL;
 	NSString *websiteURL;
-	//NSMutableArray *events; /* List of events for this artist */
-
 }
 
 /* Initializers */

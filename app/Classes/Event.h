@@ -12,8 +12,28 @@
 #import "EventLocation.h"
 #import "EventDate.h"
 
+//TODO: Change these to sylvie's types
+typedef enum EventType {
+	EventTypeAll =		0,
+	FirstEventType = EventTypeAll,
+	EventTypeTwo,
+	EventTypeThree,
+	EventTypeFour,
+	EventTypeFive,
+	EventTypeSix,
+	LastEventType = EventTypeSix
+} EventType;
+
+#define EVENTTYPEALL		"All"
+#define EVENTTYPETWO		"Two"
+#define EVENTTYPETHREE		"Three"
+#define EVENTTYPEFOUR		"Four"
+#define EVENTTYPEFIVE		"Five"
+#define EVENTTYPESIX		"Six"
+
 @interface Event : NSObject {
-	int eventID;								/* Events unique id */
+	int eventID;						/* Events unique id */
+	EventType type;						/* Type of Event */
 	NSString *name;						/* Name of the Event */
 	NSMutableArray *artists;			/* List of EventArtists for this event */
 	NSString *description;				/* Description of Event */
@@ -25,7 +45,7 @@
 	double minCost;						/* Min Cost of the Event */
 	double maxCost;						/* Max Cost of the Event */
 	EventAvailability *availability;	/* The availability of the event */
-	NSString *imageURL;
+	NSString *imageURL;					
 }
 
 -(Event *)initTestEvent:(NSString *)n Description:(NSString *)desc;
@@ -50,6 +70,9 @@
 
 -(void)setEventID:(int)num;
 -(int)getEventID;
+
+-(void)setEventType:(EventType)t;
+-(EventType)getEventType;
 
 -(void)setEventName: (NSString *) str;
 -(NSString *)getEventName;
