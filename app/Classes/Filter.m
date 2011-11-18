@@ -78,6 +78,47 @@
 	return InvalidFilterType;
 }
 
++(NSString *)buildFilterString:(Filter *)filter	{
+	//Format <type>:<FieldType>=<FieldValue>,[...];
+	
+	switch([filter getFilterType]) {
+		case SearchFilterType:
+			return [NSString stringWithFormat:@"Search:query=%@;", [filter getFilterer].query];
+			break;
+		case NameFilterType:
+			return [NSString stringWithFormat:@"Name:name=%@;", [filter getFilterer].name];
+			break;
+		case ArtistFilterType:
+			return [NSString stringWithFormat:@"Artist:artist=%@;", [filter getFilterer].artist];
+			break;
+		case TimeFilterType:
+			return [NSString stringWithFormat:@"Time:start=%@,end=%@;", 
+					[[filter getFilterer].start getDateTimeFormatStandard], 
+					[[filter getFilterer].end getDateTimeFormatStandard]];
+			break;
+		case CostFilterType:
+			return [NSString stringWithFormat:@"Cost:min=%f,max=%f;", 
+					[filter getFilterer].minCost, [filter getFilterer].maxCost];
+			break;
+		case DurationFilterType:
+			return [NSString stringWithFormat:@"Duration:min=%d,max=%d;", 
+					[filter getFilterer].minDuration, [filter getFilterer].maxDuration];
+			break;
+		case LocationFilterType:
+			return [NSString stringWithFormat: @"Location:%@,radius%f;",
+					[[filter getFilterer].loc getLocationFilterString], [filter getFilterer].radius];
+			break;
+		case AvailabilityFilterType:
+			return [NSString stringWithFormat: @"Availability:day=%@,start:%@,end:%@;",
+					[filter getFilterer].day, [EventAvailability timeString: [filter getFilterer].startTime],
+					[EventAvailability timeString: [filter getFilterer].endTime]];
+			break;
+		default:
+			return @"";
+			break;
+	}
+}
+
 -(Filter *)initEmptyFilter {
 	self = [super init];
 	

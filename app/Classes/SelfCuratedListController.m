@@ -7,13 +7,14 @@
 //
 
 #import "SelfCuratedListController.h"
-#import "Content.h"
 
 
 @implementation SelfCuratedListController
 
 @synthesize myTableView,
-			mySelfCuratedViewController;
+			mySelfCuratedViewController,
+			previousButton,
+			nextButton;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -45,6 +46,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
+	[self enableNavigationButtons];
 	[myTableView reloadData];
 }
 
@@ -101,6 +103,47 @@
 	return YES;
 }
 
+-(IBAction)previousPage:(id)sender {
+	Content *content = [Content getInstance];
+	int myPage = [content getSelfCuratedPage];
+	
+	if(myPage > 1) {
+		[content changeSelfCuratedPage: NO];
+		[self enableNavigationButtons];
+		//TODO: Get page from server
+	}
+}
+
+-(IBAction)nextPage:(id)sender {
+	Content *content = [Content getInstance];
+	int myPage = [content getSelfCuratedPage];
+	int lastPage = [content getSelfCuratedLastPage];
+	
+	if(myPage < lastPage) {
+		[content changeSelfCuratedPage: YES];
+		[self enableNavigationButtons];
+		//TODO: Get page from server 
+	}
+}
+
+-(void)enableNavigationButtons {
+	Content *content = [Content getInstance];
+	int myPage = [content getSelfCuratedPage];
+	int lastPage = [content getSelfCuratedLastPage];
+	if(myPage == 1) {
+		previousButton.enabled = NO;
+	}
+	else {
+		previousButton.enabled = YES;
+	}
+	
+	if(myPage == lastPage) { 
+		nextButton.enabled = NO;
+	}
+	else {
+		nextButton.enabled = YES;
+	}
+}
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

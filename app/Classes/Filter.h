@@ -49,6 +49,7 @@ typedef enum FilterType {
 
 +(NSString *)getFilterTypeString: (FilterType) t;
 +(FilterType)getFilterTypeFromString: (NSString *) str;
++(NSString *)buildFilterString: (Filter *)filter;
 
 /* Initializers */
 

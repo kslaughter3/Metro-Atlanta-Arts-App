@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TripPlanningController.h"
 #import "TripPlanningMapController.h"
+#import "Content.h"
 
 //Store these in meters per minute because distanceTo returns meters and time is in minutes
 #define WALKING_SPEED	3 

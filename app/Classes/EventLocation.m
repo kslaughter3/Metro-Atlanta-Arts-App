@@ -144,6 +144,15 @@
 	return nil;
 }
 
+-(NSString *)getLocationFilterString {
+	if(name != nil && [name isEqualToString: @""] == NO) {
+		return [NSString stringWithFormat: @"name=%@", name];
+	}
+	
+	return [NSString stringWithFormat:@"street=%@,city=%@,state=%@,zip=%@",
+			streetAddress, city, state, zip];
+}
+
 -(BOOL)hasAddress {
 	if((streetAddress == nil) || ([streetAddress isEqualToString:@""]) || 
 	   (city == nil) || ([city isEqualToString:@""]) ||

@@ -27,7 +27,6 @@ static Content *instance;
 	}
 	
 	if(instance != nil) {
-		[instance populateEvents];
 		return instance;
 	}
 		
@@ -54,6 +53,9 @@ static Content *instance;
 -(void)populateLocations {
 }
 
+-(void)populateSelfCurated {
+}
+
 -(void)populateAboutUs {
 	//TEST aboutUS 
 	if(myAboutUs == nil) {
@@ -72,23 +74,78 @@ static Content *instance;
 	[myAboutUs setWebsite:@"http://www.metroatlantaartsfund.org/"];
 }
 
+-(NSString *)buildEventRequest {
+	//Request looks like "EventRequest:type=<type>;page=<page>;<filterlist (semi colon separated)>;
+	NSString *request = [NSString stringWithFormat: @"EventRequest:type=%@;page=%d;", 
+						 [self getEventTypeString], myEventPage];
+	
+	for(id filter in filters) {
+		if([(Filter *)filter isEnabled] == YES) {
+			request = [request stringByAppendingString: 
+				[Filter buildFilterString: filter]];
+		}
+	}
+	
+	return request;
+}
+
+-(NSString *)buildArtistRequest {
+	//Request Looks like "ArtistRequest:page=<page>;"
+	NSString *request = [NSString stringWithFormat:@"ArtistRequest:page=%d;",
+						 myArtistPage];
+	return request;
+}
+
+-(NSString *)buildLocationRequest {
+	//Request Looks like "LocationRequest:page=<page>;"
+	NSString *request = [NSString stringWithFormat:@"LocationRequest:page=%d;",
+						 myLocationPage];
+	
+	return request;
+}
+
+-(NSString *)buildSelfCuratedRequest {
+	//Request Looks like "SelfCuratedRequest:page=<page>;"
+	NSString *request = [NSString stringWithFormat:@"SelfCuratedRequest:page=%d;",
+						 mySelfCuratedPage];
+	
+	return request;
+}
+
 -(Content *)getContent {
 	self = [super init];
 	
 	if(self != nil)
 	{
-		NSLog(@"object didnt exist");
+		NSLog(@"object didn't exist");
 		events = [[NSMutableArray alloc] init];
 		locations = [[NSMutableArray alloc] init];
 		artists = [[NSMutableArray alloc] init];
 		filters = [[NSMutableArray alloc] init];
 		selfCuratedEntries = [[NSMutableArray alloc] init];
 		
-		/* TODO: Get events from database */
+		//Start on the first page
+		myEventPage = 1;
+		myArtistPage = 1;
+		myLocationPage = 1;
+		mySelfCuratedPage = 1;
+		
+		//Start with the first type
+		myEventType = FirstEventType;
+		
 		NSLog(@"Call populate");
 		[self populateEvents];
-		//[self filterOldEvents];
+		[self populateArtists];
+		[self populateLocations];
+		[self populateSelfCurated];
+		[self populateAboutUs];
 		
+		//TODO: Get these from server in the populate methods
+		lastEventPage = 10;
+		lastArtistPage = 10;
+		lastLocationPage = 10;
+		lastSelfCuratedPage = 10;
+
 		return self;
 	}
 	
@@ -524,7 +581,6 @@ static Content *instance;
 }
 
 -(AboutUs *)getAboutUs {
-	[self populateAboutUs]; //For Testing remove once the server does this
 	return myAboutUs;
 }
 
@@ -607,6 +663,125 @@ static Content *instance;
 
 -(NSInteger)getSelfCuratedEntryCount {
 	return selfCuratedEntries.count;
+}
+
+//READ ONLY 
+-(int)getEventLastPage {
+	return lastEventPage;
+}
+
+-(int)getArtistLastPage {
+	return lastArtistPage;
+}
+
+-(int)getLocationLastPage {
+	return lastLocationPage;
+}
+
+-(int)getSelfCuratedLastPage {
+	return lastSelfCuratedPage;
+}
+
+-(int)getEventPage {
+	return myEventPage;
+}
+
+-(void)changeEventPage: (BOOL) increment {
+	if(increment == YES) {
+		myEventPage++;
+	}
+	else {
+		myEventPage--;
+	}
+}
+
+-(void)resetEventPage {
+	myEventPage = 1;
+}
+
+-(int)getArtistPage { 
+	return myArtistPage;
+}
+
+-(void)changeArtistPage: (BOOL) increment {
+	if(increment == YES) {
+		myArtistPage++;
+	}
+	else {
+		myArtistPage--;
+	}
+}
+
+-(void)resetArtistPage {
+	myArtistPage = 1;
+}
+
+-(int)getLocationPage {
+	return myLocationPage;
+}
+
+-(void)changeLocationPage: (BOOL) increment {
+	if(increment == YES) {
+		myLocationPage++;
+	}
+	else {
+		myLocationPage--;
+	}
+}
+
+-(void)resetLocationPage {
+	myLocationPage = 1;
+}
+
+-(int)getSelfCuratedPage {
+	return mySelfCuratedPage;
+}
+
+-(void)changeSelfCuratedPage: (BOOL) increment {
+	if(increment == YES) {
+		mySelfCuratedPage++;
+	}
+	else {
+		mySelfCuratedPage--;
+	}
+}
+
+-(void)resetSelfCuratedPage {
+	mySelfCuratedPage = 1;
+}
+
+-(EventType)getEventType {
+	return myEventType;
+}
+
+-(void)setEventType:(EventType)type {
+	myEventType = type;
+}
+
+-(NSString *)getEventTypeString {
+	switch(myEventType) {
+		case EventTypeAll:
+			return @EVENTTYPEALL;
+			break;
+		case EventTypeTwo:
+			return @EVENTTYPETWO;
+			break;
+		case EventTypeThree:
+			return @EVENTTYPETHREE;
+			break;
+		case EventTypeFour:
+			return @EVENTTYPEFOUR;
+			break;
+		case EventTypeFive:
+			return @EVENTTYPEFIVE;
+			break;
+		case EventTypeSix:
+			return @EVENTTYPESIX;
+			break;
+		default:
+			return @EVENTTYPEALL;
+			break;
+	}
 }
 
 - (void)parser:(SBJsonStreamParser *)parser foundArray:(NSArray *)array {

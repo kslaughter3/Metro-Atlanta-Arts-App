@@ -47,6 +47,8 @@
 -(EventLocation *)initWithName: (NSString *) n Address:(NSString *)add City:(NSString *)c 
 							State:(NSString *)s Zip:(NSString *)z;
 
+-(NSString *)getLocationFilterString;
+
 -(BOOL)hasAddress;
 
 -(NSString *)getAddress;

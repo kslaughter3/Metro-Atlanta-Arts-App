@@ -36,8 +36,6 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	myPage = 1;
-	lastPage = 10; //TODO: Get this from server
 	
 	// We don't want *all* the individual messages from the
 	// SBJsonStreamParser, just the top-level objects. The stream
@@ -103,8 +101,8 @@
 
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
+	[self enableNavigationButtons];
 	[self displayMyMap];
-	[self enabledNavigationButtons];
 }
 
 -(void)displayMyMap {
@@ -241,33 +239,45 @@
 }
 
 -(IBAction)previousPage:(id)sender {
+	Content *content = [Content getInstance];
+	int myPage = [content getEventPage];
+	
 	if(myPage > 1) {
-		myPage--;
-		[self enabledNavigationButtons];
+		[content changeEventPage: NO];
+		[self enableNavigationButtons];
 		//TODO: Get page from server 
 		//[self displayMyMap];
 	}
 }
 
 -(IBAction)nextPage:(id)sender {
+	Content *content = [Content getInstance];
+	int myPage = [content getEventPage];
+	int lastPage = [content getEventLastPage];
+	
 	if(myPage < lastPage) {
-		myPage++;
-		[self enabledNavigationButtons];
+		[content changeEventPage: YES];
+		[self enableNavigationButtons];
 		//TODO: Get page from server 
 		//[self displayMyMap];
 	}
 }
 
 -(void)changeEventType:(id)sender {
-	myEventType = [mySelectionBar selectedSegmentIndex];
-	myPage = 1;
-	[self enabledNavigationButtons];
+	Content *content = [Content getInstance];
+	EventType type = (EventType)[mySelectionBar selectedSegmentIndex];
+	[content resetEventPage];
+	[content setEventType: type];
+	[self enableNavigationButtons];
 	[self displayMyMap];
 }
 
 
 
--(void)enabledNavigationButtons {
+-(void)enableNavigationButtons {
+	Content *content = [Content getInstance];
+	int myPage = [content getEventPage];
+	int lastPage = [content getEventLastPage];
 	if(myPage == 1) {
 		previousButton.enabled = NO;
 	}

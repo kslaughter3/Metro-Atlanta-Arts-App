@@ -18,6 +18,25 @@
 
 @class Content;
 
+//TODO: Change these to sylvie's types
+typedef enum EventType {
+	EventTypeAll =		0,
+	FirstEventType = EventTypeAll,
+	EventTypeTwo,
+	EventTypeThree,
+	EventTypeFour,
+	EventTypeFive,
+	EventTypeSix,
+	LastEventType = EventTypeSix
+} EventType;
+
+#define EVENTTYPEALL		"All"
+#define EVENTTYPETWO		"Two"
+#define EVENTTYPETHREE		"Three"
+#define EVENTTYPEFOUR		"Four"
+#define EVENTTYPEFIVE		"Five"
+#define EVENTTYPESIX		"Six"
+
 @interface Content : NSObject {
 	NSMutableArray *events;
 	//	NSMutableArray *filteredEvents;
@@ -33,6 +52,15 @@
     IBOutlet UITextView *tweet;
     SBJsonStreamParser *parser;
     SBJsonStreamParserAdapter *adapter;
+	EventType myEventType;
+	int lastEventPage;
+	int lastArtistPage;
+	int lastLocationPage;
+	int lastSelfCuratedPage;
+	int myEventPage;
+	int myArtistPage;
+	int myLocationPage;
+	int mySelfCuratedPage;
 }
 
 /* Gets the current instance of the content if there is one 
@@ -41,7 +69,14 @@
 -(void)populateEvents;
 -(void)populateArtists; 
 -(void)populateLocations;
+-(void)populateSelfCurated;
 -(void)populateAboutUs;
+
+-(NSString *)buildEventRequest;
+-(NSString *)buildArtistRequest;
+-(NSString *)buildLocationRequest;
+-(NSString *)buildSelfCuratedRequest;
+
 
 /* Gets all the events from the database and stores them in the events array 
  Also calls filterOldEvents to remove any events in the database that are out of date 
@@ -115,5 +150,28 @@
 -(NSInteger)getArtistCount;
 -(NSInteger)getLocationCount;
 -(NSInteger)getSelfCuratedEntryCount;
+
+//READ ONLY 
+-(int)getEventLastPage;
+-(int)getArtistLastPage;
+-(int)getLocationLastPage;
+-(int)getSelfCuratedLastPage;
+
+-(int)getEventPage;
+-(void)changeEventPage: (BOOL) increment;
+-(void)resetEventPage;
+-(int)getArtistPage;
+-(void)changeArtistPage: (BOOL) increment;
+-(void)resetArtistPage;
+-(int)getLocationPage;
+-(void)changeLocationPage: (BOOL) increment;
+-(void)resetLocationPage;
+-(int)getSelfCuratedPage;
+-(void)changeSelfCuratedPage: (BOOL) increment;
+-(void)resetSelfCuratedPage;
+
+-(EventType)getEventType;
+-(void)setEventType: (EventType)type;
+-(NSString *)getEventTypeString;
 
 @end

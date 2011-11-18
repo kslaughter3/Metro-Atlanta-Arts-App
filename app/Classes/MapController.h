@@ -21,19 +21,6 @@
 
 @class MapController;
 
-
-//TODO: Change these to sylvie's types
-typedef enum EventType {
-	EventTypeOne =		0,
-	FirstEventType = EventTypeOne,
-	EventTypeTwo,
-	EventTypeThree,
-	EventTypeFour,
-	EventTypeFive,
-	EventTypeSix,
-	LastEventType = EventTypeSix
-} EventType;
-
 @interface MapController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate> {
     IBOutlet UITextField *username;
     IBOutlet UITextField *password;
@@ -48,9 +35,6 @@ typedef enum EventType {
     SBJsonStreamParserAdapter *adapter;
 	NSMutableArray *mapAnnotations;
 	CLLocationManager *locationManager;
-	int myEventType;
-	int myPage;
-	int lastPage;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView* myMapView;
@@ -65,7 +49,7 @@ typedef enum EventType {
 -(IBAction)previousPage:(id)sender;
 -(IBAction)nextPage:(id)sender;
 -(void)changeEventType:(id)sender;
--(void)enabledNavigationButtons;
+-(void)enableNavigationButtons;
 - (void)locationManager:(CLLocationManager *)manager 
 	didUpdateToLocation:(CLLocation *) newLocation
 		   fromLocation:(CLLocation *) oldLocation;

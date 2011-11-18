@@ -29,8 +29,6 @@
 	IBOutlet UIBarButtonItem *previousButton;
 	IBOutlet UIBarButtonItem *nextButton;
 	int listType;
-	int tablePage;
-	int lastPage;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
@@ -43,11 +41,14 @@
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *nextButton;
 
 -(void)setListTitle;
--(void)enabledNavigationButtons;
+-(void)enableNavigationButtons;
 
 -(void)changeListType:(id)sender;
 -(IBAction)previousPage:(id)sender;
 -(IBAction)nextPage:(id)sender;
+-(int)getTablePage;
+-(int)getLastPage;
+-(void)changePage: (BOOL)increment;
 
 @end
 

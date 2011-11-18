@@ -42,9 +42,7 @@
 	 
 	 [myTableView setDelegate: self];
 	 [myTableView setDataSource: self];
-	 tablePage = 1;
 	 listType = EVENTLIST;
-	 lastPage = 10; //TODO: Set this based on the number of pages
 	 [self setListTitle];
 	 
 	 Content *content = [Content getInstance];
@@ -144,7 +142,7 @@
 	[super viewWillAppear: animated];
 	
 	[self setListTitle];
-	[self enabledNavigationButtons];
+	[self enableNavigationButtons];
 	
 	[myTableView reloadData];
 }
@@ -319,7 +317,10 @@
 	}
 }
 
--(void)enabledNavigationButtons {
+-(void)enableNavigationButtons {
+	int tablePage = [self getTablePage];
+	int lastPage = [self getLastPage];
+	
 	if(tablePage == 1) {
 		previousButton.enabled = NO;
 	}
@@ -338,26 +339,83 @@
 -(void)changeListType:(id)sender {
 	listType = [mySelectionBar selectedSegmentIndex];
 	[self setListTitle];
-	tablePage = 1;
-	[self enabledNavigationButtons];
+	[self enableNavigationButtons];
 	[myTableView reloadData];
 }
 
 -(IBAction)previousPage:(id)sender {
+	int tablePage = [self getTablePage];
 	if(tablePage > 1) {
-		tablePage--;
-		[self enabledNavigationButtons];
+		[self changePage: NO];
+		[self enableNavigationButtons];
 		//TODO: Get page from server 
 		//[myTableView reloadData];
 	}
 }
 
 -(IBAction)nextPage:(id)sender {
+	int tablePage = [self getTablePage];
+	int lastPage = [self getLastPage];
 	if(tablePage < lastPage) {
-		tablePage++;
-		[self enabledNavigationButtons];
+		[self changePage: YES];
+		[self enableNavigationButtons];
 		//TODO: Get page from server 
 		//[myTableView reloadData];
+	}
+}
+
+-(int)getTablePage {
+	Content *content = [Content getInstance];
+	switch(listType) {
+		case EVENTLIST:
+			return [content getEventPage];
+			break;
+		case ARTISTLIST:
+			return [content getArtistPage];
+			break;
+		case LOCATIONLIST:
+			return [content getLocationPage];
+			break;
+		default:
+			return [content getEventPage];
+			break;
+	}
+}
+
+-(int)getLastPage {
+	Content *content = [Content getInstance];
+	switch(listType) {
+		case EVENTLIST:
+			return [content getEventLastPage];
+			break;
+		case ARTISTLIST:
+			return [content getArtistLastPage];
+			break;
+		case LOCATIONLIST:
+			return [content getLocationLastPage];
+			break;
+		default:
+			return [content getEventLastPage];
+			break;
+	}
+}
+
+-(void)changePage:(BOOL)increment {
+	Content *content = [Content getInstance];
+	
+	switch(listType) {
+		case EVENTLIST:
+			[content changeEventPage: increment];
+			break;
+		case ARTISTLIST:
+			[content changeArtistPage: increment];
+			break;
+		case LOCATIONLIST:
+			[content changeLocationPage: increment];
+			break;
+		default:
+			[content changeEventPage: increment];
+			break;
 	}
 }
 
