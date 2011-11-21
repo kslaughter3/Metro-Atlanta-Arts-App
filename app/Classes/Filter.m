@@ -451,7 +451,6 @@
 }
 
 -(BOOL)checkDayString: (NSString *) str {
-	NSLog(@"Reached check Day String");
 	str = [str uppercaseString];
 	
 	if(([str isEqualToString: @"SUNDAY"]) || ([str isEqualToString: @"MONDAY"]) || 

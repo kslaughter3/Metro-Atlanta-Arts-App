@@ -41,6 +41,7 @@
 -(int)getTablePage;
 -(int)getLastPage;
 -(void)changePage: (BOOL)increment;
+-(void)populateList;
 
 @end
 

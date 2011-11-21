@@ -141,7 +141,7 @@
 	
 	[self setListTitle];
 	[self enableNavigationButtons];
-	
+	[self populateList];
 	[myTableView reloadData];
 }
 
@@ -350,6 +350,7 @@
 	
 	[self setListTitle];
 	[self enableNavigationButtons];
+	[self populateList];
 	[myTableView reloadData];
 }
 
@@ -358,8 +359,8 @@
 	if(tablePage > 1) {
 		[self changePage: NO];
 		[self enableNavigationButtons];
-		//TODO: Get page from server 
-		//[myTableView reloadData];
+		[self populateList];
+		[myTableView reloadData];
 	}
 }
 
@@ -369,8 +370,8 @@
 	if(tablePage < lastPage) {
 		[self changePage: YES];
 		[self enableNavigationButtons];
-		//TODO: Get page from server 
-		//[myTableView reloadData];
+		[self populateList];
+		[myTableView reloadData];
 	}
 }
 
@@ -425,6 +426,25 @@
 			break;
 		default:
 			[content changeEventPage: increment];
+			break;
+	}
+}
+
+-(void)populateList {
+	Content *content = [Content getInstance];
+	
+	switch (listType) {
+		case EventDetails:
+			[content populateEvents];
+			break;
+		case ArtistDetails:
+			[content populateArtists];
+			break;
+		case LocationDetails:
+			[content populateLocations];
+			break;
+		default:
+			[content populateEvents];
 			break;
 	}
 }

@@ -44,6 +44,9 @@
 
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
+	[self enableNavigationButtons];
+	Content *content = [Content getInstance];
+	[content populateEvents];
 	[myTableView reloadData];
 }
 
@@ -109,7 +112,6 @@
 }
 
 -(IBAction)close: (id)sender {
-	NSLog(@"Close Clicked\n");
 	[self.parentViewController dismissModalViewControllerAnimated: YES];
 }
 
@@ -175,8 +177,8 @@
 	if(tablePage > 1) {
 		[content changeEventPage: NO];
 		[self enableNavigationButtons];
-		//[content populateEvents];
-		//[myTableView reloadData];
+		[content populateEvents];
+		[myTableView reloadData];
 	}
 }
 
@@ -187,8 +189,8 @@
 	if(tablePage < lastPage) {
 		[content changeEventPage: YES];
 		[self enableNavigationButtons];
-		//[content populateEvents]; 
-		//[myTableView reloadData];
+		[content populateEvents]; 
+		[myTableView reloadData];
 	}
 }
 

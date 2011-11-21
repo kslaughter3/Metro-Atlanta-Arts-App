@@ -260,12 +260,10 @@ inComponent:(NSInteger)component
 }
 
 -(IBAction)cancel: (id)sender {
-	NSLog(@"Cancel Clicked\n");
 	[self.parentViewController dismissModalViewControllerAnimated: YES];
 }
 
 -(IBAction)ok: (id)sender {
-	NSLog(@"OK Clicked\n");
 	Filter *filter;
 	FilterType t;
 	EventDate *start;
@@ -347,7 +345,6 @@ inComponent:(NSInteger)component
 		[alert release];
 	}
 	else {
-		NSLog(@"Filter Created");
 		content = [Content getInstance];
 		
 		if([content addFilter: filter] == NO) {

@@ -67,7 +67,6 @@
 		[alert release];
 	}
 	else {
-		NSLog(@"Filter Created");
 		content = [Content getInstance];
 		
 		if([content addFilter: filter] == NO) {
@@ -118,8 +117,6 @@
 }
 
 -(IBAction)advancedSearch: (id) sender {
-	NSLog(@"Advanced Search Clicked\n");
-	
 	if(self.myFilterListController == nil) {
 		FilterListController *new_view = [[FilterListController alloc] 
 										 initWithNibName: @"FilterListView" bundle: nil];

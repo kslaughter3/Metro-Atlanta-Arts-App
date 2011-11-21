@@ -101,6 +101,8 @@
 
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
+	Content *content = [Content getInstance];
+	[content populateEvents];
 	[self enableNavigationButtons];
 	[self displayMyMap];
 }
@@ -247,8 +249,8 @@
 	if(myPage > 1) {
 		[content changeEventPage: NO];
 		[self enableNavigationButtons];
-		//TODO: Get page from server 
-		//[self displayMyMap];
+		[content populateEvents];
+		[self displayMyMap];
 	}
 }
 
@@ -260,8 +262,8 @@
 	if(myPage < lastPage) {
 		[content changeEventPage: YES];
 		[self enableNavigationButtons];
-		//TODO: Get page from server 
-		//[self displayMyMap];
+		[content populateEvents];
+		[self displayMyMap];
 	}
 }
 

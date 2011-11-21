@@ -444,7 +444,6 @@
 }
 
 -(IBAction)close: (id)sender {
-	NSLog(@"Close Clicked\n");
 	[self.parentViewController dismissModalViewControllerAnimated: YES];
 }
 

@@ -14,6 +14,8 @@
 #import "SelfCuratedEntry.h"
 
 static Content *instance;
+static NSString *instanceLock = @"instanceLock";
+
 
 @interface Content () <SBJsonStreamParserAdapterDelegate>
 @end
@@ -22,14 +24,18 @@ static Content *instance;
 @implementation Content
 
 +(Content *)getInstance {
-	if(instance == nil) {
-		instance = [[Content alloc] getContent];
+	
+	@synchronized(instanceLock) 
+	{
+		if(instance == nil) {
+			instance = [[Content alloc] getContent];
+		}
 	}
 	
 	if(instance != nil) {
-		[instance populateEvents];
 		return instance;
 	}
+	
 		
 	//Something bad happened 
 	return nil;
@@ -118,7 +124,6 @@ static Content *instance;
 	
 	if(self != nil)
 	{
-		NSLog(@"object didn't exist");
 		events = [[NSMutableArray alloc] init];
 		locations = [[NSMutableArray alloc] init];
 		artists = [[NSMutableArray alloc] init];
@@ -133,8 +138,7 @@ static Content *instance;
 		
 		//Start with the first type
 		myEventType = FirstEventType;
-		
-		NSLog(@"Call populate");
+
 		[self populateEvents];
 		[self populateArtists];
 		[self populateLocations];
@@ -217,7 +221,6 @@ static Content *instance;
 }
 
 -(BOOL)addSelfCuratedEntry:	(SelfCuratedEntry *) selfCuratedEntry{
-	NSLog(@"here");
 	if(selfCuratedEntry == nil){
 		return NO;
 	}

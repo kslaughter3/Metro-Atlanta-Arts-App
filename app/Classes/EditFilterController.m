@@ -75,7 +75,6 @@
 -(void) viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
 	if(myFilter == nil) {
-		NSLog(@"Error Filter Not Set");
 		return;
 	}
 	
@@ -277,12 +276,10 @@
 }
 
 -(IBAction)cancel: (id)sender {
-	NSLog(@"Cancel Clicked\n");
 	[self.parentViewController dismissModalViewControllerAnimated: YES];
 }
 
 -(IBAction)save: (id)sender {
-	NSLog(@"OK Clicked\n");
 	Filter *filter;
 	FilterType t;
 	EventDate *start;
@@ -381,7 +378,6 @@
 }
 
 -(IBAction)remove: (id) sender {
-	NSLog(@"Delete Clicked");
 	Content *content = [Content getInstance];
 
 	[content removeFilter: myFilter];

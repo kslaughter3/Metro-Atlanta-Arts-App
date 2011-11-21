@@ -18,7 +18,6 @@
 
 /* // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-	NSLog(@"initReached");
 	return self;
 }*/
 
@@ -76,8 +75,6 @@
 		cell.accessoryType = UITableViewCellAccessoryNone;
 	}
 	
-//	NSLog(@"Got Filters");
-	
 	switch ([f getFilterType]) {
 		case SearchFilterType:
 			string = [f searchString];
@@ -119,7 +116,6 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSLog(@"Row Selected\n");
 	myRow = [indexPath row];
 	Content *content = [Content getInstance];
 	Filter *filter = [content getFilterAtIndex: [indexPath row]];
@@ -136,8 +132,6 @@
 }
 		
 -(IBAction)addFilter: (id) sender {
-	NSLog(@"Add Filter Clicked\n");
-	
 	if(self.myAddFilterController == nil) {
 		AddFilterController *new_view = [[AddFilterController alloc] 
 			initWithNibName: @"AddFilterView" bundle: nil];
@@ -150,12 +144,9 @@
 }
 
 -(IBAction)editFilter: (id) sender {
-	NSLog(@"Edit Filter Clicked\n");
-	
 	Content *content = [Content getInstance];
 	
 	if((myRow < 0) || (myRow > [content getFilterCount])) {
-		NSLog(@"No Filter Selected");
 		UIAlertView *alert = [[UIAlertView alloc] 
 							  initWithTitle:@"No Filter Selected" 
 							  message: @"Select a filter"
@@ -176,7 +167,6 @@
 		Filter *filter = [content getFilterAtIndex: myRow];
 		
 		if(filter == nil) {
-			NSLog(@"Error: Invalid Filter");
 			UIAlertView *alert = [[UIAlertView alloc] 
 								  initWithTitle:@"Error: Invalid Filter" 
 								  message: @"The filter is not valid" 
@@ -195,12 +185,9 @@
 }
 
 -(IBAction)removeFilter: (id) sender {
-	NSLog(@"Edit Filter Clicked\n");
-	
 	Content *content = [Content getInstance];
 	
 	if((myRow < 0) || (myRow > [content getFilterCount])) {
-		NSLog(@"No Filter Selected");
 		UIAlertView *alert = [[UIAlertView alloc] 
 							  initWithTitle:@"No Filter Selected" 
 							  message: @"Select a filter"
@@ -215,7 +202,6 @@
 		Filter *filter = [content getFilterAtIndex: myRow];
 		
 		if(filter == nil) {
-			NSLog(@"Error: Invalid Filter");
 			UIAlertView *alert = [[UIAlertView alloc] 
 								  initWithTitle:@"Error: Invalid Filter" 
 								  message: @"The filter is not valid" 
@@ -235,7 +221,6 @@
 }
 
 -(IBAction)back: (id)sender {
-	NSLog(@"Back Clicked\n");
 	[self.parentViewController dismissModalViewControllerAnimated: YES];
 }
 
