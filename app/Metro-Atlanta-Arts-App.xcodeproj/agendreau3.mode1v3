@@ -276,7 +276,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 393}, {232, 644}}</string>
+							<string>{{0, 236}, {232, 644}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -323,7 +323,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F25D1DD8147AB83F00827E7F</string>
+										<string>F25D1DF4147AB9A800827E7F</string>
 										<key>history</key>
 										<array>
 											<string>F2BF2AF7143A367E00FBD2F5</string>
@@ -573,7 +573,7 @@
 											<string>F25D1DB3147AB6B700827E7F</string>
 											<string>F25D1DB4147AB6B700827E7F</string>
 											<string>F25D1DCE147AB80B00827E7F</string>
-											<string>F25D1DCF147AB80B00827E7F</string>
+											<string>F25D1DD9147AB94300827E7F</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -585,14 +585,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {606, 94}}</string>
+								<string>{{0, 0}, {606, 76}}</string>
 								<key>RubberWindowFrame</key>
 								<string>702 335 860 703 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>94pt</string>
+							<string>76pt</string>
 						</dict>
 						<dict>
 							<key>BecomeActive</key>
@@ -607,14 +607,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 99}, {606, 563}}</string>
+								<string>{{0, 81}, {606, 581}}</string>
 								<key>RubberWindowFrame</key>
 								<string>702 335 860 703 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>563pt</string>
+							<string>581pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -633,9 +633,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>F25D1D39147AAB8F00827E7F</string>
+				<string>F25D1DF5147AB9A800827E7F</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>F25D1D3A147AAB8F00827E7F</string>
+				<string>F25D1DF6147AB9A800827E7F</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -773,9 +773,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>F2BF2B59143A469500FBD2F5</string>
 		<string>F2B521F9143371A7006D2A52</string>
 		<string>/nethome/agendreau3/Documents/Metro-Atlanta-Arts-App/app/Metro-Atlanta-Arts-App.xcodeproj</string>
 	</array>
@@ -801,7 +798,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>MapController.m</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -818,8 +815,6 @@
 							<string>205pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -859,7 +854,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>F2B521F9143371A7006D2A52</string>
-				<string>F25D1D3B147AAB8F00827E7F</string>
+				<string>F25D1DF7147AB9A800827E7F</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
