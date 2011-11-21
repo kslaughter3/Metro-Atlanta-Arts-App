@@ -27,13 +27,6 @@
 //Copy Constructor
 -(EventDate *)initWithDate: (EventDate *) date;
 
-//Builds a date from a string the in the format "MM-DD-YYYY HH:MM:SS(pm/am)" or the format "MM/DD/YYYY HH:MM:SS(pm/am)"
--(EventDate *)initWithString: (NSString *) string;
-
-//Military Time
--(EventDate *)initWithMonth: (int) mon Day: (int) d Year: (int) y Hour: (int) h Minute: (int) min Second: (int) s;
-
-
 -(BOOL)isEqualTime:(EventDate *)other;
 
 -(BOOL)earlierDate: (EventDate *)other;

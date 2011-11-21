@@ -261,8 +261,7 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+	[myTripMapView release];
 }
 
 
@@ -271,6 +270,10 @@
 	[myTripMapView release];
 	[tripGlobalEvent release];
 	[tripMapAnnotations release];
+	[myEventsLocation release];
+	[routeLine release];
+	[routeLineView release];
+	[myEventController release];
     [super dealloc];
 }
 

@@ -53,74 +53,7 @@
 	
 	return nil;
 }
-
--(Event *)initEventWithName: (NSString *) n Artist: (EventArtist *) a Description: (NSString *) desc
-					Website: (NSString *) url Location: (EventLocation *) loc Start: (EventDate *) start 
-					End: (EventDate *) end Duration: (int) length Cost: (double) price 
-					Availability: (EventAvailability *) avail {
-	
-	/* Check all the data */
-	if((n == nil) || (a == nil) || (desc == nil) || (url == nil) || (loc == nil) ||
-	   (start == nil) || (end == nil) || (avail == nil) || 
-	   (length < 0) || (price < 0) || ([start earlierDate: end] == NO)) {
-		return nil;
-	}
-	
-	self = [super init];
-	
-	if (self != nil) {
-		name = [[NSString alloc] initWithString: n];
-		artists = [[NSMutableArray alloc] init];
-		[self addArtist: a];
-		description = [[NSString alloc] initWithString: desc];
-		website = [[NSString alloc] initWithString: url];
-		location = [[EventLocation alloc] initWithLocation: loc];
-		startDate = [[EventDate alloc] initWithDate: start];
-		endDate = [[EventDate alloc] initWithDate: end];
-		duration = length;
-		minCost = price;
-		availability = [[EventAvailability alloc] initWithAvailability: avail];
-		
-		return self;
-	}
-	
-	return nil;
-}		
-
--(Event *)initEventWithName: (NSString *) n Artist: (EventArtist *) a Description: (NSString *) desc
-				   ImageURL: (NSString *) iURL Website: (NSString *) url Location: (EventLocation *) loc 
-				   Start: (EventDate *) start End: (EventDate *) end Duration: (int) length Cost: (double) price 
-				   Availability: (EventAvailability *) avail {
-	
-	/* Check all the data */
-	if((n == nil) || (a == nil) || (desc == nil) || (url == nil) || (loc == nil) ||
-	   (start == nil) || (end == nil) || (avail == nil) || 
-	   (length < 0) || (price < 0) || ([start earlierDate: end] == NO)) {
-		return nil;
-	}
-	
-	self = [super init];
-	
-	if (self != nil) {
-		name = [[NSString alloc] initWithString: n];
-		artists = [[NSMutableArray alloc] init];
-		[self addArtist: a];
-		description = [[NSString alloc] initWithString: desc];
-		imageURL = [[NSString alloc] initWithString: iURL];
-		website = [[NSString alloc] initWithString: url];
-		location = [[EventLocation alloc] initWithLocation: loc];
-		startDate = [[EventDate alloc] initWithDate: start];
-		endDate = [[EventDate alloc] initWithDate: end];
-		duration = length;
-		minCost = price;
-		availability = [[EventAvailability alloc] initWithAvailability: avail];
-		
-		return self;
-	}
-	
-	return nil;
-}	
-					
+ 
 -(BOOL)isEventIDEqual:(Event *)other {
 	return (eventID == [other getEventID]);
 }
@@ -166,7 +99,7 @@
 		artists = [[NSMutableArray alloc] init];
 	}
 	
-	if(index >= [artists count]) {
+	if(index < 0 || index >= [artists count]) {
 		return nil;
 	}
 	
@@ -359,82 +292,18 @@
 
 /* End Getters and Setters */
 
-/* Helper Methods */
-
-/* End Helper Methods */
-
-/* Filter Methods */
-
-/* Returns YES if the event's name begins with the given name NO otherwise */
--(BOOL)NameFilter: (NSString *) str {
-	if(str != nil && name != nil) {
-		NSString * temp = [name uppercaseString];
-		str = [str uppercaseString];
-		if([temp hasPrefix: str]) {
-			return YES;
-		}
-	}
-	return NO;
+-(void)dealloc {
+	[name release];
+	[artists release];
+	[description release];
+	[website release];
+	[location release];
+	[startDate release];
+	[endDate release];
+	[availability release];
+	[imageURL release];
+	[super dealloc];
 }
 
-/* Returns YES if the event's artist begins with the given artist NO otherwise */
--(BOOL)ArtistFilter: (NSString *) str {
-	if(str != nil && artists != nil) {
-		for(id a in artists) {
-			EventArtist *artist = (EventArtist *)a;
-			NSString * temp = [[artist getName] uppercaseString];
-			str = [str uppercaseString];
-			if([temp hasPrefix: str]) {
-				return YES;
-			}
-		}
-	}
-	return NO;
-}
-
-/* Returns YES if the time of this event occurs between the given start and end times */
--(BOOL)TimeFilterStart: (EventDate *) start andEnd: (EventDate *) end {
-	/* If the endDate is before the start threshold or the startDate is after the end threshold
-	   return NO otherwise return YES */
-	if(([start earlierDate: endDate] == NO) || ([startDate earlierDate: end] == NO)) {
-		return NO;
-	}
-	return YES;
-}
-
-/* Returns YES if the cost of this event is between the given min and max costs */
--(BOOL)CostFilterMin: (double) min andMax: (double) max {
-	if((minCost >= min) && (minCost <= max)) {
-		return YES;
-	}
-	return NO;
-}
-
-/* Returns YES if the duration of this event is between the given min and max durations */
--(BOOL)DurationFilterMin: (int) min andMax: (int) max {
-	if((duration >= min) && (duration <= max)) {
-		return YES;
-	}
-	return NO;
-}
-
-/*Returns YES if the location of this event is within the given radius of the given Location */
--(BOOL)LocationFilterLoc: (EventLocation *) loc andRadius: (double) rad {
-	double distance = [location distanceFromLocation: loc];
-	double radInMeters = rad * MILESTOMETERS;
-	if(distance <= radInMeters) {
-		return YES;
-	}
-	return NO; 
-}
-
--(BOOL)AvailabilityFilter: (NSString *) day Time: (int) time {
-	if([availability containsDay: day] == YES) {
-		return ([availability availableDuring: time]);
-	}
-	return NO;
-}
-
-/* End Filter Methods */
 @end
 

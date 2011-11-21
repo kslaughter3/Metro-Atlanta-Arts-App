@@ -35,56 +35,6 @@
 	return nil;
 }
 
--(EventArtist *)initWithArtistName: (NSString *) n Description: (NSString *) desc {
-	if((n == nil) || (desc == nil)) {
-		return nil;
-	}
-
-	self = [super init];
-	
-	if(self != nil) {
-		name = [[NSString alloc] initWithString: n];
-		description = [[NSString alloc] initWithString: desc];
-		return self;
-	}
-	
-	return nil;
-}
-
--(EventArtist *)initWithArtistName: (NSString *) n ImageURL: (NSString *) url {
-	if((n == nil) || (url == nil)) {
-		return nil;
-	}
-	
-	self = [super init];
-	
-	if(self != nil) {
-		name = [[NSString alloc] initWithString: n];
-		imageURL = [[NSString alloc] initWithString: url];
-		return self;
-	}
-	
-	return nil;
-}
-
--(EventArtist *)initWithArtistName: (NSString *) n Description: (NSString *) desc 
-	ImageURL: (NSString *) url {
-	if((n == nil) || (desc == nil) || (url == nil)) {
-		return nil;
-	}
-	
-	self = [super init];
-	
-	if(self != nil) {
-		name = [[NSString alloc] initWithString: n];
-		description = [[NSString alloc] initWithString: desc];
-		imageURL = [[NSString alloc] initWithString: url];
-		return self;
-	}
-	
-	return nil;
-}
-
 -(BOOL)isArtistIDEqual:(EventArtist *)other	{
 	return artistID == [other getArtistID];
 }
@@ -163,6 +113,14 @@
 	}
 	
 	return YES;
+}
+
+-(void)dealloc {
+	[name release];
+	[description release];
+	[imageURL release];
+	[websiteURL release];
+	[super dealloc];
 }
 
 @end

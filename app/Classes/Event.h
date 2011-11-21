@@ -55,15 +55,6 @@ typedef enum EventType {
 
 -(Event *)initWithEvent: (Event *)event;
 
--(Event *)initEventWithName: (NSString *) n Artist: (EventArtist *) a Description: (NSString *) desc
-					Website: (NSString *) url Location: (EventLocation *) loc Start: (EventDate *) start End: (EventDate *) end
-				   Duration: (int) length Cost: (double) price Availability: (EventAvailability *) avail;
-
--(Event *)initEventWithName: (NSString *) n Artist: (EventArtist *) a Description: (NSString *) desc
-				   ImageURL: (NSString *) iURL Website: (NSString *) url Location: (EventLocation *) loc 
-				   Start: (EventDate *) start End: (EventDate *) end Duration: (int) length 
-				   Cost: (double) price Availability: (EventAvailability *) avail;
-
 -(BOOL)isEventIDEqual: (Event *)other;
 
 /* Getters and Setters */
@@ -114,36 +105,5 @@ typedef enum EventType {
 -(NSString *)getImageURL;
 
 /* End Getters and Setters */
-
-/* Helper Methods */
-
-/* End Helper Methods */
-
-/* Filter Methods */
-
-/* Returns YES if the event's name begins with the given name NO otherwise */
--(BOOL)NameFilter: (NSString *) str;
-
-/* Returns YES if the event's artist begins with the given artist NO otherwise */
--(BOOL)ArtistFilter: (NSString *) str;
-
-/* Returns YES if the time of this event occurs between the given start and end times */
--(BOOL)TimeFilterStart: (EventDate *) start andEnd: (EventDate *) end;
-
-/* Returns YES if the cost of this event is between the given min and max costs */
--(BOOL)CostFilterMin: (double) min andMax: (double) max;
-
-/* Returns YES if the duration of this event is between the given min and max durations */
--(BOOL)DurationFilterMin:(int)min andMax:(int)max;
-
-/* Returns YES if the location of this event is within the given radius (in miles)
-   of the given Location */
--(BOOL)LocationFilterLoc: (EventLocation *) loc andRadius: (double) rad;
-
-/* Takes a day of the week and a time (24 hr format) and returns whether this event 
-   is available at the day and time */
--(BOOL)AvailabilityFilter: (NSString *) day Time: (int) time;
-
-/* End Filter Methods */
 
 @end

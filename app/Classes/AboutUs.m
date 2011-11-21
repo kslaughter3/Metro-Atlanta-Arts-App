@@ -52,4 +52,12 @@
 	return websiteURL;
 }
 
+-(void)dealloc {
+	[name release];
+	[description release];
+	[imageURL release];
+	[websiteURL release];
+	[super dealloc];
+}
+
 @end

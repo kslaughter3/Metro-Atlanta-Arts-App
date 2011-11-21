@@ -32,19 +32,7 @@
 -(EventLocation *)initEmptyLocation;
 
 -(EventLocation *)initWithLocation: (EventLocation *) loc;
-
--(EventLocation *)initWithAddress: (NSString *) add City: (NSString *) c State: (NSString *) s 
-								Zip: (NSString *) z Location: (CLLocationCoordinate2D) coord;
-
--(EventLocation *)initWithAddress:(NSString *)add City:(NSString *)c 
-								State:(NSString *)s Zip:(NSString *)z;
-
--(EventLocation *)initWithName: (NSString *) n Address: (NSString *) add City: (NSString *) c State: (NSString *) s 
-							  Zip: (NSString *) z Location: (CLLocationCoordinate2D) coord;
-
--(EventLocation *)initWithName: (NSString *) n Address:(NSString *)add City:(NSString *)c 
-							State:(NSString *)s Zip:(NSString *)z;
-
+ 
 -(NSString *)getLocationFilterString;
 
 -(BOOL)hasAddress;

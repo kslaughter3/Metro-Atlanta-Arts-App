@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "DetailsController.h"
-
 #import "Content.h"
 #import	"Event.h"
 

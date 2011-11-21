@@ -332,8 +332,11 @@
 			filter = [[Filter alloc] initDurationFilterMin:minLength Max:maxLength];
 			break;
 		case LocationFilterType:
-			loc = [loc initWithAddress:topField.text
-					City: @"Atlanta" State: @"GA" Zip: middleField.text];
+			loc = [[EventLocation alloc] initEmptyLocation];
+			[loc setStreetAddress:topField.text];
+			[loc setCity: @"Atlanta"];
+			[loc setState:@"GA"];
+			[loc setZip: middleField.text];
 			radius = [bottomField.text doubleValue];
 			filter = [[Filter alloc] initLocationFilter:loc Radius: radius];
 			break;
@@ -405,8 +408,14 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+	[typeLabel release];
+	[typeField release];
+	[topLabel release];
+	[topField release];
+	[middleLabel release];
+	[middleField release];
+	[bottomLabel release];
+	[bottomField release];
 }
 
 

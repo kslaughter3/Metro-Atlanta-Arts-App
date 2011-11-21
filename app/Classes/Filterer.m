@@ -32,4 +32,15 @@
 	return self;
 }
 
+-(void)dealloc {
+	[query release];
+	[name release];
+	[artist release];
+	[start release];
+	[end release];
+	[loc release];
+	[day release];
+	[super dealloc];
+}
+
 @end

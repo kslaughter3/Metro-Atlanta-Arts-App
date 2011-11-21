@@ -457,8 +457,8 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+	[myTitleBar release];
+	[myWebView release];
 }
 
 
@@ -466,6 +466,10 @@
 	[myTitleBar release];
 	[myWebView release];
 	[event release];
+	[artist release];
+	[location release];
+	[selfCurated release];
+	[aboutUs release];
     [super dealloc];
 }
 

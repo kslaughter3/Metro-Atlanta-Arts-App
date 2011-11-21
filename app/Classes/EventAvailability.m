@@ -86,25 +86,6 @@
 	return nil;
 }
 
--(EventAvailability *)initWithDay: (NSMutableArray *) d Start: (int) start End: (int) end {
-	if((d == nil) || (start < 0) || (start >= 2400) || (end < 0) || (end >= 2400)) {
-		return nil;
-	}
-	
-	self = [super init];
-	
-	if(self != nil) {
-		days = [[NSMutableArray alloc] init];
-		[days addObjectsFromArray: d];
-		startTime = start;
-		endTime = end;
-		
-		return self;
-	}
-	
-	return nil;
-}
-
 -(NSString *)getDayRange {
 	NSString *WeekDaysStored[] = {@"SUNDAY", @"MONDAY", @"TUESDAY", @"WEDNESDAY", 
 		@"THURSDAY", @"FRIDAY", @"SATURDAY"};
@@ -275,6 +256,11 @@
 	}
 	
 	return YES;
+}
+
+-(void)dealloc {
+	[days release];
+	[super dealloc];
 }
 
 @end

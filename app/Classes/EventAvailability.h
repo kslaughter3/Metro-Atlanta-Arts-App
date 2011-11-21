@@ -32,7 +32,6 @@ typedef enum WeekDays {
 
 -(EventAvailability *)initWithAvailability: (EventAvailability *) avail;
 
--(EventAvailability *)initWithDay: (NSMutableArray *) d Start: (int) start End: (int) end;
 
 -(NSString *)getDayRange;
 -(NSString *)getStartTimeString;

@@ -69,4 +69,13 @@
 	return website;
 }
 
+-(void)dealloc {
+	[name release];
+	[occupation release];
+	[image release];
+	[plan release];
+	[website release];
+	[super dealloc];
+}
+
 @end

@@ -147,42 +147,6 @@
 	return nil;
 }
 
--(Filter *)initWithType: (FilterType) t AndFilterer: (Filterer *) f {
-	self = [super init];
-	
-	if(self != nil) {
-		[self setFilterType: t];
-		if([self checkFilterer: f] == YES) {
-			filterer = [[Filterer alloc] initEmptyFilterer];
-			if(filterer != nil) {
-				[self copyFilterer: f];
-				isEnabled = YES;
-				return self;
-			}
-		}
-	}
-	
-	return nil;
-}
-
--(Filter *)initWithType: (FilterType) t AndFilterer: (Filterer *) f Enabled: (BOOL) enabled {
-	self = [super init];
-	
-	if(self != nil) {
-		[self setFilterType: t];
-		if([self checkFilterer: f] == YES) {
-			filterer = [[Filterer alloc] initEmptyFilterer];
-			if(filterer != nil) {
-				[self copyFilterer: f];
-				isEnabled = enabled;
-				return self;
-			}
-		}
-	}
-	
-	return nil;
-}
-
 /*Builds the specified filter if the data is valid */
 
 -(Filter *)initSearchFilter: (NSString *)query {
@@ -194,6 +158,7 @@
 			filterer = [[Filterer alloc] initEmptyFilterer];
 			if(filterer != nil) {
 				filterer.query = [[NSString alloc] initWithString: query];
+				[query release];
 				isEnabled = YES;
 				return self;
 			}
@@ -213,6 +178,7 @@
 			filterer = [[Filterer alloc] initEmptyFilterer];
 			if(filterer != nil) {
 				filterer.name = [[NSString alloc] initWithString: name];
+				[name release];
 				isEnabled = YES;
 				return self;
 			}
@@ -232,6 +198,7 @@
 			filterer = [[Filterer alloc] initEmptyFilterer];
 			if(filterer != nil) {
 				filterer.artist = [[NSString alloc] initWithString: artist];
+				[artist release];
 				isEnabled = YES;
 				return self;
 			}
@@ -256,6 +223,8 @@
 			if(filterer != nil) {
 				filterer.start = [[EventDate alloc] initWithDate: start];
 				filterer.end = [[EventDate alloc] initWithDate: end];
+				[start release];
+				[end release];
 				isEnabled = YES;
 				return self;
 			}
@@ -321,6 +290,7 @@
 			if(filterer != nil) {
 				filterer.loc = [[EventLocation alloc] initWithLocation: loc];
 				filterer.radius = rad;
+				[loc release];
 				isEnabled = YES;
 				return self;
 			}
@@ -342,6 +312,7 @@
 				filterer.day = [[NSString alloc] initWithString: d];
 				filterer.startTime = start;
 				filterer.endTime = end;
+				[d release];
 				isEnabled = YES;
 				return self;
 			}
@@ -443,7 +414,7 @@
 		return NO;
 	}
 	
-	if((start >= 0) && (end <= 2359) && (start <= end)) {	
+	if((start >= 0) && (end <= 2400) && (start <= end)) {	
 		return YES;
 	}
 	
@@ -734,4 +705,10 @@
 	
 	return YES;
 }
+
+-(void)dealloc {
+	[filterer release];
+	[super dealloc];
+}
+
 @end

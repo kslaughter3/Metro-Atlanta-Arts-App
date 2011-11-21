@@ -110,29 +110,28 @@
 	 [event setMinCost: 10.0];
 	 [event setDuration: 20];
 	 [event setWebsite: @"http://www.apple.com"];
-	 
-	 //Event *event= [[Event alloc] initTestEvent: @"test" Description: @"1 2 3 4"];
 	 [content addEvent: event];
 	 
 //TEST ARTIST
-	 EventArtist *temp = [[EventArtist alloc] initWithArtistName: @"jun"
-													 Description: @"This is a long description that should take more than "\
-						  "one line and I want to see if that is a problem for the "\
-						  "text view to handle also I'm inserting a newline character "\
-						  "here\nto see if that works as well lets make this even longer "\
-						  "so it goes beyond the size of the visible box "\
-						  "so I'm just going to keep on typing until such a time that "\
-						  "I feel like this is pretty long\n so the scrolling works" 
-						   ImageURL: @"http://gra217b.files.wordpress.com/2011/09/apple-mac-logo.jpg"];
-	 [temp setWebsite: @"http://www.apple.com"];
+	 EventArtist *temp = [[EventArtist alloc] initEmptyArtist];
+	 [temp setName: @"jun"];
+	 [temp setDescription:@"This is a long description that should take more than "\
+	  "one line and I want to see if that is a problem for the "\
+	  "text view to handle also I'm inserting a newline character "\
+	  "here\nto see if that works as well lets make this even longer "\
+	  "so it goes beyond the size of the visible box "\
+	  "so I'm just going to keep on typing until such a time that "\
+	  "I feel like this is pretty long\n so the scrolling works"];
+	 [temp setImageURL:@"http://gra217b.files.wordpress.com/2011/09/apple-mac-logo.jpg"];
+	 [temp setWebsite:@"http://www.apple.com"];
 	 [content addArtist: temp];
 	 [content addArtist: art];
 	 [event addArtist: temp];
 	 
 //TEST LOCATION
 
-	 
 	 [content addLocation: loc];
+	 
 	 [super viewDidLoad];
  }
 
@@ -194,7 +193,7 @@
 				NSURL *url = [NSURL URLWithString: [event getImageURL]];
 				NSData *data = [NSData dataWithContentsOfURL:url];
 				UIImage *image = [UIImage imageWithData:data];
-				cell.imageView.image = image;				
+				cell.imageView.image = image;	
 			}
 			else {
 				cell.imageView.image = [UIImage imageNamed: @"ipod-icon-unknown.jpg"];
@@ -458,14 +457,21 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+	[myTableView release];
+	[myTitleBar release];
+	[mySelectionBar release];
+	[previousButton release];
+	[nextButton release];
 }
 
 
 - (void)dealloc {
 	[myTableView release];
 	[myDetailsController release];
+	[myTitleBar release];
+	[mySelectionBar release];
+	[previousButton release];
+	[nextButton release];
     [super dealloc];
 }
 

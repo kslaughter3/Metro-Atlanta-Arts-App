@@ -64,8 +64,9 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+	[myTitleBar release];
+	[tripPlanningButton release];
+	[aboutUsButton release];
 }
 
 
@@ -73,6 +74,9 @@
     [super dealloc];
 	[myTripPlanner release];
 	[myAboutUsController release];
+	[myTitleBar release];
+	[tripPlanningButton release];
+	[aboutUsButton release];
 }	
 
 

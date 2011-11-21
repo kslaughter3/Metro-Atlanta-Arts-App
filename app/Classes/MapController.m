@@ -134,7 +134,7 @@
 -(void)calibrateRegion {
 	Content *content = [Content getInstance];
 	NSMutableArray *events = [content getEvents];
-	EventLocation *loc = [EventLocation alloc];
+	EventLocation *loc;
 	double latMin = 9999, longMin = 9999;
 	double latMax = -9999, longMax = -9999;
 	int numCoords = 0;
@@ -215,12 +215,8 @@
 		[eventButton setTitle:@"More" forState:UIControlStateNormal];
 		eventButton.frame = CGRectMake(40.0, 105.0, 40.0, 40.0);
 	
-		// Set the image for the button
-		//[eventButton setImage:[UIImage imageNamed:@"Event.png"] forState:UIControlStateNormal];
-	
 		// Set the button as the callout view
 		retval.leftCalloutAccessoryView = eventButton;
-		//[eventButton release];
 	}	
 	if(retval.annotation != nil) {
 		id annotation = retval.annotation;
@@ -312,8 +308,15 @@
 }
 
 - (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
+	[super viewDidUnload];
+	[username release];
+	[password release];
+	[tweet release];
+	[myMapView release];
+	[myTitleBar release];
+	[previousButton release];
+	[nextButton release];
+	[mySelectionBar release];
 }
 
 
@@ -322,9 +325,15 @@
 	[password release];
 	[tweet release];
 	[myMapView release];
+	[myTitleBar release];
+	[previousButton release];
+	[nextButton release];
+	[mySelectionBar release];
 	[theConnection release];
 	[parser release];
 	[adapter release];
+	[mapAnnotations release];
+	[locationManager release];
 	[myEventController release];
     [super dealloc];
 }

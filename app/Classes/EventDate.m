@@ -68,59 +68,6 @@
 	return nil;
 }
 
-//Builds a date from a string the in the format "MM-DD-YYYY HH:MM:(SS)(pm/am)" or the format "MM/DD/YYYY HH:MM:(SS)(pm/am)"
--(EventDate *)initWithString: (NSString *) string {
-	self = [super init];
-	
-	if(self != nil) {
-		
-		NSArray *components = [string componentsSeparatedByString:@" "];
-	
-		//Should have 2 components (date and time) to be a valid string
-		if([components count] != 2) {
-			[components dealloc];
-			[self dealloc];
-			return nil;
-		}
-		
-		[self setDate: (NSString *)[components objectAtIndex: 0]];
-		[self setTime: (NSString *)[components objectAtIndex: 1]];
-		
-		[components dealloc];
-		
-		if([EventDate checkDate: self] == NO) {
-			[self dealloc];
-			return nil;
-		}
-	
-		return self;
-	}
-	
-	return nil;
-}
-
--(EventDate *)initWithMonth: (int) mon Day: (int) d Year: (int) y Hour: (int) h Minute: (int) min Second: (int) s {
-	self = [super init];
-	
-	if(self != nil) {
-		[self setYear: y];
-		[self setMonth: mon];
-		[self setDay: d];
-		[self setHour: h];
-		[self setMinute: min];
-		[self setSecond: s];
-		
-		if([EventDate checkDate: self] == NO) {
-			[self dealloc];
-			return nil;
-		}
-		
-		return self;
-	}
-	
-	return nil;
-}
-
 -(BOOL)isEqualTime:(EventDate *)other {
 	return (hour == [other getHour]) && 
 	(minute == [other getMinute]) && (second == [other getSecond]);
@@ -487,6 +434,10 @@
 	}
 	
 	return YES;
+}
+
+-(void)dealloc {
+	[super dealloc];
 }
 
 @end

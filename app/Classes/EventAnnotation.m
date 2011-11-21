@@ -44,6 +44,9 @@
 - (void)dealloc
 {
     [image release];
+	[latitude release];
+	[longitude release];
+	[event release];
     [super dealloc];
 }
 

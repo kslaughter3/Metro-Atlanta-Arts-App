@@ -23,13 +23,6 @@
 
 -(EventArtist *)initWithArtist: (EventArtist *) art;
 
--(EventArtist *)initWithArtistName: (NSString *) n Description: (NSString *) desc;
-
--(EventArtist *)initWithArtistName:(NSString *)n ImageURL: (NSString *) url;
-
--(EventArtist *)initWithArtistName:(NSString *)n Description:(NSString *)desc 
-	ImageURL: (NSString *) url;
-
 -(BOOL)isArtistIDEqual:(EventArtist *)other;
 
 /* Getters and Setters */

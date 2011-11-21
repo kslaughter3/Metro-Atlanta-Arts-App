@@ -16,7 +16,6 @@
 static Content *instance;
 static NSString *instanceLock = @"instanceLock";
 
-
 @interface Content () <SBJsonStreamParserAdapterDelegate>
 @end
 
@@ -36,7 +35,6 @@ static NSString *instanceLock = @"instanceLock";
 		return instance;
 	}
 	
-		
 	//Something bad happened 
 	return nil;
 }
@@ -157,8 +155,6 @@ static NSString *instanceLock = @"instanceLock";
 	return nil;
 }
 
-//-(void)filterOldEvents {
-//}
 -(BOOL)addArtist: (EventArtist *) artist{
 	/* Check to see if the filter is nil or invalid */
 	if(artist == nil) {
@@ -227,9 +223,10 @@ static NSString *instanceLock = @"instanceLock";
 	
 	if([selfCuratedEntries containsObject: selfCuratedEntry] == NO){
 		[selfCuratedEntries addObject: selfCuratedEntry];
+		return YES;
 	}
 	
-	return YES;
+	return NO;
 }
 
 -(BOOL)removeFilter: (Filter *) filter {
@@ -245,9 +242,9 @@ static NSString *instanceLock = @"instanceLock";
 		return NO;
 	}
 	
-	
 	/* Remove the filter */
 	[filters removeObjectIdenticalTo: filter];
+	[filter release];
 	
 	return YES;
 }
@@ -274,275 +271,10 @@ static NSString *instanceLock = @"instanceLock";
 	}
 	
 	[filters replaceObjectAtIndex:index withObject:newFilter];
+	[oldFilter release];
 	
 	return YES;
 }
-
-/* And Filters
--(void)addAndFilter: (Filter *) filter {
-	
-	for(id event in events) {
-		switch ([filter getFilterType])
-		{
-			case NameFilterType:
-				if([self checkName: event withFilter: filter] == NO) {
-					[events removeObjectIdenticalTo: event];
-					[filteredEvents addObject: event];
-				}
-				break;
-			case ArtistFilterType:
-				if([self checkArtist: event withFilter: filter] == NO) {
-					[events removeObjectIdenticalTo: event];
-					[filteredEvents addObject: event];
-				}
-				break;
-			case TimeFilterType:
-				if([self checkTime: event withFilter: filter] == NO) {
-					[events removeObjectIdenticalTo: event];
-					[filteredEvents addObject: event];
-				}
-				break;
-			case CostFilterType:
-				if([self checkCost: event withFilter: filter] == NO) {
-					[events removeObjectIdenticalTo: event];
-					[filteredEvents addObject: event];
-				}
-				break;
-			case DurationFilterType:
-				if([self checkDuration: event withFilter: filter] == NO) {
-					[events removeObjectIdenticalTo: event];
-					[filteredEvents addObject: event];
-				}
-				break;
-			case LocationFilterType:
-				if([self checkLocation: event withFilter: filter] == NO) {
-					[events removeObjectIdenticalTo: event];
-					[filteredEvents addObject: event];
-				}
-				break;
-			default:
-				// Should never happen 
-				break;
-		}
-	}
-}
-
--(void)removeAndFilter {
-	BOOL failed = NO;
-	
-	// Loop over the filtered out events for ones that no longer fail any of the filters 
-	for(id event in filteredEvents) {
-		for(id f in filters) {
-			switch ([(Filter *)f getFilterType]) {
-				case NameFilterType:
-					if([self checkName: event withFilter: f] == NO) {
-						failed = YES;
-					}
-					break;
-				case ArtistFilterType:
-					if([self checkArtist: event withFilter: f] == NO) {
-						failed = YES;
-					}
-					break;
-				case TimeFilterType:
-					if([self checkTime: event withFilter: f] == NO) {
-						failed = YES;
-					}
-					break;
-				case CostFilterType:
-					if([self checkCost: event withFilter: f] == NO) {
-						failed = YES;
-					}
-					break;
-				case DurationFilterType:
-					if([self checkDuration: event withFilter: f] == NO) {
-						failed = YES;
-					}
-					break;
-				case LocationFilterType:
-					if([self checkLocation: event withFilter: f] == NO) {
-						failed = YES;
-					}
-					break;
-				default:
-					// Should never happen 
-					break;
-			}
-			
-			// failed go to the next event 
-			if(failed == YES) {
-				break;
-			}
-		}
-		
-		// Check to see if it passed all the filters and move the event if necessary
-		if(failed == NO) {
-			[filteredEvents removeObjectIdenticalTo: event];
-			[events addObject: event];
-		}
-		
-		// reset the failed flag 
-		failed = NO;
-	}
-}
-
-/* OR Filter
--(void)addOrFilter: (Filter *) filter {
-	
-	for(id event in filteredEvents) {
-		switch ([filter getFilterType])
-		{
-			case NameFilterType:
-				if([self checkName: event withFilter: filter] == YES) {
-					[filteredEvents removeObjectIdenticalTo: event];
-					[events addObject: event];
-				}
-				break;
-			case ArtistFilterType:
-				if([self checkArtist: event withFilter: filter] == YES) {
-					[filteredEvents removeObjectIdenticalTo: event];
-					[events addObject: event];
-				}
-				break;
-			case TimeFilterType:
-				if([self checkTime: event withFilter: filter] == YES) {
-					[filteredEvents removeObjectIdenticalTo: event];
-					[events addObject: event];
-				}
-				break;
-			case CostFilterType:
-				if([self checkCost: event withFilter: filter] == YES) {
-					[filteredEvents removeObjectIdenticalTo: event];
-					[events addObject: event];
-				}
-				break;
-			case DurationFilterType:
-				if([self checkDuration: event withFilter: filter] == YES) {
-					[filteredEvents removeObjectIdenticalTo: event];
-					[events addObject: event];
-				}
-				break;
-			case LocationFilterType:
-				if([self checkLocation: event withFilter: filter] == YES) {
-					[filteredEvents removeObjectIdenticalTo: event];
-					[events addObject: event];
-				}
-				break;
-			default:
-				// Should never happen 
-				break;
-		}
-	}
-}
-
--(void)removeOrFilter {
-	BOOL passed = NO;
-	
-	// Loop over the displayed out events for ones that no longer pass any of the filters 
-	for(id event in events) {
-		for(id f in filters) {
-			switch ([(Filter *)f getFilterType]) {
-				case NameFilterType:
-					if([self checkName: event withFilter: f] == YES) {
-						passed = YES;
-					}
-					break;
-				case ArtistFilterType:
-					if([self checkArtist: event withFilter: f] == YES) {
-						passed = YES;
-					}
-					break;
-				case TimeFilterType:
-					if([self checkTime: event withFilter: f] == YES) {
-						passed = YES;
-					}
-					break;
-				case CostFilterType:
-					if([self checkCost: event withFilter: f] == YES) {
-						passed = YES;
-					}
-					break;
-				case DurationFilterType:
-					if([self checkDuration: event withFilter: f] == YES) {
-						passed = YES;
-					}
-					break;
-				case LocationFilterType:
-					if([self checkLocation: event withFilter: f] == YES) {
-						passed = YES;
-					}
-					break;
-				default:
-					// Should never happen
-					break;
-			}
-			
-			// failed go to the next event 
-			if(passed == YES) {
-				break;
-			}
-		}
-		
-		// Check to see if it passed all the filters and move the event if necessary
-		if(passed == NO) {
-			[events removeObjectIdenticalTo: event];
-			[filteredEvents addObject: event];
-		}
-		
-		// reset the failed flag
-		passed = NO;
-	}
-}
-
-/* Switch the filter mode
--(void)switchToAndFilters {
-	[events addObjectsFromArray: filteredEvents];
-	[filteredEvents removeAllObjects];
-	
-	for(id f in filters) {
-		[self addAndFilter: (Filter *)f];
-	}
-}
-
-
--(void)switchToOrFilters {
-	[events addObjectsFromArray: filteredEvents];
-	[filteredEvents removeAllObjects];
-	
-	for(id f in filters) {
-		[self addOrFilter: (Filter *)f];
-	}
-}*/
-
-/*
--(BOOL)checkName: (Event *) event withFilter: (Filter *) filter {
-	return [event NameFilter: [filter getFiltererName]];
-}
-
--(BOOL)checkArtist: (Event *) event withFilter: (Filter *) filter {
-	return [event ArtistFilter: [filter getFiltererArtist]];
-}
-	
--(BOOL)checkTime: (Event *) event withFilter: (Filter *) filter {
-	return [event TimeFilterStart: [filter getFiltererStartTime] 
-						   andEnd: [filter getFiltererEndTime]];
-}
-	
--(BOOL)checkCost: (Event *) event withFilter: (Filter *) filter {
-	return [event CostFilterMin: [filter getFiltererMinCost] 
-						 andMax: [filter getFiltererMaxCost]]; 
-}
-	
--(BOOL)checkDuration: (Event *) event withFilter: (Filter *) filter {
-	return [event DurationFilterMin: [filter getFiltererMinDuration]
-							 andMax: [filter getFiltererMaxDuration]];
-}
-	
--(BOOL)checkLocation: (Event *) event withFilter: (Filter *) filter {
-	return [event LocationFilterLoc: [filter getFiltererLocation]
-						  andRadius: [filter getFiltererRadius]];
-}
-*/
 
 -(Event *)getEventAtIndex:(int)index {
 	if(index < 0 || index >= [self getEventCount]) {
@@ -592,10 +324,6 @@ static NSString *instanceLock = @"instanceLock";
 	return events;
 }
 
-/*-(NSMutableArray *)getFilteredEvents {
-	return filteredEvents;
-}*/
-
 -(NSMutableArray *)getFilters {
 	return filters;
 }
@@ -643,15 +371,6 @@ static NSString *instanceLock = @"instanceLock";
 -(NSInteger)getEventCount {
 	return events.count;
 }
-
-/*-(NSInteger)getDisplayedEventCount {
-	return events.count;
-}
-
--(NSInteger)getFilteredEventCount {
-	return filteredEvents.count;
-}
-*/
 
 -(NSInteger)getFilterCount {
 	return filters.count;
@@ -835,6 +554,22 @@ static NSString *instanceLock = @"instanceLock";
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+}
+
+-(void)dealloc {
+	[events release];
+	[filters release];
+	[artists release];
+	[locations release];
+	[selfCuratedEntries release];
+	[myAboutUs release];
+	[theConnection release];
+	[username release];
+	[password release];
+	[tweet release];
+	[parser release];
+	[adapter release];
+	[super dealloc];
 }
 
 @end

@@ -54,13 +54,7 @@ typedef enum FilterType {
 /* Initializers */
 
 -(Filter *)initEmptyFilter;
-
-/* Attempts to build a filter if the filter structure does not match the filter type no filter 
-  is created and NULL is returned */
 -(Filter *)initWithFilter: (Filter *)filter;
-
--(Filter *)initWithType: (FilterType) t AndFilterer: (Filterer *) f;
--(Filter *)initWithType: (FilterType) t AndFilterer: (Filterer *) f Enabled: (BOOL) enabled;
 
 /*Builds the specified filter if the data is valid */
 -(Filter *)initSearchFilter: (NSString *)query;
