@@ -12,8 +12,10 @@
 
 @implementation TripPlanningController
 @synthesize myTableView,
-integers,
-myTripMapController;
+			myEvents,
+			myTripMapController,
+			previousButton,
+			nextButton;
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -34,12 +36,8 @@ myTripMapController;
 	[loc setCoordinates: coord];
 	[temp setLocation: loc];
 	[content addEvent: temp];
-	Event *temp2 = [[Event alloc] initEmptyEvent];
-	[temp2 setEventID: 3];
-	[temp2 setEventName: @"Jun3"];
-	[content addEvent: temp2];
 	
-	integers = [[NSMutableArray alloc] init];
+	myEvents = [[NSMutableArray alloc] init];
 	
 	[super viewDidLoad];
 }
@@ -87,8 +85,7 @@ myTripMapController;
 		cell.imageView.image = [UIImage imageNamed: @"ipod-icon-unknown.jpg"];
 	}
 	
-	NSNumber *intRow = [NSNumber numberWithInt:indexPath.row];
-	if([integers containsObject: intRow]) {
+	if([myEvents containsObject: event]) {
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	}
 	else {
@@ -100,12 +97,12 @@ myTripMapController;
 
 -(void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
 
-	NSNumber *intRow = [NSNumber numberWithInt:indexPath.row];
-	if([integers containsObject: intRow]) {
-		[integers removeObjectIdenticalTo: intRow];
+	Event *event = [[Content getInstance] getEventAtIndex: indexPath.row];
+	if([myEvents containsObject: event]) {
+		[myEvents removeObjectIdenticalTo: event];
 	}
 	else {
-		[integers addObject: intRow];
+		[myEvents addObject: event];
 	}
 	
 	[tableView reloadData];
@@ -133,7 +130,7 @@ myTripMapController;
 - (void)dealloc {
 	[myTableView release];
 	[myTripMapController release];
-	[integers release];
+	[myEvents release];
     [super dealloc];
 }
 
@@ -172,6 +169,48 @@ myTripMapController;
 	//Doesn't do anything
 }
 
+-(IBAction)previousPage:(id)sender {
+	Content *content = [Content getInstance];
+	int tablePage = [content getEventPage];
+	if(tablePage > 1) {
+		[content changeEventPage: NO];
+		[self enableNavigationButtons];
+		//[content populateEvents];
+		//[myTableView reloadData];
+	}
+}
+
+-(IBAction)nextPage:(id)sender {
+	Content *content = [Content getInstance];
+	int tablePage = [content getEventPage];
+	int lastPage = [content getEventLastPage];
+	if(tablePage < lastPage) {
+		[content changeEventPage: YES];
+		[self enableNavigationButtons];
+		//[content populateEvents]; 
+		//[myTableView reloadData];
+	}
+}
+
+-(void)enableNavigationButtons {
+	Content *content = [Content getInstance];
+	int tablePage = [content getEventPage];
+	int lastPage = [content getEventLastPage];
+	
+	if(tablePage == 1) {
+		previousButton.enabled = NO;
+	}
+	else {
+		previousButton.enabled = YES;
+	}
+	
+	if(tablePage == lastPage) { 
+		nextButton.enabled = NO;
+	}
+	else {
+		nextButton.enabled = YES;
+	}
+}
 
 -(IBAction)viewPlan:(id)sender
 {
@@ -228,7 +267,7 @@ myTripMapController;
 				self.myTripMapController = [[TripPlanningMapController alloc] initWithNibName: @"TripPlanningMapView" bundle: nil];
 			}
 
-			[myTripMapController setEvents: integers];
+			[myTripMapController setEvents: myEvents];
 			[myTripMapController setTime: time];
 			[myTripMapController setSpeed: speed];
 			

@@ -90,10 +90,12 @@
 	Content *content = [Content getInstance];
 	SelfCuratedEntry *entry = (SelfCuratedEntry *)[content getSelfCuratedEntryAtIndex: indexPath.row];
 	if(mySelfCuratedViewController == nil) {
-		self.mySelfCuratedViewController = [[SelfCuratedViewController alloc] initWithNibName: @"SelfCuratedView" bundle: nil];
+		self.mySelfCuratedViewController = [[DetailsController alloc] initWithNibName: @"DetailsView" bundle: nil];
 	}
 	
-	[mySelfCuratedViewController setEntry: entry];
+	[mySelfCuratedViewController setDetailsType: SelfCuratedDetails];
+	
+	mySelfCuratedViewController.selfCurated = entry;
 	[self presentModalViewController: self.mySelfCuratedViewController animated:YES];
 	
 }

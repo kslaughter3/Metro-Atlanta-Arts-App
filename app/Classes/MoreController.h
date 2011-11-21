@@ -8,21 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "TripPlanningController.h"
-#import "AboutUsController.h"
+#import "DetailsController.h"
 
 @interface MoreController : UIViewController {
 	IBOutlet UINavigationBar *myTitleBar;
 	IBOutlet UIButton *tripPlanningButton;
 	IBOutlet UIButton *aboutUsButton;
 	TripPlanningController *myTripPlanner;
-	AboutUsController *myAboutUsController;
+	DetailsController *myAboutUsController;
 }
 
 @property (nonatomic, retain) IBOutlet UINavigationBar *myTitleBar;
 @property (nonatomic, retain) IBOutlet UIButton *tripPlanningButton;
 @property (nonatomic, retain) IBOutlet UIButton *aboutUsButton;
 @property (nonatomic, retain) TripPlanningController *myTripPlanner;
-@property (nonatomic, retain) AboutUsController *myAboutUsController;
+@property (nonatomic, retain) DetailsController *myAboutUsController;
 
 -(IBAction)openTripPlanning:(id)sender;
 -(IBAction)openAboutUs:(id)sender;

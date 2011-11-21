@@ -48,8 +48,9 @@
 
 -(IBAction)openAboutUs: (id) sender {
 	if(myAboutUsController == nil) {
-		self.myAboutUsController = [[AboutUsController alloc] initWithNibName: @"AboutUsView" bundle: nil];
+		self.myAboutUsController = [[DetailsController alloc] initWithNibName: @"DetailsView" bundle: nil];
 	}
+	[myAboutUsController setDetailsType: AboutUsDetails];	
 	[self presentModalViewController:self.myAboutUsController animated:YES];
 }
 
@@ -70,7 +71,9 @@
 
 - (void)dealloc {
     [super dealloc];
-}
+	[myTripPlanner release];
+	[myAboutUsController release];
+}	
 
 
 @end

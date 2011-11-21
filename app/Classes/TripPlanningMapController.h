@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "Content.h"
-#import "EventController.h"
+#import "DetailsController.h"
 #import "EventAnnotation.h"
 
 @interface TripPlanningMapController : UIViewController<MKMapViewDelegate> {
@@ -23,6 +23,7 @@
 	NSMutableArray *tripMapAnnotations;
 	MKPolyline *routeLine;
 	MKPolylineView *routeLineView;
+	DetailsController *myEventController;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView *myTripMapView;
@@ -30,6 +31,7 @@
 @property (nonatomic, retain) NSMutableArray *tripMapAnnotations;
 @property (nonatomic, retain) MKPolyline *routeLine;
 @property (nonatomic, retain) MKPolylineView *routeLineView;
+@property (nonatomic, retain) DetailsController *myEventController;
 
 -(void)setTime: (int) min;
 -(int)getTime;
@@ -42,7 +44,7 @@
 -(void)setUpTripAnnotations;
 -(IBAction)loadTripEventDetails:(id)sender;
 
--(void)setEvents: (NSMutableArray *)indices;
+-(void)setEvents: (NSMutableArray *)events;
 -(void)planTrip;
 -(NSMutableArray *)getEvents;
 

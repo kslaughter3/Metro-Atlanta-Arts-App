@@ -15,7 +15,8 @@
 			tripGlobalEvent,
 			tripMapAnnotations,
 			routeLine,
-			routeLineView;
+			routeLineView,
+			myEventController;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -164,14 +165,16 @@
 	}
 }
 
--(IBAction)loadTripEventDetails:(id)sender
-{
+-(IBAction)loadTripEventDetails:(id)sender {
 	
-	EventController *eventView = [[EventController alloc] 
-								  initWithNibName: @"EventView" bundle: nil];
-	[eventView setEvent: tripGlobalEvent];
-	[self presentModalViewController: eventView animated:YES];
+	if(myEventController == nil) {
+		myEventController = [[DetailsController alloc] 
+							 initWithNibName: @"DetailsView" bundle: nil];
+	}
 	
+	[myEventController setDetailsType: EventDetails];
+	myEventController.event = tripGlobalEvent;
+	[self presentModalViewController: self.myEventController animated:YES];
 }
 
 
@@ -191,10 +194,7 @@
 	return speed;
 }
 
--(void)setEvents: (NSMutableArray *)indices
-{
-	Content *content = [Content getInstance];
-
+-(void)setEvents: (NSMutableArray *)events {
 	if(myEvents == nil) {
 		myEvents = [[NSMutableArray alloc] init];
 	}
@@ -205,9 +205,7 @@
 	[myTripMapView removeAnnotations: self.tripMapAnnotations];
 	[self.tripMapAnnotations removeAllObjects];
 	
-	for(id index in indices) {
-		[myEvents addObject: [content getEventAtIndex: [(NSNumber *)index intValue]]];
-	}
+	[myEvents addObjectsFromArray: events];
 	
 	//[self planTrip];
 }

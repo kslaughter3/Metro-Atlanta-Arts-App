@@ -8,19 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "Content.h"
-#import "SelfCuratedViewController.h"
+#import "DetailsController.h"
 
 @class SelfCuratedListController;
 
 @interface SelfCuratedListController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	IBOutlet UITableView *myTableView;
-	SelfCuratedViewController *mySelfCuratedViewController;
+	DetailsController *mySelfCuratedViewController;
 	IBOutlet UIBarButtonItem *previousButton;
 	IBOutlet UIBarButtonItem *nextButton;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
-@property (nonatomic, retain) SelfCuratedViewController *mySelfCuratedViewController;
+@property (nonatomic, retain) DetailsController *mySelfCuratedViewController;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *previousButton;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *nextButton;
 

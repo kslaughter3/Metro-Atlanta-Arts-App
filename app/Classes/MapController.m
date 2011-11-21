@@ -13,7 +13,7 @@
 
 @implementation MapController
 
-@synthesize myMapView, mapAnnotations, globalEvent, locationManager;
+@synthesize myMapView, mapAnnotations, globalEvent, locationManager, myEventController;
 
 /*
 // The designated initializer. Override to perform setup that is required before the view is loaded.
@@ -228,13 +228,15 @@
 	}
 }
 
--(IBAction)loadEventDetails:(id)sender
-{
-
-	EventController *eventView = [[EventController alloc] 
-								  initWithNibName: @"EventView" bundle: nil];
-	[eventView setEvent: globalEvent];
-	[self presentModalViewController: eventView animated:YES];
+-(IBAction)loadEventDetails:(id)sender {
+	if(myEventController == nil) {
+		myEventController = [[DetailsController alloc] 
+			initWithNibName: @"DetailsView" bundle: nil];
+	}
+	
+	[myEventController setDetailsType: EventDetails];
+	myEventController.event = globalEvent;
+	[self presentModalViewController: self.myEventController animated:YES];
 	
 }
 
@@ -321,6 +323,7 @@
 	[theConnection release];
 	[parser release];
 	[adapter release];
+	[myEventController release];
     [super dealloc];
 }
 

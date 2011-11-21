@@ -11,9 +11,7 @@
 
 @implementation ListController
 @synthesize myTableView,
-			myEventController,
-			myArtistController,
-			myLocationController,
+			myDetailsController,
 			myTitleBar,
 			mySelectionBar,
 			previousButton,
@@ -42,7 +40,7 @@
 	 
 	 [myTableView setDelegate: self];
 	 [myTableView setDataSource: self];
-	 listType = EVENTLIST;
+	 listType = EventDetails;
 	 [self setListTitle];
 	 
 	 Content *content = [Content getInstance];
@@ -160,13 +158,13 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	Content *content = [Content getInstance];
 	switch (listType) {
-		case EVENTLIST:
+		case EventDetails:
 			return [content getEventCount];
 			break;
-		case ARTISTLIST:
+		case ArtistDetails:
 			return [content getArtistCount];
 			break;
-		case LOCATIONLIST:
+		case LocationDetails:
 			return [content getLocationCount];
 			break;
 		default:
@@ -187,7 +185,7 @@
 	Content *content = [Content getInstance];
 	
 	switch (listType) {
-		case EVENTLIST:
+		case EventDetails:
 		{
 			//cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
 			Event *event = (Event *)[content getEventAtIndex: indexPath.row];
@@ -203,7 +201,7 @@
 			}
 			break;
 		}
-		case ARTISTLIST:
+		case ArtistDetails:
 		{
 			EventArtist *artist = (EventArtist *)[content getArtistAtIndex: indexPath.row];
 			cell.textLabel.text = [artist getName];
@@ -218,7 +216,7 @@
 			}
 			break;
 		}
-		case LOCATIONLIST:
+		case LocationDetails:
 		{
 			EventLocation *loc = (EventLocation *)[content getLocationAtIndex: indexPath.row];
 			if([loc getName] != nil && [[loc getName] isEqualToString: @""] == NO) {
@@ -256,45 +254,40 @@
 	
 	Content *content = [Content getInstance];
 	
+	if(myDetailsController == nil) {
+		myDetailsController = [[DetailsController alloc] 
+			initWithNibName: @"DetailsView" bundle: nil];
+	}
+	
+	[myDetailsController setDetailsType: listType];
+	
 	switch (listType) {
-		case EVENTLIST:
+		case EventDetails:
 		{
 			Event *event = (Event *)[content getEventAtIndex: indexPath.row];
-			if(myEventController == nil) {
-				self.myEventController = [[EventController alloc] initWithNibName: @"EventView" bundle: nil];
-			}
-			[myEventController setEvent: event];
-			[self presentModalViewController: self.myEventController animated:YES];
+			myDetailsController.event = event;
+			[self presentModalViewController: self.myDetailsController animated:YES];
 			break;
 		}
-		case ARTISTLIST:
+		case ArtistDetails:
 		{
 			EventArtist *artist = (EventArtist *)[content getArtistAtIndex: indexPath.row];
-			if(myArtistController == nil) {
-				self.myArtistController = [[ArtistController alloc] initWithNibName: @"ArtistView" bundle:nil];
-			}
-			[myArtistController setArtist: artist];
-			[self presentModalViewController:self.myArtistController animated:YES];
+			myDetailsController.artist = artist;
+			[self presentModalViewController:self.myDetailsController animated:YES];
 			break;
 		}
-		case LOCATIONLIST:
+		case LocationDetails:
 		{
 			EventLocation *loc = (EventLocation *)[content getLocationAtIndex: indexPath.row];
-			if(myLocationController == nil) {
-				self.myLocationController = [[LocationController alloc] initWithNibName: @"LocationView" bundle:nil];
-			}
-			[myLocationController setLocation: loc];
-			[self presentModalViewController:self.myLocationController animated:YES];
+			myDetailsController.location = loc;
+			[self presentModalViewController:self.myDetailsController animated:YES];
 			break;
 		}
 		default:
 		{
 			Event *event = [content getEventAtIndex: indexPath.row];
-			if(myEventController == nil) {
-				self.myEventController = [[EventController alloc] initWithNibName: @"EventView" bundle: nil];
-			}
-			[myEventController setEvent: event];
-			[self presentModalViewController: self.myEventController animated:YES];
+			myDetailsController.event = event;
+			[self presentModalViewController: self.myDetailsController animated:YES];
 			break;
 		}
 	}
@@ -302,13 +295,13 @@
 
 -(void)setListTitle {
 	switch (listType) {
-		case EVENTLIST:
+		case EventDetails:
 			myTitleBar.topItem.title = @"Events";
 			break;
-		case ARTISTLIST:
+		case ArtistDetails:
 			myTitleBar.topItem.title = @"Artists";
 			break;
-		case LOCATIONLIST:
+		case LocationDetails:
 			myTitleBar.topItem.title = @"Locations";
 			break;
 		default:
@@ -337,7 +330,24 @@
 }
 
 -(void)changeListType:(id)sender {
-	listType = [mySelectionBar selectedSegmentIndex];
+	int sel = [mySelectionBar selectedSegmentIndex];
+	
+	switch(sel)
+	{
+		case 0:
+			listType = EventDetails;
+			break;
+		case 1:
+			listType = ArtistDetails;
+			break;
+		case 2:
+			listType = LocationDetails;
+			break;
+		default:
+			listType = EventDetails;
+			break;
+	}
+	
 	[self setListTitle];
 	[self enableNavigationButtons];
 	[myTableView reloadData];
@@ -367,13 +377,13 @@
 -(int)getTablePage {
 	Content *content = [Content getInstance];
 	switch(listType) {
-		case EVENTLIST:
+		case EventDetails:
 			return [content getEventPage];
 			break;
-		case ARTISTLIST:
+		case ArtistDetails:
 			return [content getArtistPage];
 			break;
-		case LOCATIONLIST:
+		case LocationDetails:
 			return [content getLocationPage];
 			break;
 		default:
@@ -385,13 +395,13 @@
 -(int)getLastPage {
 	Content *content = [Content getInstance];
 	switch(listType) {
-		case EVENTLIST:
+		case EventDetails:
 			return [content getEventLastPage];
 			break;
-		case ARTISTLIST:
+		case ArtistDetails:
 			return [content getArtistLastPage];
 			break;
-		case LOCATIONLIST:
+		case LocationDetails:
 			return [content getLocationLastPage];
 			break;
 		default:
@@ -404,13 +414,13 @@
 	Content *content = [Content getInstance];
 	
 	switch(listType) {
-		case EVENTLIST:
+		case EventDetails:
 			[content changeEventPage: increment];
 			break;
-		case ARTISTLIST:
+		case ArtistDetails:
 			[content changeArtistPage: increment];
 			break;
-		case LOCATIONLIST:
+		case LocationDetails:
 			[content changeLocationPage: increment];
 			break;
 		default:
@@ -435,7 +445,7 @@
 
 - (void)dealloc {
 	[myTableView release];
-	[myEventController release];
+	[myDetailsController release];
     [super dealloc];
 }
 

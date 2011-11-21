@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "Content.h"
 #import "Event.h"
-#import "EventController.h"
+#import "DetailsController.h"
 #import "EventAnnotation.h"
 #import "json/SBJson.h"
 #import <objc/runtime.h>
@@ -30,6 +30,7 @@
 	IBOutlet UIBarButtonItem *previousButton;
 	IBOutlet UIBarButtonItem *nextButton;
 	IBOutlet UISegmentedControl *mySelectionBar;
+	DetailsController *myEventController;
     NSURLConnection *theConnection;
     SBJsonStreamParser *parser;
     SBJsonStreamParserAdapter *adapter;
@@ -41,6 +42,7 @@
 @property (nonatomic, retain) NSMutableArray *mapAnnotations;
 @property (nonatomic, retain) Event *globalEvent;
 @property (nonatomic, retain) CLLocationManager *locationManager;
+@property (nonatomic, retain) DetailsController *myEventController;
 
 -(void)displayMyMap;
 -(void)setUpAnnotations;
