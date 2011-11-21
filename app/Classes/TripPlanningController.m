@@ -273,9 +273,9 @@
 				self.myTripMapController = [[TripPlanningMapController alloc] initWithNibName: @"TripPlanningMapView" bundle: nil];
 			}
 
-			[myTripMapController setEvents: myEvents];
 			[myTripMapController setTime: time];
 			[myTripMapController setSpeed: speed];
+			[myTripMapController setEvents: myEvents];
 			
 			[self presentModalViewController: self.myTripMapController animated:YES];
 		}

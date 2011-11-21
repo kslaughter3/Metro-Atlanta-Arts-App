@@ -270,13 +270,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>19</integer>
+									<integer>30</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {232, 644}}</string>
+							<string>{{0, 64}, {232, 644}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -295,7 +295,7 @@
 							<real>232</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>702 335 860 703 0 0 1920 1178 </string>
+						<string>702 336 860 703 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -311,7 +311,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Event.h</string>
+								<string>TripPlanningMapController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -319,11 +319,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Event.h</string>
+										<string>TripPlanningMapController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F2055F33147AD01F00DEFE2F</string>
+										<string>F2055F60147AD38600DEFE2F</string>
 										<key>history</key>
 										<array>
 											<string>F2BF2AF7143A367E00FBD2F5</string>
@@ -550,7 +550,6 @@
 											<string>F25D1DAD147AB6B700827E7F</string>
 											<string>F25D1DAE147AB6B700827E7F</string>
 											<string>F25D1DB4147AB6B700827E7F</string>
-											<string>F25D1DCE147AB80B00827E7F</string>
 											<string>F25D1E36147ABCB800827E7F</string>
 											<string>F25D1E37147ABCB800827E7F</string>
 											<string>F25D1E38147ABCB800827E7F</string>
@@ -573,7 +572,8 @@
 											<string>F2055F2B147AD00900DEFE2F</string>
 											<string>F2055F2C147AD00900DEFE2F</string>
 											<string>F2055F2D147AD00900DEFE2F</string>
-											<string>F25D1E8C147ABFE700827E7F</string>
+											<string>F2055F4D147AD31100DEFE2F</string>
+											<string>F2055F4E147AD31100DEFE2F</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -587,7 +587,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {606, 38}}</string>
 								<key>RubberWindowFrame</key>
-								<string>702 335 860 703 0 0 1920 1178 </string>
+								<string>702 336 860 703 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -609,7 +609,7 @@
 								<key>Frame</key>
 								<string>{{0, 43}, {606, 619}}</string>
 								<key>RubberWindowFrame</key>
-								<string>702 335 860 703 0 0 1920 1178 </string>
+								<string>702 336 860 703 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -780,7 +780,7 @@
 		<string>/nethome/agendreau3/Documents/Metro-Atlanta-Arts-App/app/Metro-Atlanta-Arts-App.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>702 335 860 703 0 0 1920 1178 </string>
+	<string>702 336 860 703 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -1128,7 +1128,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {952, 533}}</string>
 								<key>RubberWindowFrame</key>
-								<string>160 483 952 574 0 0 1920 1178 </string>
+								<string>160 484 952 574 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -1157,7 +1157,7 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>160 483 952 574 0 0 1920 1178 </string>
+			<string>160 484 952 574 0 0 1920 1178 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>

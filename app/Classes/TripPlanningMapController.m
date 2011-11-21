@@ -207,7 +207,7 @@
 	
 	[myEvents addObjectsFromArray: events];
 	
-	//[self planTrip];
+	[self planTrip];
 }
 
 -(void)planTrip 
@@ -215,14 +215,19 @@
 	NSMutableArray *eventsLeft = [[NSMutableArray alloc] initWithArray: myEvents];
 	NSMutableArray *sorted = [[NSMutableArray alloc] initWithCapacity: [myEvents count]];
 	//TODO: get this to get my current location from the phone
-	EventLocation *myLoc;
+	EventLocation *myLoc = [(Event *)[myEvents objectAtIndex: 0] getLocation];
 	double minDist = -1;
 	Event *nextEvent;
-	int timeTaken;
+	int timeTaken = 0;
 	
 	while((timeTaken < time) && ([eventsLeft count] > 0)) {
 		for(id e in eventsLeft) {
 			Event *event = (Event *)e;
+			
+			if([event getLocation] == nil) {
+				continue;
+			}
+			
 			double dist = [[event getLocation] distanceFromLocation: myLoc];
 			if(minDist == -1 || dist < minDist) {
 				minDist = dist;
@@ -240,7 +245,7 @@
 	//Remove the events and add them back sorted
 	[myEvents removeAllObjects];
 	[myEvents addObjectsFromArray: sorted];
-	
+
 }
 
 -(NSMutableArray *)getEvents
