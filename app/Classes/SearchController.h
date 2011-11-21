@@ -6,6 +6,16 @@
 //  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
 
+/*******************************************************
+ * Search Controller Class
+ *
+ * Handles the search functionality
+ * Allows the user to create a query and filter the events
+ * displayed based on that query
+ * Allows the user to open a list of the current filters
+ *
+ *******************************************************/
+
 #import <UIKit/UIKit.h>
 #import "FilterListController.h"
 #import "Content.h"

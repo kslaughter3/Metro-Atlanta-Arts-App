@@ -3,8 +3,18 @@
 // Metro-Atlanta-Arts-App
 //
 // Created by Gendreau, Anthony S on 9/28/11.
-// Copyright 2011 __MyCompanyName__. All rights reserved.
+// Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
+
+/******************************************************
+ * Event Class
+ *
+ * Holds all the information about an event: id, type,
+ * name, artists, description, website, location, 
+ * start Date, end Date, duration, cost, availability, 
+ * and an image 
+ *
+ ******************************************************/
 
 #import <Foundation/Foundation.h>
 #import "EventArtist.h"

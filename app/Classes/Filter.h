@@ -3,17 +3,22 @@
 //  Metro-Atlanta-Arts-App
 //
 //  Created by Gendreau, Anthony S on 9/30/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
+
+/*******************************************************
+ * Filter Class
+ *
+ * Holds all the information to define a filter: the type,
+ * the filterer values, and enabled/disabled
+ *
+ *******************************************************/
 
 #import <Foundation/Foundation.h>
 #import "EventLocation.h"
 #import "EventDate.h"
 #import "EventAvailability.h"
 #import "Filterer.h"
-
-/* Definitions of the minimum and maximum valid latitudes and longitudes
-   can restrict these more and move these definitions to a more useful place if necessary */
 
 #define SEARCHSTRING			"Search Filter"
 #define NAMESTRING				"Name Filter"

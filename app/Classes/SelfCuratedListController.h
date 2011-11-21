@@ -6,6 +6,16 @@
 //  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
 
+/*******************************************************
+ * Self Curated List Controller Class
+ * 
+ * Handles the self curated entries and allows the user
+ * to navigate the pages of entries
+ * Allows the user to select an entry to view the details
+ * about it 
+ *
+ *******************************************************/
+
 #import <UIKit/UIKit.h>
 #import "Content.h"
 #import "DetailsController.h"

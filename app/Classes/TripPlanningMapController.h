@@ -2,9 +2,17 @@
 //  TripPlanningMapController.h
 //  Metro-Atlanta-Arts-App
 //
-//  Created by Park, Hyuk J on 10/28/11.
+//  Created by Gendreau, Anthony S on 10/28/11.
 //  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
+
+/*******************************************************
+ * Trip Planning Map Controller
+ *
+ * Displays the map of the planned trip with the events
+ * Connected in order by a line (as the crow flies)
+ *
+ ******************************************************/
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>

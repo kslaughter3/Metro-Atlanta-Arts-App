@@ -26,23 +26,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    
-    // Override point for customization after application launch.
-	//tabBarController = [[UITabBarController alloc] init];
-
-/*	viewController = [[Metro_Atlanta_Arts_AppViewController alloc] init];
-	UINavigationController *viewNavController = [[[UINavigationController alloc] initWithRootViewController: viewController] autorelease];
-	[viewController release];
-	
-	nextViewController = [[NextView alloc] init];
-	UINavigationController *nextNavController = [[[UINavigationController alloc] initWithRootViewController: nextViewController] autorelease];
-	[nextViewController release];
-
-	tabBarController.viewControllers = [NSArray arrayWithObjects: viewNavController, nextNavController, nil];
-	
-	viewNavController.tabBarItem.title = @"Map";
-	viewNavController.title = @"Map";
-*/	
+    	
     // Add the view controller's view to the window and display.
     [window addSubview:[tabBarController view]];
     [window makeKeyAndVisible];

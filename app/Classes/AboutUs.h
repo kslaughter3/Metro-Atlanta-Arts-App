@@ -6,6 +6,14 @@
 //  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
 
+/*******************************************************
+ * About Us Class
+ *
+ * Holds all the about us information: name, description,
+ * image, and website 
+ *
+ *******************************************************/
+
 #import <Foundation/Foundation.h>
 
 

@@ -6,6 +6,14 @@
 //  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
 
+/*******************************************************
+ * Event Date Class
+ * 
+ * Holds all the information to specify a date and time:
+ * day, month, year, hour, minute, and second 
+ *
+ *******************************************************/
+
 #import <Foundation/Foundation.h>
 
 //Supports Dates Jan 1 1900 00:00:00 and later

@@ -3,8 +3,17 @@
 //  Metro-Atlanta-Arts-App
 //
 //  Created by Gendreau, Anthony S on 10/7/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
+
+/******************************************************
+ * Event Location Class 
+ *
+ * Holds all the informatio about a Location: id, name,
+ * street address, city, state, zip, description, website,
+ * and image
+ *
+ *******************************************************/
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>

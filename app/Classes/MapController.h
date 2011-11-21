@@ -2,9 +2,21 @@
 //  Metro_Atlanta_Arts_AppViewController.h
 //  Metro-Atlanta-Arts-App
 //
-//  Created by Drew on 9/19/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Gendreau, Anthony S on 9/19/11.
+//  Copyright 2011 ARTS PAPERS, INC. All rights reserved.
 //
+
+/********************************************************
+ * Map Controller Class
+ *
+ * Handles the main map view that displays all the available 
+ * events as pins at given locations
+ * Allows the user to choose the type of event displayed 
+ * as well as move through the pages of the events 
+ * Allows the user to select a pin to view details about 
+ * its corresponding event
+ *
+ *******************************************************/
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>

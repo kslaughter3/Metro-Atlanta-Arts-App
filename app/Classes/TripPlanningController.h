@@ -2,9 +2,19 @@
 // NextView.h
 // Metro-Atlanta-Arts-App
 //
-// Created by Drew on 9/29/11.
-// Copyright 2011 __MyCompanyName__. All rights reserved.
+// Created by Gendreau, Anthony S on 9/29/11.
+// Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
+
+/******************************************************
+ * Trip Planning Controller Class
+ *
+ * Handles the planning of trip
+ * Allows the user to select events to be part of the plan
+ * and to specify the amount of time to plan for and the 
+ * manner of transportation
+ *
+ ******************************************************/
 
 #import <UIKit/UIKit.h>
 #import "TripPlanningController.h"

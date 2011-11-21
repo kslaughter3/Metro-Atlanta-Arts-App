@@ -6,6 +6,15 @@
 //  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
 
+/*******************************************************
+ * Add Filter Controller
+ * 
+ * Handles Adding a Filter
+ * Allows the user to specify the type and value of a filter
+ * and add it to the current list of filters 
+ *
+ *******************************************************/
+
 #import <UIKit/UIKit.h>
 #import "EventDate.h"
 #import "EventAvailability.h"

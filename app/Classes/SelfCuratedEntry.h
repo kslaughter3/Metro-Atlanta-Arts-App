@@ -6,6 +6,14 @@
 //  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
 
+/*******************************************************
+ * Self Curated Entry Class
+ *
+ * Holds all the information about a selfCurated Entry:
+ * id, name, occupation, image, plan, and website 
+ *
+ *****************************************************/
+
 #import <Foundation/Foundation.h>
 
 

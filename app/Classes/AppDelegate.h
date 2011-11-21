@@ -2,9 +2,16 @@
 //  Metro_Atlanta_Arts_AppAppDelegate.h
 //  Metro-Atlanta-Arts-App
 //
-//  Created by Drew on 9/19/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Gendreau, Anthony S on 9/19/11.
+//  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
+
+/*******************************************************
+ * Application Delegate Class
+ *
+ * Handles the main window and the tab controller
+ *
+ ******************************************************/
 
 #import <UIKit/UIKit.h>
 

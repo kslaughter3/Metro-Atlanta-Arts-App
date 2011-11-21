@@ -6,6 +6,16 @@
 //  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
 
+/*******************************************************
+ * Edit Filter Controller
+ * 
+ * Handles the Editing of an existing filter
+ * Allows the user to edit the type or values of the given 
+ * filter
+ * Also allows the user to remove the given filter 
+ *
+ *******************************************************/
+
 #import <UIKit/UIKit.h>
 #import "Filter.h"
 #import "EventLocation.h"

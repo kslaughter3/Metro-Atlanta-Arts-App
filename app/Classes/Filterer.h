@@ -6,6 +6,18 @@
 //  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
 
+/******************************************************
+ * Filterer Class
+ *
+ * Holds all the values for a the various filterer types:
+ * query (Search), name (Name), artist (Artist), start (Time),
+ * end (Time), minCost (Cost), maxCost (Cost),
+ * minDuration (Duration), maxDuration (Duration),
+ * location (Location), radius (Location), day (Availability), 
+ * startTime (Availability), and endTime (availability)
+ *
+ *******************************************************/
+
 #import <Foundation/Foundation.h>
 #import "EventDate.h"
 #import "EventLocation.h"

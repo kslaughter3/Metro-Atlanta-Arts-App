@@ -2,9 +2,19 @@
 // NextView.h
 // Metro-Atlanta-Arts-App
 //
-// Created by Drew on 9/29/11.
-// Copyright 2011 __MyCompanyName__. All rights reserved.
+// Created by Gendreau, Anthony S on 9/29/11.
+// Copyright 2011 ARTS PAPERS, INC. All rights reserved.
 //
+
+/*******************************************************
+ * List Controller Class
+ * 
+ * Handles the List format for the Events, Artists and
+ * Locations in the database 
+ * Allows the user to navigate through the pages and select
+ * an Event, Artist, or Location to view details about 
+ *
+ *******************************************************/
 
 #import <UIKit/UIKit.h>
 #import "DetailsController.h"

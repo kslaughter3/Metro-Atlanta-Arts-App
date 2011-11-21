@@ -3,8 +3,20 @@
 //  Metro-Atlanta-Arts-App
 //
 //  Created by Gendreau, Anthony S on 9/30/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
+
+/********************************************************
+ * Content Class
+ *
+ * Holds all the data for the system
+ * Holds a list of events, artist, filters, locations,
+ * selfCurated entries, and the about us information
+ * Handles the calls to the database to populate all the
+ * data that is held
+ * Represents a Singleton class 
+ *
+ ********************************************************/
 
 #import <Foundation/Foundation.h>
 #import "Filter.h"

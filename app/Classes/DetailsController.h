@@ -6,6 +6,14 @@
 //  Copyright 2011 ART PAPERS, INC. All rights reserved.
 //
 
+/*******************************************************
+ * Details Controller Class
+ *
+ * Handles displaying the details about the given: Event,
+ * Artist, Location, SelfCurated Entry, or the About Us 
+ *
+ *******************************************************/
+
 #import <UIKit/UIKit.h>
 #import "Content.h"
 #import "Event.h"
