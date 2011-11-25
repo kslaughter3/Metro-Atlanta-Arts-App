@@ -17,6 +17,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		return self;
 	}
 	
@@ -27,6 +28,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		name = [[NSString alloc] initWithString: [loc getName]];
 		streetAddress = [[NSString alloc] initWithString: [loc getStreetAddress]];
 		city = [[NSString alloc] initWithString: [loc getCity]];
@@ -230,6 +232,7 @@
 	[description release];
 	[website release];
 	[image release];
+	[pool release];
 	[super dealloc];
 }
 

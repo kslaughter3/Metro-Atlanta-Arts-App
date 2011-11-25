@@ -48,6 +48,7 @@
     SBJsonStreamParserAdapter *adapter;
 	NSMutableArray *mapAnnotations;
 	CLLocationManager *locationManager;
+	NSAutoreleasePool *pool;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView* myMapView;

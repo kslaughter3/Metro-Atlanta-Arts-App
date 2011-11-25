@@ -35,16 +35,15 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-    FilterType t;
-	
+	pool = [[NSAutoreleasePool alloc] init];
 	[super viewDidLoad];
-	
+
 	types = [[NSMutableArray alloc] init];
 	
-	for(t = FirstFilterType; t <= LastFilterType; t++) {
+	for(FilterType t = FirstFilterType; t <= LastFilterType; t++) {
 		[types addObject: [Filter getFilterTypeString: t]];
 	}
-	
+
 	
 	//Add the picker as the input device
 	UIPickerView *typePickerView = [[UIPickerView alloc] initWithFrame:CGRectZero];
@@ -215,38 +214,6 @@ inComponent:(NSInteger)component
 	
 }
 
-/*-(void)setInputType: (UITextField *) field Type: (int) type {
-	if(type == TimeFilterType) {
-		field.inputView = nil;
-		field.inputAccessoryView = nil;
-	}
-	else if(type == AvailabilityFilterType) {
-		UIPickerView *typePickerView = [[UIPickerView alloc] initWithFrame:CGRectZero];
-		typePickerView.delegate = self;
-		typePickerView.dataSource = self;
-		[typePickerView setShowsSelectionIndicator:YES];
-		field.inputView = typePickerView;
-		[typePickerView release];	
-		
-		//Add the Done button 
-		UIToolbar *keyboardDoneButtonView = [[UIToolbar alloc] init];
-		keyboardDoneButtonView.barStyle = UIBarStyleBlack;
-		keyboardDoneButtonView.translucent = YES;
-		keyboardDoneButtonView.tintColor = nil;
-		[keyboardDoneButtonView sizeToFit];
-		UIBarButtonItem *doneButton = [[[UIBarButtonItem alloc] initWithTitle:@"Done"
-																		style:UIBarButtonItemStyleBordered target:self
-																	   action:@selector(pickerDoneClicked:)] autorelease];
-		
-		[keyboardDoneButtonView setItems:[NSArray arrayWithObjects:doneButton, nil]];
-		field.inputAccessoryView = keyboardDoneButtonView;
-	}
-	else {
-		field.inputView = nil;
-		field.inputAccessoryView = nil;
-	}
-}*/
-
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:
 (NSInteger)component
 {
@@ -405,6 +372,7 @@ inComponent:(NSInteger)component
 	[bottomLabel release];
 	[bottomField release];
 	[types release];
+	[pool release];
     [super dealloc];
 }
 

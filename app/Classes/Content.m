@@ -122,6 +122,7 @@ static NSString *instanceLock = @"instanceLock";
 	
 	if(self != nil)
 	{
+		pool = [[NSAutoreleasePool alloc] init];
 		events = [[NSMutableArray alloc] init];
 		locations = [[NSMutableArray alloc] init];
 		artists = [[NSMutableArray alloc] init];
@@ -569,6 +570,7 @@ static NSString *instanceLock = @"instanceLock";
 	[tweet release];
 	[parser release];
 	[adapter release];
+	[pool release];
 	[super dealloc];
 }
 

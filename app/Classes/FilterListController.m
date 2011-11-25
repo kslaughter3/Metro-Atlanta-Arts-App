@@ -25,6 +25,7 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+	pool = [[NSAutoreleasePool alloc] init];
 	[myTableView setDelegate: self];
 	[myTableView setDataSource: self];
 	myRow = -1;
@@ -243,6 +244,7 @@
 	[myNavigationBar release];
 	[myAddFilterController release];
 	[myEditFilterController release];
+	[pool release];
     [super dealloc];
 }
 

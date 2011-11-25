@@ -123,6 +123,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		return self;
 	}
 	
@@ -133,6 +134,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		[self setFilterType: [filter getFilterType]];
 		if([self checkFilterer: [filter getFilterer]] == YES) {
 			filterer = [[Filterer alloc] initEmptyFilterer];
@@ -153,6 +155,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		if([self checkSearchFilterer: query] == YES) {
 			[self setFilterType: SearchFilterType];
 			filterer = [[Filterer alloc] initEmptyFilterer];
@@ -172,6 +175,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		if([self checkNameFilterer: name] == YES) {
 			[self setFilterType: NameFilterType];
 		
@@ -192,6 +196,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		if([self checkArtistFilterer: artist] == YES) {
 			[self setFilterType: ArtistFilterType];
 		
@@ -216,6 +221,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		if([self checkTimeFiltererStart: start End: end] == YES) {
 			[self setFilterType: TimeFilterType];
 		
@@ -238,6 +244,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		if([self checkCostFiltererMin: min Max: max] == YES) {
 			[self setFilterType: CostFilterType];
 			
@@ -259,6 +266,7 @@
 	self = [super init]; 
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		if([self checkDurationFiltererMin: min Max: max] == YES) {
 			[self setFilterType: DurationFilterType];
 			
@@ -283,6 +291,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		if([self checkLocationFilterer: loc Radius: rad] == YES) {
 			[self setFilterType: LocationFilterType];
 			
@@ -304,6 +313,7 @@
 	self = [super init];
 
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		if([self checkAvailabilityFilterer: d Start: start End: end] == YES) {
 			[self setFilterType: AvailabilityFilterType];
 			
@@ -708,6 +718,7 @@
 
 -(void)dealloc {
 	[filterer release];
+	[pool release];
 	[super dealloc];
 }
 

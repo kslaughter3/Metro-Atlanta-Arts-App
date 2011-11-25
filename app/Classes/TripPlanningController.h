@@ -34,6 +34,7 @@
 	IBOutlet TripPlanningMapController *myTripMapController;
 	IBOutlet UIBarButtonItem *previousButton;
 	IBOutlet UIBarButtonItem *nextButton;
+	NSAutoreleasePool *pool;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;

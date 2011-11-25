@@ -50,6 +50,7 @@ typedef enum FilterType {
 	FilterType		type;
 	Filterer		*filterer;
 	BOOL			isEnabled;
+	NSAutoreleasePool *pool;
 }
 
 +(NSString *)getFilterTypeString: (FilterType) t;

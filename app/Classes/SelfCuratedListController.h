@@ -27,6 +27,7 @@
 	DetailsController *mySelfCuratedViewController;
 	IBOutlet UIBarButtonItem *previousButton;
 	IBOutlet UIBarButtonItem *nextButton;
+	NSAutoreleasePool *pool;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;

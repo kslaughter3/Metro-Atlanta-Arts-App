@@ -27,6 +27,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		return self;
 	}
 	
@@ -37,6 +38,7 @@
 	self = [super init];
 	
 	if (self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		name = [[NSString alloc] initWithString: [event getEventName]];
 		artists = [[NSMutableArray alloc] initWithArray: [event getArtists]];
 		description = [[NSString alloc] initWithString: [event getDescription]];
@@ -302,6 +304,7 @@
 	[endDate release];
 	[availability release];
 	[imageURL release];
+	[pool release];
 	[super dealloc];
 }
 

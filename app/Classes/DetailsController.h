@@ -41,6 +41,7 @@ typedef enum DetailsType {
 	EventLocation *location;
 	SelfCuratedEntry *selfCurated;
 	AboutUs *aboutUs;
+	NSAutoreleasePool *pool;
 }
 
 @property(nonatomic, retain) IBOutlet UINavigationBar *myTitleBar;

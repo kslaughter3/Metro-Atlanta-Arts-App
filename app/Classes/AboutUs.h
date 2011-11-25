@@ -22,6 +22,7 @@
 	NSString *description;
 	NSString *imageURL;
 	NSString *websiteURL;
+	NSAutoreleasePool *pool;
 }
 
 -(AboutUs *)initEmptyAboutUs;

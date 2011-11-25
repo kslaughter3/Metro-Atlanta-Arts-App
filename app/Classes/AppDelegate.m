@@ -26,11 +26,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    	
+    pool = [[NSAutoreleasePool alloc] init]; 	
     // Add the view controller's view to the window and display.
     [window addSubview:[tabBarController view]];
     [window makeKeyAndVisible];
-
+	
     return YES;
 }
 
@@ -85,6 +85,7 @@
 - (void)dealloc {
     [tabBarController release];
     [window release];
+	[pool release];
     [super dealloc];
 }
 

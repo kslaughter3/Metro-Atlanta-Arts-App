@@ -25,6 +25,7 @@
 	IBOutlet UIButton *aboutUsButton;
 	TripPlanningController *myTripPlanner;
 	DetailsController *myAboutUsController;
+	NSAutoreleasePool *pool;
 }
 
 @property (nonatomic, retain) IBOutlet UINavigationBar *myTitleBar;

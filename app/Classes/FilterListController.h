@@ -28,6 +28,7 @@
 	AddFilterController *myAddFilterController;
 	EditFilterController *myEditFilterController;
 	int myRow;
+	NSAutoreleasePool *pool;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;

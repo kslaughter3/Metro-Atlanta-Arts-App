@@ -20,6 +20,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		[self setEvent:e];
 		NSNumber *lat = [NSNumber numberWithDouble:[[e getLocation] getCoordinates].latitude];
 		NSNumber *lon = [NSNumber numberWithDouble:[[e getLocation] getCoordinates].longitude];
@@ -47,6 +48,7 @@
 	[latitude release];
 	[longitude release];
 	[event release];
+	[pool release];
     [super dealloc];
 }
 

@@ -37,12 +37,11 @@
 
  // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
  - (void)viewDidLoad {
-	 
+	 pool = [[NSAutoreleasePool alloc] init];
 	 [myTableView setDelegate: self];
 	 [myTableView setDataSource: self];
 	 listType = EventDetails;
 	 [self setListTitle];
-	 
 	 Content *content = [Content getInstance];
 	 
 //TEST EVENT	 
@@ -472,6 +471,7 @@
 	[mySelectionBar release];
 	[previousButton release];
 	[nextButton release];
+	[pool release];
     [super dealloc];
 }
 

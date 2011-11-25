@@ -56,6 +56,7 @@ typedef enum EventType {
 	double maxCost;						/* Max Cost of the Event */
 	EventAvailability *availability;	/* The availability of the event */
 	NSString *imageURL;					
+	NSAutoreleasePool *pool;
 }
 
 -(Event *)initTestEvent:(NSString *)n Description:(NSString *)desc;

@@ -24,6 +24,7 @@
 	NSString *image;
 	NSString *plan;
 	NSString *website;
+	NSAutoreleasePool *pool;
 }
 
 -(SelfCuratedEntry *)initEmptySelfCuratedEntry;

@@ -36,6 +36,7 @@
 
 
 - (void)viewDidLoad {
+	pool = [[NSAutoreleasePool alloc] init];
     [super viewDidLoad];
 	[self loadRoute];
 	if (nil != self.routeLine) {
@@ -279,6 +280,7 @@
 	[routeLine release];
 	[routeLineView release];
 	[myEventController release];
+	[pool release];
     [super dealloc];
 }
 

@@ -15,6 +15,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		return self;
 	}
 	
@@ -75,6 +76,7 @@
 	[image release];
 	[plan release];
 	[website release];
+	[pool release];
 	[super dealloc];
 }
 

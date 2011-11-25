@@ -26,9 +26,9 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-    [super viewDidLoad];
-	
+	pool = [[NSAutoreleasePool alloc] init];
 	mySearchField.delegate = self;
+	[super viewDidLoad];
 }
 
 
@@ -148,6 +148,7 @@
 - (void)dealloc {
 	[mySearchField release];
 	[myFilterListController release];
+	[pool release];
     [super dealloc];
 }
 

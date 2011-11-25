@@ -28,7 +28,7 @@
 
 -(Filterer *)initEmptyFilterer {
 	self = [super init];
-	
+	pool = [[NSAutoreleasePool alloc] init];
 	return self;
 }
 
@@ -40,6 +40,7 @@
 	[end release];
 	[loc release];
 	[day release];
+	[pool release];
 	[super dealloc];
 }
 

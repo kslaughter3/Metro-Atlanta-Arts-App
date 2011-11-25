@@ -33,6 +33,7 @@
 	IBOutlet UILabel *bottomLabel;
 	IBOutlet UITextField *bottomField;
 	NSMutableArray *types;
+	NSAutoreleasePool *pool;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *typeLabel;

@@ -35,6 +35,7 @@
 	NSString *website;
 	NSString *image;
 	CLLocationCoordinate2D coordinate;
+	NSAutoreleasePool *pool;
 }
 
 /* Initializers */

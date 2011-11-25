@@ -25,6 +25,7 @@
 	int hour;
 	int minute;
 	int second;
+	NSAutoreleasePool *pool;
 }
 
 +(BOOL)checkDate: (EventDate *)date;

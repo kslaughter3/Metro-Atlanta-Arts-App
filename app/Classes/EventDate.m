@@ -45,6 +45,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		return self;
 	}
 	
@@ -55,6 +56,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		[self setYear: [date getYear]];
 		[self setMonth: [date getMonth]];
 		[self setDay: [date getDay]];
@@ -437,6 +439,7 @@
 }
 
 -(void)dealloc {
+	[pool release];
 	[super dealloc];
 }
 

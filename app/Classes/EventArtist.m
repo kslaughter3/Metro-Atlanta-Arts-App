@@ -16,6 +16,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		return self;
 	}
 	
@@ -26,6 +27,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		name = [[NSString alloc] initWithString: [art getName]];
 		description = [[NSString alloc] initWithString: [art getDescription]];
 		imageURL = [[NSString alloc] initWithString: [art getImageURL]];
@@ -120,6 +122,7 @@
 	[description release];
 	[imageURL release];
 	[websiteURL release];
+	[pool release];
 	[super dealloc];
 }
 

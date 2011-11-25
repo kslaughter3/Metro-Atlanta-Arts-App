@@ -35,13 +35,12 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-    FilterType t;
-	
+	pool = [[NSAutoreleasePool alloc] init];	
 	[super viewDidLoad];
-
+	
 	types = [[NSMutableArray alloc] init];
 	
-	for(t = FirstFilterType; t <= LastFilterType; t++) {
+	for(FilterType t = FirstFilterType; t <= LastFilterType; t++) {
 		[types addObject: [Filter getFilterTypeString: t]];
 	}
 	
@@ -430,6 +429,7 @@
 	[bottomField release];
 	[types release];
 	[myFilter release];
+	[pool release];
     [super dealloc];
 }
 

@@ -14,6 +14,7 @@
 -(AboutUs *)initEmptyAboutUs {
 	self = [super init];
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		return self;
 	}
 	
@@ -57,6 +58,7 @@
 	[description release];
 	[imageURL release];
 	[websiteURL release];
+	[pool release];
 	[super dealloc];
 }
 

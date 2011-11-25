@@ -63,6 +63,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		days = [[NSMutableArray alloc] init];
 		return self;
 	}
@@ -75,6 +76,7 @@
 	self = [super init];
 	
 	if(self != nil) {
+		pool = [[NSAutoreleasePool alloc] init];
 		days = [[NSMutableArray alloc] init];
 		[days addObjectsFromArray: [avail getDays]];
 		startTime = [avail getStartTime];
@@ -260,6 +262,7 @@
 
 -(void)dealloc {
 	[days release];
+	[pool release];
 	[super dealloc];
 }
 

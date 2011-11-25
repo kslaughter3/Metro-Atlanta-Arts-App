@@ -35,6 +35,7 @@ UITextFieldDelegate> {
 	IBOutlet UITextField *bottomField;
 	NSMutableArray *types;
 	Filter *myFilter;
+	NSAutoreleasePool *pool;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *typeLabel;

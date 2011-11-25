@@ -29,9 +29,9 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+	pool = [[NSAutoreleasePool alloc] init];
     [myTableView setDelegate: self];
 	[myTableView setDataSource: self];
-	
 	Content *content = [Content getInstance];
 	SelfCuratedEntry *temp = [[SelfCuratedEntry alloc] initEmptySelfCuratedEntry];
 	[temp setName: @"jun3"];
@@ -167,6 +167,7 @@
 	[mySelfCuratedViewController release];
 	[previousButton release];
 	[nextButton release];
+	[pool release];
     [super dealloc];
 }
 

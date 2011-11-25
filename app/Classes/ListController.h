@@ -32,6 +32,7 @@
 	IBOutlet UIBarButtonItem *previousButton;
 	IBOutlet UIBarButtonItem *nextButton;
 	DetailsType listType;
+	NSAutoreleasePool *pool;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;

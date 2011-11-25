@@ -37,6 +37,7 @@
 	NSString				*day;				/* Availability Filter */
 	int 					startTime;			/* Availability Filter */
 	int						endTime;			/* Availability Filter */
+	NSAutoreleasePool		*pool;
 }
 
 -(Filterer *)initEmptyFilterer;

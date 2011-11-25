@@ -20,6 +20,7 @@
 @interface AppDelegate : NSObject <UIApplicationDelegate, UITabBarDelegate> {
     UIWindow *window;
 	UITabBarController *tabBarController;
+	NSAutoreleasePool *pool;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

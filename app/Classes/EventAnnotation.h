@@ -25,7 +25,7 @@
     NSNumber *latitude;
     NSNumber *longitude;
 	Event *event;
-	
+	NSAutoreleasePool *pool;
 }
 
 -(EventAnnotation *)initAnnotationWithEvent: (Event *) event;

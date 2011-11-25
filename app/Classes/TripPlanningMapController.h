@@ -32,6 +32,7 @@
 	MKPolyline *routeLine;
 	MKPolylineView *routeLineView;
 	DetailsController *myEventController;
+	NSAutoreleasePool *pool;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView *myTripMapView;

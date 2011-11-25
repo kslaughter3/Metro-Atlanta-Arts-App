@@ -23,6 +23,7 @@
 @interface SearchController : UIViewController <UITextFieldDelegate> {
 	IBOutlet UITextField *mySearchField;
 	FilterListController *myFilterListController;
+	NSAutoreleasePool *pool;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *mySearchField;

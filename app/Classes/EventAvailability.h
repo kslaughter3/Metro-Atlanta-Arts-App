@@ -31,6 +31,7 @@ typedef enum WeekDays {
 	NSMutableArray *days;
 	int startTime;
 	int endTime;
+	NSAutoreleasePool *pool;
 }
 
 +(int)buildTime: (NSString *)string;

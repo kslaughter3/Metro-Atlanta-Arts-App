@@ -52,6 +52,7 @@
 	int myArtistPage;
 	int myLocationPage;
 	int mySelfCuratedPage;
+	NSAutoreleasePool *pool;
 }
 
 /* Gets the current instance of the content if there is one 

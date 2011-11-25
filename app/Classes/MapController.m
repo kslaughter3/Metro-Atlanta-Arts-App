@@ -35,7 +35,8 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-    [super viewDidLoad];
+	pool = [[NSAutoreleasePool alloc] init];
+	[super viewDidLoad];
 	
 	// We don't want *all* the individual messages from the
 	// SBJsonStreamParser, just the top-level objects. The stream
@@ -200,7 +201,6 @@
 			retval.canShowCallout = YES;
 		}
 	}
-	
 	return retval;
 }
 
@@ -335,6 +335,7 @@
 	[mapAnnotations release];
 	[locationManager release];
 	[myEventController release];
+	[pool release];
     [super dealloc];
 }
 

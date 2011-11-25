@@ -31,6 +31,7 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+	pool = [[NSAutoreleasePool alloc] init];
     [super viewDidLoad];
 	myWebView.delegate = self;
 }
@@ -470,6 +471,7 @@
 	[location release];
 	[selfCurated release];
 	[aboutUs release];
+	[pool release];
     [super dealloc];
 }
 

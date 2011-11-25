@@ -26,12 +26,13 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
+	pool = [[NSAutoreleasePool alloc] init];
     [super viewDidLoad];
 }
-*/
+
 
 
 // Override to allow orientations other than the default portrait orientation.
@@ -71,12 +72,13 @@
 
 
 - (void)dealloc {
-    [super dealloc];
 	[myTripPlanner release];
 	[myAboutUsController release];
 	[myTitleBar release];
 	[tripPlanningButton release];
 	[aboutUsButton release];
+	[pool release];
+	[super dealloc];
 }	
 
 
