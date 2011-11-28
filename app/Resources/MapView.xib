@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="37"/>
+			<integer value="6"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -95,11 +95,11 @@
 						<object class="NSArray" key="IBSegmentTitles">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>All</string>
-							<string>Second</string>
-							<string>Third</string>
-							<string>Fourth</string>
-							<string>Fifth</string>
-							<string>Sixth</string>
+							<string>Exhib</string>
+							<string>Perform</string>
+							<string>Film</string>
+							<string>Lec</string>
+							<string>Present</string>
 						</object>
 						<object class="NSMutableArray" key="IBSegmentWidths">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -264,8 +264,8 @@
 						<reference key="object" ref="774585933"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="241851837"/>
 							<reference ref="229505374"/>
+							<reference ref="241851837"/>
 							<reference ref="443456464"/>
 						</object>
 						<reference key="parent" ref="0"/>
