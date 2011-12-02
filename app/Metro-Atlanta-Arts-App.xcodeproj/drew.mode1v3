@@ -271,13 +271,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>28</integer>
+									<integer>8</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 195}, {186, 660}}</string>
+							<string>{{0, 0}, {186, 660}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -314,7 +314,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Content.m</string>
+								<string>ListController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -322,11 +322,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Content.m</string>
+										<string>ListController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>3A08E05414888FBF00E651F2</string>
+										<string>3A08E0B51488A75300E651F2</string>
 										<key>history</key>
 										<array>
 											<string>3A1D2E8B143426F400EB7A3E</string>
@@ -346,7 +346,9 @@
 											<string>3A08E02914888AB400E651F2</string>
 											<string>3A08E03514888D1100E651F2</string>
 											<string>3A08E04314888EE000E651F2</string>
-											<string>3A08E04414888EE000E651F2</string>
+											<string>3A08E0A81488A69200E651F2</string>
+											<string>3A08E0AE1488A6DC00E651F2</string>
+											<string>3A08E0AF1488A6DC00E651F2</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -544,11 +546,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>3A3D9A451427A3EE00BA84E3</string>
-		<string>1C530D57069F1CE1000CFCEE</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/drew/Senior_Design/app/Metro-Atlanta-Arts-App.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>1 58 1280 719 0 0 1280 778 </string>
@@ -572,7 +574,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>Content.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -589,6 +591,8 @@
 							<string>218pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -856,7 +860,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C530D57069F1CE1000CFCEE</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
@@ -889,7 +893,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {800, 611}}</string>
 								<key>RubberWindowFrame</key>
-								<string>50 113 800 652 0 0 1280 778 </string>
+								<string>420 95 800 652 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -918,7 +922,7 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>50 113 800 652 0 0 1280 778 </string>
+			<string>420 95 800 652 0 0 1280 778 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>

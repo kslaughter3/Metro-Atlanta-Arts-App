@@ -15,7 +15,8 @@
 			myTitleBar,
 			mySelectionBar,
 			previousButton,
-			nextButton;
+			nextButton, 
+			timer;
 
 // The designated initializer. Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 /*
@@ -101,11 +102,6 @@
 	  "so it goes beyond the size of the visible box "\
 	  "so I'm just going to keep on typing until such a time that "\
 	  "I feel like this is pretty long\n so the scrolling works "];
-	 EventArtist *art = [[EventArtist alloc] initEmptyArtist];
-	 [art setArtistID: 1];
-	 [art setName: @"Van Goh"];
-	 [art setDescription: @"Hello"];
-	 [event addArtist: art];
 	 [event setMinCost: 10.0];
 	 [event setDuration: 20];
 	 [event setWebsite: @"http://www.apple.com"];
@@ -124,15 +120,18 @@
 	 [temp setImageURL:@"http://gra217b.files.wordpress.com/2011/09/apple-mac-logo.jpg"];
 	 [temp setWebsite:@"http://www.apple.com"];
 	 [content addArtist: temp];
-	 [content addArtist: art];
 	 [event addArtist: temp];
 	 
 //TEST LOCATION
 
 	 [content addLocation: loc];
-	 
+	 timer = [NSTimer scheduledTimerWithTimeInterval: 2.0 target:self selector:@selector(refreshDataView) userInfo:nil repeats: YES];
 	 [super viewDidLoad];
  }
+
+-(void) refreshDataView {
+	[myTableView reloadData];
+}
 
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];

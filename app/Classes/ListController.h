@@ -33,6 +33,7 @@
 	IBOutlet UIBarButtonItem *nextButton;
 	DetailsType listType;
 	NSAutoreleasePool *pool;
+	NSTimer * timer;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
@@ -41,10 +42,11 @@
 @property (nonatomic, retain) IBOutlet UISegmentedControl *mySelectionBar;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *previousButton;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *nextButton;
+@property (nonatomic, retain) NSTimer * timer;
 
 -(void)setListTitle;
 -(void)enableNavigationButtons;
-
+-(void)refreshDataView;
 -(void)changeListType:(id)sender;
 -(IBAction)previousPage:(id)sender;
 -(IBAction)nextPage:(id)sender;

@@ -601,12 +601,33 @@ static NSString *instanceLock = @"instanceLock";
 			NSLog(@"location struct=%@",dic);
 			NSString* astr=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"name"]];
 			if(astr==NULL) { astr=@"null"; }
-			//NSString* astr2=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"description"]];
-			//if(astr2==NULL) { astr2=@"null"; }
-			//EventLocation* loc=[[EventLocation alloc] initEmptyLocation];
-			//[loc setName:astr];
-			//[loc setDescription:astr2];
-			//[self addLocation:loc];
+			NSString* astr2;
+			NSString* astr3;
+			NSString* astr4;
+			if([dic objectForKey:@"description"]){
+				astr2=@"null";
+			} else {
+				NSLog(@"%@",[dic objectForKey:@"description"]);
+				astr2=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"description"]];
+			}
+			if([dic objectForKey:@"description"]){
+				astr3=@"null";
+			} else {
+				NSLog(@"%@",[dic objectForKey:@"description"]);
+				astr3=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"image"]];
+			}
+			if([dic objectForKey:@"description"]){
+				astr4=@"null";
+			} else {
+				NSLog(@"%@",[dic objectForKey:@"description"]);
+				astr4=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"image"]];
+			}
+			EventLocation* loc=[[EventLocation alloc] initEmptyLocation];
+			[loc setName:astr];
+			[loc setDescription:astr2];
+			[loc setImage:astr3];
+			[loc setWebsite:astr4];
+			[self addLocation:loc];
 		}
 	}
 	NSLog(@"Connection data processed.");
