@@ -125,7 +125,7 @@
 //TEST LOCATION
 
 	 [content addLocation: loc];
-	 timer = [NSTimer scheduledTimerWithTimeInterval: 2.0 target:self selector:@selector(refreshDataView) userInfo:nil repeats: YES];
+	 timer = [NSTimer scheduledTimerWithTimeInterval: 5.0 target:self selector:@selector(refreshDataView) userInfo:nil repeats: YES];
 	 [super viewDidLoad];
  }
 
