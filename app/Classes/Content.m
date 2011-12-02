@@ -13,6 +13,11 @@
 #import "json/SBJson.h"
 #import "SelfCuratedEntry.h"
 
+//event 1
+//artist 2
+//location 3
+int type=0;
+
 static Content *instance;
 static NSString *instanceLock = @"instanceLock";
 
@@ -46,16 +51,37 @@ static NSString *instanceLock = @"instanceLock";
 	parser = [[SBJsonStreamParser alloc] init];
 	parser.delegate = adapter;
 	parser.supportMultipleDocuments = YES;
-	NSString *url = @"http://meta.gimmefiction.com/";
+	NSString *url = @"http://meta.gimmefiction.com/?type=event";
+	type=1;
 	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]
 											  cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
 	theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
 }
 
 -(void)populateArtists {
+	adapter = [[SBJsonStreamParserAdapter alloc] init];
+	adapter.delegate = self;
+	parser = [[SBJsonStreamParser alloc] init];
+	parser.delegate = adapter;
+	parser.supportMultipleDocuments = YES;
+	NSString *url = @"http://meta.gimmefiction.com/?type=artist";
+	type=2;
+	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]
+											  cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+	theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];	
 }
 
 -(void)populateLocations {
+	adapter = [[SBJsonStreamParserAdapter alloc] init];
+	adapter.delegate = self;
+	parser = [[SBJsonStreamParser alloc] init];
+	parser.delegate = adapter;
+	parser.supportMultipleDocuments = YES;
+	NSString *url = @"http://meta.gimmefiction.com/?type=location";
+	type=3;
+	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]
+											  cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+	theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];		
 }
 
 -(void)populateSelfCurated {
@@ -541,9 +567,47 @@ static NSString *instanceLock = @"instanceLock";
 	NSString *payloadAsString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	NSDictionary *jsonobj=[payloadAsString JSONValue];
 	for(NSDictionary *dic in jsonobj) {
-			NSString* astr=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"event_id"]];
-		//	NSString* astr2=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"descr"]];
-			[self addEvent:[[Event alloc] initTestEvent: astr Description: @"description"]];
+		if(type==1){
+			NSLog(@"Event");
+			NSLog(@"event struct=%@",dic);
+			NSString* astr=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"name"]];
+			if(astr==NULL) { astr=@"null"; }
+			NSString* astr2=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"description"]];
+			if(astr2==NULL) { astr2=@"null"; }
+			[self addEvent:[[Event alloc] initTestEvent:astr Description:astr2]];
+		} else if(type==2) {
+			NSLog(@"Artist");
+			NSLog(@"artist struct=%@",dic);
+			NSString* astr=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"name"]];
+			if(astr==NULL) { astr=@"null"; }
+			NSString* astr2=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"description"]];
+			if(astr2==NULL) { astr2=@"null"; }
+			NSString* astr3=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"image"]];
+			if(astr3==NULL) { astr3=@"null"; }
+			NSString* astr4=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"website"]];
+			if(astr4==NULL) { astr4=@"null"; }
+			NSString* astr5=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"website"]];
+			if(astr5==NULL) { astr5=@"null"; }
+			int aint=[astr5 intValue];
+			EventArtist* art=[[EventArtist alloc] initEmptyArtist];
+			[art setName:astr];
+			[art setDescription:astr2];
+			[art setImageURL:astr3];
+			[art setWebsite:astr4];
+			[art setArtistID:aint];
+			[self addArtist:art];
+		} else if(type==3) {
+			NSLog(@"Location");
+			NSLog(@"location struct=%@",dic);
+			NSString* astr=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"name"]];
+			if(astr==NULL) { astr=@"null"; }
+			//NSString* astr2=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"description"]];
+			//if(astr2==NULL) { astr2=@"null"; }
+			//EventLocation* loc=[[EventLocation alloc] initEmptyLocation];
+			//[loc setName:astr];
+			//[loc setDescription:astr2];
+			//[self addLocation:loc];
+		}
 	}
 	NSLog(@"Connection data processed.");
 }
