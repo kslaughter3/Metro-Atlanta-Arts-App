@@ -104,6 +104,68 @@
 	[super viewWillAppear: animated];
 	Content *content = [Content getInstance];
 	[content populateEvents];
+	//TEST EVENT	 
+	Event *event = [[Event alloc] initEmptyEvent];
+	[event setEventID: 1];
+	[event setEventName: @"Test"];
+	[event setImageURL:@"http://4.bp.blogspot.com/_rtOXMZlMTkg/TKgII4-qwRI/AAAAAAAADuQ/mnQicdtiE3U/s1600/sn_MuslimStarryNight.jpg"];
+	
+	EventLocation *loc = [[EventLocation alloc] initEmptyLocation];
+	[loc setLocationID: 1];
+	[loc setName: @"Atlanta High Muesem"];
+	[loc setStreetAddress: @"1290 Peachtree Street NE"];
+	[loc setCity: @"Atlanta"];
+	[loc setState: @"GA"];
+	[loc setZip: @"30309"];
+	[loc setDescription: @"The High Museum of Art is the leading art museum in the southeastern United States. "\
+	 "Located in Midtown Atlanta’s arts and business district, the High has more than 12,000 works of art "\
+	 "in its permanent collection. The Museum has an extensive anthology of 19th- and 20th-century American art; "\
+	 "significant holdings of European paintings and decorative art; a growing collection of African American art; "\
+	 "and burgeoning collections of modern and contemporary art, photography and African art. "\
+	 "The High is also dedicated to supporting and collecting works by Southern artists and is distinguished "\
+	 "as the only major museum in North America to have a curatorial department specifically devoted "\
+	 "to the field of folk and self-taught art."];
+	[loc setImage: @"http://hugomartinezart.com/wp-content/uploads/2011/02/high-museum-of-art-2265.jpg"];
+	[loc setWebsite: @"http://www.high.org/"];
+	CLLocationCoordinate2D coord;
+	coord.latitude = 33.7728837;
+	coord.longitude = -84.393816;
+	[loc setCoordinates: coord];
+	[event setLocation: loc];
+	
+	/*	 EventDate *start = [[EventDate alloc] initEmptyDate];
+	 [start setDate: @"11/04/2011"];
+	 [start setTime: @"9:00am"];
+	 EventDate *end = [[EventDate alloc] initEmptyDate];
+	 [end setDate: @"11/11/2011"];
+	 [end setTime: @"9:00am"];
+	 [event setStartDate: start];
+	 [event setEndDate: end];
+	 */
+	
+	EventAvailability *avail = [[EventAvailability alloc] initEmptyAvailability];
+	[avail addDay: @"Sunday"];
+	//[avail addDay: @"Monday"];
+	[avail addDay: @"Tuesday"];
+	[avail addDay: @"WEDNeSDAy"];
+	[avail addDay: @"Thursday"];
+	//[avail addDay: @"Friday"];
+	[avail addDay: @"Saturday"];
+	[avail setAvailableAllDay];
+	[event setAvailability: avail];
+	
+	[event setDescription: @"This is a long description that should take more than "\
+	 "one line and I want to see if that is a problem for the "\
+	 "text view to handle also I'm inserting a newline character "\
+	 "here\nto see if that works as well lets make this even longer "\
+	 "so it goes beyond the size of the visible box "\
+	 "so I'm just going to keep on typing until such a time that "\
+	 "I feel like this is pretty long\n so the scrolling works "];
+	[event setMinCost: 10.0];
+	[event setDuration: 20];
+	[event setWebsite: @"http://www.apple.com"];
+	[content addEvent: event];
+	
 	[self enableNavigationButtons];
 	[self displayMyMap];
 }
@@ -337,51 +399,6 @@
 	[myEventController release];
 	[pool release];
     [super dealloc];
-}
-
-
-- (void)parser:(SBJsonStreamParser *)parser foundArray:(NSArray *)array {
-    [NSException raise:@"unexpected" format:@"Should not get here"];
-}
-
-- (void)parser:(SBJsonStreamParser *)parser foundObject:(NSDictionary *)dict {
-	tweet.text = [dict objectForKey:@"text"];
-}
-
-#pragma mark NSURLConnectionDelegate methods
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-	NSLog(@"Connection didReceiveResponse: %@ - %@", response, [response MIMEType]);
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
-	NSLog(@"Connection didReceiveAuthenticationChallenge: %@", challenge);
-	
-	NSURLCredential *credential = [NSURLCredential credentialWithUser:username.text
-															 password:password.text
-														  persistence:NSURLCredentialPersistenceForSession];
-	
-	[[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-	NSLog(@"Connection didReceiveData of length: %u", data.length);
-	
-	// Parse the new chunk of data. The parser will append it to
-	// its internal buffer, then parse from where it left off in
-	// the last chunk.
-	NSString *payloadAsString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-	NSLog(payloadAsString);
-	
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"Connection failed! Error - %@ %@",
-          [error localizedDescription],
-          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
 }
 
 @end

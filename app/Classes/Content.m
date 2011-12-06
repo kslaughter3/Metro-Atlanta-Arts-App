@@ -46,12 +46,13 @@ static NSString *instanceLock = @"instanceLock";
 
 
 -(void)populateEvents {
+	events = [[NSMutableArray alloc] init];
 	adapter = [[SBJsonStreamParserAdapter alloc] init];
 	adapter.delegate = self;
 	parser = [[SBJsonStreamParser alloc] init];
 	parser.delegate = adapter;
 	parser.supportMultipleDocuments = YES;
-	NSString *url = @"http://meta.gimmefiction.com/?type=event";
+	NSString *url = [self buildEventRequest];
 	type=1;
 	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]
 											  cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
@@ -59,12 +60,13 @@ static NSString *instanceLock = @"instanceLock";
 }
 
 -(void)populateArtists {
+	artists = [[NSMutableArray alloc] init];
 	adapter = [[SBJsonStreamParserAdapter alloc] init];
 	adapter.delegate = self;
 	parser = [[SBJsonStreamParser alloc] init];
 	parser.delegate = adapter;
 	parser.supportMultipleDocuments = YES;
-	NSString *url = @"http://meta.gimmefiction.com/?type=artist";
+	NSString *url = [self buildArtistRequest];
 	type=2;
 	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]
 											  cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
@@ -72,12 +74,13 @@ static NSString *instanceLock = @"instanceLock";
 }
 
 -(void)populateLocations {
+	locations = [[NSMutableArray alloc] init];
 	adapter = [[SBJsonStreamParserAdapter alloc] init];
 	adapter.delegate = self;
 	parser = [[SBJsonStreamParser alloc] init];
 	parser.delegate = adapter;
 	parser.supportMultipleDocuments = YES;
-	NSString *url = @"http://meta.gimmefiction.com/?type=location";
+	NSString *url = [self buildLocationRequest];
 	type=3;
 	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]
 											  cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
@@ -107,8 +110,7 @@ static NSString *instanceLock = @"instanceLock";
 
 -(NSString *)buildEventRequest {
 	//Request looks like "EventRequest:type=<type>;page=<page>;<filterlist (semi colon separated)>;
-	NSString *request = [NSString stringWithFormat: @"EventRequest:type=%@;page=%d;", 
-						 [self getEventTypeString], myEventPage];
+	NSString *request = [NSString stringWithFormat: @"http://meta.gimmefiction.com/?type=event&page=%d", myEventPage];
 	
 	for(id filter in filters) {
 		if([(Filter *)filter isEnabled] == YES) {
@@ -122,23 +124,20 @@ static NSString *instanceLock = @"instanceLock";
 
 -(NSString *)buildArtistRequest {
 	//Request Looks like "ArtistRequest:page=<page>;"
-	NSString *request = [NSString stringWithFormat:@"ArtistRequest:page=%d;",
-						 myArtistPage];
+	NSString *request = [NSString stringWithFormat: @"http://meta.gimmefiction.com/?type=artist&page=%d", myArtistPage];
 	return request;
 }
 
 -(NSString *)buildLocationRequest {
 	//Request Looks like "LocationRequest:page=<page>;"
-	NSString *request = [NSString stringWithFormat:@"LocationRequest:page=%d;",
-						 myLocationPage];
+	NSString *request = [NSString stringWithFormat: @"http://meta.gimmefiction.com/?type=location&page=%d", myLocationPage];
 	
 	return request;
 }
 
 -(NSString *)buildSelfCuratedRequest {
 	//Request Looks like "SelfCuratedRequest:page=<page>;"
-	NSString *request = [NSString stringWithFormat:@"SelfCuratedRequest:page=%d;",
-						 mySelfCuratedPage];
+	NSString *request = [NSString stringWithFormat:@"SelfCuratedRequest:page=%d;", mySelfCuratedPage];
 	
 	return request;
 }
@@ -171,10 +170,10 @@ static NSString *instanceLock = @"instanceLock";
 		[self populateAboutUs];
 		
 		//TODO: Get these from server in the populate methods
-		lastEventPage = 10;
-		lastArtistPage = 10;
-		lastLocationPage = 10;
-		lastSelfCuratedPage = 10;
+		lastEventPage = 1;
+		lastArtistPage = 2;
+		lastLocationPage = 1;
+		lastSelfCuratedPage = 1;
 
 		return self;
 	}
@@ -572,9 +571,46 @@ static NSString *instanceLock = @"instanceLock";
 			NSLog(@"event struct=%@",dic);
 			NSString* astr=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"name"]];
 			if(astr==NULL) { astr=@"null"; }
-			NSString* astr2=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"description"]];
-			if(astr2==NULL) { astr2=@"null"; }
-			[self addEvent:[[Event alloc] initTestEvent:astr Description:astr2]];
+			NSString* astr2;
+			NSString* astr3;
+			NSString* astr5;
+			NSString* astr6;
+			if([dic objectForKey:@"description"]){
+				astr2=@"null";
+			} else {
+				NSLog(@"%@",[dic objectForKey:@"description"]);
+				astr2=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"description"]];
+			}
+			if([dic objectForKey:@"address"]){
+				astr3=@"null";
+			} else {
+				NSLog(@"%@",[dic objectForKey:@"address"]);
+				astr3=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"address"]];
+			}
+			if([dic objectForKey:@"lat"]){
+				astr5=@"null";
+			} else {
+				NSLog(@"%@",[dic objectForKey:@"lat"]);
+				astr5=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"lat"]];
+			}
+			if([dic objectForKey:@"lng"]){
+				astr6=@"null";
+			} else {
+				NSLog(@"%@",[dic objectForKey:@"lng"]);
+				astr6=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"lng"]];
+			}
+			Event* eve=[[Event alloc] initEmptyEvent];
+			EventLocation* loc=[[EventLocation alloc] initEmptyLocation];
+			[eve setEventName:astr];
+			[eve setDescription:astr2];
+			[loc setName:astr3];
+			[loc setDescription:astr2];
+			CLLocationCoordinate2D coord;
+			coord.latitude = [astr5 intValue];
+			coord.longitude = [astr6 intValue];
+			[loc setCoordinates:coord];
+			[eve setLocation:loc];
+			[self addEvent:eve];
 		} else if(type==2) {
 			NSLog(@"Artist");
 			NSLog(@"artist struct=%@",dic);
@@ -604,6 +640,8 @@ static NSString *instanceLock = @"instanceLock";
 			NSString* astr2;
 			NSString* astr3;
 			NSString* astr4;
+			NSString* astr5;
+			NSString* astr6;
 			if([dic objectForKey:@"description"]){
 				astr2=@"null";
 			} else {
@@ -622,13 +660,30 @@ static NSString *instanceLock = @"instanceLock";
 				NSLog(@"%@",[dic objectForKey:@"description"]);
 				astr4=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"image"]];
 			}
+			if([dic objectForKey:@"lat"]){
+				astr5=@"null";
+			} else {
+				NSLog(@"%@",[dic objectForKey:@"lat"]);
+				astr5=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"lat"]];
+			}
+			if([dic objectForKey:@"lng"]){
+				astr6=@"null";
+			} else {
+				NSLog(@"%@",[dic objectForKey:@"lng"]);
+				astr6=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"lng"]];
+			}
 			EventLocation* loc=[[EventLocation alloc] initEmptyLocation];
 			[loc setName:astr];
 			[loc setDescription:astr2];
 			[loc setImage:astr3];
 			[loc setWebsite:astr4];
+			CLLocationCoordinate2D coord;
+			coord.latitude = [astr5 intValue];
+			coord.longitude = [astr6 intValue];
+			[loc setCoordinates:coord];
 			[self addLocation:loc];
-		}
+	}
+			
 	}
 	NSLog(@"Connection data processed.");
 }

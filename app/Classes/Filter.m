@@ -83,33 +83,33 @@
 	
 	switch([filter getFilterType]) {
 		case SearchFilterType:
-			return [NSString stringWithFormat:@"Search:query=%@;", [filter getFilterer].query];
+			return [NSString stringWithFormat:@"&search_query=%@", [filter getFilterer].query];
 			break;
 		case NameFilterType:
-			return [NSString stringWithFormat:@"Name:name=%@;", [filter getFilterer].name];
+			return [NSString stringWithFormat:@"&name=%@", [filter getFilterer].name];
 			break;
 		case ArtistFilterType:
-			return [NSString stringWithFormat:@"Artist:artist=%@;", [filter getFilterer].artist];
+			return [NSString stringWithFormat:@"&artist=%@", [filter getFilterer].artist];
 			break;
 		case TimeFilterType:
-			return [NSString stringWithFormat:@"Time:start=%@,end=%@;", 
+			return [NSString stringWithFormat:@"&start=%@&end=%@", 
 					[[filter getFilterer].start getDateTimeFormatStandard], 
 					[[filter getFilterer].end getDateTimeFormatStandard]];
 			break;
 		case CostFilterType:
-			return [NSString stringWithFormat:@"Cost:min=%f,max=%f;", 
+			return [NSString stringWithFormat:@"&min_cost=%f&max_cost=%f", 
 					[filter getFilterer].minCost, [filter getFilterer].maxCost];
 			break;
 		case DurationFilterType:
-			return [NSString stringWithFormat:@"Duration:min=%d,max=%d;", 
+			return [NSString stringWithFormat:@"&min_dur=%d&max_dur=%d", 
 					[filter getFilterer].minDuration, [filter getFilterer].maxDuration];
 			break;
 		case LocationFilterType:
-			return [NSString stringWithFormat: @"Location:%@,radius%f;",
+			return [NSString stringWithFormat: @"&radius=%f",
 					[[filter getFilterer].loc getLocationFilterString], [filter getFilterer].radius];
 			break;
 		case AvailabilityFilterType:
-			return [NSString stringWithFormat: @"Availability:day=%@,start:%@,end:%@;",
+			return [NSString stringWithFormat: @"&avail_day=%@&start=%@&end=%@",
 					[filter getFilterer].day, [EventAvailability timeString: [filter getFilterer].startTime],
 					[EventAvailability timeString: [filter getFilterer].endTime]];
 			break;
