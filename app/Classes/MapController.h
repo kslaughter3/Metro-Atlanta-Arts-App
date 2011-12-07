@@ -49,6 +49,7 @@
 	NSMutableArray *mapAnnotations;
 	CLLocationManager *locationManager;
 	NSAutoreleasePool *pool;
+	NSTimer * timer;
 }
 
 @property (nonatomic, retain) IBOutlet MKMapView* myMapView;

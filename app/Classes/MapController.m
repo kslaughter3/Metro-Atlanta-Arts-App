@@ -77,6 +77,8 @@
 	locationManager.distanceFilter = kCLDistanceFilterNone;
 	locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
 	[locationManager startUpdatingLocation];
+	
+	timer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target:self selector:@selector(displayMyMap) userInfo:nil repeats: YES];
 }
 
 
@@ -103,14 +105,19 @@
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
 	Content *content = [Content getInstance];
-	//[content populateEvents];
+	[content populateEvents];
 	[self enableNavigationButtons];
 	[self displayMyMap];
 }
 
 -(void)displayMyMap {
-	[self setUpAnnotations];
-	[self calibrateRegion];
+//	NSLog(@"before");
+	if([[Content getInstance] getReady2]){
+	//	NSLog(@"after");
+		[self setUpAnnotations];
+		[self calibrateRegion];
+		[[Content getInstance] setReady2:0];
+	}
 }
 
 -(void)setUpAnnotations {
@@ -118,6 +125,11 @@
 	if(self.mapAnnotations == nil) {
 		self.mapAnnotations = [[NSMutableArray alloc] init];
 	}
+	
+	for(id a in mapAnnotations) {
+		[myMapView removeAnnotation: a];
+	}
+	[self.mapAnnotations removeAllObjects];
 	
 	Content *content = [Content getInstance];
 	NSMutableArray *events = [content getEvents];
@@ -272,7 +284,7 @@
 	if(myPage < lastPage) {
 		[content changeEventPage: YES];
 		[self enableNavigationButtons];
-		[content populateEvents];
+		[content populateEvents];		
 		[self displayMyMap];
 	}
 }

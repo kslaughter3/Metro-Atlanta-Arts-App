@@ -126,14 +126,17 @@
 
 	 [content addLocation: loc];
  */
-	 timer = [NSTimer scheduledTimerWithTimeInterval: 2.0 target:self selector:@selector(refreshDataView) userInfo:nil repeats: YES];
+	 timer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target:self selector:@selector(refreshDataView) userInfo:nil repeats: YES];
 	 [super viewDidLoad];
 	 
  }
 
 -(void) refreshDataView {
-	[myTableView reloadData];
 	Content *content = [Content getInstance];
+	if([content getReady]){
+		[myTableView reloadData];
+		[content setReady:0];
+	}
 /*	//TEST EVENT	 
 	Event *event = [[Event alloc] initEmptyEvent];
 	[event setEventID: 1];
@@ -203,8 +206,6 @@
 	
 	[self setListTitle];
 	[self enableNavigationButtons];
-	[self populateList];
-	[myTableView reloadData];
 }
 
 
@@ -413,7 +414,6 @@
 	[self setListTitle];
 	[self enableNavigationButtons];
 	[self populateList];
-	[myTableView reloadData];
 }
 
 -(IBAction)previousPage:(id)sender {
@@ -422,7 +422,6 @@
 		[self changePage: NO];
 		[self enableNavigationButtons];
 		[self populateList];
-		[myTableView reloadData];
 	}
 }
 
@@ -433,7 +432,6 @@
 		[self changePage: YES];
 		[self enableNavigationButtons];
 		[self populateList];
-		[myTableView reloadData];
 	}
 }
 

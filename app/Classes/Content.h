@@ -23,6 +23,7 @@
 #import "Event.h"
 #import "EventLocation.h"
 #import "AboutUs.h"
+#import "json/SBJson.h"
 #import "SelfCuratedEntry.h"
 
 @class SBJsonStreamParser;
@@ -52,6 +53,8 @@
 	int myArtistPage;
 	int myLocationPage;
 	int mySelfCuratedPage;
+	int ready;
+	int ready2;
 	NSAutoreleasePool *pool;
 	BOOL filtersChanged;
 }
@@ -114,6 +117,10 @@
 -(int)getLocationLastPage;
 -(int)getSelfCuratedLastPage;
 
+-(int)getReady;
+-(void)setReady: (int) arg;
+-(int)getReady2;
+-(void)setReady2: (int) arg;
 -(int)getEventPage;
 -(void)changeEventPage: (BOOL) increment;
 -(void)resetEventPage;
