@@ -46,45 +46,70 @@ static NSString *instanceLock = @"instanceLock";
 
 
 -(void)populateEvents {
-	events = [[NSMutableArray alloc] init];
-	adapter = [[SBJsonStreamParserAdapter alloc] init];
-	adapter.delegate = self;
-	parser = [[SBJsonStreamParser alloc] init];
-	parser.delegate = adapter;
-	parser.supportMultipleDocuments = YES;
-	NSString *url = [self buildEventRequest];
-	type=1;
-	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]
-											  cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
-	theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+//	static int currentPage = -1;
+//	static EventType currentType = -1;
+	
+//	if((currentPage != myEventPage) || (currentType != myEventType) || (filtersChanged == YES))
+//	{
+		//These Should be clears not reinits
+		events = [[NSMutableArray alloc] init];
+		adapter = [[SBJsonStreamParserAdapter alloc] init];
+		adapter.delegate = self;
+		parser = [[SBJsonStreamParser alloc] init];
+		parser.delegate = adapter;
+		parser.supportMultipleDocuments = YES;
+		NSString *url = [self buildEventRequest];
+		type=1;
+		NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]
+												  cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+		theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+		
+//		currentPage = myEventPage;
+//		currentType = myEventType;
+//		filtersChanged = NO;
+//	}
 }
 
 -(void)populateArtists {
-	artists = [[NSMutableArray alloc] init];
-	adapter = [[SBJsonStreamParserAdapter alloc] init];
-	adapter.delegate = self;
-	parser = [[SBJsonStreamParser alloc] init];
-	parser.delegate = adapter;
-	parser.supportMultipleDocuments = YES;
-	NSString *url = [self buildArtistRequest];
-	type=2;
-	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]
-											  cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
-	theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];	
+//	static int currentPage = -1;
+	
+//	if(currentPage != myArtistPage) 
+//	{
+		artists = [[NSMutableArray alloc] init];
+		adapter = [[SBJsonStreamParserAdapter alloc] init];
+		adapter.delegate = self;
+		parser = [[SBJsonStreamParser alloc] init];
+		parser.delegate = adapter;
+		parser.supportMultipleDocuments = YES;
+		NSString *url = [self buildArtistRequest];
+		type=2;
+		NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]
+												  cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+		theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];	
+		
+//		currentPage = myArtistPage;
+//	}
 }
 
 -(void)populateLocations {
-	locations = [[NSMutableArray alloc] init];
-	adapter = [[SBJsonStreamParserAdapter alloc] init];
-	adapter.delegate = self;
-	parser = [[SBJsonStreamParser alloc] init];
-	parser.delegate = adapter;
-	parser.supportMultipleDocuments = YES;
-	NSString *url = [self buildLocationRequest];
-	type=3;
-	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]
-											  cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
-	theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];		
+//	static int currentPage = -1;
+	
+//	if(currentPage != myLocationPage)
+//	{
+		locations = [[NSMutableArray alloc] init];
+		adapter = [[SBJsonStreamParserAdapter alloc] init];
+		adapter.delegate = self;
+		parser = [[SBJsonStreamParser alloc] init];
+		parser.delegate = adapter;
+		parser.supportMultipleDocuments = YES;
+		NSString *url = [self buildLocationRequest];
+		type=3;
+		NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]
+												  cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+		theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+		
+//		currentPage = myLocationPage;
+//	}
 }
 
 -(void)populateSelfCurated {
@@ -186,13 +211,16 @@ static NSString *instanceLock = @"instanceLock";
 	if(artist == nil) {
 		return NO;
 	}
-
-	if([artists	 containsObject: artist] == NO) {
-		[artists addObject: artist];
-		return YES;
-	}
 	
-	return NO;
+	for(id a in artists) 
+	{
+		if([artist isArtistIDEqual:(EventArtist *)a]) {
+			return NO;
+		}
+	}
+		
+	[artists addObject: artist];
+		return YES;
 }
 -(BOOL)addEvent: (Event *) event{
 	/* Check to see if the filter is nil or invalid */
@@ -200,12 +228,15 @@ static NSString *instanceLock = @"instanceLock";
 		return NO;
 	}
 	
-	if([events containsObject: event] == NO) {
-		[events addObject: event];
-		return YES;
+	for(id e in events)
+	{
+		if([event isEventIDEqual:(Event *)e]) {
+			return NO;
+		}
 	}
 	
-	return NO;
+	[events addObject: event];
+	return YES;
 }
 
 -(BOOL)addLocation: (EventLocation *) location {
@@ -213,12 +244,15 @@ static NSString *instanceLock = @"instanceLock";
 		return NO;
 	}
 	
-	if([locations containsObject: location] == NO) {
-		[locations addObject: location];
-		return YES;
+	for(id l in locations)
+	{
+		if([location isLocationIDEqual:(EventLocation *)l]) {
+			return NO;
+		}
 	}
 	
-	return NO;
+	[locations addObject: location];
+	return YES;
 }
 
 -(BOOL)addFilter: (Filter *) filter {
@@ -533,6 +567,10 @@ static NSString *instanceLock = @"instanceLock";
 	}
 }
 
+-(void)setFiltersChanged {
+	filtersChanged = YES;
+}
+
 - (void)parser:(SBJsonStreamParser *)parser foundArray:(NSArray *)array {
     [NSException raise:@"unexpected" format:@"Should not get here"];
 }
@@ -569,12 +607,14 @@ static NSString *instanceLock = @"instanceLock";
 		if(type==1){
 			NSLog(@"Event");
 			NSLog(@"event struct=%@",dic);
+			NSString* idstring = [[NSString alloc] initWithString:(NSString *)[dic objectForKey: @"event_id"]];
 			NSString* astr=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"name"]];
 			if(astr==NULL) { astr=@"null"; }
 			NSString* astr2;
 			NSString* astr3;
 			NSString* astr5;
 			NSString* astr6;
+			NSString* locId;
 			if([dic objectForKey:@"description"]){
 				astr2=@"null";
 			} else {
@@ -587,6 +627,7 @@ static NSString *instanceLock = @"instanceLock";
 				NSLog(@"%@",[dic objectForKey:@"address"]);
 				astr3=[[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"address"]];
 			}
+			locId = [[NSString alloc] initWithString:(NSString *)[dic objectForKey:@"location_id"]];
 			if([dic objectForKey:@"lat"]){
 				astr5=@"null";
 			} else {
@@ -601,8 +642,10 @@ static NSString *instanceLock = @"instanceLock";
 			}
 			Event* eve=[[Event alloc] initEmptyEvent];
 			EventLocation* loc=[[EventLocation alloc] initEmptyLocation];
+			[eve setEventID:[idstring intValue]];
 			[eve setEventName:astr];
 			[eve setDescription:astr2];
+			[loc setLocationID:[locId intValue]];
 			[loc setName:astr3];
 			[loc setDescription:astr2];
 			CLLocationCoordinate2D coord;
@@ -685,6 +728,15 @@ static NSString *instanceLock = @"instanceLock";
 	}
 			
 	}
+	
+	NSLog([NSString stringWithFormat:@"Count: %d", [events count]]);
+	
+	for(id e in events) {
+		Event *temp = (Event *)e;
+		NSLog([NSString stringWithFormat: @"Event Id: %d Location Id: %d", [temp getEventID],
+			  [[temp getLocation] getLocationID]]);
+	}
+	
 	NSLog(@"Connection data processed.");
 }
 

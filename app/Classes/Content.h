@@ -53,6 +53,7 @@
 	int myLocationPage;
 	int mySelfCuratedPage;
 	NSAutoreleasePool *pool;
+	BOOL filtersChanged;
 }
 
 /* Gets the current instance of the content if there is one 
@@ -129,5 +130,7 @@
 -(EventType)getEventType;
 -(void)setEventType: (EventType)type;
 -(NSString *)getEventTypeString;
+
+-(void)setFiltersChanged;
 
 @end

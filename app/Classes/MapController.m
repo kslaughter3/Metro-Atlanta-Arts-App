@@ -103,69 +103,7 @@
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
 	Content *content = [Content getInstance];
-	[content populateEvents];
-	//TEST EVENT	 
-	Event *event = [[Event alloc] initEmptyEvent];
-	[event setEventID: 1];
-	[event setEventName: @"Test"];
-	[event setImageURL:@"http://4.bp.blogspot.com/_rtOXMZlMTkg/TKgII4-qwRI/AAAAAAAADuQ/mnQicdtiE3U/s1600/sn_MuslimStarryNight.jpg"];
-	
-	EventLocation *loc = [[EventLocation alloc] initEmptyLocation];
-	[loc setLocationID: 1];
-	[loc setName: @"Atlanta High Muesem"];
-	[loc setStreetAddress: @"1290 Peachtree Street NE"];
-	[loc setCity: @"Atlanta"];
-	[loc setState: @"GA"];
-	[loc setZip: @"30309"];
-	[loc setDescription: @"The High Museum of Art is the leading art museum in the southeastern United States. "\
-	 "Located in Midtown Atlanta’s arts and business district, the High has more than 12,000 works of art "\
-	 "in its permanent collection. The Museum has an extensive anthology of 19th- and 20th-century American art; "\
-	 "significant holdings of European paintings and decorative art; a growing collection of African American art; "\
-	 "and burgeoning collections of modern and contemporary art, photography and African art. "\
-	 "The High is also dedicated to supporting and collecting works by Southern artists and is distinguished "\
-	 "as the only major museum in North America to have a curatorial department specifically devoted "\
-	 "to the field of folk and self-taught art."];
-	[loc setImage: @"http://hugomartinezart.com/wp-content/uploads/2011/02/high-museum-of-art-2265.jpg"];
-	[loc setWebsite: @"http://www.high.org/"];
-	CLLocationCoordinate2D coord;
-	coord.latitude = 33.7728837;
-	coord.longitude = -84.393816;
-	[loc setCoordinates: coord];
-	[event setLocation: loc];
-	
-	/*	 EventDate *start = [[EventDate alloc] initEmptyDate];
-	 [start setDate: @"11/04/2011"];
-	 [start setTime: @"9:00am"];
-	 EventDate *end = [[EventDate alloc] initEmptyDate];
-	 [end setDate: @"11/11/2011"];
-	 [end setTime: @"9:00am"];
-	 [event setStartDate: start];
-	 [event setEndDate: end];
-	 */
-	
-	EventAvailability *avail = [[EventAvailability alloc] initEmptyAvailability];
-	[avail addDay: @"Sunday"];
-	//[avail addDay: @"Monday"];
-	[avail addDay: @"Tuesday"];
-	[avail addDay: @"WEDNeSDAy"];
-	[avail addDay: @"Thursday"];
-	//[avail addDay: @"Friday"];
-	[avail addDay: @"Saturday"];
-	[avail setAvailableAllDay];
-	[event setAvailability: avail];
-	
-	[event setDescription: @"This is a long description that should take more than "\
-	 "one line and I want to see if that is a problem for the "\
-	 "text view to handle also I'm inserting a newline character "\
-	 "here\nto see if that works as well lets make this even longer "\
-	 "so it goes beyond the size of the visible box "\
-	 "so I'm just going to keep on typing until such a time that "\
-	 "I feel like this is pretty long\n so the scrolling works "];
-	[event setMinCost: 10.0];
-	[event setDuration: 20];
-	[event setWebsite: @"http://www.apple.com"];
-	[content addEvent: event];
-	
+	//[content populateEvents];
 	[self enableNavigationButtons];
 	[self displayMyMap];
 }
@@ -176,6 +114,7 @@
 }
 
 -(void)setUpAnnotations {
+	BOOL found = NO;
 	if(self.mapAnnotations == nil) {
 		self.mapAnnotations = [[NSMutableArray alloc] init];
 	}
@@ -185,23 +124,36 @@
 	
 	for(id event in events) {
 		EventAnnotation *eventAnnotation = [[EventAnnotation alloc] initAnnotationWithEvent: event];
-		if([self.mapAnnotations containsObject: eventAnnotation] == NO) {
+		
+		for(id e in mapAnnotations) {
+			EventAnnotation *ea = (EventAnnotation *)e;
+			if([ea isEqual: eventAnnotation]) {
+				found = YES;
+			}
+			if([[ea.event getLocation] getLocationID] == 
+			   [[eventAnnotation.event getLocation] getLocationID]) {
+				found = YES;
+			}
+		}
+		
+		if(found == NO) {
 			[self.mapAnnotations addObject:eventAnnotation];
 			[myMapView addAnnotation:eventAnnotation];
 		}
+		found = NO;
 		[eventAnnotation release];   
 	}
 			
 }
 
 -(void)calibrateRegion {
-	Content *content = [Content getInstance];
-	NSMutableArray *events = [content getEvents];
 	EventLocation *loc;
 	double latMin = 9999, longMin = 9999;
 	double latMax = -9999, longMax = -9999;
 	int numCoords = 0;
-	for(id event in events) {
+	for(id a in mapAnnotations) {
+		EventAnnotation *annotation = (EventAnnotation *)a;
+		Event *event = annotation.event;
 		loc = [event getLocation];
 		if (loc != nil){
 			if([loc getCoordinates].latitude < latMin) latMin = [loc getCoordinates].latitude;

@@ -44,7 +44,7 @@
 	 listType = EventDetails;
 	 [self setListTitle];
 	 Content *content = [Content getInstance];
-	 
+/*	 
 //TEST EVENT	 
 	 Event *event = [[Event alloc] initEmptyEvent];
 	 [event setEventID: 1];
@@ -74,7 +74,7 @@
 	 [loc setCoordinates: coord];
 	 [event setLocation: loc];
 	 
-/*	 EventDate *start = [[EventDate alloc] initEmptyDate];
+	 EventDate *start = [[EventDate alloc] initEmptyDate];
 	 [start setDate: @"11/04/2011"];
 	 [start setTime: @"9:00am"];
 	 EventDate *end = [[EventDate alloc] initEmptyDate];
@@ -82,7 +82,7 @@
 	 [end setTime: @"9:00am"];
 	 [event setStartDate: start];
 	 [event setEndDate: end];
-*/
+
 	 
 	 EventAvailability *avail = [[EventAvailability alloc] initEmptyAvailability];
 	 [avail addDay: @"Sunday"];
@@ -125,6 +125,7 @@
 //TEST LOCATION
 
 	 [content addLocation: loc];
+ */
 	 timer = [NSTimer scheduledTimerWithTimeInterval: 2.0 target:self selector:@selector(refreshDataView) userInfo:nil repeats: YES];
 	 [super viewDidLoad];
 	 
@@ -133,7 +134,7 @@
 -(void) refreshDataView {
 	[myTableView reloadData];
 	Content *content = [Content getInstance];
-	//TEST EVENT	 
+/*	//TEST EVENT	 
 	Event *event = [[Event alloc] initEmptyEvent];
 	[event setEventID: 1];
 	[event setEventName: @"Test"];
@@ -162,7 +163,7 @@
 	[loc setCoordinates: coord];
 	[event setLocation: loc];
 	
-	/*	 EventDate *start = [[EventDate alloc] initEmptyDate];
+	EventDate *start = [[EventDate alloc] initEmptyDate];
 	 [start setDate: @"11/04/2011"];
 	 [start setTime: @"9:00am"];
 	 EventDate *end = [[EventDate alloc] initEmptyDate];
@@ -170,7 +171,7 @@
 	 [end setTime: @"9:00am"];
 	 [event setStartDate: start];
 	 [event setEndDate: end];
-	 */
+
 	
 	EventAvailability *avail = [[EventAvailability alloc] initEmptyAvailability];
 	[avail addDay: @"Sunday"];
@@ -194,7 +195,7 @@
 	[event setDuration: 20];
 	[event setWebsite: @"http://www.apple.com"];
 	[content addEvent: event];
-	
+*/	
 }
 
 -(void)viewWillAppear:(BOOL)animated {
