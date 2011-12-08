@@ -23,22 +23,7 @@
 	pool = [[NSAutoreleasePool alloc] init];
 	[myTableView setDelegate: self];
 	[myTableView setDataSource: self];
-	
-	Content *content = [Content getInstance];
-	Event *temp = [[Event alloc] initEmptyEvent];
-	[temp setEventID: 2];
-	[temp setEventName: @"jun2"];
-	[temp setDescription: @"jun2"];
-	EventLocation *loc = [[EventLocation alloc] init];
-	CLLocationCoordinate2D coord;
-	coord.latitude = 33.7628837;
-	coord.longitude = -84.383816;
-	[loc setCoordinates: coord];
-	[temp setLocation: loc];
-	[content addEvent: temp];
-	
 	myEvents = [[NSMutableArray alloc] init];
-	
 	[super viewDidLoad];
 }
 

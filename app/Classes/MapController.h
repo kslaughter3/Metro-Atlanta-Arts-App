@@ -24,30 +24,21 @@
 #import "Event.h"
 #import "DetailsController.h"
 #import "EventAnnotation.h"
-#import "json/SBJson.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
 
-@class SBJsonStreamParser;
-@class SBJsonStreamParserAdapter;
 
 @class MapController;
 
 @interface MapController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate> {
-    IBOutlet UITextField *username;
-    IBOutlet UITextField *password;
-    IBOutlet UITextView *tweet;
 	IBOutlet MKMapView* myMapView;
 	IBOutlet UINavigationBar *myTitleBar;
 	IBOutlet UIBarButtonItem *previousButton;
 	IBOutlet UIBarButtonItem *nextButton;
 	IBOutlet UISegmentedControl *mySelectionBar;
 	DetailsController *myEventController;
-    NSURLConnection *theConnection;
-    SBJsonStreamParser *parser;
-    SBJsonStreamParserAdapter *adapter;
 	NSMutableArray *mapAnnotations;
-	CLLocationManager *locationManager;
+//	CLLocationManager *locationManager;
 	NSAutoreleasePool *pool;
 	NSTimer * timer;
 }
@@ -55,7 +46,7 @@
 @property (nonatomic, retain) IBOutlet MKMapView* myMapView;
 @property (nonatomic, retain) NSMutableArray *mapAnnotations;
 @property (nonatomic, retain) Event *globalEvent;
-@property (nonatomic, retain) CLLocationManager *locationManager;
+//@property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) DetailsController *myEventController;
 
 -(void)displayMyMap;
@@ -66,9 +57,9 @@
 -(IBAction)nextPage:(id)sender;
 -(void)changeEventType:(id)sender;
 -(void)enableNavigationButtons;
-- (void)locationManager:(CLLocationManager *)manager 
-	didUpdateToLocation:(CLLocation *) newLocation
-		   fromLocation:(CLLocation *) oldLocation;
+//- (void)locationManager:(CLLocationManager *)manager 
+//	didUpdateToLocation:(CLLocation *) newLocation
+//		   fromLocation:(CLLocation *) oldLocation;
 
 
 @end

@@ -28,13 +28,17 @@
 	IBOutlet UIBarButtonItem *previousButton;
 	IBOutlet UIBarButtonItem *nextButton;
 	NSAutoreleasePool *pool;
+	NSTimer *timer;
+
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
 @property (nonatomic, retain) DetailsController *mySelfCuratedViewController;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *previousButton;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *nextButton;
+@property (nonatomic, retain) NSTimer * timer;
 
+-(void)refreshDataView;
 -(IBAction)previousPage:(id)sender;
 -(IBAction)nextPage:(id)sender;
 -(void)enableNavigationButtons;

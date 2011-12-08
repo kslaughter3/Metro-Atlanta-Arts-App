@@ -8,12 +8,16 @@
 
 #import "MapController.h"
 
-@interface MapController () <SBJsonStreamParserAdapterDelegate>
-@end
+//@interface MapController () <SBJsonStreamParserAdapterDelegate>
+//@end
 
 @implementation MapController
 
-@synthesize myMapView, mapAnnotations, globalEvent, locationManager, myEventController;
+@synthesize myMapView, 
+			mapAnnotations, 
+			globalEvent, 
+//			locationManager, 
+			myEventController;
 
 /*
 // The designated initializer. Override to perform setup that is required before the view is loaded.
@@ -38,52 +42,20 @@
 	pool = [[NSAutoreleasePool alloc] init];
 	[super viewDidLoad];
 	
-	// We don't want *all* the individual messages from the
-	// SBJsonStreamParser, just the top-level objects. The stream
-	// parser adapter exists for this purpose.
-	adapter = [[SBJsonStreamParserAdapter alloc] init];
-	
-	// Set ourselves as the delegate, so we receive the messages
-	// from the adapter.
-	adapter.delegate = self;
-	
-	// Create a new stream parser..
-	parser = [[SBJsonStreamParser alloc] init];
-	
-	// .. and set our adapter as its delegate.
-	parser.delegate = adapter;
-	
-	// Normally it's an error if JSON is followed by anything but
-	// whitespace. Setting this means that the parser will be
-	// expecting the stream to contain multiple whitespace-separated
-	// JSON documents.
-	parser.supportMultipleDocuments = YES;
-	
-	NSString *url = @"http://meta.gimmefiction.com/?count=3";
-	
-	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]
-											  cachePolicy:NSURLRequestUseProtocolCachePolicy
-										  timeoutInterval:60.0];
-	
-	theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-	
-	//[self.view addSubview:myMapView];
-	[NSThread detachNewThreadSelector:@selector(displayMyMap) toTarget:self withObject:nil];
-	
 	//try to update location
 	
-	locationManager = [[CLLocationManager alloc] init];
+/*	locationManager = [[CLLocationManager alloc] init];
 	locationManager.delegate = self;
 	locationManager.distanceFilter = kCLDistanceFilterNone;
 	locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
 	[locationManager startUpdatingLocation];
-	
+*/	
 	timer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target:self selector:@selector(displayMyMap) userInfo:nil repeats: YES];
 }
 
 
 //does not work with iPhone Simulator
-- (void)locationManager:(CLLocationManager *)manager 
+/*- (void)locationManager:(CLLocationManager *)manager 
 	didUpdateToLocation:(CLLocation *) newLocation
 		   fromLocation:(CLLocation *) oldLocation
 {
@@ -100,7 +72,7 @@
 	[myMapView setRegion:region animated:TRUE]; 
 	[myMapView regionThatFits:region];
 	NSLog(@"updated");
-}
+}*/
 
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
@@ -111,12 +83,10 @@
 }
 
 -(void)displayMyMap {
-//	NSLog(@"before");
-	if([[Content getInstance] getReady2]){
-	//	NSLog(@"after");
+	if([[Content getInstance] getMapReady]){
 		[self setUpAnnotations];
 		[self calibrateRegion];
-		[[Content getInstance] setReady2:0];
+		[[Content getInstance] setMapReady:0];
 	}
 }
 
@@ -184,7 +154,7 @@
 	if(numCoords == 0){
 		span.latitudeDelta=0.2; 
 		span.longitudeDelta=0.2; 
-		location.latitude = 33.7728837; /* We should make these constants*/
+		location.latitude = 33.7728837;
 		location.longitude = -84.393816;
 	}
 	else {
@@ -335,9 +305,6 @@
 
 - (void)viewDidUnload {
 	[super viewDidUnload];
-	[username release];
-	[password release];
-	[tweet release];
 	[myMapView release];
 	[myTitleBar release];
 	[previousButton release];
@@ -347,19 +314,13 @@
 
 
 - (void)dealloc {
-	[username release];
-	[password release];
-	[tweet release];
 	[myMapView release];
 	[myTitleBar release];
 	[previousButton release];
 	[nextButton release];
 	[mySelectionBar release];
-	[theConnection release];
-	[parser release];
-	[adapter release];
 	[mapAnnotations release];
-	[locationManager release];
+//	[locationManager release];
 	[myEventController release];
 	[pool release];
     [super dealloc];

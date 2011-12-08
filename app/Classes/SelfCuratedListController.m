@@ -14,7 +14,8 @@
 @synthesize myTableView,
 			mySelfCuratedViewController,
 			previousButton,
-			nextButton;
+			nextButton,
+			timer;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -40,8 +41,17 @@
 	[temp setPlan: @"Visit these events: Test, Jun2, 22, 233, dashjklf"];
 	[temp setWebsite: @"http://www.apple.com"];
 	[content addSelfCuratedEntry: temp];
-	
+	timer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target:self selector:@selector(refreshDataView) userInfo:nil repeats: YES];
 	[super viewDidLoad];
+	
+}
+
+-(void) refreshDataView {
+	Content *content = [Content getInstance];
+	if([content getSelfCuratedReady]){
+		[myTableView reloadData];
+		[content setSelfCuratedReady:0];
+	}	
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -112,7 +122,7 @@
 	if(myPage > 1) {
 		[content changeSelfCuratedPage: NO];
 		[self enableNavigationButtons];
-		//TODO: Get page from server
+		[content populateSelfCurated];
 	}
 }
 
@@ -124,7 +134,7 @@
 	if(myPage < lastPage) {
 		[content changeSelfCuratedPage: YES];
 		[self enableNavigationButtons];
-		//TODO: Get page from server 
+		[content populateSelfCurated];
 	}
 }
 

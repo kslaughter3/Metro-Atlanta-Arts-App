@@ -53,10 +53,10 @@
 	int myArtistPage;
 	int myLocationPage;
 	int mySelfCuratedPage;
-	int ready;
-	int ready2;
+	int listReady;
+	int mapReady;
+	int selfCuratedReady;
 	NSAutoreleasePool *pool;
-	BOOL filtersChanged;
 }
 
 /* Gets the current instance of the content if there is one 
@@ -117,10 +117,12 @@
 -(int)getLocationLastPage;
 -(int)getSelfCuratedLastPage;
 
--(int)getReady;
--(void)setReady: (int) arg;
--(int)getReady2;
--(void)setReady2: (int) arg;
+-(int)getListReady;
+-(void)setListReady: (int) arg;
+-(int)getMapReady;
+-(void)setMapReady: (int) arg;
+-(int)getSelfCuratedReady;
+-(void)setSelfCuratedReady: (int) arg;
 -(int)getEventPage;
 -(void)changeEventPage: (BOOL) increment;
 -(void)resetEventPage;
@@ -137,7 +139,5 @@
 -(EventType)getEventType;
 -(void)setEventType: (EventType)type;
 -(NSString *)getEventTypeString;
-
--(void)setFiltersChanged;
 
 @end
