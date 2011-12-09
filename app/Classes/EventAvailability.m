@@ -44,6 +44,26 @@
 	return time;
 }
 
++(int)buildTimeFromMilitary:(NSString *)string {
+	NSString *temp;
+	NSArray *components = [string componentsSeparatedByString:@":"];
+	int time = -1;
+	
+	if([components count] == 3 || [components count] == 2) {
+		temp = (NSString *)[components objectAtIndex: 0];
+		if([EventDate isNumeric: temp] == YES) {
+			time = [temp intValue] * 100;
+			temp = (NSString *)[components objectAtIndex: 1];
+			if([EventDate isNumeric: temp] == YES) {
+				time += [temp intValue];
+			}
+		}
+	}
+	
+	return time;
+}
+
+
 +(NSString *)timeString:(int)time {
 	int hour = time / 100;
 	int min = time % 100;

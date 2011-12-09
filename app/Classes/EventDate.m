@@ -131,13 +131,13 @@
 	if([components count] == 3) {
 		temp = (NSString *)[components objectAtIndex: 0];
 		if([EventDate isNumeric: temp] == YES) {
-			month = [temp intValue];
+			year = [temp intValue];
 			temp = (NSString *)[components objectAtIndex: 1];
 			if([EventDate isNumeric: temp] == YES) {
-				day = [temp intValue];
+				month = [temp intValue];
 				temp = (NSString *)[components objectAtIndex: 2];
 				if([EventDate isNumeric: temp] == YES) {
-					year = [temp intValue];
+					day = [temp intValue];
 					return;
 				}
 			}
@@ -150,11 +150,41 @@
 	year = -1;
 }
 
+-(void)setTimeMilitary: (NSString *)time {
+	NSString *temp;
+	NSArray *components = [time componentsSeparatedByString:@":"];
+
+	if([components count] == 2 || [components count] == 3) {
+		temp = (NSString *)[components objectAtIndex: 0];
+		if([EventDate isNumeric: temp] == YES) {
+			hour = [temp intValue];
+		}
+		temp = (NSString *)[components objectAtIndex: 1];
+		if([EventDate isNumeric: temp] == YES) {
+			minute = [temp intValue];
+			if([components count] == 2) {
+				second = 0;
+				return;
+			}
+		}
+		if([components count] == 3) {
+			temp = (NSString *)[components objectAtIndex: 2];
+			if([EventDate isNumeric: temp] == YES) {
+				second = [temp intValue];
+				return;
+			}
+		}
+	}
+	
+	//invalidate
+	hour = -1;
+	minute = -1;
+	second = -1;			
+}
+
 -(void)setTime: (NSString *)time {
 	NSString *temp, *suffix;
 	NSArray *components = [time componentsSeparatedByString:@":"];
-	
-	
 	
 	if([components count] == 3) {
 		temp = (NSString *)[components objectAtIndex: 0];

@@ -32,7 +32,6 @@
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
 	[self enableNavigationButtons];
-	Content *content = [Content getInstance];
 }
 
 -(void) refreshDataView {

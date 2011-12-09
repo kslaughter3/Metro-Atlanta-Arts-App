@@ -64,7 +64,7 @@
 			myTitleBar.topItem.title = [artist getName];
 			break;
 		case LocationDetails:
-			if([location getName] != nil && ![[location getName] isEqualToString: @""] == NO) {
+			if([location getName] != nil && ![[location getName] isEqualToString: @""]) {
 				myTitleBar.topItem.title = [location getName];
 			}
 			else {

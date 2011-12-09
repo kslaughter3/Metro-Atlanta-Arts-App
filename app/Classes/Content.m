@@ -670,10 +670,12 @@ static NSString *instanceLock = @"instanceLock";
 			NSString* l_lng=[self parseData: dic Field: @"lng"];
 			
 			//Schedule Data
+			NSString* ptype=[self parseData: dic Field: @"period_type"];
 			NSString* dfrom=[self parseData: dic Field: @"date_from"];
 			NSString* d__to=[self parseData: dic Field: @"date_to"];
 			NSString* tfrom=[self parseData: dic Field: @"time_from"];
 			NSString* t__to=[self parseData: dic Field: @"time_to"];
+			NSString* wdays=[self parseData: dic Field: @"weekdays"];
 			
 			//create artist object
 			EventArtist *art = [[EventArtist alloc] initEmptyArtist];
@@ -748,9 +750,15 @@ static NSString *instanceLock = @"instanceLock";
 				[eve setMaxCost: 0];
 			}
 			
-			[eve parseDate: dfrom Time: tfrom Start: YES];
-			[eve parseDate: d__to Time: t__to Start: NO];
+			[eve reorderCosts];
 			
+			if([ptype isEqualToString: @"week"]) {
+				[eve parseAvailability: wdays Start:tfrom End:t__to];
+			}
+			else {
+				[eve parseDate: dfrom Time: tfrom Start: YES];
+				[eve parseDate: d__to Time: t__to Start: NO];
+			}
 			
 			[self addEvent:eve];
 			

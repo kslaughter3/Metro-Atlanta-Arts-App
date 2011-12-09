@@ -16,6 +16,7 @@
  ******************************************************/
 
 #import <Foundation/Foundation.h>
+#import "EventDate.h"
 
 typedef enum WeekDays {
 	Sunday = 0,
@@ -35,6 +36,7 @@ typedef enum WeekDays {
 }
 
 +(int)buildTime: (NSString *)string;
++(int)buildTimeFromMilitary:(NSString *)string;
 +(NSString *)timeString: (int) time;
 
 /* Initializers */

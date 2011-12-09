@@ -70,7 +70,7 @@ typedef enum EventType {
 
 -(void)parseType: (NSString *)t;
 -(void)parseDate: (NSString	*) date Time: (NSString *) time Start: (BOOL) start;
-
+-(void)parseAvailability:(NSString *)days Start:(NSString *)start End:(NSString *)end;
 
 /* Getters and Setters */
 
@@ -112,6 +112,8 @@ typedef enum EventType {
 
 -(void)setMaxCost: (double) price;
 -(double)getMaxCost;
+
+-(void)reorderCosts;
 
 -(void)setAvailability: (EventAvailability *) avail;
 -(EventAvailability *)getAvailability;

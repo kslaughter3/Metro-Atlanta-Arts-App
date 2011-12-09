@@ -41,6 +41,7 @@
 -(BOOL)earlierDate: (EventDate *)other;
 
 -(void)setDate: (NSString *)date;
+-(void)setTimeMilitary:(NSString *)time;
 -(void)setTime: (NSString *)time;
 
 -(NSString *)getDateTimeFormatMilitary;

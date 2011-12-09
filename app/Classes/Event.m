@@ -83,15 +83,41 @@
 
 -(void)parseDate:(NSString *)date Time:(NSString *)time Start:(BOOL)start {
 	if(start) {
+		
+		if(startDate == nil) {
+			startDate = [[EventDate alloc] initEmptyDate];
+		}
 		[startDate setDate: date];
-		[startDate setTime: time];
+		[startDate setTimeMilitary: time];
 	}
 	else {
+		if(endDate == nil) {
+			endDate = [[EventDate alloc] initEmptyDate];
+		}
 		[endDate setDate: date];
-		[endDate setTime: time];
+		[endDate setTimeMilitary: time];
 	}
 }
 
+-(void)parseAvailability:(NSString *)days Start: (NSString *)start End: (NSString *)end {
+	int dayVal = [days intValue];
+	
+	if(availability == nil) {
+		availability = [[EventAvailability alloc] initEmptyAvailability];
+	}
+	
+	NSString *WeekDaysStored[] = {@"SUNDAY", @"MONDAY", @"TUESDAY", @"WEDNESDAY", 
+		@"THURSDAY", @"FRIDAY", @"SATURDAY"};
+	
+	for(int i = 0; i < 7; i++) {
+		if(dayVal & (1 << i)) {
+			[availability addDay: WeekDaysStored[i]];
+		}
+	}
+	
+	[availability setStartTime: [EventAvailability buildTimeFromMilitary:start]];
+	[availability setEndTime: [EventAvailability buildTimeFromMilitary:end]];
+} 
 
 /*Getters and Setters */
 
@@ -198,12 +224,6 @@
 }
 
 -(void) setMinCost: (double) price {
-	//Keep the order correct
-	if(price > maxCost) {
-		minCost = maxCost;
-		maxCost = price;
-		return;
-	}
 	minCost = price;
 }
 
@@ -212,18 +232,24 @@
 }
 
 -(void) setMaxCost:(double)price {
-	//Keep the order correct
-	if(price < minCost) {
-		maxCost = minCost;
-		minCost = price;
-		return;
-	}
 	maxCost = price;
 }
-	
+
 -(double)getMaxCost {
 	return maxCost;
 }
+
+-(void)reorderCosts {
+	NSLog(@"min: %f, max: %f", minCost, maxCost);
+	if(minCost > maxCost) 
+	{
+		double temp = minCost;
+		minCost = maxCost;
+		maxCost = temp;
+	}
+	NSLog(@"min: %f, max: %f", minCost, maxCost);
+}
+
 
 -(void)setAvailability: (EventAvailability *) avail {
 	availability = avail;
