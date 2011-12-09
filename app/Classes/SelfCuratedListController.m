@@ -33,14 +33,6 @@
 	pool = [[NSAutoreleasePool alloc] init];
     [myTableView setDelegate: self];
 	[myTableView setDataSource: self];
-	Content *content = [Content getInstance];
-	SelfCuratedEntry *temp = [[SelfCuratedEntry alloc] initEmptySelfCuratedEntry];
-	[temp setName: @"jun3"];
-	[temp setImage: @"http://4.bp.blogspot.com/_rtOXMZlMTkg/TKgII4-qwRI/AAAAAAAADuQ/mnQicdtiE3U/s1600/sn_MuslimStarryNight.jpg"];
-	[temp setOccupation: @"Editor of the Atlanta Journal of the Arts"];
-	[temp setPlan: @"Visit these events: Test, Jun2, 22, 233, dashjklf"];
-	[temp setWebsite: @"http://www.apple.com"];
-	[content addSelfCuratedEntry: temp];
 	timer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target:self selector:@selector(refreshDataView) userInfo:nil repeats: YES];
 	[super viewDidLoad];
 	
@@ -56,8 +48,8 @@
 
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
+	[[Content getInstance] populateSelfCurated];
 	[self enableNavigationButtons];
-	[myTableView reloadData];
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger) section {

@@ -58,7 +58,6 @@
 
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
-	
 	[self setListTitle];
 	[self enableNavigationButtons];
 }
@@ -389,6 +388,7 @@
 	[previousButton release];
 	[nextButton release];
 	[pool release];
+	[timer release];
     [super dealloc];
 }
 

@@ -191,19 +191,12 @@ static NSString *instanceLock = @"instanceLock";
 		
 		//Start with the first type
 		myEventType = FirstEventType;
-
-	/*  Don't Do this until the data is requested
-		[self populateEvents];
-		[self populateArtists];
-		[self populateLocations];
-		[self populateSelfCurated];
-		[self populateAboutUs];
-	*/	
-		//TODO: Get these from server
-		lastEventPage = 3;
-		lastArtistPage = 3;
-		lastLocationPage = 3;
-		lastSelfCuratedPage = 3;
+	
+		NSString *url = @"http://meta.gimmefiction.com/?type=page";
+		type=1;
+		NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]
+												  cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+		theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];	
 
 		return self;
 	}
@@ -596,8 +589,18 @@ static NSString *instanceLock = @"instanceLock";
 	[[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
 }
 
+- (NSString *) parseData: (NSDictionary *) dic Field: (NSString *)field 
+{
+	NSString * ret=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:field]]];
+	if(ret && ![ret isEqualToString: @""] && ![ret isEqualToString: @"<null>"]){
+		NSLog(@"%@", ret);
+		return ret;
+	}
+	return nil;
+}
+
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-	NSLog(@"Connection didReceiveData of length: %u", data.length);
+	NSLog(@"Connection didReceiveData of length: %u Type: %d", data.length, type);
 	
 	// Parse the new chunk of data. The parser will append it to
 	// its internal buffer, then parse from where it left off in
@@ -606,6 +609,25 @@ static NSString *instanceLock = @"instanceLock";
 	NSDictionary *jsonobj=[payloadAsString JSONValue];
 	for(NSDictionary *dic in jsonobj) {
 		if(type==1){
+			NSString* pages=[self parseData: dic Field: @"page_nums"];
+			
+			if(pages && [pages isEqualToString: @"true"]) {
+				NSLog(@"Pages");
+				NSLog(@"pages struct=%@",dic);
+				
+				NSString *epage=[self parseData: dic Field: @"event"];
+				NSString *apage=[self parseData: dic Field: @"artist"];
+				NSString *lpage=[self parseData: dic Field: @"location"];
+				NSString *cpage=[self parseData: dic Field: @"curated"];
+				
+				lastEventPage = (([epage intValue]-1)/5) + 1;
+				lastArtistPage = (([apage intValue]-1)/5) + 1;
+				lastLocationPage = (([lpage intValue]-1)/5) + 1;
+				lastSelfCuratedPage = (([cpage intValue]-1)/5) + 1;
+				
+				return;
+			}
+			
 			//go to next block if server data is invalid
 			if(![dic objectForKey: @"event_id"]){
 				continue;
@@ -615,30 +637,121 @@ static NSString *instanceLock = @"instanceLock";
 			NSLog(@"event struct=%@",dic);
 			
 			//parse server data
-			NSString* es_id=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"event_id"]]];
-			NSString* ename=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"name"]]];
-			NSString* descr=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"description"]]];
-			NSString* addrs=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"address"]]];
-			NSString* locId=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"location_id"]]];
-			NSString* latit=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"lat"]]];
-			NSString* longi=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"lng"]]];
+			
+			//Event Data
+			NSString* es_id=[self parseData: dic Field: @"event_id"];
+			NSString* etype=[self parseData: dic Field: @"type"];
+			NSString* ename=[self parseData: dic Field: @"ename"];
+			NSString* edesc=[self parseData: dic Field: @"edescr"];
+			NSString* e_url=[self parseData: dic Field: @"ewebsite"];
+			NSString* e_len=[self parseData: dic Field: @"suggested_time"];
+			NSString* eminc=[self parseData: dic Field: @"min_cost"];
+			NSString* emaxc=[self parseData: dic Field: @"max_cost"];
+			NSString* e_img=[self parseData: dic Field: @"eimage"];
+			
+			//Artist Data
+			NSString* artId=[self parseData: dic Field: @"artist_d"];
+			NSString* aname=[self parseData: dic Field: @"aname"];
+			NSString* adesc=[self parseData: dic Field: @"adescr"];
+			NSString* a_url=[self parseData: dic Field: @"awebsite"];
+			NSString* a_img=[self parseData: dic Field: @"aimage"];
+			
+			//Location Data
+			NSString* locId=[self parseData: dic Field: @"location_id"];
+			NSString* lname=[self parseData: dic Field: @"lname"];
+			NSString* l_add=[self parseData: dic Field: @"address"];
+			NSString* lcity=[self parseData: dic Field: @"city"];
+			NSString* lstat=[self parseData: dic Field: @"state"];
+			NSString* l_zip=[self parseData: dic Field: @"postal"];
+			NSString* ldesc=[self parseData: dic Field: @"ldescr"];
+			NSString* l_url=[self parseData: dic Field: @"lwebsite"];
+			NSString* l_img=[self parseData: dic Field: @"limage"];
+			NSString* l_lat=[self parseData: dic Field: @"lat"];
+			NSString* l_lng=[self parseData: dic Field: @"lng"];
+			
+			//Schedule Data
+			NSString* dfrom=[self parseData: dic Field: @"date_from"];
+			NSString* d__to=[self parseData: dic Field: @"date_to"];
+			NSString* tfrom=[self parseData: dic Field: @"time_from"];
+			NSString* t__to=[self parseData: dic Field: @"time_to"];
+			
+			//create artist object
+			EventArtist *art = [[EventArtist alloc] initEmptyArtist];
+			[art setArtistID: [artId intValue]];
+			[art setName: aname];
+			[art setDescription: adesc];
+			[art setWebsite: a_url];
+			
+			if(a_img) {
+				[art setImageURL: a_img];
+			}
 			
 			//create location object
 			EventLocation* loc=[[EventLocation alloc] initEmptyLocation];
 			[loc setLocationID:[locId intValue]];
-			[loc setName:ename];
-			[loc setDescription:addrs];
+			[loc setName: lname];
+			[loc setStreetAddress:l_add];
+			[loc setCity: lcity];
+			[loc setState: lstat];
+			[loc setZip: l_zip];
+			[loc setDescription: ldesc];
+			[loc setWebsite: l_url];
+			
+			if(l_img) {
+				[loc setImage: l_img];
+			}
+				
 			CLLocationCoordinate2D coord;
-			coord.latitude = [latit floatValue];
-			coord.longitude = [longi floatValue];
+			
+			if(l_lat && l_lng) {
+				coord.latitude = [l_lat floatValue];
+				coord.longitude = [l_lng floatValue];
+			}
+			else {
+				coord.latitude = 0;
+				coord.longitude = 0;
+			}
 			[loc setCoordinates:coord];
 			
 			//create event object
 			Event* eve=[[Event alloc] initEmptyEvent];
 			[eve setEventID:[es_id intValue]];
+			[eve parseType: etype];
 			[eve setEventName:ename];
-			[eve setDescription:descr];
+			[eve addArtist: art];
 			[eve setLocation:loc];
+			[eve setDescription:edesc];
+			[eve setWebsite: e_url];
+			
+			if(e_img) {
+				[eve setImageURL: e_img];
+			}
+			
+			if(e_len){
+				[eve setDuration: [e_len intValue]];
+			}
+			else {
+				[eve setDuration: 0];
+			}
+			
+			if(eminc) {
+				[eve setMinCost: [eminc floatValue]];
+			}
+			else {
+				[eve setMinCost: 0];
+			}
+			
+			if(emaxc) {
+				[eve setMaxCost: [emaxc floatValue]];
+			}
+			else {
+				[eve setMaxCost: 0];
+			}
+			
+			[eve parseDate: dfrom Time: tfrom Start: YES];
+			[eve parseDate: d__to Time: t__to Start: NO];
+			
+			
 			[self addEvent:eve];
 			
 		} else if(type==2) {
@@ -651,19 +764,24 @@ static NSString *instanceLock = @"instanceLock";
 			NSLog(@"artist struct=%@",dic);
 			
 			//parse server data
-			NSString* as_id=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"artist_id"]]];
-			NSString* aname=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"name"]]];
-			NSString* descr=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"description"]]];
-			NSString* image=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"image"]]];
-			NSString* websi=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"website"]]];
+			//Artist Data
+			NSString* artId=[self parseData: dic Field: @"artist_id"];
+			NSString* aname=[self parseData: dic Field: @"name"];
+			NSString* adesc=[self parseData: dic Field: @"description"];
+			NSString* a_url=[self parseData: dic Field: @"website"];
+			NSString* a_img=[self parseData: dic Field: @"image"];
 							 
 			//create artist object
-			EventArtist* art=[[EventArtist alloc] initEmptyArtist];
-			[art setName:aname];
-			[art setDescription:descr];
-			[art setImageURL:image];
-			[art setWebsite:websi];
-			[art setArtistID:[as_id intValue]];
+			EventArtist *art = [[EventArtist alloc] initEmptyArtist];
+			[art setArtistID: [artId intValue]];
+			[art setName: aname];
+			[art setDescription: adesc];
+			[art setWebsite: a_url];
+			
+			if(a_img) {
+				[art setImageURL: a_img];
+			}
+			
 			[self addArtist:art];
 							 
 		} else if(type==3) {
@@ -676,36 +794,89 @@ static NSString *instanceLock = @"instanceLock";
 			NSLog(@"location struct=%@",dic);
 			
 			//parse server data
-			NSString* lname=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"name"]]];
-			NSString* locID=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"location_id"]]];
-			NSString* addrs=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"address"]]];
-			NSString* descr=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"description"]]];
-			NSString* image=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"image"]]];
-			NSString* latit=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"lat"]]];
-			NSString* longi=[[NSString alloc] initWithString:[NSString stringWithFormat:@"%@",[dic objectForKey:@"lng"]]];
+			//Location Data
+			NSString* locId=[self parseData: dic Field: @"location_id"];
+			NSString* lname=[self parseData: dic Field: @"name"];
+			NSString* l_add=[self parseData: dic Field: @"address"];
+			NSString* lcity=[self parseData: dic Field: @"city"];
+			NSString* lstat=[self parseData: dic Field: @"state"];
+			NSString* l_zip=[self parseData: dic Field: @"postal"];
+			NSString* ldesc=[self parseData: dic Field: @"description"];
+			NSString* l_url=[self parseData: dic Field: @"website"];
+			NSString* l_img=[self parseData: dic Field: @"image"];
+			NSString* l_lat=[self parseData: dic Field: @"lat"];
+			NSString* l_lng=[self parseData: dic Field: @"lng"];
 			
 			//create location object
 			EventLocation* loc=[[EventLocation alloc] initEmptyLocation];
-			[loc setLocationID: [locID intValue]];
-			[loc setName:lname];
-			[loc setDescription:descr];
-			[loc setImage:image];
-			[loc setWebsite:addrs];
+			[loc setLocationID:[locId intValue]];
+			[loc setName: lname];
+			[loc setStreetAddress:l_add];
+			[loc setCity: lcity];
+			[loc setState: lstat];
+			[loc setZip: l_zip];
+			[loc setDescription: ldesc];
+			[loc setWebsite: l_url];
+			
+			if(l_img) {
+				[loc setImage: l_img];
+			}
+			
 			CLLocationCoordinate2D coord;
-			coord.latitude = [latit floatValue];
-			coord.longitude = [longi floatValue];
+			
+			if(l_lat && l_lng) {
+				coord.latitude = [l_lat floatValue];
+				coord.longitude = [l_lng floatValue];
+			}
+			else {
+				coord.latitude = 0;
+				coord.longitude = 0;
+			}
 			[loc setCoordinates:coord];
-			[self addLocation:loc];
+			
+			[self addLocation: loc];
 			
 		} else if(type==4) {
-			//TODO: Handle the SelfCurated list
-		}
+			
+			NSLog(@"SelfCurated");
+			NSLog(@"SelfCurated struct=%@",dic);
+			
+			//parse server data
+			NSString* curId=[self parseData: dic Field: @"curated_id"];
+			NSString* cplan=[self parseData: dic Field: @"plan"];
+			
+			//Artist Data
+			NSString* aname=[self parseData: dic Field: @"name"];
+			NSString* adesc=[self parseData: dic Field: @"description"];
+			NSString* a_url=[self parseData: dic Field: @"website"];
+			NSString* a_img=[self parseData: dic Field: @"image"];
+			
+			//create artist object
+			SelfCuratedEntry *ent = [[SelfCuratedEntry alloc] initEmptySelfCuratedEntry];
+			[ent setSelfCuratedID: [curId intValue]];
+			[ent setPlan: cplan];
+			[ent setName: aname];
+			[ent setOccupation: adesc];
+			[ent setWebsite: a_url];
+			
+			if(a_img) {
+				[ent setImage: a_img];
+			}
+			
+			[self addSelfCuratedEntry: ent];
+		} 
 	}
 	
-	//TODO: Should these be set based on the type of response
-	selfCuratedReady=1;
-	listReady=1;
-	mapReady=1;
+	if(type==1) {
+		listReady=1;
+		mapReady=1;
+	}
+	else if(type==4) {
+		selfCuratedReady=1;
+	}
+	else {
+		listReady=1;
+	}
 	
 	NSLog(@"Connection data processed.");
 }

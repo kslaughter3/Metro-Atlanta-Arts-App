@@ -119,14 +119,13 @@
 
 -(void)setDate: (NSString *)date {
 	NSString *temp;
-	NSArray *components = [date componentsSeparatedByString:@"/"];
+	NSArray *components = [date componentsSeparatedByString:@"-"];
 	
 	
 	//Should have 3 components (month, day, year)
 	if([components count] != 3) {
 		//Try the other format
-		[components dealloc];
-		components = [date componentsSeparatedByString:@"-"];
+		components = [date componentsSeparatedByString:@"/"];
 	}
 	
 	if([components count] == 3) {
@@ -172,7 +171,7 @@
 				}
 				if([EventDate isNumeric: temp] == YES) {
 					second = [temp intValue];
-					if([suffix compare: @"pm"] == 0) {
+					if(suffix && [suffix compare: @"pm"] == 0) {
 						hour = hour + 12;
 					}
 					return;
@@ -194,7 +193,7 @@
 			if([EventDate isNumeric: temp] == YES) {
 				minute = [temp intValue];
 				second = 0;
-				if([suffix compare: @"pm"] == 0) {
+				if(suffix && [suffix compare: @"pm"] == 0) {
 					hour = hour + 12;
 				}
 				return;

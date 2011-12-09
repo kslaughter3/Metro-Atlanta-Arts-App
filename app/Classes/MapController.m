@@ -323,6 +323,7 @@
 //	[locationManager release];
 	[myEventController release];
 	[pool release];
+	[timer release];
     [super dealloc];
 }
 

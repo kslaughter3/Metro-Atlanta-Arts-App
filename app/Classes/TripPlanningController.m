@@ -15,7 +15,8 @@
 			myEvents,
 			myTripMapController,
 			previousButton,
-			nextButton;
+			nextButton,
+			timer;
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -24,6 +25,7 @@
 	[myTableView setDelegate: self];
 	[myTableView setDataSource: self];
 	myEvents = [[NSMutableArray alloc] init];
+	timer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target:self selector:@selector(refreshDataView) userInfo:nil repeats: YES];
 	[super viewDidLoad];
 }
 
@@ -31,10 +33,15 @@
 	[super viewWillAppear: animated];
 	[self enableNavigationButtons];
 	Content *content = [Content getInstance];
-	[content populateEvents];
-	[myTableView reloadData];
 }
 
+-(void) refreshDataView {
+	Content *content = [Content getInstance];
+	if([content getListReady]){
+		[myTableView reloadData];
+		[content setListReady:0];
+	}	
+}
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -123,6 +130,7 @@
 	[previousButton release];
 	[nextButton release];
 	[pool release];
+	[timer release];
     [super dealloc];
 }
 
@@ -168,7 +176,6 @@
 		[content changeEventPage: NO];
 		[self enableNavigationButtons];
 		[content populateEvents];
-		[myTableView reloadData];
 	}
 }
 
@@ -180,7 +187,6 @@
 		[content changeEventPage: YES];
 		[self enableNavigationButtons];
 		[content populateEvents]; 
-		[myTableView reloadData];
 	}
 }
 

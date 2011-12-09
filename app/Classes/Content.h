@@ -140,4 +140,6 @@
 -(void)setEventType: (EventType)type;
 -(NSString *)getEventTypeString;
 
+-(NSString *)parseData:(NSDictionary *)dic Field:(NSString *)field;
+
 @end

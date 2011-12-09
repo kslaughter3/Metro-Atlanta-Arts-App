@@ -130,6 +130,8 @@
 		cell.accessoryType = UITableViewCellAccessoryNone;
 		[filter setEnabled: NO];
 	}
+	
+	[content populateEvents];
 }
 		
 -(IBAction)addFilter: (id) sender {
@@ -215,6 +217,7 @@
 		}
 		else {
 			[content removeFilter:filter];
+			[content populateEvents];
 			[myTableView reloadData];
 			myRow = -1;
 		}

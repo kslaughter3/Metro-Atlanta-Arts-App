@@ -60,6 +60,39 @@
 	return (eventID == [other getEventID]);
 }
 
+-(void)parseType:(NSString *)t {
+	if([t isEqualToString: @EVENTTYPETWO]) {
+		type = EventTypeTwo;
+	}
+	else if([t isEqualToString: @EVENTTYPETHREE]) {
+		type = EventTypeThree;
+	}
+	else if([t isEqualToString: @EVENTTYPEFOUR]) {
+		type = EventTypeFour;
+	}
+	else if([t isEqualToString: @EVENTTYPEFIVE]) {
+		type = EventTypeFive;
+	}
+	else if([t isEqualToString: @EVENTTYPESIX]) {
+		type = EventTypeSix;
+	}
+	else {
+		type = EventTypeAll;
+	}
+}
+
+-(void)parseDate:(NSString *)date Time:(NSString *)time Start:(BOOL)start {
+	if(start) {
+		[startDate setDate: date];
+		[startDate setTime: time];
+	}
+	else {
+		[endDate setDate: date];
+		[endDate setTime: time];
+	}
+}
+
+
 /*Getters and Setters */
 
 -(void)setEventID:(int)num {

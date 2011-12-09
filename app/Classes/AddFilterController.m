@@ -328,6 +328,7 @@ inComponent:(NSInteger)component
 			[alert release];
 		}
 		else {
+			[content populateEvents];
 			[self.parentViewController dismissModalViewControllerAnimated: YES];
 		}
 	}

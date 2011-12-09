@@ -374,6 +374,7 @@
 			[alert release];
 		}
 		else {
+			[content populateEvents];
 			[self.parentViewController dismissModalViewControllerAnimated: YES];
 		}
 	}
@@ -384,7 +385,7 @@
 
 	[content removeFilter: myFilter];
 	myFilter = nil;
-	
+	[content populateEvents];
 	[self.parentViewController dismissModalViewControllerAnimated:YES];
 }
 

@@ -80,6 +80,7 @@
 			[alert release];
 		}
 		else {
+			[[Content getInstance] populateEvents];
 			UIAlertView *alert = [[UIAlertView alloc] 
 								  initWithTitle:@"Search Added" 
 								  message: @"The search was added" 
@@ -103,6 +104,8 @@
 	for(id filter in filters) {
 		[filter setEnabled: NO];
 	}
+	
+	[content populateEvents];
 	
 	UIAlertView *alert = [[UIAlertView alloc] 
 						  initWithTitle:@"Cleared all Filters" 

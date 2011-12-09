@@ -38,15 +38,19 @@
 - (void)viewDidLoad {
 	pool = [[NSAutoreleasePool alloc] init];
     [super viewDidLoad];
-	[self loadRoute];
-	if (nil != self.routeLine) {
-		[self.myTripMapView addOverlay:self.routeLine];
-	}
-	[NSThread detachNewThreadSelector:@selector(displayTripMap) toTarget:self withObject:nil];
+	//[NSThread detachNewThreadSelector:@selector(displayTripMap) toTarget:self withObject:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear: animated];
+	
+	self.routeLine = nil;
+	self.routeLineView = nil;
+	[self.myTripMapView removeOverlays: myTripMapView.overlays];
+	[self loadRoute];
+	if (nil != self.routeLine) {
+		[self.myTripMapView addOverlay:self.routeLine];
+	}
 	[self displayTripMap];
 }
 
@@ -237,6 +241,7 @@
 		}
 		
 		timeTaken += (minDist/speed);
+		timeTaken += [nextEvent getDuration];
 		myLoc = [nextEvent getLocation];
 		[eventsLeft removeObjectIdenticalTo: nextEvent];
 		[sorted addObject: nextEvent];
@@ -246,7 +251,6 @@
 	//Remove the events and add them back sorted
 	[myEvents removeAllObjects];
 	[myEvents addObjectsFromArray: sorted];
-
 }
 
 -(NSMutableArray *)getEvents

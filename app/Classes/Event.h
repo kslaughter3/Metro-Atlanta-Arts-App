@@ -34,12 +34,12 @@ typedef enum EventType {
 	LastEventType = EventTypeSix
 } EventType;
 
-#define EVENTTYPEALL		"All"
-#define EVENTTYPETWO		"Two"
-#define EVENTTYPETHREE		"Three"
-#define EVENTTYPEFOUR		"Four"
-#define EVENTTYPEFIVE		"Five"
-#define EVENTTYPESIX		"Six"
+#define EVENTTYPEALL		"all"
+#define EVENTTYPETWO		"exhibit"
+#define EVENTTYPETHREE		"performance"
+#define EVENTTYPEFOUR		"film"
+#define EVENTTYPEFIVE		"lecture"
+#define EVENTTYPESIX		"presentation"
 
 @interface Event : NSObject {
 	int eventID;						/* Events unique id */
@@ -67,6 +67,10 @@ typedef enum EventType {
 -(Event *)initWithEvent: (Event *)event;
 
 -(BOOL)isEventIDEqual: (Event *)other;
+
+-(void)parseType: (NSString *)t;
+-(void)parseDate: (NSString	*) date Time: (NSString *) time Start: (BOOL) start;
+
 
 /* Getters and Setters */
 

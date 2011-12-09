@@ -64,7 +64,7 @@
 			myTitleBar.topItem.title = [artist getName];
 			break;
 		case LocationDetails:
-			if([location getName] != nil && [[location getName] isEqualToString: @""] == NO) {
+			if([location getName] != nil && ![[location getName] isEqualToString: @""] == NO) {
 				myTitleBar.topItem.title = [location getName];
 			}
 			else {
@@ -113,14 +113,14 @@
 	NSString *temp;
 	
 	/* Add the fields that are there */
-	if([event getImageURL] != nil && [event getImageURL] != @"") {
+	if([event getImageURL] != nil && ![[event getImageURL] isEqualToString: @""]) {
 		temp= [NSString stringWithFormat:@"<center><p><img src=\"%@\" "\
 						 "height=\"%d\"></p></center>", [event getImageURL], 100];
 		html = [html stringByAppendingString: temp];
 	}
 	
 	if([event getLocation] != nil) {
-		if(([[event getLocation] getName] != nil) && ([[event getLocation] getName] != @"")) {
+		if(([[event getLocation] getName] != nil) && (![[[event getLocation] getName] isEqualToString: @""])) {
 			temp = [NSString stringWithFormat:@"<p><b>Location</b><br/>%@</p>", 
 							  [[event getLocation] getName]];
 		}
@@ -168,7 +168,7 @@
 		html = [html stringByAppendingString: temp];
 	}
 	
-	if([event getDescription] != nil && [event getDescription] != @"") {
+	if([event getDescription] != nil && ![[event getDescription] isEqualToString: @""]) {
 		temp = [NSString stringWithFormat:@"<p><b>Description</b><br/>%@</p>", 
 				[event getDescription]];
 		
@@ -227,7 +227,7 @@
 		html = [html stringByAppendingString: temp];
 	}
 	
-	if([event getWebsite] != nil && [event getWebsite] != @"") {
+	if([event getWebsite] != nil && ![[event getWebsite] isEqualToString: @""]) {
 		temp = [NSString stringWithFormat:@"<center><p><a href=\"%@\">View Website</a></p></center>",
 				[event getWebsite]];
 		
@@ -246,13 +246,13 @@
 	NSString *temp;
 	
 	/* Add the fields that are there */
-	if([artist getImageURL] != nil && [artist getImageURL] != @"") {
+	if([artist getImageURL] != nil && ![[artist getImageURL] isEqualToString: @""]) {
 		temp= [NSString stringWithFormat:@"<center><p><img src=\"%@\" "\
 			   "height=\"%d\"></p></center>", [artist getImageURL], 100];
 		html = [html stringByAppendingString: temp];
 	}
 	
-	if([artist getDescription] != nil && [artist getDescription] != @"") {
+	if([artist getDescription] != nil && ![[artist getDescription] isEqualToString: @""]) {
 		temp = [NSString stringWithFormat:@"<p><b>Description</b><br/>%@</p>", 
 				[artist getDescription]];
 		
@@ -280,7 +280,7 @@
 		html = [html stringByAppendingString: temp];
 	}
 	
-	if([artist getWebsite] != nil && [artist getWebsite] != @"") {
+	if([artist getWebsite] != nil && ![[artist getWebsite] isEqualToString: @""]) {
 		temp = [NSString stringWithFormat:@"<center><p><a href=\"%@\">View Website</a></p></center>",
 				[artist getWebsite]];
 		
@@ -299,7 +299,7 @@
 	NSString *temp;
 	
 	/* Add the fields that are there */
-	if([location getImage] != nil && [location getImage] != @"") {
+	if([location getImage] != nil && ![[location getImage] isEqualToString: @""]) {
 		temp= [NSString stringWithFormat:@"<center><p><img src=\"%@\" "\
 			   "height=\"%d\"></p></center>", [location getImage], 100];
 		html = [html stringByAppendingString: temp];
@@ -312,7 +312,7 @@
 		html = [html stringByAppendingString: temp];
 	}
 	
-	if([location getDescription] != nil && [location getDescription] != @"") {
+	if([location getDescription] != nil && ![[location getDescription] isEqualToString: @""]) {
 		temp = [NSString stringWithFormat:@"<p><b>Description</b><br/>%@</p>", 
 				[location getDescription]];
 		
@@ -341,7 +341,7 @@
 	}
 	
 	
-	if([location getWebsite] != nil && [location getWebsite] != @"") {
+	if([location getWebsite] != nil && ![[location getWebsite] isEqualToString: @""]) {
 		temp = [NSString stringWithFormat:@"<center><p><a href=\"%@\">View Website</a></p></center>",
 				[location getWebsite]];
 		
@@ -360,27 +360,27 @@
 	NSString *temp;
 	
 	/* Add the fields that are there */
-	if([selfCurated getImage] != nil && [selfCurated getImage] != @"") {
+	if([selfCurated getImage] != nil && ![[selfCurated getImage] isEqualToString: @""]) {
 		temp= [NSString stringWithFormat:@"<center><p><img src=\"%@\" "\
 			   "height=\"%d\"></p></center>", [selfCurated getImage], 100];
 		html = [html stringByAppendingString: temp];
 	}
 	
-	if([selfCurated getOccupation] != nil && [selfCurated getOccupation] != @"") {
+	if([selfCurated getOccupation] != nil && ![[selfCurated getOccupation] isEqualToString: @""]) {
 		temp = [NSString stringWithFormat:@"<p><b>Occupation</b><br/>%@</p>", 
 				[selfCurated getOccupation]];
 		
 		html = [html stringByAppendingString: temp];
 	}
 	
-	if([selfCurated getPlan] != nil && [selfCurated getPlan] != @"") {
+	if([selfCurated getPlan] != nil && ![[selfCurated getPlan] isEqualToString: @""]) {
 		temp = [NSString stringWithFormat:@"<p><b>Plan</b><br/>%@</p>", 
 				[selfCurated getPlan]];
 		
 		html = [html stringByAppendingString: temp];
 	}
 	
-	if([selfCurated getWebsite] != nil && [selfCurated getWebsite] != @"") {
+	if([selfCurated getWebsite] != nil && ![[selfCurated getWebsite] isEqualToString: @""]) {
 		temp = [NSString stringWithFormat:@"<center><p><a href=\"%@\">View Website</a></p></center>",
 				[selfCurated getWebsite]];
 		
@@ -401,27 +401,27 @@
 	NSString *temp;
 	
 	/* Add the fields that are there */
-	if([aboutUs getImage] != nil && [aboutUs getImage] != @"") {
+	if([aboutUs getImage] != nil && ![[aboutUs getImage] isEqualToString: @""]) {
 		temp= [NSString stringWithFormat:@"<center><p><img src=\"%@\" "\
 			   "height=\"%d\"></p></center>", [aboutUs getImage], 100];
 		html = [html stringByAppendingString: temp];
 	}
 	
-	if([aboutUs getName] != nil && [aboutUs getName] != @"") {
+	if([aboutUs getName] != nil && ![[aboutUs getName] isEqualToString: @""]) {
 		temp = [NSString stringWithFormat:@"<p><b>Name</b><br/>%@</p>", 
 				[aboutUs getName]];
 		
 		html = [html stringByAppendingString: temp];
 	}
 	
-	if([aboutUs getDescription] != nil && [aboutUs getDescription] != @"") {
+	if([aboutUs getDescription] != nil && ![[aboutUs getDescription] isEqualToString: @""]) {
 		temp = [NSString stringWithFormat:@"<p><b>Description</b><br/>%@</p>", 
 				[aboutUs getDescription]];
 		
 		html = [html stringByAppendingString: temp];
 	}
 	
-	if([aboutUs getWebsite] != nil && [aboutUs getWebsite] != @"") {
+	if([aboutUs getWebsite] != nil && ![[aboutUs getWebsite] isEqualToString: @""]) {
 		temp = [NSString stringWithFormat:@"<center><p><a href=\"%@\">View Website</a></p></center>",
 				[aboutUs getWebsite]];
 		
